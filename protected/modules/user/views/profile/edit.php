@@ -31,7 +31,7 @@ $this->menu=array(
 	<?php echo $form->errorSummary(array($model,$profile)); ?>
 
 <?php 
-		$profileFields=Profile::getFields();
+		$profileFields=$profile->getFields();
 		if ($profileFields) {
 			foreach($profileFields as $field) {
 			?>
@@ -42,15 +42,6 @@ $this->menu=array(
 			echo $widgetEdit;
 		} elseif ($field->range) {
 			echo $form->dropDownList($profile,$field->varname,Profile::range($field->range));
-		}	elseif($field->varname == 'filename'){
-			// выводим аватар,
-			// а если он не установлен, 
-			// то будет использовано изображение по умолчанию
-			echo '<img src="'.$profile->attachment.'" /><br>';
-			// поле для загрузки изображения
-			echo $form->fileField($profile,'filename').'<br>';
-			// ссылка для удаления изображения
-			echo CHtml::link('Удалить аватар',array('deleteimage'));
 		} elseif ($field->field_type=="TEXT") {
 			echo $form->textArea($profile,$field->varname,array('rows'=>6, 'cols'=>50));
 		} else {

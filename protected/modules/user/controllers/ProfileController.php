@@ -46,6 +46,7 @@ class ProfileController extends Controller
 			if($model->validate()&&$profile->validate()) {
 				$model->save();
 				$profile->save();
+                Yii::app()->user->updateSession();
 				Yii::app()->user->setFlash('profileMessage',UserModule::t("Changes is saved."));
 				$this->redirect(array('/user/profile'));
 			} else $profile->validate();
@@ -102,18 +103,4 @@ class ProfileController extends Controller
 		}
 		return $this->_model;
 	}
-	
-	public function actionDeleteImage()
-	{
-		$model = $this->loadUser();
-		$profile = $model->profile;
-
-		// вызываем метод расширения Yii Attachment Behavior
-		$profile->deleteAttachment();
-		// удаляем путь к изображению из базы данных
-		$profile->filename = NULL;
-		$profile->save();
-
-		$this->redirect(array('edit'));
-	}	
 }

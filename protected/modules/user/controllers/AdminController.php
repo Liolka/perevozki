@@ -89,9 +89,6 @@ class AdminController extends Controller
 				if($model->save()) {
 					$profile->user_id=$model->id;
 					$profile->save();
-					// назначение пользователю роли 'Authenticated' для модуля Rights
-					$authenticatedName = Rights::module()->authenticatedName;
-					Rights::assign($authenticatedName, $model->id);
 				}
 				$this->redirect(array('view','id'=>$model->id));
 			} else $profile->validate();
@@ -147,11 +144,7 @@ class AdminController extends Controller
 			// we only allow deletion via POST request
 			$model = $this->loadModel();
 			$profile = Profile::model()->findByPk($model->id);
-			
-			// Make sure profile exists
-			if ($profile)
-				$profile->delete();
-
+			$profile->delete();
 			$model->delete();
 			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 			if(!isset($_POST['ajax']))

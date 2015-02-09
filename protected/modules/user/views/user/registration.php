@@ -55,7 +55,7 @@ $this->breadcrumbs=array(
 	</div>
 	
 <?php 
-		$profileFields=Profile::getFields();
+		$profileFields=$profile->getFields();
 		if ($profileFields) {
 			foreach($profileFields as $field) {
 			?>
@@ -66,9 +66,6 @@ $this->breadcrumbs=array(
 			echo $widgetEdit;
 		} elseif ($field->range) {
 			echo $form->dropDownList($profile,$field->varname,Profile::range($field->range));
-		} elseif($field->varname == 'filename'){
-			// поле для загрузки изображения
-			echo $form->fileField($profile,'filename').'<br>';
 		} elseif ($field->field_type=="TEXT") {
 			echo$form->textArea($profile,$field->varname,array('rows'=>6, 'cols'=>50));
 		} else {
