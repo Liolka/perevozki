@@ -1,0 +1,24 @@
+Tue, 06 May 2014 19:26:49 +0400
+----------
+CREATE TABLE `3hnspc_users_profiles` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `lastname` varchar(50) NOT NULL DEFAULT '',
+  `firstname` varchar(50) NOT NULL DEFAULT '',
+  `filename` varchar(255) NOT NULL DEFAULT '',
+  `override` int(2) NOT NULL DEFAULT '0',
+  `partner_free` int(1) NOT NULL DEFAULT '0',
+  `partner` int(1) NOT NULL DEFAULT '0',
+  `news` int(1) NOT NULL DEFAULT '0',
+  `comment` int(1) NOT NULL DEFAULT '0',
+  `question` int(1) NOT NULL DEFAULT '0',
+  `edit` int(1) NOT NULL DEFAULT '0',
+  `dizain` int(1) NOT NULL DEFAULT '0',
+  `company_id` int(10) NOT NULL DEFAULT '0',
+  `template_file` varchar(255) NOT NULL DEFAULT '',
+  `style_file` text NOT NULL,
+  `company_autor` int(1) NOT NULL DEFAULT '0',
+  `company_forum` int(1) NOT NULL DEFAULT '0',
+  `company_forum_url` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`),
+  CONSTRAINT `user_profile_id` FOREIGN KEY (`user_id`) REFERENCES `3hnspc_users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=287 DEFAULT CHARSET=utf8

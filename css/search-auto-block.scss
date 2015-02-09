@@ -1,0 +1,57 @@
+/* Поиск по автомобилю */
+
+.news-block h3,
+.search-auto-block .title {
+	@include border_radius($border_radius_1 $border_radius_1 0 0);
+	width: 270px;
+	text-align: center;
+	padding: 18px 0 2px 0;
+}
+
+.news-block h3,
+.search-auto-block .search-auto-form,
+.search-auto-block .title {
+	background: $grey_color_4;
+	color: $white_color;
+}
+
+
+
+.search-auto-block {
+	margin: -20px 0 30px 0;
+	
+	
+	
+	.search-auto-form {
+		@include border_radius(0 $border_radius_1 $border_radius_1 $border_radius_1);
+		padding: 15px 19px;
+		
+	}
+	
+	.jq-selectbox {
+		/*width: 250px;*/
+		width: 180px;
+		margin: 0 15px;
+	}
+	
+	.button {
+		display: inline-block;
+		background-position: 45px -24px;
+		background-color: $link_color_hover;
+		color: $white_color;
+		padding-left: 70px;
+		padding-right: 45px;
+		padding-top: 3px;
+		padding-bottom: 4px;
+	}
+	
+	.clear-search-auto {
+		display: block;
+		color: $grey_color_2;
+		background-position: 0 -288px;
+		padding: 0 0 0 20px;
+		margin: 7px 0 0 18px;		
+	}
+}
+	
+/* end Поиск по автомобилю */

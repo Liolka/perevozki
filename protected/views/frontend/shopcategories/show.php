@@ -1,0 +1,153 @@
+<?php
+/* @var $this CategoriesController */
+/* @var $model Categories */
+
+$this->breadcrumbs = $breadcrumbs;
+/*
+$this->breadcrumbs=array(
+	'Categories'=>array('index'),
+	$category->name,
+);
+*/
+
+$app = Yii::app();
+//$base_url = $app->getBaseUrl(true);
+//echo'<pre>';print_r($base_url);echo'</pre>';
+//echo'<pre>';print_r($app->homeUrl);echo'</pre>';
+
+//$clientScript = $app->clientScript;
+//$clientScript->registerCssFile('/css/shop.css', 'screen');
+//echo'<pre>';print_r(count($descendants));echo'</pre>';
+//echo'<pre>';print_r($descendants);echo'</pre>';
+//echo'<pre>';print_r($products_and_pages);echo'</pre>';
+
+$products = $products_and_pages['rows'];
+$pages = $products_and_pages['pages'];
+
+$images_live_url = substr($app->params->images_live_url, 0, -1);	// на таких страницах нужно удалить последний слэш
+
+//echo'<pre>';print_r($category);echo'</pre>';
+
+?>
+
+<?	/*<h1><?php echo $category->name; ?></h1>	*/?>
+<div class="category-view">
+<?if(count($descendants) && $descendants[0]->category_image == null)	{
+			$child_col0 = array();
+			$child_col1 = array();
+			$child_col2 = array();
+			$child_col3 = array();		
+
+			foreach ( $descendants as $category ) {
+				//echo $category->cat_column.'<br />';
+				switch($category->cat_column){
+					case 0:
+						$child_col0[] = $category;
+						break;
+					case 1:
+						$child_col1[] = $category;
+						break;
+					case 2:
+						$child_col2[] = $category;
+						break;
+					case 3:
+						$child_col3[] = $category;
+						break;
+					default:
+						break;
+				}
+			}
+
+			?>
+			<div class="item-page">
+				<table class="child-categories">
+					<tr>
+						<td>
+							<ul>
+								<?php
+									foreach($child_col1 as $category){
+										$caturl = $this->createUrl('/shopcategories/show/', array('path'=>$category->path));
+										echo'<li><a href="'.$caturl.'">'.$category->name.'</a></li>';
+									}
+									foreach($child_col0 as $category){
+										$caturl = $this->createUrl('/shopcategories/show/', array('path'=>$category->path));
+										echo'<li><a href="'.$caturl.'">'.$category->name.'</a></li>';
+									}
+								?>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<?php
+									foreach($child_col2 as $category){
+										$caturl = $this->createUrl('/shopcategories/show/', array('path'=>$category->path));
+										echo'<li><a href="'.$caturl.'">'.$category->name.'</a></li>';
+									}
+								?>
+							</ul>
+						</td>
+						<td>
+							<ul>
+								<?php
+									foreach($child_col3 as $category){
+										$caturl = $this->createUrl('/shopcategories/show/', array('path'=>$category->path));
+										echo'<li><a href="'.$caturl.'">'.$category->name.'</a></li>';
+									}
+								?>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</div>
+
+<?
+
+}	else	{
+	
+	if(count($descendants))	{	?>
+		<p style="font-weight:bold;color:#2779B7;">Выберите категорию</p>
+		
+		<ul class="categories-list claerfix">
+		
+		<?	foreach($descendants as $category)	{
+			$caturl = $this->createUrl('/shopcategories/show/', array('path'=>$category->path));
+			?>
+			<li class="category-item floatLeft width25">
+				<div class="category-item-wr">
+					<a href="<?php echo $caturl ?>" title="<?php echo $category->name ?>">
+					<?php
+						if ($category->category_image){
+							echo CHtml::image($images_live_url . DIRECTORY_SEPARATOR . $category->category_image).'<br />';
+						} ?>
+						<span><?php echo $category->name ?></span>
+					</a>
+				</div>
+			</li>
+		<?	}	?>
+		</ul>
+	<?	}
+}
+
+?>
+</div>
+
+<?
+if (!empty($products)) {
+	$rows = $products;
+	$images_live_url = Yii::app()->params->images_live_url;
+	$webroot = Yii::getPathOfAlias('webroot');
+	$product_classes = "floatLeft";
+	$isWidget = false;	
+	?>
+		<div class="category-products-list">
+			<ul class="products-list">
+				<? include("$webroot/protected/views/frontend/common/product-list.php");	?>
+			</ul>
+		
+		</div>
+<?	}	?>
+
+<? if($category->category_description) { ?>
+	<div class="category-description"><?=$category->category_description?></div>
+<? } ?>
+
