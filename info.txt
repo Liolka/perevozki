@@ -1,0 +1,13 @@
+http://gf-club.net:2082
+gfclubne
+fL3mKc5jH20Plx1
+
+
+
+perevozki.gf-club.net:21
+perevozki@gf-club.net
+]IhTZ6ilBd1@
+
+public $user = 'gfclubne_orisad';
+public $password = 'wkd?S#}nDVFk';
+public $db = 'gfclubne_orisad';

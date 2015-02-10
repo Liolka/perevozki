@@ -111,10 +111,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=perevozki',
+			'connectionString' => 'mysql:host=localhost;dbname=gfclubne_orisad',
 			'emulatePrepare' => true,
-			'username' => 'perevozki',
-			'password' => 'perevozki',
+			'username' => 'gfclubne_orisad',
+			'password' => 'wkd?S#}nDVFk',
 			'charset' => 'utf8',
 			'tablePrefix' => '1gsk_',			
 		),
