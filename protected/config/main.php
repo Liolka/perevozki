@@ -10,7 +10,7 @@ return array(
 	'name'=>'perevozki',
 	'sourceLanguage' => 'en',
 	'language' => 'ru',
-	'homeUrl'=>'http://perevozki',
+	'homeUrl'=>'http://perevozki.gf-club.net',
 	
 
 	// preloading 'log' component

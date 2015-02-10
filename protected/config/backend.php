@@ -4,8 +4,13 @@ return CMap::mergeArray(
     require_once(dirname(__FILE__).'/main.php'),
     
     array(
+		'name'=>'perevozkin_backend',
+		'theme'=>'perevozkin_cms',
+		
+		
+
         // стандартный контроллер
-        'defaultController' => 'shopcategories',
+        //'defaultController' => 'shopcategories',
         //'defaultController' => 'companiescategories',
 		
 		'aliases' => array(
