@@ -55,13 +55,14 @@ $theme_baseUrl = Yii::app()->theme->baseUrl;
 
 	<div class="clear"></div>
 
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
 
 </div><!-- page -->
+<div class="footer">
+	Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
+	All Rights Reserved.<br/>
+	<?php echo Yii::powered(); ?>
+</div><!-- footer -->
+
 
 </body>
 </html>

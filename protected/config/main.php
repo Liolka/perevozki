@@ -24,6 +24,9 @@ return array(
 		'application.modules.user.*',
 		'application.modules.user.models.*',
 		'application.modules.user.components.*',
+
+		'application.modules.pages.*',
+		'application.modules.pages.models.*',
 		/*		
 		'application.modules.rights.*',
 		'application.modules.rights.models.*',
@@ -42,7 +45,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1'),
+			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111'),
 		),
 		
 
@@ -80,7 +83,11 @@ return array(
 		
 		'rights'=>array(
 			//'install'=>true,
-		),		
+		),
+		
+		'pages' => array(
+			'class' => 'application.modules.pages.PagesModule',
+		),
 	),
 
 	// application components
