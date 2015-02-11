@@ -141,7 +141,7 @@ $request_baseUrl = $app->request->baseUrl;
 					+375 (33) 678-98-11
 				</p>
 				<div class="created-by">
-					Разработка сайта - <a href="">Farba Studio</a>
+					Разработка сайта - <a href="#" title="Farba Studio">Farba Studio</a>
 				</div>
 				
 			</div>

@@ -25,12 +25,34 @@
 	
 	.created-by {
 		font-size: 14px;
+		line-height: 42px;
+		margin: 20px 0 0 0;
+		
 		@extend %c_697f9a;
+		@extend %pos_rel;
 		
 		a:visited,
 		a:hover,
 		a {
 			color: inherit;
+			
+		}
+		a {
+			height: 30px;
+			right: 0;
+			top: 0;
+			padding-left: 30px;
+			line-height: 42px;
+			
+			@extend %db;
+			@extend %pos_abs;
+			@extend %for_sprite;
+			
+			&:before {
+				left: 5px;
+				top: 0;
+				@extend .ico-farba;
+			}
 			
 		}
 	}
@@ -39,6 +61,7 @@
 
 .footer-cell {
 	margin-right: 20px;
+	height: 200px;
 	
 	@extend %fl;
 }

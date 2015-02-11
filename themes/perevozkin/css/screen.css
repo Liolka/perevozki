@@ -61,7 +61,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-car1, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .ico-double-arrow-right, .ico-farba, .ico-girya, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
+.stages-block .stage2:before, .ico-car1, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .ico-double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
   background-image: url('../images/ico-s5cb5c3bda2.png');
   background-repeat: no-repeat;
 }
@@ -121,7 +121,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 13px;
 }
 
-.ico-farba {
+.ico-farba, .footer .created-by a:before {
   background-position: 0 -175px;
   height: 30px;
   width: 19px;
@@ -271,11 +271,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .header-row1-menu .login, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu {
+.stages-block .stage2, .header-row1-menu .login, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .header-row1-menu .login:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before {
+.stages-block .stage2:before, .header-row1-menu .login:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before {
   content: ' ';
   position: absolute;
 }
@@ -409,7 +409,7 @@ a:hover {
   float: right;
 }
 
-.map-block .info span, .logo-top, .footer .questions .title {
+.map-block .info span, .logo-top, .footer .questions .title, .footer .created-by a {
   display: block;
 }
 
@@ -424,8 +424,12 @@ a:hover {
   display: none;
 }
 
-.stages-block ul, .stages-block li {
+.stages-block ul, .stages-block li, .footer .created-by {
   position: relative;
+}
+
+.footer .created-by a {
+  position: absolute;
 }
 
 .map-block .info {
@@ -849,13 +853,27 @@ span sup {
 }
 .footer .created-by {
   font-size: 14px;
+  line-height: 42px;
+  margin: 20px 0 0 0;
 }
 .footer .created-by a:visited,
 .footer .created-by a:hover,
 .footer .created-by a {
   color: inherit;
 }
+.footer .created-by a {
+  height: 30px;
+  right: 0;
+  top: 0;
+  padding-left: 30px;
+  line-height: 42px;
+}
+.footer .created-by a:before {
+  left: 5px;
+  top: 0;
+}
 
 .footer-cell {
   margin-right: 20px;
+  height: 200px;
 }
