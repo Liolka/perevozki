@@ -3,7 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <?
 
-$theme_baseUrl = Yii::app()->theme->baseUrl;
+$app = Yii::app();
+
+$cs = $app->clientScript;
+
+$theme_baseUrl = $app->theme->baseUrl;
+
+$request_baseUrl = $app->request->baseUrl;
+
 ?>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,36 +34,47 @@ $theme_baseUrl = Yii::app()->theme->baseUrl;
 <div class="wrapper">
 	<div class="wrapperPage">
 		<div class="header">
-			<div class="top-line">
+			<div class="header-row1">
 				<div class="width-wrap">
-					<div class="main-menu floatLeft">
+					<?php $this->widget('zii.widgets.CMenu',array(
+						'items'=>array(
+							array('label'=>'Как это работает', 'url'=>array('/')),
+							array('label'=>'Гарантии', 'url'=>array('/pages/view', 'id'=> 1)),
+							array('label'=>'Контакты', 'url'=>array('/site/oplataidostavka'), 'itemOptions'=>array('class'=>'contacts')),
+							array('label'=>'Помощь грузодателю', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'gruzodatel')),
+							array('label'=>'Помощь перевозчику', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'perevozchik')),
+							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),
+							array('label'=>'или', 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
+							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+							
+							//array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+							//array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
 
-						<?php $this->widget('zii.widgets.CMenu',array(
-							'items'=>array(
-
-								array('label'=>'Главная', 'url'=>array('/')),
-								array('label'=>'тест', 'url'=>array('/pages/view', 'id'=> 1)),
-								array('label'=>'Оплата и доставка', 'url'=>array('/site/oplataidostavka')),
-								array('label'=>'Контакты', 'url'=>array('/site/contact')),
-								//array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-								//array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-								
-								array('label'=>'Отзывы', 'url'=>array('/site/feedback'), 'itemOptions'=>array('class'=>'last-item'),),
-							),'htmlOptions' => array('class'=>'main-menu clearfix', 'id'=>'main-menu')
-						)); ?>
-					</div>
-					<?php //$this->widget('application.components.MsiLogin'); ?>
-					<?php //$this->widget('application.components.CartWidget'); ?>
+							//array('label'=>'Отзывы', 'url'=>array('/site/feedback'), 'itemOptions'=>array('class'=>'last-item'),),
+						),'htmlOptions' => array('class'=>'header-row1-menu clearfix', 'id'=>'header-row1-menu')
+					)); ?>
+					
+				</div>
+			</div>
+			<div class="header-row2">
+				<div class="width-wrap clearfix">
+					<a href="/" class="logo-top"><img src="<?=$theme_baseUrl?>/images/logo-top.png" alt="Перевозкин" /></a>
+					<p class="buttons-block">
+						<a href="#" class="btn-green-52 btn-zakazhu">Закажу перевозку</a>
+						<a href="#" class="btn-blue-52 btn-perevezu">Перевезу груз</a>
+					</p>
+					<p class="questions">
+						<span class="title">Есть вопросы?</span>
+						+375 (33) <span class="phone-numb">678-98-11</span>
+					</p>
 				</div>
 			</div>
 			
+			<?
+			/*
 			<div class="header-block width-wrap clearfix">
 				<div class="block1 floatLeft">
-					<a href="/" class="logo-top white-color uppercase font-size-13">
-						<img src="/img/logo-top.png" alt="магазин автомобильных запчастей" />
-						магазин автомобильных запчастей
-					</a>
-					<?php $this->widget('application.components.SearchWidget'); ?>
+					<?php //$this->widget('application.components.SearchWidget'); ?>
 				</div>
 				<div class="block2 floatRight">
 					<?php //$this->widget('application.components.ContactsWidget'); ?>
@@ -66,6 +84,33 @@ $theme_baseUrl = Yii::app()->theme->baseUrl;
 				<?php //$this->widget('application.components.CurrencyWidget'); ?>
 			
 			</div>
+			*/
+			?>
+		</div>
+		
+		<div class="top-block map-block">
+			<p class="info">
+				<span>Любой груз в любую точку</span>
+				<a href="#" class="btn-green-66 btn-zakazhu">Закажу перевозку</a>
+				<a href="#" class="btn-blue-66 btn-perevezu">Перевезу груз</a>
+			</p>
+		</div>
+		
+		<div class="stages-block clearfix">
+			<ul>
+				<li class="stage1">
+					<p class="title">Размещаете заявку на перевозку</p>
+					<p class="descr">Опишите груз и уточните маршрут</p>
+				</li>
+				<li class="stage2">
+					<p class="title">Получаете предложения от перевозчиков</p>
+					<p class="descr">Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</p>
+				</li>
+				<li class="stage3">
+					<p class="title">Выбираете подходящее предложение</p>
+					<p class="descr">Перевозчик сам свяжется с вами. Оставьте отзыв после выполнения перевозки</p>
+				</li>
+			</ul>
 		</div>
 
 		<div class="middle">
@@ -89,32 +134,59 @@ $theme_baseUrl = Yii::app()->theme->baseUrl;
 	
 	<div class="footer">
 		<div class="width-wrap clearfix">
-
-				<div class="contacts">
-					<p class="footer-hdr">Контакты</p>
-					<p class="email">E-mail: info@s-turbo.by</p>
-					<p class="phones">Отдел продаж: <br>+375 29 530 22 99 <br>+375 44 530 22 99</p>
-					<p class="adress">Мы находимся: <br>г. Минск, АвтоМолл "Кольцо", <br>2-ой этаж, 417 павильон</p>
-					<p class="copyright">© <?php echo date('Y'); ?> <span class="site-name">S-TURBO.BY</span> Республика Беларусь</p>
+			<div class="footer-cell">
+				<a href="/" class="logo-bottom"><img src="<?=$theme_baseUrl?>/images/logo-bottom.png" alt="Перевозкин" /></a>
+				<p class="questions">
+					<span class="title">Есть вопросы?</span>
+					+375 (33) 678-98-11
+				</p>
+				<div class="created-by">
+					Разработка сайта - <a href="">Farba Studio</a>
 				</div>
 				
-				<div class="ur-data">
-					<p class="footer-hdr">Юридические данные</p>
-					<p class="txt">220089 г. Минск ул. Гурского 37, офис 5Н, <br>комната 18/23</p>
-					<p class="txt">
-						р/с 3012162108013 в Региональной дирекции №700<br>
-						ОАО «БПС-Сбербанк» 220035, г. Минск, пр-т Машерова, 80, код 369<br>
-						УНП 192025656
-					</p>
-					<p class="txt">
-						Директор Ксензов Евгений Олегович<br>
-						Дата регистрации в торговом реестре - 07.08.2013г.	
-					</p>
-				</div>
-				<div class="our-shop">
-					<p class="footer-hdr uppercase">Наш магазин</p>
-					<a href="#" class="view-map"><img src="/images/map.jpg" alt="Наш магазин" /></a>
-				</div>
+			</div>
+			<div class="footer-cell">
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'items'=>array(
+						array('label'=>'Закажу перевозку', 'url'=>array('/')),
+						array('label'=>'Помощь грузодателю', 'url'=>array('/')),
+						array('label'=>'Рейтинг перевозчиков', 'url'=>array('/')),
+					),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu1')
+				)); ?>
+				
+			</div>
+			<div class="footer-cell">
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'items'=>array(
+						array('label'=>'Перевезу груз', 'url'=>array('/')),
+						array('label'=>'Помощь перевозчику', 'url'=>array('/')),
+						array('label'=>'Рейтинг перевозчиков', 'url'=>array('/')),
+					),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu2')
+				)); ?>
+			</div>
+			<div class="footer-cell">
+				<?php $this->widget('zii.widgets.CMenu',array(
+					'items'=>array(
+						array('label'=>'Как работает сайт', 'url'=>array('/')),
+						array('label'=>'Частые вопросы', 'url'=>array('/')),
+						array('label'=>'Интернет-магазинам', 'url'=>array('/')),
+						array('label'=>'Система рейтинга', 'url'=>array('/')),
+						array('label'=>'Гарантии', 'url'=>array('/')),
+						array('label'=>'Контакты', 'url'=>array('/')),
+					),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu3')
+				)); ?>
+			</div>
+
+			<div class="footer-cell">
+					<?php $this->widget('zii.widgets.CMenu',array(
+						'items'=>array(
+							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+							array('label'=>'или', 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
+							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),							
+						),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu4')
+					)); ?>
+			</div>
+
 
  		</div>
 	</div><!-- footer -->

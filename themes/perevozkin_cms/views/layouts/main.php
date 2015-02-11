@@ -6,7 +6,7 @@
 <?php
 $app = Yii::app();
 
-$cs        = $app->clientScript;
+$cs = $app->clientScript;
 
 $theme_baseUrl = $app->theme->baseUrl;
 

@@ -25,9 +25,15 @@
 $icons-layout: smart;
 $ico-sprite-dimensions: true;
 
-
 @import "ico/*.png"; 
 @include all-ico-sprites;
+
+
+$icons-layout: vertical;
+$ico-sprite-dimensions: true;
+
+@import "btns/*.png"; 
+@include all-btns-sprites;
 
 
 
@@ -35,6 +41,7 @@ $ico-sprite-dimensions: true;
 @import "_placeholders";
 @import "_common";	//общие стили 
 @import "_typo";
+@import "_stages-block";
 @import "_header";
 @import "_footer";
 

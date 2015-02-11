@@ -1,0 +1,65 @@
+.stages-block {
+	background-color: #f4fbfe;
+	overflow: hidden;
+	height: 244px;
+	border-bottom: 1px solid #bbdceb;
+	
+	
+	ul {
+		left: 50%;
+		@extend %fl;
+		@extend %pos_rel;
+	}
+	
+	li {
+		right: 50%;
+		margin: 65px 45px 0 45px;
+		height: 165px;
+		
+		@extend %fl;
+		@extend %pos_rel;		
+	}
+	
+	.stage1,
+	.stage2 {
+		@extend %for_sprite;
+		
+		&:before {
+			right: 0;
+			top: 48px;
+			
+			@extend .ico-arrow-right;
+		}
+	}
+	
+	.stage1 {
+		width: 195px;
+		padding: 0 55px 0 125px;
+		background: url(../images/stage1.png) no-repeat left top;
+	}
+	
+	.stage2 {
+		width: 195px;
+		padding: 0 55px 0 115px;
+		background: url(../images/stage2.png) no-repeat left top;
+	}
+	
+	.stage3 {
+		width: 200px;
+		padding: 0 0 0 75px;
+		background: url(../images/stage3.png) no-repeat left top;		
+	}
+	
+	.title {
+		margin: 0 0 20px 0;
+		
+		@extend %font_20;
+		@extend %c_697f9a;
+		@extend %pt_sans_narrow_bold;
+	}
+	
+	.descr {
+		@extend %font_12;
+		@extend %c_000;
+	}
+}

@@ -1,336 +1,133 @@
 /* Шапка сайта */
-.top-line {
-  height: 43px;
-  background: #fff;
+.header-row1 {
+	background-color: #f3fbff;
+	border-bottom: 1px solid #bbdceb;
+	padding: 10px 0 15px 0;
 }
 
-.main-menu	{
-	ul {
-		padding: 0 0 0 29px;
-	}
-	
-	li {		
-		margin: 0 0 0 -29px;
-		height: 43px;
+
+.header-row1-menu {
+	li {
+		height: 25px;
+		line-height: 25px;
+		margin: 0 60px 0 0;
 		
 		@extend %fl;
-		@extend %pos_rel;
-		
-		
-		
-		&:after {
-			top: 50%;
-			right: 10px;
-			margin: -7px 0 0 0;
-			content: ' ';
-			position: absolute;
-			
-			@extend .ico-top-menu-separator;
-			
-		}
-		
-		a {
-			@extend %underline_n_n;
-			@extend %bold;
-		}
-		
-		&:hover {
-			a {
-  				background: #ff0013;
-				
-				@extend %for_sprite;
-				@extend %c_fff;
-				
-				&:before {
-					
-					top: 0;
-					left: -28px;
-					@extend .ico-top-menu-active-left;
-				}
-				
-				&:after {
-					top: 0;
-					right: -28px;
-					margin: 0;
-					content: ' ';
-					position: absolute;
-					
-					
-					@extend .ico-top-menu-active-right;
-				}
-				
-				
-			}
-		}
-		
-		&:hover:after {
-  			display: none;			
-		}
-		
-	}
-	
-	.last-item	{
-		&:after {
-			display: none;
-		}
 	}
 	
 	a {
-		position: relative;
-		display: block;
-		margin: 0 28px;
-		padding: 0 10px;
-		line-height: 43px;
+		@extend %font_12;
+		@extend %c_53aae2;
 	}
 	
-}
-	
-	
+	.contacts {
 
-
-
-/* login / logout block */
-
-/* cart */
-.cartBlock {
-	padding: 0 15px 0 0;
-	border-right: 1px solid #f3f3f3;
-	width: 280px;
-	height: 43px;
-
-	@extend %fr;
-	@extend %pos_rel;
-	
-	.total-products {
-		display: inline-block;
-		margin-top: 3px;
-		width: 15px;
-		height: 15px;
-		background: #d70000;
-		text-align: center;
-		line-height: 15px;
-		@include border-radius(7px);
+		margin-right: 90px;
 	}
 	
-	.to-cart {
-		white-space: nowrap;
-		text-indent: 7777px;
-		left: 0;
-		top: 0;
-		
-		@extend %db;
-		@extend %underline_n_n;
-		@extend %pos_abs;
-		@extend .ico-cart;
-		
-		
-		
+	.gruzodatel {
+		border-left: 1px solid #53aae2;		
+		padding-left: 70px;
 	}
 	
-	.cart-row {
-		right: 15px;
+	.perevozchik {
+		border-right: 1px solid #53aae2;		
+		padding-right: 70px;		
+	}
+	
+	.login-items {
+		@extend %fr;
+	}
+	
+	.reg {
+		margin-right: 0;
+	}
+	
+	.login {
+		margin-right: 0;
 		
-		@extend %pos_abs;
+		@extend %for_sprite;
+		
+		&:before {
+			top: 7px;
+			left: -10px;
+			@extend .ico-key;
+		}
+	}
+	
+	.separator {
+		margin: 0 15px;
 		
 		span {
-			@extend %text_r;
-			@extend %db;
-			@extend %fl;
-			@extend %font_14;
-		}
-		
-		.cart-row-left {
-			width: 120px;
-			
-			@extend %c_777;
-		}
-		.cart-row-right {
-			width: 120px;
-			
-			@extend %c_d70000;
+			@extend %c_ccd3d7;
 		}
 	}
-	
-	.cart-row-1 {
-		top: 7px;
-	}
-	
-	.cart-row-2 {
-		bottom: 6px;
-	}
-	
-	
 }
 
 .logo-top {
-
-	width: 279px;
-	
 	@extend %db;
-	@extend %text_c;
-	@extend %italic;
-	@extend %c_fff;
-	@extend %underline_n_n;
-	@extend %uppercase;
-	@extend %font_13;
-
-	img {
-		@extend %db;
-		margin: 0 0 7px 0;
-	}		
+	@extend %fl;
+	
 }
 
-
-.header-block {
-	height: 215px;
+.header-row2 {
+	padding: 20px 0 25px 0;
 	
-	
-	.block1 {
-		position: relative;
-		margin: 62px 0 0 0;
-		padding: 26px 7px;
-		width: 531px;
-		border-top: 2px solid #d70000;
-		border-bottom: 2px solid #d70000;
-	}
-	
-	.block2 {
-		margin: 64px 0 0 0;
-		width: 418px;
-	}	
-}
-
-
-
-/* search-block */
-.search-block {
-	position: absolute;
-	top: 26px;
-	right: 7px;
-	
-	form {
-		position: relative;
-	}
-	
-	.searchbox {
-		padding-right: 40px;
-		width: 155px;
-		background: #586168;
-		background: rgba(88, 97, 104, 0.8);
-		line-height: 36px;
+	.buttons-block {
+		margin: 8px 0 0 135px;
 		
-		@extend %font_13;
-		@extend %c_8f9090;
-	}
-	
-	.search-btn {
-		position: absolute;
-		top: 9px;
-		right: 13px;
-		border: none;
-		background-color: transparent;
-		
-		@extend .ico-search-btn;
-		@extend %pointer;
+		@extend %fl;
 	}	
-}
-
-/* contacts */
-.top-contacts {
-	padding: 3px 27px 3px 0;
-	border-right: 1px solid #4c5154;
-	margin: 15px 0 0 0;
 	
-	.email,
-	.velcom,
-	.mts {
-		margin: 0 0 1px 0;
-		text-indent: 22px;
+	.btn-zakazhu {
+		margin: 0 5px 0 0;
+		padding: 0 25px 0 40px;
 		
 		@extend %for_sprite;
-		@extend %font_19;
-		@extend %c_e1e1e3;
-	}
-	
-	.mts:before {
-		top: 3px;
-		left: 0;
-		
-		@extend .ico-mts;
-	}
-	
-	.velcom:before {
-		top: 3px;
-		left: 0;
-		
-		@extend .ico-velcom;
-	}
-	
-	.email:before {
-		top: 3px;
-		left: -1px;
-		
-		@extend .ico-email1;
-		
-	}
-	
-	.work-time {
-		margin: 5px 0 0 0;
-	}
-}
-
-
-/* consultant-block */
-.consultant-block {
-	padding: 5px 0 0 88px;
-	margin: 15px 0 0 0;
-	
-	@extend %for_sprite;
-	@extend %c_fff;	
-	
-	&:before {
-		top: 0;
-		left: 12px;
-		
-		@extend .ico-consultant;
-
-	}
-	
-	.status {
-		position: relative;
-		display: inline-block;
-		padding: 2px 11px 2px 21px;
-		margin: 0 0 5px 0;
-		border: 1px solid #8d8f90;
-		
-		@include border-radius(7px);
-		
-		@extend %pos_rel;
-		@extend %font_13;
 		
 		&:before {
-			content: ' ';
-			width: 9px;
-			height: 9px;
-			top: 4px;
-			left: 8px;
-			@include border-radius(7px);
-			@extend %pos_abs;
+			top: 50%;
+			margin-top: -8px;
+			margin-left: -20px;
+			@extend .ico-plus;
 		}
 	}
+	
+	.btn-perevezu {
+		padding: 0 36px 0 56px;
 		
-
-	.online:before {
-		background: #70b328;			
-	}
+		@extend %for_sprite;
 		
-	.title {
-		margin: 0 0 2px 0;
+		&:before {
+			top: 50%;
+			margin-top: -9px;
+			margin-left: -25px;
+			@extend .ico-zoom;
+		}
 	}
 	
-	.consultant-call {
-		color: inherit;
+	.questions {
+		margin-top: 18px;
 		
-		@extend %font_13;
+		@extend %fr;
+		@extend %pt_sans_narrow_regular;
+		@extend %font_24;
+		@extend %c_96a5b8;
+		
+		.title {
+			padding: 0 25px 0 0;
+			
+			@extend %c_8093a9;
+			@extend %pt_sans_narrow_bold;
+			@extend %font_20;
+		}
+		
+		.phone-numb {
+			@extend %pt_sans_narrow_bold;
+			@extend %c_0a80cb;
+		}
+		
+		
 	}
 }
+
