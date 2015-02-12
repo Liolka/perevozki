@@ -290,15 +290,16 @@ span sup{text-decoration:none;}
 
 
 .width-wrap {
-  width: 1225px;
-  margin: 0 auto;
-  overflow: hidden;
+	width: 1225px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 5px 0 5px
 }
 
 .wrapper {
 	height: 100%;
 	width: 100%;
-	min-width: 982px;
+	min-width: 1235px;
 	margin: 0;
 	padding: 0;	
 }
@@ -311,7 +312,7 @@ span sup{text-decoration:none;}
 }
 
 .middle {
-  padding-bottom: 230px;
+  padding-bottom: 290px;
 }
 
 .footer {

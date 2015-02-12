@@ -61,8 +61,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-car1, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .ico-double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-image: url('../images/ico-s5cb5c3bda2.png');
+.stages-block .stage2:before, .ico-car1, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .ico-double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
+  background-image: url('../images/ico-s0a2c9c99a5.png');
   background-repeat: no-repeat;
 }
 
@@ -151,7 +152,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 13px;
 }
 
-.ico-key, .header-row1-menu .login:before {
+.ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before {
   background-position: 0 -291px;
   height: 12px;
   width: 5px;
@@ -169,7 +170,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 16px;
 }
 
-.ico-question {
+.ico-question, .header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before {
   background-position: 0 -334px;
   height: 17px;
   width: 17px;
@@ -205,14 +207,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 12px;
 }
 
-.ico-zoom-big, .map-block .btn-perevezu:before {
+.ico-watches-big, .benefits-block li:before {
   background-position: 0 -433px;
+  height: 89px;
+  width: 90px;
+}
+
+.ico-zoom-big, .map-block .btn-perevezu:before {
+  background-position: 0 -522px;
   height: 44px;
   width: 44px;
 }
 
 .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-position: 0 -477px;
+  background-position: 0 -566px;
   height: 19px;
   width: 19px;
 }
@@ -271,20 +279,24 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .header-row1-menu .login, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a {
+.stages-block .stage2, .benefits-block li, .header-row1-menu .gruzodatel,
+.header-row1-menu .perevozchik, .header-row1-menu .login, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .header-row1-menu .login:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before {
+.stages-block .stage2:before, .benefits-block li:before, .header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before {
   content: ' ';
   position: absolute;
 }
 
-body, h2, .stages-block .descr {
+body, h2, .stages-block .descr, .benefits-block li {
   color: #000;
 }
 
-a, .header-row2 .questions .phone-numb {
+a, .header-row2 .questions .phone-numb, .footer-cell a:visited,
+.footer-cell a:hover,
+.footer-cell a {
   color: #0a80cb;
 }
 
@@ -304,7 +316,7 @@ a:hover {
   color: #53aae2;
 }
 
-.stages-block .title, .footer .created-by {
+.stages-block .title, .benefits-block .header, .footer .created-by {
   color: #697f9a;
 }
 
@@ -320,7 +332,7 @@ a:visited {
   color: #96a5b8;
 }
 
-.header-row1-menu .separator span {
+.header-row1-menu .separator span, .footer-cell-last span {
   color: #ccd3d7;
 }
 
@@ -335,11 +347,12 @@ a:visited {
 .btn-green-52, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66,
 .btn-green-66, .btn-blue-66:hover,
-.btn-green-66:hover, .map-block .info span {
+.btn-green-66:hover, .map-block .info span, .statistic-block li {
   color: #fff;
 }
 
-.stages-block .descr, .header-row1-menu a {
+.stages-block .descr, .benefits-block li, .header-row1-menu a, .footer-cell-last span,
+.footer-cell-last a {
   font-size: 12px;
 }
 
@@ -366,7 +379,19 @@ h3 {
   font-size: 24px;
 }
 
-.map-block .info span {
+.benefits-block li span {
+  font-size: 28px;
+}
+
+.statistic-block li {
+  font-size: 30px;
+}
+
+.benefits-block .header {
+  font-size: 36px;
+}
+
+.map-block .info span, .statistic-block li span {
   font-size: 48px;
 }
 
@@ -381,11 +406,18 @@ h2, .btn-blue-33,
   text-transform: uppercase;
 }
 
-a {
+a, .footer .created-by a, .footer-cell-last a {
   text-decoration: underline;
 }
-a:hover {
+a:hover, .footer .created-by a:hover {
   text-decoration: none;
+}
+
+.footer-cell a {
+  text-decoration: none;
+}
+.footer-cell a:hover {
+  text-decoration: underline;
 }
 
 .btn-blue-33,
@@ -401,15 +433,15 @@ a:hover {
   text-decoration: none;
 }
 
-.fLeft, .sideLeft, .container, .stages-block ul, .stages-block li, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell {
+.fLeft, .sideLeft, .container, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
   float: left;
 }
 
-.fRight, .header-row1-menu .login-items, .header-row2 .questions {
+.fRight, .header-row1-menu .login-items, .header-row2 .questions, .footer-cell-last {
   float: right;
 }
 
-.map-block .info span, .logo-top, .footer .questions .title, .footer .created-by a {
+.map-block .info span, .statistic-block li span, .benefits-block li span, .logo-top, .footer .questions .title, .footer .created-by a {
   display: block;
 }
 
@@ -424,7 +456,7 @@ a:hover {
   display: none;
 }
 
-.stages-block ul, .stages-block li, .footer .created-by {
+.stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .footer .created-by {
   position: relative;
 }
 
@@ -432,7 +464,7 @@ a:hover {
   position: absolute;
 }
 
-.map-block .info {
+.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li {
   text-align: center;
 }
 
@@ -440,11 +472,11 @@ a:hover {
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66, .map-block .info span, .stages-block .title, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
+.btn-green-66, .map-block .info span, .stages-block .title, .statistic-block li span, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
-.header-row2 .questions, .footer .questions .title {
+.statistic-block li, .benefits-block .header, .benefits-block li span, .header-row2 .questions, .footer .questions .title {
   font-family: 'ptsans-narrow-regular', sans-serif;
 }
 
@@ -659,12 +691,13 @@ span sup {
   width: 1225px;
   margin: 0 auto;
   overflow: hidden;
+  padding: 0 5px 0 5px;
 }
 
 .wrapper {
   height: 100%;
   width: 100%;
-  min-width: 982px;
+  min-width: 1235px;
   margin: 0;
   padding: 0;
 }
@@ -677,7 +710,7 @@ span sup {
 }
 
 .middle {
-  padding-bottom: 230px;
+  padding-bottom: 290px;
 }
 
 .footer {
@@ -777,6 +810,44 @@ span sup {
   margin: 0 0 20px 0;
 }
 
+.statistic-block {
+  height: 190px;
+  background: url(../images/map.jpg) no-repeat top center;
+  overflow: hidden;
+}
+.statistic-block ul {
+  left: 50%;
+}
+.statistic-block li {
+  right: 50%;
+  margin: 55px 84px 0 84px;
+}
+
+.benefits-block {
+  overflow: hidden;
+  padding: 50px 0 90px 0;
+}
+.benefits-block .header {
+  margin: 0 0 40px 0;
+}
+.benefits-block ul {
+  left: 50%;
+}
+.benefits-block li {
+  right: 50%;
+  margin: 0 84px 0 84px;
+  padding: 120px 0 0 0;
+  width: 285px;
+}
+.benefits-block li:before {
+  left: 50%;
+  top: 0;
+  margin-left: -45px;
+}
+.benefits-block li span {
+  padding-bottom: 20px;
+}
+
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */
 .header-row1 {
   background-color: #f3fbff;
@@ -792,13 +863,24 @@ span sup {
 .header-row1-menu .contacts {
   margin-right: 90px;
 }
+.header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before {
+  top: 50%;
+  margin-top: -9px;
+}
 .header-row1-menu .gruzodatel {
   border-left: 1px solid #53aae2;
   padding-left: 70px;
 }
+.header-row1-menu .gruzodatel:before {
+  left: 48px;
+}
 .header-row1-menu .perevozchik {
   border-right: 1px solid #53aae2;
   padding-right: 70px;
+}
+.header-row1-menu .perevozchik:before {
+  left: -22px;
 }
 .header-row1-menu .reg {
   margin-right: 0;
@@ -874,6 +956,20 @@ span sup {
 }
 
 .footer-cell {
-  margin-right: 20px;
+  margin-right: 110px;
   height: 200px;
+}
+.footer-cell li {
+  margin-bottom: 10px;
+}
+
+.footer-cell-last {
+  margin-right: 0;
+}
+.footer-cell-last .login:before {
+  top: 2px;
+  left: -10px;
+}
+.footer-cell-last .separator {
+  margin: 0 15px;
 }

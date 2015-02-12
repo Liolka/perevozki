@@ -21,18 +21,37 @@
 	}
 	
 	.contacts {
-
 		margin-right: 90px;
 	}
+	
+	.gruzodatel,
+	.perevozchik {
+		@extend %for_sprite;
+		
+		&:before {
+			top: 50%;
+			margin-top: -9px;
+			
+			@extend .ico-question;
+		}
+	}	
 	
 	.gruzodatel {
 		border-left: 1px solid #53aae2;		
 		padding-left: 70px;
+		
+		&:before {
+			left: 48px;
+		}
 	}
 	
 	.perevozchik {
 		border-right: 1px solid #53aae2;		
-		padding-right: 70px;		
+		padding-right: 70px;
+		
+		&:before {
+			left: -22px;
+		}		
 	}
 	
 	.login-items {

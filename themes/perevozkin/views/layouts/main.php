@@ -88,7 +88,7 @@ $request_baseUrl = $app->request->baseUrl;
 			?>
 		</div>
 		
-		<div class="top-block map-block">
+		<div class="map-block">
 			<p class="info">
 				<span>Любой груз в любую точку</span>
 				<a href="#" class="btn-green-66 btn-zakazhu">Закажу перевозку</a>
@@ -125,12 +125,31 @@ $request_baseUrl = $app->request->baseUrl;
 			
 				<?php //$this->widget('application.components.SearchAutoWidget'); ?>
 				<div class="central clearfix"><?php echo $content; ?></div>
-				<div class="content-down">
-
-				</div>
 			</div>
+			
+			<div class="statistic-block clearfix">
+				<ul>
+					<li><span>61759 гузов</span> Перевезено</li>
+					<li><span>900 000 тонн</span> Общей массой</li>
+					<li><span>500 000 км</span> Преодолено</li>
+				</ul>
+			</div>
+			
+			<div class="benefits-block clearfix">
+				<p class="header">Преимущества сервиса</p>
+				<ul>
+					<li><span>Мы экономим ваше время</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
+					<li><span>Мы экономим ваши нервы</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
+					<li><span>Мы экономим ваши деньги</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
+				</ul>
+			</div>
+			
+			
 		</div>
+		
+		
 	</div>
+	
 	
 	<div class="footer">
 		<div class="width-wrap clearfix">
@@ -177,7 +196,7 @@ $request_baseUrl = $app->request->baseUrl;
 				)); ?>
 			</div>
 
-			<div class="footer-cell">
+			<div class="footer-cell footer-cell-last">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
 							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),

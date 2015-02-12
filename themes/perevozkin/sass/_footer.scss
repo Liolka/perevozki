@@ -34,9 +34,9 @@
 		a:visited,
 		a:hover,
 		a {
-			color: inherit;
-			
+			color: inherit;			
 		}
+		
 		a {
 			height: 30px;
 			right: 0;
@@ -47,6 +47,7 @@
 			@extend %db;
 			@extend %pos_abs;
 			@extend %for_sprite;
+			@extend %underline_y_n;
 			
 			&:before {
 				left: 5px;
@@ -60,10 +61,64 @@
 }
 
 .footer-cell {
-	margin-right: 20px;
+	margin-right: 110px;
 	height: 200px;
 	
 	@extend %fl;
+	
+	li {
+		margin-bottom: 10px;
+	}
+	
+	a {
+		@extend %underline_n_y;
+	}
+	
+	a:visited,
+	a:hover,
+	a {
+		@extend %c_0a80cb;
+	}
+	
+}
+
+.footer-cell-last {
+	margin-right: 0;
+	
+	@extend %fr;
+	
+	li {
+		@extend %fl;
+	}
+	
+	a {
+		@extend %underline_y_n;
+	}
+	
+	span,
+	a {
+		@extend %font_12;
+	}
+	
+	span {
+		@extend %c_ccd3d7;
+	}
+	
+	.login {
+		@extend %for_sprite;
+		
+		&:before {
+			top: 2px;
+			left: -10px;
+			@extend .ico-key;
+		}
+	}
+	
+	
+	.separator {
+		margin: 0 15px;
+	}
+	
 }
 
 

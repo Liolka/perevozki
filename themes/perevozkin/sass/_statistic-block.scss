@@ -1,0 +1,33 @@
+.statistic-block {
+	height: 190px;
+	background: url(../images/map.jpg) no-repeat top center;
+	overflow: hidden;
+	
+	ul {
+		left: 50%;
+		@extend %fl;
+		@extend %pos_rel;
+	}
+	
+	li {
+		right: 50%;
+		margin: 55px 84px 0 84px;
+		//height: 165px;
+		
+		@extend %fl;
+		@extend %pos_rel;		
+		@extend %c_fff;		
+		@extend %pt_sans_narrow_regular;		
+		@extend %font_30;
+		@extend %text_c;
+		
+		span {
+			@extend %pt_sans_narrow_bold;		
+			@extend %font_48;			
+			@extend %db;			
+		}
+	}
+	
+	
+	
+}
