@@ -1,0 +1,9 @@
+.last-requests {
+	.header {
+		margin-bottom: 40px;
+		
+		@extend %font_24;
+		@extend %c_2e3c54;
+		@extend %pt_sans_narrow_regular;
+	}
+}

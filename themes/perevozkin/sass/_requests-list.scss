@@ -1,0 +1,200 @@
+.requests-list-head {
+	margin-bottom: 15px;
+	
+	li {
+		@extend %fl;
+		@extend %font_12;
+		@extend %c_757575;
+	}
+}
+
+.requests-list-item {
+	border: 1px solid #b2daeb;
+	padding: 25px;
+	margin: 0 0 10px 0;
+	
+	&:hover {
+		background-color: #f4fbfe;
+	}
+	
+	& > div {
+		@extend %fl;
+	}
+	
+	.requests-list-item_price {
+		@extend %fr;
+	}
+
+	
+}
+
+.requests-list-item_number {
+	padding: 52px 0 0 0;
+	margin: 0 29px 0 0;
+	
+	@extend %for_sprite;
+	@extend %font_12;
+	@extend %c_2e3c54;
+	
+	&:before {
+		top: 0;
+		left: 50%;
+		margin-left: -20px;
+		
+		@extend .ico-car1;
+	}
+}
+
+.requests-list-item_info {
+	margin-right: 65px;
+	
+	span,
+	a {
+		@extend %db;
+	}
+}
+
+.requests-list-item-info_url {
+	padding-bottom: 5px;
+	
+	@extend %c_1e91da;
+	@extend %font_12;
+	
+	&:visited {
+		@extend %c_1e91da;
+	}
+}
+
+.requests-list-item-info_descr {
+	margin: 0 0 10px 0;
+	
+	@extend %c_8e95a1;
+	@extend %font_12;
+}
+
+.requests-list-item-info_gruzchiki {
+	height: 19px;
+	line-height: 19px;
+	padding: 0 0 0 22px;
+	
+	@extend %c_2e3c54;
+	@extend %font_12;
+	@extend %for_sprite;
+	
+	&:before {
+		left: 0;
+		top: 0;
+		@extend .ico-girya;
+	}
+	
+}
+
+
+.requests-list-item_to,
+.requests-list-item_from {
+	width: 145px;
+	margin-right: 15px;
+	
+	span,
+	a {
+		padding-left: 25px;
+		@extend %db;
+	}
+}
+
+.requests-list-item_from {
+	@extend %pos_rel;
+}
+
+.requests-list-item_town {
+	padding-bottom: 5px;
+	
+	@extend %c_2e3c54;
+	@extend %font_13;
+	@extend %bold;
+}
+
+.requests-list-item_adress {
+	padding-bottom: 10px;
+	
+	@extend %c_8e95a1;
+	@extend %font_12;	
+}
+
+.requests-list-item_author {
+	white-space: nowrap;
+	
+	@extend %font_11;
+	@extend %c_8e95a1;
+	@extend %pos_abs;
+	
+	a {
+		padding-left: 0;
+		@extend %font_11;
+		@extend %c_8e95a1;
+		@extend %di;
+		
+	}
+}
+
+
+
+.requests-list-item_price {
+
+	
+	span,
+	a {
+		@extend %db;
+	}
+	
+	.btn-blue-33 {
+		padding: 0 20px;
+	}
+}
+
+.requests-list-item_created {
+	
+}
+
+.requests-list-item_suggestions,
+.requests-list-item_date {
+	@extend %font_13;
+	@extend %c_8e95a1;
+}
+
+.requests-list-item_suggestions {
+	
+	.suggestion-orange,
+	.suggestion-green {
+		padding: 2px 5px;
+		margin-right: 3px;
+		
+		@include border-radius(2px);
+		
+		@extend %c_fff;
+		@extend %dib;
+	}
+	
+	.suggestion-green {
+		background-color: #8ccb45;
+	}
+	
+	.suggestion-orange {
+		background-color: #ffa100;
+	}
+}
+
+.requests-list-item-price_price {
+	margin-bottom: 15px;
+	
+	@extend %bold;
+	@extend %font_17;
+	@extend %c_2e3c54;
+}
+
+
+.counry-by {
+	background: url(../images/flags/by.gif) no-repeat left center;
+	height: 16px;
+	line-height: 16px;
+}

@@ -324,7 +324,6 @@ span sup{text-decoration:none;}
 }
 
 .central {
-  background: #f5f5f5;
   padding-bottom: 55px;
 }
 
@@ -336,6 +335,14 @@ span sup{text-decoration:none;}
   margin-right: -210px;
 }
 
+
+.sideRight {
+	position: relative;
+	width: 285px;
+	
+	@extend %fl;	
+}
+
 .container {
   @extend %fl;
   width: 100%;
@@ -343,6 +350,12 @@ span sup{text-decoration:none;}
 
 .column2l {
   padding-left: 220px;
+}
+
+.column2r {
+	width: 915px;
+	margin: 0 25px 0 0;
+	@extend %fl;
 }
 
 .content-wr {

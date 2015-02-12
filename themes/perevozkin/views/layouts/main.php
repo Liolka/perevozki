@@ -3,13 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <?
 
-$app = Yii::app();
 
-$cs = $app->clientScript;
-
-$theme_baseUrl = $app->theme->baseUrl;
-
-$request_baseUrl = $app->request->baseUrl;
 
 ?>
 <head>
@@ -17,14 +11,14 @@ $request_baseUrl = $app->request->baseUrl;
 	<meta name="language" content="en" />
 
 	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo $theme_baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $theme_baseUrl; ?>/css/print.css" media="print" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/screen.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/print.css" media="print" />
 	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo $theme_baseUrl; ?>/css/ie.css" media="screen, projection" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo $theme_baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo $theme_baseUrl; ?>/css/form.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/main.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/form.css" />
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -43,9 +37,9 @@ $request_baseUrl = $app->request->baseUrl;
 							array('label'=>'Контакты', 'url'=>array('/site/oplataidostavka'), 'itemOptions'=>array('class'=>'contacts')),
 							array('label'=>'Помощь грузодателю', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'gruzodatel')),
 							array('label'=>'Помощь перевозчику', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'perevozchik')),
-							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),
-							array('label'=>'или', 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),
+							array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
+							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
 							
 							//array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 							//array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
@@ -58,7 +52,7 @@ $request_baseUrl = $app->request->baseUrl;
 			</div>
 			<div class="header-row2">
 				<div class="width-wrap clearfix">
-					<a href="/" class="logo-top"><img src="<?=$theme_baseUrl?>/images/logo-top.png" alt="Перевозкин" /></a>
+					<a href="/" class="logo-top"><img src="<?=$this->theme_baseUrl?>/images/logo-top.png" alt="Перевозкин" /></a>
 					<p class="buttons-block">
 						<a href="#" class="btn-green-52 btn-zakazhu">Закажу перевозку</a>
 						<a href="#" class="btn-blue-52 btn-perevezu">Перевезу груз</a>
@@ -154,7 +148,7 @@ $request_baseUrl = $app->request->baseUrl;
 	<div class="footer">
 		<div class="width-wrap clearfix">
 			<div class="footer-cell">
-				<a href="/" class="logo-bottom"><img src="<?=$theme_baseUrl?>/images/logo-bottom.png" alt="Перевозкин" /></a>
+				<a href="/" class="logo-bottom"><img src="<?=$this->theme_baseUrl?>/images/logo-bottom.png" alt="Перевозкин" /></a>
 				<p class="questions">
 					<span class="title">Есть вопросы?</span>
 					+375 (33) 678-98-11
@@ -199,9 +193,9 @@ $request_baseUrl = $app->request->baseUrl;
 			<div class="footer-cell footer-cell-last">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
-							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
-							array('label'=>'или', 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),							
+							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+							array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
+							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),							
 						),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu4')
 					)); ?>
 			</div>
