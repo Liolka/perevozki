@@ -3,6 +3,13 @@
 class RecoveryController extends Controller
 {
 	public $defaultAction = 'recovery';
+
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
 	
 	/**
 	 * Recovery password

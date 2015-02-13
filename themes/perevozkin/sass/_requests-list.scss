@@ -6,11 +6,52 @@
 		@extend %font_12;
 		@extend %c_757575;
 	}
+	
+	.numb {
+		margin-left: 50px;
+	}
+	
+	.info {
+		margin-left: 41px;
+	}
+	
+	.addr {
+		padding-left: 15px;
+		@extend %for_sprite;
+		
+		&:before {
+			top: -4px;
+			left: 0;
+			@extend .ico-addr;
+		}
+	}
+	
+	.from {
+		margin-left: 83px;		
+	}
+	
+	.to {
+		margin-left: 106px;
+	}
+	
+	.date {
+		width: 80px;
+		margin: -8px 0 0 117px;
+	}
+	
+	.price {
+		width: 90px;
+		margin: -8px 0 0 80px;
+		@extend %text_c;
+	}
+	
+	
 }
+
 
 .requests-list-item {
 	border: 1px solid #b2daeb;
-	padding: 25px;
+	padding: 25px 25px 20px 25px;
 	margin: 0 0 10px 0;
 	
 	&:hover {
@@ -46,7 +87,8 @@
 }
 
 .requests-list-item_info {
-	margin-right: 65px;
+	margin-right: 50px;
+	width: 151px;
 	
 	span,
 	a {
@@ -66,7 +108,7 @@
 }
 
 .requests-list-item-info_descr {
-	margin: 0 0 10px 0;
+	margin: 0 0 17px 0;
 	
 	@extend %c_8e95a1;
 	@extend %font_12;
@@ -103,6 +145,8 @@
 }
 
 .requests-list-item_from {
+	height: 66px;
+	
 	@extend %pos_rel;
 }
 
@@ -115,14 +159,13 @@
 }
 
 .requests-list-item_adress {
-	padding-bottom: 10px;
-	
 	@extend %c_8e95a1;
 	@extend %font_12;	
 }
 
 .requests-list-item_author {
 	white-space: nowrap;
+	bottom: 0;
 	
 	@extend %font_11;
 	@extend %c_8e95a1;
@@ -162,7 +205,16 @@
 	@extend %c_8e95a1;
 }
 
+.requests-list-item_date {
+	
+}
+
+.requests-list-item_created {
+	
+}
+
 .requests-list-item_suggestions {
+	margin-top: 34px;
 	
 	.suggestion-orange,
 	.suggestion-green {
@@ -197,4 +249,24 @@
 	background: url(../images/flags/by.gif) no-repeat left center;
 	height: 16px;
 	line-height: 16px;
+}
+
+.requests-more-btn {
+	border: 1px solid #b2daeb;
+	padding: 10px 0 12px 0;	
+	background-color: #f4fbfe;	
+	
+	@extend %db;
+	@extend %text_c;
+	@extend %c_1e91da;
+	@extend %font_20;
+	@extend %pt_sans_narrow_regular;
+	
+	&:hover,
+	&:visited {
+		@extend %c_1e91da;
+	}
+	
+
+	
 }

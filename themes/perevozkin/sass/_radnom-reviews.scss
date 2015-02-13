@@ -1,0 +1,41 @@
+.radnom-reviews {
+	
+	.header {
+		margin-bottom: 39px;
+		
+		@extend %font_24;
+		@extend %c_b8b8b8;
+		@extend %pt_sans_narrow_regular;
+		
+		a {
+			@extend %font_18;
+			
+			&:visited {
+				@extend %c_1e91da;
+			}
+		}
+	}
+}
+
+.radnom-reviews-item-text {
+	border-bottom: 1px dashed #b2daeb;
+	padding: 0 0 30px 0;
+	margin: 20px 0 30px 30px;
+	line-height: 18px;
+	
+	@extend %for_sprite;
+	
+	&:before {
+		top: 0;
+		left: -20px;
+		@extend .ico-double-arrow-left;
+	}
+	.double-arrow-right {
+		margin-top: 2px;
+		margin-left: 7px;
+		
+		@extend %dib;
+		@extend %pos_abs;
+		@extend .ico-double-arrow-right;
+	}
+}

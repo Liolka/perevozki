@@ -29,7 +29,7 @@ return CMap::mergeArray(
             
             // пользователь
             'user'=>array(
-                'loginUrl'=>array('/site/login'),
+                //'loginUrl'=>array('/site/login'),
             ),
 			
 

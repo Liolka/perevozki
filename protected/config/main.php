@@ -45,7 +45,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111'),
+			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111', '93.125.76.75',),
 		),
 		
 
@@ -80,10 +80,6 @@ return array(
             # page after logout
             'returnLogoutUrl' => array('/user/login'),
         ),
-		
-		'rights'=>array(
-			//'install'=>true,
-		),
 		
 		'pages' => array(
 			'class' => 'application.modules.pages.PagesModule',

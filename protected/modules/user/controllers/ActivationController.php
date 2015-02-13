@@ -3,6 +3,13 @@
 class ActivationController extends Controller
 {
 	public $defaultAction = 'activation';
+	
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
 
 	
 	/**

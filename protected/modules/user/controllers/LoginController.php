@@ -3,6 +3,13 @@
 class LoginController extends Controller
 {
 	public $defaultAction = 'login';
+	
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
 
 	/**
 	 * Displays the login page

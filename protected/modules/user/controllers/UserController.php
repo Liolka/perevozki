@@ -2,6 +2,13 @@
 
 class UserController extends Controller
 {
+	
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
 	/**
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */

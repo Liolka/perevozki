@@ -324,7 +324,7 @@ span sup{text-decoration:none;}
 }
 
 .central {
-  padding-bottom: 55px;
+  padding: 55px 0;
 }
 
 
@@ -413,5 +413,16 @@ span sup{text-decoration:none;}
 			
 			@extend .ico-zoom-big;
 		}
+	}
+}
+
+.form div.radiobuttons-list {
+	input,
+	label {
+		@extend %di
+	}
+	
+	label {
+		padding-right: 30px;
 	}
 }

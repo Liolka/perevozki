@@ -4,6 +4,13 @@ class LogoutController extends Controller
 {
 	public $defaultAction = 'logout';
 	
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
+	
 	/**
 	 * Logout the current user and redirect to returnLogoutUrl.
 	 */

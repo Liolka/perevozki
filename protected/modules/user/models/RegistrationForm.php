@@ -7,6 +7,9 @@
 class RegistrationForm extends User {
 	public $verifyPassword;
 	public $verifyCode;
+	public $accept_rules;
+	
+	const SCENARIO_REGISTRATION = 'scenario_registration';
 	
 	public function rules() {
 		$rules = array(
@@ -18,6 +21,7 @@ class RegistrationForm extends User {
 			array('email', 'unique', 'message' => UserModule::t("This user's email address already exists.")),
 			//array('verifyPassword', 'compare', 'compareAttribute'=>'password', 'message' => UserModule::t("Retype Password is incorrect.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => UserModule::t("Incorrect symbols (A-z0-9).")),
+			array('accept_rules', 'required', 'requiredValue' => '1', 'on'=>self::SCENARIO_REGISTRATION, 'message' => 'Ознакомьтесь с правилами'),
 		);
 		if (!(isset($_POST['ajax']) && $_POST['ajax']==='registration-form')) {
 			array_push($rules,array('verifyCode', 'captcha', 'allowEmpty'=>!UserModule::doCaptcha('registration')));

@@ -15,8 +15,8 @@ $this->breadcrumbs=array(
 <div class="form">
 <?php $form=$this->beginWidget('UActiveForm', array(
 	'id'=>'registration-form',
-	'enableAjaxValidation'=>true,
-	'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
+	//'enableAjaxValidation'=>true,
+	//'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
@@ -25,7 +25,7 @@ $this->breadcrumbs=array(
 
 	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	
-	<?php echo $form->errorSummary(array($model,$profile)); ?>
+	<?php //echo $form->errorSummary(array($model,$profile)); ?>
 	
 	<div class="row">
 	<?php echo $form->labelEx($model,'username'); ?>
@@ -52,6 +52,17 @@ $this->breadcrumbs=array(
 	<?php echo $form->labelEx($model,'email'); ?>
 	<?php echo $form->textField($model,'email'); ?>
 	<?php echo $form->error($model,'email'); ?>
+	</div>
+	
+	<div class="row">
+		<?php echo $form->checkBox($model,'accept_rules'); ?>
+		<?php echo $form->labelEx($model,'accept_rules'); ?>
+		
+		<?php echo $form->error($model,'accept_rules'); ?>
+	</div>
+	
+	<div class="row radiobuttons-list">
+		<? echo $form->radioButtonList($model,'user_status', $model->user_status_labels, array('separator'=>' ')); ?>
 	</div>
 	
 <?php 
@@ -91,9 +102,11 @@ $this->breadcrumbs=array(
 	</div>
 	<?php endif; ?>
 	
+	<input type="hidden" name="user_type" value="<?=$_POST['user_type']?>" />
+	
 	<div class="row submit">
 		<?php echo CHtml::submitButton(UserModule::t("Register")); ?>
-	</div>
+	</div>		
 
 <?php $this->endWidget(); ?>
 </div><!-- form -->

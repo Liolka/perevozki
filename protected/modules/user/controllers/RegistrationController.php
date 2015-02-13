@@ -4,6 +4,13 @@ class RegistrationController extends Controller
 {
 	public $defaultAction = 'registration';
 	
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
+	
 	/**
 	 * Declares class-based actions.
 	 */
@@ -16,13 +23,20 @@ class RegistrationController extends Controller
 			),
 		);
 	}
+	
 	/**
 	 * Registration user
 	 */
+	
 	public function actionRegistration() {
+		
+		if(isset($_POST['user_type']) || isset($_POST['RegistrationForm'])) {
+			
             $model = new RegistrationForm;
-            $profile=new Profile;
+            $profile = new Profile;
             $profile->regMode = true;
+		
+			print_r($_POST);
             
 			// ajax validator
 			if(isset($_POST['ajax']) && $_POST['ajax']==='registration-form')
@@ -35,6 +49,8 @@ class RegistrationController extends Controller
 		    	$this->redirect(Yii::app()->controller->module->profileUrl);
 		    } else {
 		    	if(isset($_POST['RegistrationForm'])) {
+					$model->scenario = RegistrationForm::SCENARIO_REGISTRATION;
+					
 					$model->attributes=$_POST['RegistrationForm'];
 					$profile->attributes=((isset($_POST['Profile'])?$_POST['Profile']:array()));
 					if($model->validate()&&$profile->validate())
@@ -45,6 +61,7 @@ class RegistrationController extends Controller
 						$model->verifyPassword=UserModule::encrypting($model->verifyPassword);
 						$model->superuser=0;
 						$model->status=((Yii::app()->controller->module->activeAfterRegister)?User::STATUS_ACTIVE:User::STATUS_NOACTIVE);
+						$model->user_type = $_POST['user_type'];
 						
 						if ($model->save()) {
 							$profile->user_id=$model->id;
@@ -74,7 +91,16 @@ class RegistrationController extends Controller
 						}
 					} else $profile->validate();
 				}
-			    $this->render('/user/registration',array('model'=>$model,'profile'=>$profile));
+				
+				$layout = '/user/registration';
+				
+			    $this->render($layout, array('model'=>$model,'profile'=>$profile));
 		    }
+			
+		}	else	{
+			$layout = '/user/registration_select_type';
+			$this->render($layout, array());
+			
+		}
 	}
 }

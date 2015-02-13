@@ -5,6 +5,13 @@ class AdminController extends Controller
 	public $defaultAction = 'admin';
 	public $layout='//layouts/column2';
 	
+	public $current_controller = '';
+	public $current_action = '';
+	public $theme_baseUrl = '';
+	public $request_baseUrl = '';
+	public $app = null;
+	
+	
 	private $_model;
 
 	/**

@@ -60,14 +60,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* необходимо для @filter-gradient */
-.ico-sprite, .ico-addr, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .ico-double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.ico-sprite, .ico-addr, .requests-list-head .addr:before, .ico-arrow-right, .stages-block .stage1:before,
+.stages-block .stage2:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
   background-image: url('../images/ico-s0a2c9c99a5.png');
   background-repeat: no-repeat;
 }
 
-.ico-addr {
+.ico-addr, .requests-list-head .addr:before {
   background-position: 0 0;
   height: 17px;
   width: 11px;
@@ -110,13 +110,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 12px;
 }
 
-.ico-double-arrow-left {
+.ico-double-arrow-left, .radnom-reviews-item-text:before {
   background-position: 0 -149px;
   height: 13px;
   width: 13px;
 }
 
-.ico-double-arrow-right {
+.ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right {
   background-position: 0 -162px;
   height: 13px;
   width: 13px;
@@ -279,12 +279,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .benefits-block li, .requests-list-item_number, .requests-list-item-info_gruzchiki, .header-row1-menu .gruzodatel,
+.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .radnom-reviews-item-text, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .benefits-block li:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .radnom-reviews-item-text:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before {
   content: ' ';
   position: absolute;
@@ -300,7 +300,7 @@ a, .header-row2 .questions .phone-numb, .footer-cell a:visited,
   color: #0a80cb;
 }
 
-.requests-list-item-info_url, .requests-list-item-info_url:visited {
+.requests-list-item-info_url, .requests-list-item-info_url:visited, .requests-more-btn, .requests-more-btn:hover, .requests-more-btn:visited, .radnom-reviews .header a:visited {
   color: #1e91da;
 }
 
@@ -343,6 +343,10 @@ a:visited {
 
 .header-row2 .questions {
   color: #96a5b8;
+}
+
+.radnom-reviews .header {
+  color: #b8b8b8;
 }
 
 .header-row1-menu .separator span, .footer-cell-last span {
@@ -389,7 +393,7 @@ a:visited {
   font-size: 17px;
 }
 
-.footer .questions, .footer .questions .title {
+.radnom-reviews .header a, .footer .questions, .footer .questions .title {
   font-size: 18px;
 }
 
@@ -397,12 +401,12 @@ h3 {
   font-size: 19px;
 }
 
-.stages-block .title, .header-row2 .questions .title {
+.stages-block .title, .requests-more-btn, .header-row2 .questions .title {
   font-size: 20px;
 }
 
 .btn-blue-66,
-.btn-green-66, .last-requests .header, .header-row2 .questions {
+.btn-green-66, .last-requests .header, .radnom-reviews .header, .header-row2 .questions {
   font-size: 24px;
 }
 
@@ -473,11 +477,12 @@ a:hover, .footer .created-by a:hover {
 .requests-list-item_to a,
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
-.requests-list-item_price a, .logo-top, .footer .questions .title, .footer .created-by a {
+.requests-list-item_price a, .requests-more-btn, .logo-top, .footer .questions .title, .footer .created-by a {
   display: block;
 }
 
-.requests-list-item_author a {
+.form div.radiobuttons-list input,
+.form div.radiobuttons-list label, .requests-list-item_author a {
   display: inline;
 }
 
@@ -485,7 +490,7 @@ a:hover, .footer .created-by a:hover {
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .requests-list-item_suggestions .suggestion-orange,
-.requests-list-item_suggestions .suggestion-green {
+.requests-list-item_suggestions .suggestion-green, .radnom-reviews-item-text .double-arrow-right {
   display: inline-block;
 }
 
@@ -497,11 +502,11 @@ a:hover, .footer .created-by a:hover {
   position: relative;
 }
 
-.requests-list-item_author, .footer .created-by a {
+.requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .footer .created-by a {
   position: absolute;
 }
 
-.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li {
+.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn {
   text-align: center;
 }
 
@@ -513,7 +518,7 @@ a:hover, .footer .created-by a:hover {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
-.statistic-block li, .benefits-block .header, .benefits-block li span, .last-requests .header, .header-row2 .questions, .footer .questions .title {
+.statistic-block li, .benefits-block .header, .benefits-block li span, .requests-more-btn, .last-requests .header, .radnom-reviews .header, .header-row2 .questions, .footer .questions .title {
   font-family: 'ptsans-narrow-regular', sans-serif;
 }
 
@@ -759,7 +764,7 @@ span sup {
 }
 
 .central {
-  padding-bottom: 55px;
+  padding: 55px 0;
 }
 
 .sideLeft {
@@ -816,6 +821,10 @@ span sup {
 .map-block .btn-perevezu:before {
   top: 50%;
   margin: -22px 0 0 -70px;
+}
+
+.form div.radiobuttons-list label {
+  padding-right: 30px;
 }
 
 .stages-block {
@@ -897,10 +906,37 @@ span sup {
 .requests-list-head {
   margin-bottom: 15px;
 }
+.requests-list-head .numb {
+  margin-left: 50px;
+}
+.requests-list-head .info {
+  margin-left: 41px;
+}
+.requests-list-head .addr {
+  padding-left: 15px;
+}
+.requests-list-head .addr:before {
+  top: -4px;
+  left: 0;
+}
+.requests-list-head .from {
+  margin-left: 83px;
+}
+.requests-list-head .to {
+  margin-left: 106px;
+}
+.requests-list-head .date {
+  width: 80px;
+  margin: -8px 0 0 117px;
+}
+.requests-list-head .price {
+  width: 90px;
+  margin: -8px 0 0 80px;
+}
 
 .requests-list-item {
   border: 1px solid #b2daeb;
-  padding: 25px;
+  padding: 25px 25px 20px 25px;
   margin: 0 0 10px 0;
 }
 .requests-list-item:hover {
@@ -918,7 +954,8 @@ span sup {
 }
 
 .requests-list-item_info {
-  margin-right: 65px;
+  margin-right: 50px;
+  width: 151px;
 }
 
 .requests-list-item-info_url {
@@ -926,7 +963,7 @@ span sup {
 }
 
 .requests-list-item-info_descr {
-  margin: 0 0 10px 0;
+  margin: 0 0 17px 0;
 }
 
 .requests-list-item-info_gruzchiki {
@@ -951,16 +988,17 @@ span sup {
   padding-left: 25px;
 }
 
+.requests-list-item_from {
+  height: 66px;
+}
+
 .requests-list-item_town {
   padding-bottom: 5px;
 }
 
-.requests-list-item_adress {
-  padding-bottom: 10px;
-}
-
 .requests-list-item_author {
   white-space: nowrap;
+  bottom: 0;
 }
 .requests-list-item_author a {
   padding-left: 0;
@@ -970,6 +1008,9 @@ span sup {
   padding: 0 20px;
 }
 
+.requests-list-item_suggestions {
+  margin-top: 34px;
+}
 .requests-list-item_suggestions .suggestion-orange,
 .requests-list-item_suggestions .suggestion-green {
   padding: 2px 5px;
@@ -995,8 +1036,33 @@ span sup {
   line-height: 16px;
 }
 
+.requests-more-btn {
+  border: 1px solid #b2daeb;
+  padding: 10px 0 12px 0;
+  background-color: #f4fbfe;
+}
+
 .last-requests .header {
   margin-bottom: 40px;
+}
+
+.radnom-reviews .header {
+  margin-bottom: 39px;
+}
+
+.radnom-reviews-item-text {
+  border-bottom: 1px dashed #b2daeb;
+  padding: 0 0 30px 0;
+  margin: 20px 0 30px 30px;
+  line-height: 18px;
+}
+.radnom-reviews-item-text:before {
+  top: 0;
+  left: -20px;
+}
+.radnom-reviews-item-text .double-arrow-right {
+  margin-top: 2px;
+  margin-left: 7px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */

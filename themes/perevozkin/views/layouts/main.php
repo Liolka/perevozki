@@ -37,14 +37,10 @@
 							array('label'=>'Контакты', 'url'=>array('/site/oplataidostavka'), 'itemOptions'=>array('class'=>'contacts')),
 							array('label'=>'Помощь грузодателю', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'gruzodatel')),
 							array('label'=>'Помощь перевозчику', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'perevozchik')),
-							array('label'=>'Регистрация', 'url'=>array('/'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),
+							array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),
 							array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-							array('label'=>'Вход', 'url'=>array('/'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
-							
-							//array('label'=>'Вход', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-							//array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
-
-							//array('label'=>'Отзывы', 'url'=>array('/site/feedback'), 'itemOptions'=>array('class'=>'last-item'),),
+							array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+							array('label'=>'Выход ('.Yii::app()->user->name.')', 'url'=>array('/user/logout'), 'visible'=>!$this->app->user->isGuest), 'itemOptions'=>array('class'=>'login login-items'),
 						),'htmlOptions' => array('class'=>'header-row1-menu clearfix', 'id'=>'header-row1-menu')
 					)); ?>
 					
@@ -82,6 +78,8 @@
 			?>
 		</div>
 		
+		
+		<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>
 		<div class="map-block">
 			<p class="info">
 				<span>Любой груз в любую точку</span>
@@ -89,6 +87,7 @@
 				<a href="#" class="btn-blue-66 btn-perevezu">Перевезу груз</a>
 			</p>
 		</div>
+
 		
 		<div class="stages-block clearfix">
 			<ul>
@@ -106,6 +105,7 @@
 				</li>
 			</ul>
 		</div>
+		<?	}	?>
 
 		<div class="middle">
 			<div class="width-wrap">
@@ -121,6 +121,7 @@
 				<div class="central clearfix"><?php echo $content; ?></div>
 			</div>
 			
+			<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>			
 			<div class="statistic-block clearfix">
 				<ul>
 					<li><span>61759 гузов</span> Перевезено</li>
@@ -137,6 +138,7 @@
 					<li><span>Мы экономим ваши деньги</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
 				</ul>
 			</div>
+			<?	}	?>
 			
 			
 		</div>
