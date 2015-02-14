@@ -36,6 +36,22 @@ class SiteController extends Controller
 		$this->layout = '//layouts/column2r';
 		$this->render('index');
 	}
+	
+	public function actionPerevezu()
+	{
+		$this->render('perevezy');
+	}
+	
+	public function actionZakazhu()
+	{
+		$this->render('zakazhu');
+	}
+	
+	public function actionEmptypage()
+	{
+		$this->render('empty-page');
+	}
+	
 	/**
 	 * This is the action to handle external exceptions.
 	 */

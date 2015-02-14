@@ -61,9 +61,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .requests-list-head .addr:before, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-image: url('../images/ico-s0a2c9c99a5.png');
+  background-image: url('../images/ico-s0a53f03623.png');
   background-repeat: no-repeat;
 }
 
@@ -80,147 +80,159 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 13px;
 }
 
-.ico-car1, .requests-list-item_number:before {
+.ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before {
   background-position: 0 -37px;
+  height: 11px;
+  width: 11px;
+}
+
+.ico-car1, .requests-list-item_number:before {
+  background-position: 0 -48px;
   height: 27px;
   width: 40px;
 }
 
 .ico-car2 {
-  background-position: 0 -64px;
+  background-position: 0 -75px;
   height: 17px;
   width: 26px;
 }
 
 .ico-close-blue {
-  background-position: 0 -81px;
+  background-position: 0 -92px;
   height: 28px;
   width: 29px;
 }
 
 .ico-close-red {
-  background-position: 0 -109px;
+  background-position: 0 -120px;
   height: 28px;
   width: 29px;
 }
 
 .ico-close-white {
-  background-position: 0 -137px;
+  background-position: 0 -148px;
   height: 12px;
   width: 12px;
 }
 
 .ico-double-arrow-left, .radnom-reviews-item-text:before {
-  background-position: 0 -149px;
+  background-position: 0 -160px;
   height: 13px;
   width: 13px;
 }
 
 .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right {
-  background-position: 0 -162px;
+  background-position: 0 -173px;
   height: 13px;
   width: 13px;
 }
 
 .ico-farba, .footer .created-by a:before {
-  background-position: 0 -175px;
+  background-position: 0 -186px;
   height: 30px;
   width: 19px;
 }
 
 .ico-girya, .requests-list-item-info_gruzchiki:before {
-  background-position: 0 -205px;
+  background-position: 0 -216px;
   height: 19px;
   width: 14px;
 }
 
 .ico-gruz-big, .map-block .btn-zakazhu:before {
-  background-position: 0 -224px;
+  background-position: 0 -235px;
   height: 50px;
   width: 50px;
 }
 
 .ico-info-popup {
-  background-position: 0 -274px;
+  background-position: 0 -285px;
   height: 6px;
   width: 10px;
 }
 
 .ico-info {
-  background-position: 0 -280px;
+  background-position: 0 -291px;
   height: 11px;
   width: 13px;
 }
 
 .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before {
-  background-position: 0 -291px;
+  background-position: 0 -302px;
   height: 12px;
   width: 5px;
 }
 
+.ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before {
+  background-position: 0 -314px;
+  height: 14px;
+  width: 8px;
+}
+
 .ico-plus, .header-row2 .btn-zakazhu:before {
-  background-position: 0 -303px;
+  background-position: 0 -328px;
   height: 16px;
   width: 16px;
 }
 
 .ico-ptica {
-  background-position: 0 -319px;
+  background-position: 0 -344px;
   height: 15px;
   width: 16px;
 }
 
 .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before {
-  background-position: 0 -334px;
+  background-position: 0 -359px;
   height: 17px;
   width: 17px;
 }
 
 .ico-rating-bad {
-  background-position: 0 -351px;
+  background-position: 0 -376px;
   height: 23px;
   width: 19px;
 }
 
 .ico-rating-good {
-  background-position: 0 -374px;
+  background-position: 0 -399px;
   height: 23px;
   width: 19px;
 }
 
 .ico-star-empty {
-  background-position: 0 -397px;
+  background-position: 0 -422px;
   height: 12px;
   width: 12px;
 }
 
 .ico-star-full-blue {
-  background-position: 0 -409px;
+  background-position: 0 -434px;
   height: 12px;
   width: 12px;
 }
 
 .ico-star-full {
-  background-position: 0 -421px;
+  background-position: 0 -446px;
   height: 12px;
   width: 12px;
 }
 
 .ico-watches-big, .benefits-block li:before {
-  background-position: 0 -433px;
+  background-position: 0 -458px;
   height: 89px;
   width: 90px;
 }
 
 .ico-zoom-big, .map-block .btn-perevezu:before {
-  background-position: 0 -522px;
+  background-position: 0 -547px;
   height: 44px;
   width: 44px;
 }
 
 .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-position: 0 -566px;
+  background-position: 0 -591px;
   height: 19px;
   width: 19px;
 }
@@ -280,12 +292,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
 .stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .radnom-reviews-item-text, .header-row1-menu .gruzodatel,
-.header-row1-menu .perevozchik, .header-row1-menu .login, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login {
+.header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
 .stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .radnom-reviews-item-text:before, .header-row1-menu .gruzodatel:before,
-.header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before {
+.header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before {
   content: ' ';
   position: absolute;
 }
@@ -454,13 +466,13 @@ a:hover, .footer .created-by a:hover {
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66 {
+.btn-green-66, .header-row1-menu .logout a, .footer-cell-last .logout a {
   text-decoration: none;
 }
 .btn-blue-33:hover,
 .btn-green-33:hover, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66:hover,
-.btn-green-66:hover {
+.btn-green-66:hover, .header-row1-menu .logout a:hover, .footer-cell-last .logout a:hover {
   text-decoration: none;
 }
 
@@ -477,7 +489,7 @@ a:hover, .footer .created-by a:hover {
 .requests-list-item_to a,
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
-.requests-list-item_price a, .requests-more-btn, .logo-top, .footer .questions .title, .footer .created-by a {
+.requests-list-item_price a, .requests-more-btn, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
   display: block;
 }
 
@@ -506,7 +518,8 @@ a:hover, .footer .created-by a:hover {
   position: absolute;
 }
 
-.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn {
+.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .header-row2 .btn-zakazhu-270,
+.header-row2 .btn-perevezu-270 {
   text-align: center;
 }
 
@@ -729,6 +742,20 @@ span sup {
   background-repeat: repeat-x;
 }
 
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+  min-width: 1235px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  position: relative;
+  background-color: #fff;
+}
+
 .width-wrap {
   width: 1225px;
   margin: 0 auto;
@@ -736,19 +763,10 @@ span sup {
   padding: 0 5px 0 5px;
 }
 
-.wrapper {
-  height: 100%;
-  width: 100%;
-  min-width: 1235px;
-  margin: 0;
-  padding: 0;
-}
-
 .wrapperPage {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  background-color: #fff;
 }
 
 .middle {
@@ -1099,15 +1117,31 @@ span sup {
 .header-row1-menu .perevozchik:before {
   left: -22px;
 }
+.header-row1-menu .logout,
+.header-row1-menu .profile,
+.header-row1-menu .login,
 .header-row1-menu .reg {
-  margin-right: 0;
-}
-.header-row1-menu .login {
   margin-right: 0;
 }
 .header-row1-menu .login:before {
   top: 7px;
   left: -10px;
+}
+.header-row1-menu .logout a {
+  overflow: hidden;
+  text-indent: 7777px;
+  white-space: nowrap;
+  width: 8px;
+  height: 14px;
+  margin-top: 8px;
+}
+.header-row1-menu .logout a:before {
+  top: 0;
+  left: 0;
+}
+.header-row1-menu .profile:before {
+  top: 8px;
+  left: -15px;
 }
 .header-row1-menu .separator {
   margin: 0 15px;
@@ -1135,6 +1169,10 @@ span sup {
   top: 50%;
   margin-top: -9px;
   margin-left: -25px;
+}
+.header-row2 .btn-zakazhu-270,
+.header-row2 .btn-perevezu-270 {
+  width: 270px;
 }
 .header-row2 .questions {
   margin-top: 18px;
@@ -1186,6 +1224,22 @@ span sup {
 .footer-cell-last .login:before {
   top: 2px;
   left: -10px;
+}
+.footer-cell-last .logout a {
+  overflow: hidden;
+  text-indent: 7777px;
+  white-space: nowrap;
+  width: 8px;
+  height: 14px;
+  margin-top: 2px;
+}
+.footer-cell-last .logout a:before {
+  top: 0;
+  left: 0;
+}
+.footer-cell-last .profile:before {
+  top: 2px;
+  left: -15px;
 }
 .footer-cell-last .separator {
   margin: 0 15px;

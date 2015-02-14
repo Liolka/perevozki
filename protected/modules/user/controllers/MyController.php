@@ -1,9 +1,9 @@
 <?php
 
-class ProfileController extends Controller
+class MyController extends Controller
 {
-	public $defaultAction = 'profile';
-	public $layout='//layouts/column2';
+	public $defaultAction = 'my';
+	public $layout='//layouts/column1';
 	
 	public $current_controller = '';
 	public $current_action = '';
@@ -16,18 +16,84 @@ class ProfileController extends Controller
 	 * @var CActiveRecord the currently loaded data model instance.
 	 */
 	private $_model;
-	/**
-	 * Shows a particular model.
-	 */
-	public function actionProfile()
+
+	public function actionMy()
 	{
 		$model = $this->loadUser();
-	    $this->render('profile',array(
+		
+		$app = Yii::app();
+		
+		
+		switch($app->user->user_type) {
+			case 1:
+				$template = 'my_grizodatel';
+				break;
+			case 2:
+				$template = 'my_perevozchik';
+				break;
+			default:
+				$template = 'my_grizodatel';
+				break;
+		}
+	    $this->render($template, array(
+	    	'app'=>$app,
 	    	'model'=>$model,
 			'profile'=>$model->profile,
 	    ));
 	}
-	
+
+	public function actionRequests()
+	{
+		$model = $this->loadUser();
+		
+		$app = Yii::app();
+				
+	    $this->render('requests', array(
+	    	'app'=>$app,
+	    	'model'=>$model,
+			'profile'=>$model->profile,
+	    ));
+	}
+
+	public function actionTransport()
+	{
+		$model = $this->loadUser();
+		
+		$app = Yii::app();
+				
+	    $this->render('transport', array(
+	    	'app'=>$app,
+	    	'model'=>$model,
+			'profile'=>$model->profile,
+	    ));
+	}
+
+	public function actionDocuments()
+	{
+		$model = $this->loadUser();
+		
+		$app = Yii::app();
+				
+	    $this->render('documents', array(
+	    	'app'=>$app,
+	    	'model'=>$model,
+			'profile'=>$model->profile,
+	    ));
+	}
+
+	public function actionInfo()
+	{
+		$model = $this->loadUser();
+		
+		$app = Yii::app();
+				
+	    $this->render('info', array(
+	    	'app'=>$app,
+	    	'model'=>$model,
+			'profile'=>$model->profile,
+	    ));
+	}
+
 
 	/**
 	 * Updates a particular model.
@@ -37,6 +103,7 @@ class ProfileController extends Controller
 	{
 		$model = $this->loadUser();
 		$profile=$model->profile;
+		$app = Yii::app();
 		
 		// ajax validator
 		if(isset($_POST['ajax']) && $_POST['ajax']==='profile-form')
@@ -60,6 +127,7 @@ class ProfileController extends Controller
 		}
 
 		$this->render('edit',array(
+			'app'=>$app,
 			'model'=>$model,
 			'profile'=>$profile,
 		));

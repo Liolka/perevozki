@@ -1,7 +1,7 @@
 <?php /* @var $this Controller */ ?>
 <?php include('init-variables.php'); ?>
 <?php $this->beginContent('//layouts/main'); ?>
-<div id="content">
+<div class="content column1">
 	<?php echo $content; ?>
-</div><!-- content -->
+</div>
 <?php $this->endContent(); ?>

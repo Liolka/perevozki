@@ -56,13 +56,15 @@ $this->breadcrumbs=array(
 	
 	<div class="row">
 		<?php echo $form->checkBox($model,'accept_rules'); ?>
-		<?php echo $form->labelEx($model,'accept_rules'); ?>
+		<?php echo $form->labelEx($model,'accept_rules'); ?><a href="#">Соглашение</a>
 		
 		<?php echo $form->error($model,'accept_rules'); ?>
 	</div>
 	
 	<div class="row radiobuttons-list">
-		<? echo $form->radioButtonList($model,'user_status', $model->user_status_labels, array('separator'=>' ')); ?>
+		<?php echo $form->labelEx($model,'user_status'); ?>
+		<?php echo $form->radioButtonList($model, 'user_status', $model->user_status_labels, array('separator'=>' ')); ?>
+		<?php echo $form->error($model,'user_status'); ?>
 	</div>
 	
 <?php 

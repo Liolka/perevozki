@@ -289,6 +289,23 @@ span sup{text-decoration:none;}
 }
 
 
+html,
+body {
+  height: 100%;
+}
+
+.wrapper {
+	min-width: 1235px;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	position: relative;
+	background-color: #fff;
+}
+
+
+
+
 .width-wrap {
 	width: 1225px;
 	margin: 0 auto;
@@ -296,19 +313,10 @@ span sup{text-decoration:none;}
 	padding: 0 5px 0 5px
 }
 
-.wrapper {
-	height: 100%;
-	width: 100%;
-	min-width: 1235px;
-	margin: 0;
-	padding: 0;	
-}
-
 .wrapperPage {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  background-color: #fff;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
 }
 
 .middle {

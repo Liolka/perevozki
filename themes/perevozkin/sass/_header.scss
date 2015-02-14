@@ -58,12 +58,14 @@
 		@extend %fr;
 	}
 	
+	.logout,
+	.profile,
+	.login,
 	.reg {
 		margin-right: 0;
 	}
 	
 	.login {
-		margin-right: 0;
 		
 		@extend %for_sprite;
 		
@@ -73,6 +75,41 @@
 			@extend .ico-key;
 		}
 	}
+	
+	.logout {
+		a {
+			overflow: hidden;
+			text-indent: 7777px;
+			white-space: nowrap;
+			width: 8px;
+			height: 14px;
+			margin-top: 8px;
+			
+			@extend %db;
+			@extend %for_sprite;
+			@extend %underline_n_n;
+
+			&:before {
+				top: 0;
+				left: 0;
+				@extend .ico-logout;
+			}
+		}	
+	}
+	
+	.profile {
+		@extend %for_sprite;
+		
+		&:before {
+			top: 8px;
+			left: -15px;
+			@extend .ico-avatar-s;
+		}
+		
+		
+	}
+	
+	
 	
 	.separator {
 		margin: 0 15px;
@@ -123,6 +160,12 @@
 			margin-left: -25px;
 			@extend .ico-zoom;
 		}
+	}
+	
+	.btn-zakazhu-270,
+	.btn-perevezu-270 {
+		width: 270px;
+		@extend %text_c;
 	}
 	
 	.questions {

@@ -114,6 +114,41 @@
 		}
 	}
 	
+	.logout {
+		a {
+			overflow: hidden;
+			text-indent: 7777px;
+			white-space: nowrap;
+			width: 8px;
+			height: 14px;
+			margin-top: 2px;
+			
+			@extend %db;
+			@extend %for_sprite;
+			@extend %underline_n_n;
+
+			&:before {
+				top: 0;
+				left: 0;
+				@extend .ico-logout;
+			}
+		}	
+	}
+	
+	.profile {
+		@extend %for_sprite;
+		
+		&:before {
+			top: 2px;
+			left: -15px;
+			@extend .ico-avatar-s;
+		}
+		
+		
+	}
+	
+	
+	
 	
 	.separator {
 		margin: 0 15px;

@@ -8,6 +8,7 @@
 class UserIdentity extends CUserIdentity
 {
 	private $_id;
+	//public $info;
 	const ERROR_EMAIL_INVALID=3;
 	const ERROR_STATUS_NOTACTIV=4;
 	const ERROR_STATUS_BAN=5;
@@ -42,6 +43,8 @@ class UserIdentity extends CUserIdentity
 			$this->_id=$user->id;
 			$this->username=$user->username;
 			$this->errorCode=self::ERROR_NONE;
+			//$this->info = 'info!!!';
+			$this->setState('user_info', 'info!!!');
 		}
 		return !$this->errorCode;
 	}

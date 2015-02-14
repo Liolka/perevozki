@@ -5,7 +5,7 @@ return CMap::mergeArray(
     
     array(
 		
-		'name'=>'perevozkin_front',
+		'name'=>'PEREVOZKIN.BY',
 		'theme'=>'perevozkin',
         
         

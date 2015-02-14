@@ -46,6 +46,7 @@ class RecoveryController extends Controller
 		    	} else {
 			    	if(isset($_POST['UserRecoveryForm'])) {
 			    		$form->attributes=$_POST['UserRecoveryForm'];
+						//echo'<pre>';print_r($form->attributes);echo'</pre>';die;
 			    		if($form->validate()) {
 			    			$user = User::model()->notsafe()->findbyPk($form->user_id);
 							$activation_url = 'http://' . $_SERVER['HTTP_HOST'].$this->createUrl(implode(Yii::app()->controller->module->recoveryUrl),array("activkey" => $user->activkey, "email" => $user->email));
