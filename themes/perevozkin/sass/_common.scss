@@ -64,10 +64,11 @@ a {
 	&:hover {
 		@extend %c_2d9ae0;
 	}
-	
+	/*
 	&:visited {
 		@extend %c_70a3c4;
 	}
+	*/
 }
 
 li {
@@ -95,10 +96,11 @@ input {
 
 
 h1 {
-	font-size: 32px;
-	margin: 0 0 20px 0;
-	
+	font-size: 54px;
+	//margin: 0 0 20px 0;
+	@extend %pt_sans_narrow_bold;
 	@extend %bold;
+	@extend %c_2e3c54;
 }
 
 h2 {
@@ -427,10 +429,43 @@ body {
 .form div.radiobuttons-list {
 	input,
 	label {
-		@extend %di
+		@extend %di;
 	}
 	
 	label {
 		padding-right: 30px;
 	}
+}
+
+.rating-stars {
+	width: 64px;
+	height: 13px;
+	
+	@extend %pos_rel;
+	
+	.stars-empty {
+		top: 0;
+		left: 0;
+		height: 100%;
+		background: url(../images/star-empty.png) repeat-x;
+		z-index: 1;
+		
+		@extend %db;
+		@extend %w_100;
+		@extend %pos_abs;
+	}
+	
+	.stars-full {
+		top: 0;
+		left: 0;
+		height: 100%;
+		background: url(../images/star-full.png) repeat-x;
+		z-index: 2;
+		width: 10%;
+		
+		
+		@extend %db;
+		@extend %pos_abs;
+	}
+	
 }

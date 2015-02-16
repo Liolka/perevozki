@@ -1,0 +1,31 @@
+.my-page {
+	margin: 30px 0 0 0;
+}
+
+.my-username {
+	margin: 0 0 55px 0;
+	
+	@extend %font_24;
+	@extend %c_2e3c54;
+	@extend %bold;
+	@extend %pt_sans_narrow_bold;
+}
+
+.my-last-requests-title {
+	@extend %bold;
+	@extend %font_24;
+	@extend %c_2e3c54;
+	@extend %pt_sans_narrow_bold;
+	
+	span {
+		@extend %normal;
+		@extend %pt_sans_narrow_regular;
+		@extend %c_8093a9;
+	}
+	
+	a {
+		@extend %normal;
+		@extend %arial;
+		@extend %font_14;
+	}
+}

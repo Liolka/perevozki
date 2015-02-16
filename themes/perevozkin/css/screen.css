@@ -61,9 +61,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .requests-list-head .addr:before, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
-.header-row1-menu .perevozchik:before, .ico-rating-bad, .ico-rating-good, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-image: url('../images/ico-s0a53f03623.png');
+.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
+  background-image: url('../images/ico-sfad874eac1.png');
   background-repeat: no-repeat;
 }
 
@@ -152,7 +152,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 10px;
 }
 
-.ico-info {
+.ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before {
   background-position: 0 -291px;
   height: 11px;
   width: 13px;
@@ -170,69 +170,99 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 8px;
 }
 
-.ico-plus, .header-row2 .btn-zakazhu:before {
+.ico-menu-documents, .my-menu-item-documents:before {
   background-position: 0 -328px;
+  height: 45px;
+  width: 37px;
+}
+
+.ico-menu-info, .my-menu-item-info:before {
+  background-position: 0 -373px;
+  height: 43px;
+  width: 31px;
+}
+
+.ico-menu-profile, .my-menu-item-profile:before {
+  background-position: 0 -416px;
+  height: 42px;
+  width: 43px;
+}
+
+.ico-menu-transport, .my-menu-item-transport:before {
+  background-position: 0 -458px;
+  height: 37px;
+  width: 51px;
+}
+
+.ico-menu-zayavki, .my-menu-item-zayavki:before {
+  background-position: 0 -495px;
+  height: 41px;
+  width: 41px;
+}
+
+.ico-plus, .header-row2 .btn-zakazhu:before {
+  background-position: 0 -536px;
   height: 16px;
   width: 16px;
 }
 
 .ico-ptica {
-  background-position: 0 -344px;
+  background-position: 0 -552px;
   height: 15px;
   width: 16px;
 }
 
 .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before {
-  background-position: 0 -359px;
+  background-position: 0 -567px;
   height: 17px;
   width: 17px;
 }
 
-.ico-rating-bad {
-  background-position: 0 -376px;
+.ico-rating-bad, .requests1-list-item-review-bad:before {
+  background-position: 0 -584px;
   height: 23px;
   width: 19px;
 }
 
-.ico-rating-good {
-  background-position: 0 -399px;
+.ico-rating-good, .requests1-list-item-review-good:before {
+  background-position: 0 -607px;
   height: 23px;
   width: 19px;
 }
 
 .ico-star-empty {
-  background-position: 0 -422px;
+  background-position: 0 -630px;
   height: 12px;
   width: 12px;
 }
 
 .ico-star-full-blue {
-  background-position: 0 -434px;
+  background-position: 0 -642px;
   height: 12px;
   width: 12px;
 }
 
 .ico-star-full {
-  background-position: 0 -446px;
+  background-position: 0 -654px;
   height: 12px;
   width: 12px;
 }
 
 .ico-watches-big, .benefits-block li:before {
-  background-position: 0 -458px;
+  background-position: 0 -666px;
   height: 89px;
   width: 90px;
 }
 
 .ico-zoom-big, .map-block .btn-perevezu:before {
-  background-position: 0 -547px;
+  background-position: 0 -755px;
   height: 44px;
   width: 44px;
 }
 
 .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-position: 0 -591px;
+  background-position: 0 -799px;
   height: 19px;
   width: 19px;
 }
@@ -291,12 +321,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .radnom-reviews-item-text, .header-row1-menu .gruzodatel,
+.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .radnom-reviews-item-text:before, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before {
   content: ' ';
   position: absolute;
@@ -312,11 +342,11 @@ a, .header-row2 .questions .phone-numb, .footer-cell a:visited,
   color: #0a80cb;
 }
 
-.requests-list-item-info_url, .requests-list-item-info_url:visited, .requests-more-btn, .requests-more-btn:hover, .requests-more-btn:visited, .radnom-reviews .header a:visited {
+.requests-list-item-info_url, .requests-list-item-info_url:visited, .requests-more-btn, .requests-more-btn:hover, .requests-more-btn:visited, .requests1-list-head-info a, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .radnom-reviews .header a:visited {
   color: #1e91da;
 }
 
-.requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .last-requests .header, .footer .questions, .footer .questions .title {
+h1, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .requests1-list-item-numb, .requests1-list-item-review, .last-requests .header, .my-username, .my-last-requests-title, .footer .questions, .footer .questions .title {
   color: #2e3c54;
 }
 
@@ -324,8 +354,12 @@ a:hover {
   color: #2d9ae0;
 }
 
-.requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .last-requests .header, .footer .questions, .footer .questions .title {
+h1, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .requests1-list-item-numb, .requests1-list-item-review, .last-requests .header, .my-username, .my-last-requests-title, .footer .questions, .footer .questions .title {
   color: #2e3c54;
+}
+
+.requests1-list-item-zakazchik a {
+  color: #33a72c;
 }
 
 .header-row1-menu a {
@@ -336,15 +370,11 @@ a:hover {
   color: #697f9a;
 }
 
-a:visited {
-  color: #70a3c4;
-}
-
-.requests-list-head li {
+.requests-list-head li, .requests1-list-head-item {
   color: #757575;
 }
 
-.header-row2 .questions .title {
+.my-last-requests-title span, .header-row2 .questions .title {
   color: #8093a9;
 }
 
@@ -355,6 +385,10 @@ a:visited {
 
 .header-row2 .questions {
   color: #96a5b8;
+}
+
+.requests1-list-item-date {
+  color: #aab1ba;
 }
 
 .radnom-reviews .header {
@@ -377,7 +411,7 @@ a:visited {
 .btn-green-52:hover, .btn-blue-66,
 .btn-green-66, .btn-blue-66:hover,
 .btn-green-66:hover, .map-block .info span, .statistic-block li, .requests-list-item_suggestions .suggestion-orange,
-.requests-list-item_suggestions .suggestion-green {
+.requests-list-item_suggestions .suggestion-green, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr {
   color: #fff;
 }
 
@@ -385,19 +419,19 @@ a:visited {
   font-size: 11px;
 }
 
-.stages-block .descr, .benefits-block li, .requests-list-head li, .requests-list-item_number, .requests-list-item-info_url, .requests-list-item-info_descr, .requests-list-item-info_gruzchiki, .requests-list-item_adress, .header-row1-menu a, .footer-cell-last span,
+.stages-block .descr, .benefits-block li, .requests-list-head li, .requests-list-item_number, .requests-list-item-info_url, .requests-list-item-info_descr, .requests-list-item-info_gruzchiki, .requests-list-item_adress, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .header-row1-menu a, .footer-cell-last span,
 .footer-cell-last a {
   font-size: 12px;
 }
 
 .requests-list-item_town, .requests-list-item_suggestions,
-.requests-list-item_date {
+.requests-list-item_date, .requests1-list-item-date {
   font-size: 13px;
 }
 
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
-.btn-green-52 {
+.btn-green-52, .my-menu-url, .my-last-requests-title a {
   font-size: 14px;
 }
 
@@ -418,7 +452,7 @@ h3 {
 }
 
 .btn-blue-66,
-.btn-green-66, .last-requests .header, .radnom-reviews .header, .header-row2 .questions {
+.btn-green-66, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .header-row2 .questions {
   font-size: 24px;
 }
 
@@ -438,7 +472,11 @@ h3 {
   font-size: 48px;
 }
 
-h1, h2, h3, .requests-list-item_town, .requests-list-item-price_price {
+.my-last-requests-title span, .my-last-requests-title a {
+  font-weight: normal;
+}
+
+h1, h2, h3, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title {
   font-weight: bold;
 }
 
@@ -476,7 +514,7 @@ a:hover, .footer .created-by a:hover {
   text-decoration: none;
 }
 
-.fLeft, .sideLeft, .sideRight, .container, .column2r, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-head li, .requests-list-item > div, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
+.fLeft, .sideLeft, .sideRight, .container, .column2r, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-head li, .requests-list-item > div, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
   float: left;
 }
 
@@ -484,12 +522,12 @@ a:hover, .footer .created-by a:hover {
   float: right;
 }
 
-.map-block .info span, .statistic-block li span, .benefits-block li span, .requests-list-item_info span,
+.map-block .info span, .rating-stars .stars-empty, .rating-stars .stars-full, .statistic-block li span, .benefits-block li span, .requests-list-item_info span,
 .requests-list-item_info a, .requests-list-item_to span,
 .requests-list-item_to a,
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
-.requests-list-item_price a, .requests-more-btn, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
+.requests-list-item_price a, .requests-more-btn, .my-menu-url, .my-menu-descr, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
   display: block;
 }
 
@@ -510,29 +548,37 @@ a:hover, .footer .created-by a:hover {
   display: none;
 }
 
-.stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .footer .created-by {
+.rating-stars, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .footer .created-by {
   position: relative;
 }
 
-.requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .footer .created-by a {
+.rating-stars .stars-empty, .rating-stars .stars-full, .requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .footer .created-by a {
   position: absolute;
 }
 
-.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .header-row2 .btn-zakazhu-270,
+.map-block .info, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .requests1-list-head-rating, .requests1-list-item-numb, .header-row2 .btn-zakazhu-270,
 .header-row2 .btn-perevezu-270 {
   text-align: center;
 }
 
+.rating-stars .stars-empty {
+  width: 100%;
+}
+
 /*font family*/
-.btn-blue-33,
+h1, .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66, .map-block .info span, .stages-block .title, .statistic-block li span, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
+.btn-green-66, .map-block .info span, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
-.statistic-block li, .benefits-block .header, .benefits-block li span, .requests-more-btn, .last-requests .header, .radnom-reviews .header, .header-row2 .questions, .footer .questions .title {
+.statistic-block li, .benefits-block .header, .benefits-block li span, .requests-more-btn, .last-requests .header, .radnom-reviews .header, .my-last-requests-title span, .header-row2 .questions, .footer .questions .title {
   font-family: 'ptsans-narrow-regular', sans-serif;
+}
+
+.my-last-requests-title a {
+  font-family: arial, sans-serif;
 }
 
 @font-face {
@@ -587,6 +633,11 @@ textarea.error {
 
 a {
   outline: none;
+  /*
+  &:visited {
+  	@extend %c_70a3c4;
+  }
+  */
 }
 
 li {
@@ -613,8 +664,7 @@ input {
 }
 
 h1 {
-  font-size: 32px;
-  margin: 0 0 20px 0;
+  font-size: 54px;
 }
 
 h2 {
@@ -845,6 +895,26 @@ body {
   padding-right: 30px;
 }
 
+.rating-stars {
+  width: 64px;
+  height: 13px;
+}
+.rating-stars .stars-empty {
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: url(../images/star-empty.png) repeat-x;
+  z-index: 1;
+}
+.rating-stars .stars-full {
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: url(../images/star-full.png) repeat-x;
+  z-index: 2;
+  width: 10%;
+}
+
 .stages-block {
   background-color: #f4fbfe;
   overflow: hidden;
@@ -1060,6 +1130,104 @@ body {
   background-color: #f4fbfe;
 }
 
+.requests1-list-head {
+  margin: 20px 0 0 0;
+}
+
+.requests1-list-item {
+  border: 1px solid #b2daeb;
+  padding: 25px 25px 20px 25px;
+  margin: 0 0 10px 0;
+}
+.requests1-list-item:hover {
+  background-color: #f4fbfe;
+}
+
+.requests1-list-head-numb {
+  margin: 0 34px 20px 45px;
+}
+
+.requests1-list-head-info {
+  margin: 0 60px 20px 0;
+}
+
+.requests1-list-head-date {
+  margin: 0 42px 20px 0;
+}
+
+.requests1-list-head-perevozchik {
+  margin: 0 40px 20px 0;
+}
+
+.requests1-list-head-rating {
+  width: 120px;
+  margin: -10px 20px 20px 0;
+}
+
+.requests1-list-head-zakazchik {
+  margin: 0 88px 20px 0;
+}
+
+.requests1-list-head-review {
+  margin: 0 0 20px 0;
+}
+
+.requests1-list-item-numb {
+  width: 50px;
+  margin: 0 17px 0 0;
+}
+
+.requests1-list-item-info {
+  width: 140px;
+  margin: 0 23px 0 0;
+}
+
+.requests1-list-item-date {
+  width: 65px;
+  margin: 0 18px 0 0;
+}
+
+.requests1-list-item-perevozchik {
+  width: 120px;
+  margin: 0 15px 0 0;
+}
+.requests1-list-item-perevozchik a:before {
+  right: -19px;
+  top: 2px;
+}
+
+.requests1-list-item-rating {
+  width: 66px;
+  margin: 0 33px 0 0;
+}
+
+.requests1-list-item-zakazchik {
+  width: 125px;
+  margin: 0 25px 0 0;
+}
+.requests1-list-item-zakazchik a:before {
+  right: -19px;
+  top: 2px;
+}
+
+.requests1-list-item-review {
+  width: 125px;
+  padding: 0 0 0 35px;
+}
+.requests1-list-item-review span {
+  border-bottom: 1px dotted #2e3c54;
+}
+
+.requests1-list-item-review-good:before {
+  left: 0;
+  top: 0;
+}
+
+.requests1-list-item-review-bad:before {
+  left: 0;
+  top: 0;
+}
+
 .last-requests .header {
   margin-bottom: 40px;
 }
@@ -1081,6 +1249,81 @@ body {
 .radnom-reviews-item-text .double-arrow-right {
   margin-top: 2px;
   margin-left: 7px;
+}
+
+.my-menu {
+  background-color: #697f9a;
+}
+
+.my-menu-item {
+  height: 130px;
+  width: 149px;
+  border-right: 1px solid #425770;
+  padding-right: 20px;
+}
+.my-menu-item:hover {
+  background-color: #425770;
+  border-color: #425770;
+}
+.my-menu-item:last-of-type {
+  border-right: none;
+}
+
+.my-menu-item-zayavki {
+  padding-left: 87px;
+  width: 137px;
+}
+.my-menu-item-zayavki:before {
+  left: 24px;
+  top: 26px;
+}
+
+.my-menu-item-transport {
+  padding-left: 90px;
+  width: 134px;
+}
+.my-menu-item-transport:before {
+  left: 21px;
+  top: 27px;
+}
+
+.my-menu-item-documents {
+  padding-left: 87px;
+  width: 137px;
+}
+.my-menu-item-documents:before {
+  left: 28px;
+  top: 26px;
+}
+
+.my-menu-item-info {
+  padding-left: 71px;
+  width: 153px;
+}
+.my-menu-item-info:before {
+  left: 23px;
+  top: 23px;
+}
+
+.my-menu-item-profile {
+  padding-left: 75px;
+  width: 149px;
+}
+.my-menu-item-profile:before {
+  left: 18px;
+  top: 22px;
+}
+
+.my-menu-url {
+  margin: 21px 0 9px 0;
+}
+
+.my-page {
+  margin: 30px 0 0 0;
+}
+
+.my-username {
+  margin: 0 0 55px 0;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */

@@ -1,0 +1,173 @@
+.requests1-list-head {
+	margin: 20px 0 0 0;
+}
+
+.requests1-list-head-item {
+	//margin: 0 15px 20px 15px;
+	
+	@extend %fl;
+	@extend %fl;
+	@extend %font_12;
+	@extend %c_757575;
+	
+}
+
+.requests1-list-item {
+	border: 1px solid #b2daeb;
+	padding: 25px 25px 20px 25px;
+	margin: 0 0 10px 0;
+	
+	&:hover {
+		background-color: #f4fbfe;
+	}
+	
+	& > div {
+		@extend %fl;
+	}
+}
+
+.requests1-list-head-numb {
+	margin: 0 34px 20px 45px;
+}
+
+.requests1-list-head-info {
+	margin: 0 60px 20px 0;
+	a {
+		@extend %c_1e91da;
+	}
+}
+
+.requests1-list-head-date {
+	margin: 0 42px 20px 0;
+}
+
+.requests1-list-head-perevozchik {
+	margin: 0 40px 20px 0;
+}
+
+.requests1-list-head-rating {
+	width: 120px;
+	margin: -10px 20px 20px 0;
+	
+	@extend %text_c;
+}
+
+.requests1-list-head-zakazchik {
+	margin: 0 88px 20px 0;
+}
+
+.requests1-list-head-review {
+	margin: 0 0 20px 0;
+}
+
+
+
+.requests1-list-item-numb {
+	width: 50px;
+	margin: 0 17px 0 0;
+	
+	@extend %text_c;
+	@extend %font_12;
+	@extend %c_2e3c54;
+}
+
+.requests1-list-item-info {
+	width: 140px;
+	margin: 0 23px 0 0;
+	
+	a {
+		@extend %c_1e91da;
+		@extend %font_12;
+	}
+	
+	
+}
+
+.requests1-list-item-date {
+	width: 65px;
+	margin: 0 18px 0 0;
+	
+	@extend %font_13;
+	@extend %c_aab1ba;
+	
+}
+
+
+.requests1-list-item-perevozchik {
+	width: 120px;
+	margin: 0 15px 0 0;	
+	
+	a {
+		@extend %c_1e91da;
+		@extend %font_12;
+		@extend %for_sprite;
+		
+		&:before {
+			right: -19px;
+			top: 2px;
+			
+			@extend .ico-info;
+		}
+	}
+}
+
+.requests1-list-item-rating {
+	width: 66px;
+	margin: 0 33px 0 0;	
+}
+
+
+.requests1-list-item-zakazchik {
+	width: 125px;
+	margin: 0 25px 0 0;
+	a {
+		@extend %font_12;
+		@extend %c_33a72c;	
+		@extend %for_sprite;
+		
+		&:before {
+			right: -19px;
+			top: 2px;
+			
+			@extend .ico-info;
+		}
+		
+	}
+}
+
+
+.requests1-list-item-review {
+	width: 125px;
+	padding: 0 0 0 35px;
+	
+	@extend %font_12;
+	@extend %c_2e3c54;
+	@extend %for_sprite;
+	
+	span {
+		border-bottom: 1px dotted #2e3c54;
+	}
+}
+
+.requests1-list-item-review-good {
+	&:before {
+		left: 0;
+		top: 0;
+		
+		@extend .ico-rating-good;
+	}
+}
+
+.requests1-list-item-review-bad {
+	&:before {
+		left: 0;
+		top: 0;
+		
+		@extend .ico-rating-bad;
+	}
+}
+
+
+
+
+

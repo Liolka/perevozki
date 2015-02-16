@@ -1,0 +1,110 @@
+.my-menu {
+	background-color: #697f9a;	
+}
+
+.my-menu-list {
+	
+}
+//244px
+.my-menu-item {
+	height: 130px;
+	width: 149px;
+	border-right: 1px solid #425770;
+	padding-right: 20px;
+	
+	@extend %fl;
+	@extend %for_sprite;
+	
+	&:hover {
+		background-color: #425770;
+		border-color: #425770;
+	}
+	
+	&:last-of-type {
+		border-right: none;
+	}
+	
+	&:before {
+	}
+	
+}
+
+.my-menu-item-zayavki {
+	padding-left: 87px;
+	width: 137px;
+	
+	&:before {
+		left: 24px;
+		top: 26px;
+		
+		@extend .ico-menu-zayavki;
+	}
+}
+
+.my-menu-item-transport {
+	padding-left: 90px;
+	width: 134px;
+	
+	&:before {
+		left: 21px;
+		top: 27px;
+		
+		@extend .ico-menu-transport;
+	}
+}
+
+.my-menu-item-documents {
+	padding-left: 87px;
+	width: 137px;
+		
+	&:before {
+		left: 28px;
+		top: 26px;
+		
+		@extend .ico-menu-documents;
+	}
+}
+
+.my-menu-item-info {
+	padding-left: 71px;
+	width: 153px;
+	
+	&:before {
+		left: 23px;
+		top: 23px;
+		
+		@extend .ico-menu-info;
+	}
+}
+
+.my-menu-item-profile {
+	padding-left: 75px;
+	width: 149px;
+	
+	&:before {
+		left: 18px;
+		top: 22px;
+		
+		@extend .ico-menu-profile;
+	}
+}
+
+.my-menu-url {
+	margin: 21px 0 9px 0;
+	
+	@extend %db;
+	@extend %c_fff;
+	@extend %bold;
+	@extend %font_14;
+	
+	&:visited,
+	&:hover {
+		@extend %c_fff;
+	}
+}
+
+.my-menu-descr {
+	@extend %db;
+	@extend %c_fff;
+	@extend %font_12;
+}
