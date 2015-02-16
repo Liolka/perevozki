@@ -17,8 +17,9 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/ie.css" media="screen, projection" />
 	<![endif]-->
 
-	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/main.css" />
+	<? /*<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/main.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->theme_baseUrl; ?>/css/form.css" />
+	*/ ?>
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
@@ -136,7 +137,13 @@
 			</ul>
 		</div>
 		<?	}	?>
-
+		
+		<? $this->widget('application.components.MyTopMenuWidget',array (
+			'current_controller' => $this->current_controller,
+			'current_action' => $this->current_action,
+			'user' => $this->app->user,
+		)); ?>
+		
 		<div class="middle">
 			<div class="width-wrap">
 				<?php if(isset($this->breadcrumbs)):?>

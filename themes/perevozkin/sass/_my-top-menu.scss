@@ -1,0 +1,118 @@
+.my-top-menu {
+	background-color: #8799ae;
+}
+
+.my-top-menu-item {
+	width: 149px;
+	height: 63px;
+	background-color: #697f9a;
+	border-right: 1px solid #5c7390;
+	
+	padding-right: 20px;
+	
+	@extend %fl;
+	@extend %for_sprite;
+	
+	
+	&.active,
+	&:hover {
+		background-color: #425770;
+		
+		&:after {
+			content: '';		
+			left: 50%;
+			bottom: 0;
+			margin-left: -5px;
+			border: 10px solid transparent; 
+			border-bottom: 10px solid #fff;
+
+			@extend %pos_abs;
+		}
+
+	}
+	
+	
+	a {
+		margin: 26px 0 0 0;
+
+		@extend %db;
+		@extend %c_fff;
+		@extend %bold;
+		@extend %font_14;
+		@extend %underline_y_y;
+
+		&:visited,
+		&:hover {						
+			@extend %c_fff;
+		}
+	}
+}
+
+.my-top-menu-zayavki {
+	padding-left: 87px;
+	width: 137px;
+	
+	&:before {
+		left: 24px;
+		top: 17px;
+		
+		@extend .ico-menu-zayavki-s;
+	}
+}
+
+.my-top-menu-transport {
+	padding-left: 90px;
+	width: 134px;
+	
+	&:before {
+		left: 21px;
+		top: 18px;
+		
+		@extend .ico-menu-transport-s;
+	}
+}
+
+.my-top-menu-documents {
+	padding-left: 87px;
+	width: 137px;
+		
+	&:before {
+		left: 28px;
+		top: 17px;
+		
+		@extend .ico-menu-documents-s;
+	}
+}
+
+.my-top-menu-info {
+	padding-left: 71px;
+	width: 153px;
+	
+	&:before {
+		left: 23px;
+		top: 16px;
+		
+		@extend .ico-menu-info-s;
+	}
+	
+	a {
+		margin-top: 14px;
+	}
+}
+
+.my-top-menu-profile {
+	padding-left: 75px;
+	width: 149px;
+	
+	&:before {
+		left: 18px;
+		top: 15px;
+		
+		@extend .ico-menu-profile-s;
+	}
+	
+	a {
+		margin-top: 14px;
+	}
+	
+}

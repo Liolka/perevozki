@@ -47,7 +47,7 @@ $this->menu=array(
 			<span class="my-menu-descr">6 штук</span>
 		</li>
 		<li class="my-menu-item my-menu-item-info">
-			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/documents')?>">Информация о компании, контакты</a>
+			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Информация о компании, контакты</a>
 			<span class="my-menu-descr my-menu-descr-small">Тип компании, количество сотрудников, год основания и т.д.</span>
 		</li>
 		<li class="my-menu-item my-menu-item-profile">
@@ -110,16 +110,33 @@ $this->menu=array(
 				Рейтинг
 				<div class="my-rating-stars"><span class="my-rating-stars-empty"></span><span class="my-rating-stars-full" style="width:78%;"></span></div>
 			</div>
-			<div class="my-rating-info">
+			<div class="my-rating-info clearfix">
 				<div class="my-rating-info-block1">Уровень надежнсти <span>91%</span></div>
 				<div class="my-rating-info-block2">Реализовано перевозок <span>768</span></div>
 			</div>
-			<div class="my-rating-age"></div>
+			<div class="my-rating-age"><span>2 года 4 месяца 13 дней</span> на сайте</div>
 		</div>
 		
 		
-		<div class="my-rewiews"></div>
-	
-		<img src="/images/my_2.jpg" alt="">
+		<div class="my-rewiews">
+			<p class="my-rewiews-head">Отзывы заказчиков</p>
+			<table class="my-rewiews-table">
+				<tr>
+					<td class="head">За месяц</td>
+					<td class="head">За полгода</td>
+					<td class="head">За все время</td>
+				</tr>
+				<tr>
+					<td class="good">31</td>
+					<td class="good">115</td>
+					<td class="good">10 601</td>
+				</tr>
+				<tr>
+					<td class="bad">2</td>
+					<td class="bad">6</td>
+					<td class="bad">40</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 </div>

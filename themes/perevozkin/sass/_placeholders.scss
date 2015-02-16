@@ -26,6 +26,7 @@
 %c_aab1ba { color: #aab1ba; }
 %c_b8b8b8 { color: #b8b8b8; }
 %c_ccd3d7 { color: #ccd3d7; }
+%c_eb4c4c { color: #eb4c4c; }
 %c_fff { color: #fff; }
 
 %font_10 { font-size: 10px; }
@@ -39,6 +40,7 @@
 %font_18 { font-size: 18px; }
 %font_19 { font-size: 19px; }
 %font_20 { font-size: 20px; }
+%font_22 { font-size: 22px; }
 %font_23 { font-size: 23px; }
 %font_24 { font-size: 24px; }
 %font_28 { font-size: 28px; }
@@ -74,6 +76,15 @@
 	
 	&:hover {
 		text-decoration: none;
+	}
+}
+
+
+%underline_y_y {
+	text-decoration: underline;
+	
+	&:hover {
+		text-decoration: underline;
 	}
 }
 

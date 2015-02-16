@@ -24,7 +24,7 @@ body {
 	font-weight: normal;
 	font-size: 12px;
 
-	@extend %c_000;
+	@extend %c_2e3c54;
 }
 
 .jq-selectbox__select,
@@ -179,6 +179,7 @@ span sup{text-decoration:none;}
 	@extend %c_fff;
 	@extend %underline_n_n;
 	@extend %pt_sans_narrow_bold;
+	@extend %text_c;
 	
 	&:hover {
 		@extend %c_fff;
@@ -221,6 +222,7 @@ span sup{text-decoration:none;}
 	@extend %c_fff;
 	@extend %underline_n_n;
 	@extend %pt_sans_narrow_bold;
+	@extend %text_c;
 	
 	&:hover {
 		@extend %c_fff;
@@ -263,6 +265,7 @@ span sup{text-decoration:none;}
 	@extend %c_fff;
 	@extend %underline_n_n;
 	@extend %pt_sans_narrow_bold;
+	@extend %text_c;
 	
 	&:hover {
 		@extend %c_fff;
@@ -288,6 +291,15 @@ span sup{text-decoration:none;}
 		@extend .btns-blue-66-h;
 		background-repeat: repeat-x;
 	}
+}
+
+//суммарный паддинг в 70 пикс нужно учитывать
+.btn-w270 {
+	width: 200px;
+}
+
+.btn-w250 {
+	width: 180px;
 }
 
 
@@ -468,4 +480,16 @@ body {
 		@extend %pos_abs;
 	}
 	
+}
+
+.breadcrumbs {
+	margin: 45px 0 20px 0;
+	
+	@extend %font_18;
+	@extend %pt_sans_narrow_regular;
+	@extend %c_8093a9;
+	
+	a {
+		@extend %c_0a80cb;
+	}
 }
