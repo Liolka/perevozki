@@ -94,6 +94,19 @@ class MyController extends Controller
 	    ));
 	}
 
+	public function actionInfoedit()
+	{
+		$model = $this->loadUser();
+		
+		$app = Yii::app();
+				
+	    $this->render('info_edit', array(
+	    	'app'=>$app,
+	    	'model'=>$model,
+			'profile'=>$model->profile,
+	    ));
+	}
+
 
 	/**
 	 * Updates a particular model.

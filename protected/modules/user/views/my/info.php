@@ -20,7 +20,7 @@ $this->breadcrumbs=array(
 			<li><p class="skype">vanya125</p></li>
 			<li><p class="website">vanya125.ru</p></li>
 		</ul>
-		<a href="#" class="btn-blue-33 btn-w250">Редактировать</a>
+		<a href="<?=$this->createUrl('/user/my/infoedit')?>" class="btn-blue-33 btn-w250">Редактировать</a>
 	</div>
 	<div class="my-contact-info-company">
 		<div class="my-contact-info-container-wr">
