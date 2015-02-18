@@ -170,3 +170,29 @@
 		@extend %c_eb4c4c;
 	}
 }
+
+.my-contact-info-company-edit {
+	.phones {
+		li {
+			@extend %di;
+			@extend %bold;
+		}
+		.field-title {
+			padding: 0 0 0 25px;
+			
+			@extend %for_sprite;
+			
+			&:before {
+				margin-right: -25px;
+				@extend .ico-phone-blue
+			}
+		}
+	}
+	
+	
+	.my-contact-info-company-container {
+		ul {
+			margin: 0 0 36px 0;
+		}
+	}
+}

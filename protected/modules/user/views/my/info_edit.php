@@ -8,12 +8,12 @@ $this->breadcrumbs=array(
 
 <h1>Информация о компании, контакты</h1>
 
-<div class="my-contact-info-company">
+<div class="my-contact-info-company my-contact-info-company-edit">
 	<div class="my-contact-info-container-wr">
 		<div class="my-contact-info-company-container clearfix">
 			<p class="my-contact-info-header">Контактная информация</p>
 			<div class="row">
-				<ul>
+				<ul class="phones">
 					<li class="field-title">Телефонные номера:</li>
 					<li>1) <input type="text" value="+375 (46) 567 81 82" /></li>
 					<li>2) <input type="text" value="+375 (46) 567 81 82" /></li>

@@ -14,8 +14,6 @@
 		@extend %c_2e3c54;		
 		
 		.title {
-			
-			
 			@extend %db;
 			@extend %pt_sans_narrow_regular;
 			@extend %font_18;
@@ -48,6 +46,7 @@
 			@extend %pos_abs;
 			@extend %for_sprite;
 			@extend %underline_y_n;
+			@extend %font_12;
 			
 			&:before {
 				left: 5px;
@@ -72,6 +71,7 @@
 	
 	a {
 		@extend %underline_n_y;
+		@extend %font_12;
 	}
 	
 	a:visited,
