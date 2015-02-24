@@ -15,6 +15,8 @@ class User extends CActiveRecord
 		2 => 'Физическое лицо',
 	);
 	
+	public $email_new;
+	
 	/**
 	 * The followings are the available columns in table 'users':
 	 * @var integer $id
@@ -116,6 +118,9 @@ class User extends CActiveRecord
 			'user_type' => 'Тип пользователя',
 			'user_status' => 'Статус пользователя',
 			'accept_rules' => 'Я прочитал и принимаю',
+			'current_password' => 'Текущий пароль',
+			'new_password' => 'Новый пароль',
+			'new_password_repeat' => 'Повторите новый пароль',
 		);
 	}
 	

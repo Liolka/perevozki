@@ -104,7 +104,8 @@ input {
 
 h1 {
 	font-size: 54px;
-	//margin: 0 0 20px 0;
+	padding: 0 0 40px 0;
+	
 	@extend %pt_sans_narrow_bold;
 	@extend %bold;
 	@extend %c_2e3c54;
@@ -123,6 +124,12 @@ h2 {
 h3 {
 	@extend %bold;
 	@extend %font_19;
+}
+
+.narrow_bold_24 {
+	@extend %pt_sans_narrow_bold;
+	@extend %bold;
+	@extend %font_24;
 }
 
 .clr{clear:both;}
@@ -161,6 +168,7 @@ span sup{text-decoration:none;}
 }
 
 
+.btn-grey-33,
 .btn-blue-33,
 .btn-green-33,
 .btn-blue-66,
@@ -172,11 +180,13 @@ span sup{text-decoration:none;}
 	}
 }
 
+.btn-grey-33,
 .btn-blue-33,
 .btn-green-33 {
 	padding: 0 35px;
 	height: 33px;
 	line-height: 33px;
+	border: none;
 	
 	@include border-radius(3px);	
 	
@@ -187,12 +197,22 @@ span sup{text-decoration:none;}
 	@extend %underline_n_n;
 	@extend %pt_sans_narrow_bold;
 	@extend %text_c;
+	@extend %pointer;
 	
 	&:hover {
 		@extend %c_fff;
 	}
 }
 
+
+.btn-grey-33 {
+	@extend .btns-grey-33;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-grey-33-h;
+		background-repeat: repeat-x;
+	}
+}
 
 .btn-green-33 {
 	@include text-shadow(#209122 1px 1px 0);	
@@ -220,6 +240,7 @@ span sup{text-decoration:none;}
 	padding: 0 40px;
 	height: 52px;
 	line-height: 52px;
+	border: none;
 	
 	@include border-radius(3px);	
 	
@@ -230,6 +251,7 @@ span sup{text-decoration:none;}
 	@extend %underline_n_n;
 	@extend %pt_sans_narrow_bold;
 	@extend %text_c;
+	@extend %pointer;
 	
 	&:hover {
 		@extend %c_fff;
@@ -499,4 +521,12 @@ body {
 	a {
 		@extend %c_0a80cb;
 	}
+}
+
+.errorMessage {
+	color: red;
+	padding: 3px 0 0 0;
+	
+	@extend %italic;
+	@extend %font_12;
 }

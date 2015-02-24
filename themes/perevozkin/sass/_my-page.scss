@@ -174,8 +174,14 @@
 .my-contact-info-company-edit {
 	.phones {
 		li {
+			padding-left: 25px;
 			@extend %di;
 			@extend %bold;
+			
+			input[type="text"] {
+				width: 174px;
+			}
+			
 		}
 		.field-title {
 			padding: 0 0 0 25px;
@@ -183,11 +189,61 @@
 			@extend %for_sprite;
 			
 			&:before {
-				margin-right: -25px;
+				left: 0;
 				@extend .ico-phone-blue
 			}
 		}
 	}
+	
+	.contacts {
+		line-height: 20px;
+		
+		li {
+			padding-left: 70px;
+			height: 20px;
+			
+			
+			@extend %di;
+			@extend %bold;
+			@extend %for_sprite;
+			
+			&:before {
+				left: 45px;
+				top: 0;
+			}
+			
+			input[type="text"] {
+				width: 247px;
+			}
+		}
+		
+		.email {
+			padding-left: 25px;
+			&:before {
+				left: 0;
+				top: 1px;
+				
+				@extend .ico-email-blue;
+			}
+		}
+		
+		.skype {
+			&:before {
+				top: -1px;
+				@extend .ico-skype-blue;
+			}
+		}
+		
+		.website {
+			&:before {
+				top: -1px;
+				@extend .ico-website-blue;
+			}
+		}
+		
+	}
+	
+	
 	
 	
 	.my-contact-info-company-container {
@@ -195,4 +251,79 @@
 			margin: 0 0 36px 0;
 		}
 	}
+	
+	.my-contact-info-company-list {
+		
+		&:last-of-type {
+			padding-right: 0;
+		}
+		
+		p {
+			border-bottom: none;
+		}
+		
+		input[type="text"] {
+			widows: 198px;
+		}
+		
+		.wide {
+			width: 515px;
+		}
+	}
+	
+	textarea {
+		width: 97%;
+		height: 90px;
+	}
+}
+
+// смена паоля и емайла
+
+.change-email-block,
+.change-password-block {
+	@extend %fl;
+	@extend %w_50;
+	
+	.my-contact-info-container {
+		padding: 20px;
+	}
+	
+	.narrow_bold_24 {
+		padding-bottom: 25px;
+	}
+	
+	.cancel-btn,
+	input[name="cancel"] {
+		@extend %fr;
+	}
+	
+	label {
+		padding: 0 0 5px 0;
+		@extend %db;
+		@extend %bold;
+	}
+	
+	.current-email {
+		padding-bottom: 17px;
+		
+		@extend %c_0a80cb;
+		@extend %bold;
+	}
+	
+	.row {
+		margin: 0 0 20px 0;
+	}
+	
+	input[type="email"],
+	input[type="password"],
+	input[type="text"] {
+		width: 508px;
+	}
+}
+
+.change-email-block .my-contact-info-container {
+	margin: 0 30px 0 0;
+}
+.change-password-block .my-contact-info-container {
+	margin: 0 0 0 30px;
 }

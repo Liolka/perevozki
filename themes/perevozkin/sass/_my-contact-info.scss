@@ -1,7 +1,5 @@
 .my-contact-info-container {
 	border: 1px solid #b2daeb;
-	//padding: 20px;
-	margin: 40px 0 0 0;
 	
 	@extend %pos_rel;
 	
@@ -70,7 +68,6 @@
 }
 
 .my-contact-info-company {
-	margin: 15px 0 0 0;
 	background-color: #f4fbfe;
 }
 

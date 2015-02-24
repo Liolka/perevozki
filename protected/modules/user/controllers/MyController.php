@@ -114,36 +114,49 @@ class MyController extends Controller
 	 */
 	public function actionEdit()
 	{
-		$model = $this->loadUser();
-		$profile=$model->profile;
 		$app = Yii::app();
-		
-		// ajax validator
-		if(isset($_POST['ajax']) && $_POST['ajax']==='profile-form')
-		{
-			echo UActiveForm::validate(array($model,$profile));
-			Yii::app()->end();
-		}
-		
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			$profile->attributes=$_POST['Profile'];
+		if ($app->user->id) {
+			$model_ChangePassword = new UserChangePassword;
+			$model_ChangeEmail = new UserChangeEmail;
 			
-			if($model->validate()&&$profile->validate()) {
-				$model->save();
-				$profile->save();
-                Yii::app()->user->updateSession();
-				Yii::app()->user->setFlash('profileMessage',UserModule::t("Changes is saved."));
-				$this->redirect(array('/user/profile'));
-			} else $profile->validate();
-		}
-
-		$this->render('edit',array(
-			'app'=>$app,
-			'model'=>$model,
-			'profile'=>$profile,
-		));
+			//если нажали "Отмена"  - возврат
+			if(isset($_POST['cancel']))	{
+				$this->redirect(array('my'));
+			}
+			
+		
+			
+			// ajax validator
+			if(isset($_POST['ajax']) && $_POST['ajax']==='changepassword-form')
+			{
+				echo UActiveForm::validate($model_ChangePassword);
+				Yii::app()->end();
+			}
+			
+			if(isset($_POST['ajax']) && $_POST['ajax']==='changeemail-form')
+			{
+				echo UActiveForm::validate($model_ChangeEmail);
+				Yii::app()->end();
+			}
+			
+			if(isset($_POST['UserChangePassword'])) {
+					$model_ChangePassword->attributes=$_POST['UserChangePassword'];
+					if($model_ChangePassword->validate()) {
+						$new_password = User::model()->notsafe()->findbyPk(Yii::app()->user->id);
+						$new_password->password = UserModule::encrypting($model_ChangePassword->password);
+						$new_password->activkey=UserModule::encrypting(microtime().$model_ChangePassword->password);
+						$new_password->save();
+						Yii::app()->user->setFlash('profileMessage',UserModule::t("New password is saved."));
+						$this->redirect(array("edit"));
+					}
+			}
+			
+			$this->render('changeemailpassword',array(
+				'model_ChangePassword'=>$model_ChangePassword,
+				'model_ChangeEmail'=>$model_ChangeEmail,
+				'app'=>$app,
+			));
+	    }
 	}
 	
 	/**

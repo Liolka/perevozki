@@ -61,8 +61,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .requests-list-head .addr:before, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
-.header-row1-menu .perevozchik:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-skype-blue, .my-contact-info-list .skype:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-website-blue, .my-contact-info-list .website:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
+.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
   background-image: url('../images/ico-sa2ea601d8b.png');
   background-repeat: no-repeat;
 }
@@ -128,7 +128,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 13px;
 }
 
-.ico-email-blue, .my-contact-info-list .email:before {
+.ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before {
   background-position: 0 -186px;
   height: 13px;
   width: 20px;
@@ -273,7 +273,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 19px;
 }
 
-.ico-skype-blue, .my-contact-info-list .skype:before {
+.ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before {
   background-position: 0 -816px;
   height: 20px;
   width: 20px;
@@ -303,7 +303,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 90px;
 }
 
-.ico-website-blue, .my-contact-info-list .website:before {
+.ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before {
   background-position: 0 -961px;
   height: 20px;
   width: 21px;
@@ -321,8 +321,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 19px;
 }
 
-.btns-sprite, .btns-blue-33-h, .btn-blue-33:hover, .btns-blue-33, .btn-blue-33, .btns-blue-52-h, .btn-blue-52:hover, .btns-blue-52, .btn-blue-52, .btns-blue-66-h, .btn-blue-66:hover, .btns-blue-66, .btn-blue-66, .btns-green-33-h, .btn-green-33:hover, .btns-green-33, .btn-green-33, .btns-green-52-h, .btn-green-52:hover, .btns-green-52, .btn-green-52, .btns-green-66-h, .btn-green-66:hover, .btns-green-66, .btn-green-66 {
-  background-image: url('../images/btns-s076de7583f.png');
+.btns-sprite, .btns-blue-33-h, .btn-blue-33:hover, .btns-blue-33, .btn-blue-33, .btns-blue-52-h, .btn-blue-52:hover, .btns-blue-52, .btn-blue-52, .btns-blue-66-h, .btn-blue-66:hover, .btns-blue-66, .btn-blue-66, .btns-green-33-h, .btn-green-33:hover, .btns-green-33, .btn-green-33, .btns-green-52-h, .btn-green-52:hover, .btns-green-52, .btn-green-52, .btns-green-66-h, .btn-green-66:hover, .btns-green-66, .btn-green-66, .btns-grey-33-h, .btn-grey-33:hover, .btns-grey-33, .btn-grey-33 {
+  background-image: url('../images/btns-s999dca8b19.png');
   background-repeat: no-repeat;
 }
 
@@ -374,13 +374,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-position: 0 -538px;
 }
 
+.btns-grey-33-h, .btn-grey-33:hover {
+  background-position: 0 -604px;
+}
+
+.btns-grey-33, .btn-grey-33 {
+  background-position: 0 -637px;
+}
+
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-top-menu-item, .my-contact-info-list p, .header-row1-menu .gruzodatel,
+.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-top-menu-item:before, .my-contact-info-list p:before, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before {
   content: ' ';
   position: absolute;
@@ -390,7 +398,8 @@ h2, .stages-block .descr, .benefits-block li {
   color: #000;
 }
 
-a, .breadcrumbs a, .header-row2 .questions .phone-numb, .footer-cell a:visited,
+a, .breadcrumbs a, .change-email-block .current-email,
+.change-password-block .current-email, .header-row2 .questions .phone-numb, .footer-cell a:visited,
 .footer-cell a:hover,
 .footer-cell a {
   color: #0a80cb;
@@ -463,13 +472,16 @@ textarea, h1, .requests-list-item_number, .requests-list-item-info_gruzchiki, .r
   color: #eb4c4c;
 }
 
+.btn-grey-33:visited,
 .btn-blue-33:visited,
 .btn-green-33:visited,
 .btn-blue-66:visited,
 .btn-green-66:visited,
 .btn-blue-52:visited,
-.btn-green-52:visited, .btn-blue-33,
-.btn-green-33, .btn-blue-33:hover,
+.btn-green-52:visited, .btn-grey-33,
+.btn-blue-33,
+.btn-green-33, .btn-grey-33:hover,
+.btn-blue-33:hover,
 .btn-green-33:hover, .btn-blue-52,
 .btn-green-52, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66,
@@ -483,7 +495,7 @@ textarea, h1, .requests-list-item_number, .requests-list-item-info_gruzchiki, .r
   font-size: 11px;
 }
 
-.stages-block .descr, .benefits-block li, .requests-list-head li, .requests-list-item_number, .requests-list-item-info_url, .requests-list-item-info_descr, .requests-list-item-info_gruzchiki, .requests-list-item_adress, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .my-rewiews-table .head, .header-row1-menu a, .footer .created-by a, .footer-cell a, .footer-cell-last span,
+.errorMessage, .stages-block .descr, .benefits-block li, .requests-list-head li, .requests-list-item_number, .requests-list-item-info_url, .requests-list-item-info_descr, .requests-list-item-info_gruzchiki, .requests-list-item_adress, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .my-rewiews-table .head, .header-row1-menu a, .footer .created-by a, .footer-cell a, .footer-cell-last span,
 .footer-cell-last a {
   font-size: 12px;
 }
@@ -496,7 +508,8 @@ textarea, h1, .requests-list-item_number, .requests-list-item-info_gruzchiki, .r
 input[type="text"],
 input[type="password"],
 .inputbox,
-textarea, .btn-blue-33,
+textarea, .btn-grey-33,
+.btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .my-menu-url, .my-last-requests-title a, .my-rating-age, .my-rewiews-head, .my-rewiews-table .good, .my-rewiews-table .bad, .my-top-menu-item a, .my-contact-info-company-list p, .my-contact-info-descr {
   font-size: 14px;
@@ -522,7 +535,7 @@ h3 {
   font-size: 22px;
 }
 
-.btn-blue-66,
+.narrow_bold_24, .btn-blue-66,
 .btn-green-66, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .header-row2 .questions {
   font-size: 24px;
 }
@@ -547,11 +560,18 @@ h3 {
   font-weight: normal;
 }
 
-h1, h2, h3, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span {
+h1, h2, h3, .narrow_bold_24, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
+.change-password-block label, .change-email-block .current-email,
+.change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span {
   font-weight: bold;
 }
 
-h2, .btn-blue-33,
+.errorMessage {
+  font-style: italic;
+}
+
+h2, .btn-grey-33,
+.btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66 {
@@ -572,12 +592,14 @@ a:hover, .footer .created-by a:hover {
   text-decoration: underline;
 }
 
+.btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .header-row1-menu .logout a, .footer-cell-last .logout a {
   text-decoration: none;
 }
+.btn-grey-33:hover,
 .btn-blue-33:hover,
 .btn-green-33:hover, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66:hover,
@@ -592,11 +614,15 @@ a:hover, .footer .created-by a:hover {
   text-decoration: underline;
 }
 
-.fLeft, .sideLeft, .sideRight, .container, .column2r, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-head li, .requests-list-item > div, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .my-rating-info > div, .my-top-menu-item, .my-contact-info-company-list, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
+.fLeft, .sideLeft, .sideRight, .container, .column2r, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-head li, .requests-list-item > div, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .my-rating-info > div, .change-email-block,
+.change-password-block, .my-top-menu-item, .my-contact-info-company-list, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
   float: left;
 }
 
-.fRight, .requests-list-item .requests-list-item_price, .header-row1-menu .login-items, .header-row2 .questions, .footer-cell-last {
+.fRight, .requests-list-item .requests-list-item_price, .change-email-block .cancel-btn,
+.change-email-block input[name="cancel"],
+.change-password-block .cancel-btn,
+.change-password-block input[name="cancel"], .header-row1-menu .login-items, .header-row2 .questions, .footer-cell-last {
   float: right;
 }
 
@@ -605,15 +631,17 @@ a:hover, .footer .created-by a:hover {
 .requests-list-item_to a,
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
-.requests-list-item_price a, .requests-more-btn, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .my-top-menu-item a, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
+.requests-list-item_price a, .requests-more-btn, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .change-email-block label,
+.change-password-block label, .my-top-menu-item a, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
   display: block;
 }
 
 .form div.radiobuttons-list input,
-.form div.radiobuttons-list label, .requests-list-item_author a, .my-contact-info-company-edit .phones li {
+.form div.radiobuttons-list label, .requests-list-item_author a, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li {
   display: inline;
 }
 
+.btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
@@ -634,6 +662,7 @@ a:hover, .footer .created-by a:hover {
   position: absolute;
 }
 
+.btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
@@ -642,12 +671,25 @@ a:hover, .footer .created-by a:hover {
   text-align: center;
 }
 
+.btn-grey-33,
+.btn-blue-33,
+.btn-green-33, .btn-blue-52,
+.btn-green-52 {
+  cursor: pointer;
+}
+
+.change-email-block,
+.change-password-block {
+  width: 50%;
+}
+
 .rating-stars .stars-empty, .my-rewiews-table {
   width: 100%;
 }
 
 /*font family*/
-h1, .btn-blue-33,
+h1, .narrow_bold_24, .btn-grey-33,
+.btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .map-block .info span, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .my-contact-info-header, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
@@ -752,6 +794,7 @@ input {
 
 h1 {
   font-size: 54px;
+  padding: 0 0 40px 0;
 }
 
 h2 {
@@ -801,14 +844,23 @@ span sup {
   width: 50%;
 }
 
+.btn-grey-33,
 .btn-blue-33,
 .btn-green-33 {
   padding: 0 35px;
   height: 33px;
   line-height: 33px;
+  border: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
+}
+
+.btn-grey-33 {
+  background-repeat: repeat-x;
+}
+.btn-grey-33:hover {
+  background-repeat: repeat-x;
 }
 
 .btn-green-33 {
@@ -832,6 +884,7 @@ span sup {
   padding: 0 40px;
   height: 52px;
   line-height: 52px;
+  border: none;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -1012,6 +1065,11 @@ body {
 
 .breadcrumbs {
   margin: 45px 0 20px 0;
+}
+
+.errorMessage {
+  color: red;
+  padding: 3px 0 0 0;
 }
 
 .stages-block {
@@ -1493,14 +1551,100 @@ body {
   padding: 6px 0;
 }
 
+.my-contact-info-company-edit .phones li {
+  padding-left: 25px;
+}
+.my-contact-info-company-edit .phones li input[type="text"] {
+  width: 174px;
+}
 .my-contact-info-company-edit .phones .field-title {
   padding: 0 0 0 25px;
 }
 .my-contact-info-company-edit .phones .field-title:before {
-  margin-right: -25px;
+  left: 0;
+}
+.my-contact-info-company-edit .contacts {
+  line-height: 20px;
+}
+.my-contact-info-company-edit .contacts li {
+  padding-left: 70px;
+  height: 20px;
+}
+.my-contact-info-company-edit .contacts li:before {
+  left: 45px;
+  top: 0;
+}
+.my-contact-info-company-edit .contacts li input[type="text"] {
+  width: 247px;
+}
+.my-contact-info-company-edit .contacts .email {
+  padding-left: 25px;
+}
+.my-contact-info-company-edit .contacts .email:before {
+  left: 0;
+  top: 1px;
+}
+.my-contact-info-company-edit .contacts .skype:before {
+  top: -1px;
+}
+.my-contact-info-company-edit .contacts .website:before {
+  top: -1px;
 }
 .my-contact-info-company-edit .my-contact-info-company-container ul {
   margin: 0 0 36px 0;
+}
+.my-contact-info-company-edit .my-contact-info-company-list:last-of-type {
+  padding-right: 0;
+}
+.my-contact-info-company-edit .my-contact-info-company-list p {
+  border-bottom: none;
+}
+.my-contact-info-company-edit .my-contact-info-company-list input[type="text"] {
+  widows: 198px;
+}
+.my-contact-info-company-edit .my-contact-info-company-list .wide {
+  width: 515px;
+}
+.my-contact-info-company-edit textarea {
+  width: 97%;
+  height: 90px;
+}
+
+.change-email-block .my-contact-info-container,
+.change-password-block .my-contact-info-container {
+  padding: 20px;
+}
+.change-email-block .narrow_bold_24,
+.change-password-block .narrow_bold_24 {
+  padding-bottom: 25px;
+}
+.change-email-block label,
+.change-password-block label {
+  padding: 0 0 5px 0;
+}
+.change-email-block .current-email,
+.change-password-block .current-email {
+  padding-bottom: 17px;
+}
+.change-email-block .row,
+.change-password-block .row {
+  margin: 0 0 20px 0;
+}
+.change-email-block input[type="email"],
+.change-email-block input[type="password"],
+.change-email-block input[type="text"],
+.change-password-block input[type="email"],
+.change-password-block input[type="password"],
+.change-password-block input[type="text"] {
+  width: 508px;
+}
+
+.change-email-block .my-contact-info-container {
+  margin: 0 30px 0 0;
+}
+
+.change-password-block .my-contact-info-container {
+  margin: 0 0 0 30px;
 }
 
 .my-top-menu {
@@ -1582,7 +1726,6 @@ body {
 
 .my-contact-info-container {
   border: 1px solid #b2daeb;
-  margin: 40px 0 0 0;
 }
 .my-contact-info-container .btn-w250 {
   top: 20px;
@@ -1618,7 +1761,6 @@ body {
 }
 
 .my-contact-info-company {
-  margin: 15px 0 0 0;
   background-color: #f4fbfe;
 }
 

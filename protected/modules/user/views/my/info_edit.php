@@ -1,7 +1,7 @@
 <?
 $this->breadcrumbs=array(
 	$app->user->username => array('/user/my'),
-	'Информация о компании, контакты',
+	'Редактировать Информация о компании, контакты',
 );
 
 ?>
@@ -22,7 +22,7 @@ $this->breadcrumbs=array(
 				</ul>
 			</div>
 			<div class="row">
-				<ul>
+				<ul class="contacts">
 					<li class="email"><span class="field-title">E-mail:</span> <input type="text" value="vanya125@mail.ru" /></li>
 					<li class="skype"><span class="field-title">Skype:</span> <input type="text" value="vanya125" /></li>
 					<li class="website"><span class="field-title">Веб-сайт:</span> <input type="text" value="vanya125.ru" /></li>
@@ -55,15 +55,15 @@ $this->breadcrumbs=array(
 				<ul class="my-contact-info-company-list">
 					<li>
 						<p>Головной офис:</p>
-						<p><input type="text" value="Россия, Москва, ул.Лукинская" /><span></span></p>
+						<p><input type="text" class="wide" value="Россия, Москва, ул.Лукинская" /><span></span></p>
 					</li>
 					<li>
 						<p>Филиалы:</p>
-						<p><input type="text" value="" /></p>
+						<p><input type="text" class="wide" value="" /></p>
 					</li>
 					<li>
 						<p>Склады и терминалы:</p>
-						<p><input type="text" value="" /></p>
+						<p><input type="text" class="wide" value="" /></p>
 					</li>
 				</ul>
 			</div>
@@ -71,7 +71,7 @@ $this->breadcrumbs=array(
 		<div class="my-contact-info-company-container clearfix">
 			<p class="my-contact-info-header">Дополнительно:</p>
 			<div class="my-contact-info-company-container clearfix">
-				<textearea>Перевозка автомобилей конструктивно предусмотренными, многоместными прицепными системами – автовозами. Собственный парк автовозов европейского производства, в безупречном техническом состоянии, оборудованных всем необходимым для транспортировки автомобилей любых типов и размеров.</textearea>
+				<textarea>Перевозка автомобилей конструктивно предусмотренными, многоместными прицепными системами – автовозами. Собственный парк автовозов европейского производства, в безупречном техническом состоянии, оборудованных всем необходимым для транспортировки автомобилей любых типов и размеров.</textarea>
 			</div>
 		</div>
 		
