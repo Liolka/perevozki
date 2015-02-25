@@ -530,3 +530,21 @@ body {
 	@extend %italic;
 	@extend %font_12;
 }
+
+.flash-message {
+	padding: 20px;
+	margin: 0 0 20px 0;
+	
+	@extend %c_fff;
+}
+
+.flash-success {
+	background-color: #85bf32;
+}
+
+.flash-error {
+	background-color: #de5151;
+}
+.flash-warning {
+	background-color: #dd973d;
+}

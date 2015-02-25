@@ -146,7 +146,7 @@ class MyController extends Controller
 						$new_password->password = UserModule::encrypting($model_ChangePassword->password);
 						$new_password->activkey=UserModule::encrypting(microtime().$model_ChangePassword->password);
 						$new_password->save();
-						Yii::app()->user->setFlash('profileMessage',UserModule::t("New password is saved."));
+						Yii::app()->user->setFlash('success',UserModule::t("New password is saved."));
 						$this->redirect(array("edit"));
 					}
 			}

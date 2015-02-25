@@ -486,7 +486,7 @@ textarea, h1, .requests-list-item_number, .requests-list-item-info_gruzchiki, .r
 .btn-green-52, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66,
 .btn-green-66, .btn-blue-66:hover,
-.btn-green-66:hover, .map-block .info span, .statistic-block li, .requests-list-item_suggestions .suggestion-orange,
+.btn-green-66:hover, .map-block .info span, .flash-message, .statistic-block li, .requests-list-item_suggestions .suggestion-orange,
 .requests-list-item_suggestions .suggestion-green, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .my-rating-container .my-rating, .my-rating-info > div, .my-rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover {
   color: #fff;
 }
@@ -1070,6 +1070,23 @@ body {
 .errorMessage {
   color: red;
   padding: 3px 0 0 0;
+}
+
+.flash-message {
+  padding: 20px;
+  margin: 0 0 20px 0;
+}
+
+.flash-success {
+  background-color: #85bf32;
+}
+
+.flash-error {
+  background-color: #de5151;
+}
+
+.flash-warning {
+  background-color: #dd973d;
 }
 
 .stages-block {
