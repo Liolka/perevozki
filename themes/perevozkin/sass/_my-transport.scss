@@ -1,0 +1,160 @@
+.my-transport-list {
+    margin: 0 -7px;
+}
+
+.my-transport-list-item {
+    
+    
+    @extend %fl;
+    @extend %w_33;
+    @extend %pos_rel;
+    
+    &:hover {
+        background-color: #daf0fa;
+    }
+}
+
+
+
+.add-transport-btn {
+    width: 110px;
+    height: 110px;
+    line-height: 110px;
+    font-size: 90px;
+    background-color: #697f9a;
+    
+    
+    @extend %db;
+    @extend %fl;
+    @extend %c_fff;
+    @extend %bold;
+    @extend %text_c;
+    @extend %underline_n_n;
+    
+    &:hover {
+        background-color: darken(#697f9a, 10%);
+        @extend %c_fff;
+    }
+}
+
+.add-transport-wr {
+    margin-top: 45px;
+    
+    &:hover {
+        background-color: transparent;
+    }
+    
+}
+
+.add-transport {
+    border: 2px solid #bbdceb;
+    padding: 15px;
+    
+    margin: 0 7px;
+    
+    p {
+        margin-left: 145px;
+        width: 150px;
+        padding: 30px 0 0 0;
+        
+        @extend %bold;
+        @extend %font_19;
+    }
+}
+
+.my-transport-wr {
+    padding: 60px 15px 15px 15px;
+    margin: 0 7px;
+    
+}
+
+.my-transport-image {
+    width: 105px;
+    
+    @extend %db;
+    @extend %fl;   
+}
+
+.my-transport-info-wr {
+    margin: 0 0 15px 15px;
+    width: 240px;
+    
+    @extend %fl;
+}
+
+.my-transport-name {
+    @extend %bold;
+    @extend %font_19;
+}
+
+.my-transport-info {
+    @extend %font_13;
+    @extend %dtr;
+    
+    &.odd {
+        span {
+            background-color: #f4fbfe;
+        }
+    }
+    
+    span {
+        padding: 5px 10px 5px 0;
+        vertical-align: middle;
+        
+        @extend %dtc;
+    }
+    .name {
+        padding-left: 5px;
+        padding-right: 0;
+    }
+}
+
+.my-transport-comment {
+    clear: left;
+    padding-left: 120px;
+    
+    @extend %italic;
+    @extend %font_12;
+    @extend %lh_18;
+    @extend %for_sprite;
+    
+    &:before {
+        top: 0;
+        left: 77px;
+        
+        @extend .ico-comment;
+
+    }
+    
+}
+
+.my-transport-edit {
+    top: 0;
+    left: 0;
+    
+    @extend %pos_abs;
+    @extend %w_100;
+    @extend %h_100;
+    @extend %hide;
+    
+    .my-transport-edit-top {
+        background-color: #8799ae;
+    }
+    
+    .my-transport-delete-btn {
+        top: 0;
+        right: 0;
+        
+        @extend %pos_abs;
+    }
+    
+    .my-transport-upload-btn {
+        top: 165px;
+        left: 22px;
+        width: 105px;
+        padding: 0;
+        
+        @extend %pos_abs;
+        @extend %font_13;
+    }
+}

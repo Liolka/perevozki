@@ -15,6 +15,10 @@ return array(
 
 	// preloading 'log' component
 	'preload'=>array('log'),
+	
+	'aliases' => array(
+		'bootstrap' => 'application.modules.bootstrap'
+	),	
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -33,6 +37,11 @@ return array(
 		'application.modules.rights.components.*',
 		*/
 		'ext.aadThumbnails.*',
+		
+		'bootstrap.behaviors.*',
+		'bootstrap.helpers.*',
+		'bootstrap.widgets.*'
+		
 	),
 
 	'modules'=>array(
@@ -73,12 +82,14 @@ return array(
  
             # login form path
             'loginUrl' => array('/user/login'),
+            'loginUrlModal' => array('/user/loginmodal'),
  
             # page after login
             'returnUrl' => array('/user/my'),
  
             # page after logout
-            'returnLogoutUrl' => array('/user/login'),
+            //'returnLogoutUrl' => array('/user/login'),
+            'returnLogoutUrl' => array('/'),
         ),
 		
 		'pages' => array(
@@ -155,7 +166,6 @@ return array(
 				
 				'image_popup' => array(
 					'baseUrl' => '/js/lightbox',
-					//'js' => array('js/jquery-ui-1.8.18.custom.min.js', 'js/jquery.smooth-scroll.min.js', 'js/lightbox.js', 'js/init.js'),
 					'js' => array('js/lightbox.js', 'js/init.js'),
 					'css' => array('css/lightbox.css'), // mylightboxstyle.css тоже в папке WEB_ROOT/jq
 					'depends' => array('jquery'),
@@ -163,15 +173,23 @@ return array(
 				
 				'fancybox' => array(
 					'baseUrl' => '/',
-					//'js' => array('js/jquery.fancybox-1.3.4.pack.js', 'js/lightbox.js', 'js/fancybox-init.js'),
-					'js' => array('js/jquery.fancybox-1.3.4.pack.js', 'js/fancybox-init.js'),
-					'css' => array('css/jquery.fancybox-1.3.4.css'),
+					'js' => array(
+                        'js/fancyBox/lib/jquery.mousewheel-3.0.6.pack.js', 
+                        'js/fancyBox/source/jquery.fancybox.js?v=2.1.5', 
+                        'js/fancyBox/source/fancybox-init.js'
+                    ),
+					'css' => array(
+                        'js/fancyBox/source/jquery.fancybox.css?v=2.1.5',
+                    ),
 					'depends' => array('jquery'),
 				),
 
 				'formstyler' => array(
 					'baseUrl' => '/',
-					'js' => array('js/formstyler/jquery.formstyler.min.js', 'js/formstyler/jquery.formstyler.init.js'),
+					'js' => array(
+						'js/formstyler/jquery.formstyler.min.js', 
+						'js/formstyler/jquery.formstyler.init.js'
+					),
 					'css' => array('js/formstyler/jquery.formstyler.css '),
 					'depends' => array('jquery'),
 				),
@@ -181,18 +199,6 @@ return array(
 					'js' => array('js/jcarousel/jquery.jcarousel.min.js'),
 					'css' => array('js/jcarousel/jcarousel.basic.css '),
 					'depends' => array('jquery'),
-				),
-				
-				'jcarousel-new-positions' => array(
-					'baseUrl' => '/',
-					'js' => array('js/jcarousel/jcarousel.new-positions.js'),
-					'depends' => array('jcarousel'),
-				),
-				
-				'jcarousel-products-on-auto' => array(
-					'baseUrl' => '/',
-					'js' => array('js/jcarousel/jcarousel.products-on-auto.js'),
-					'depends' => array('jcarousel'),
 				),
 				
 				'bootstrap-pack' => array(
@@ -209,11 +215,24 @@ return array(
 						'css/bootstrap/bootstrap-theme.min.css',
 						'css/bootstrap/bootstrap-switch.min.css',
 					),
+					'depends' => array('jquery'),
 				),
 				
-				'scripts' => array(
+				'bootstrap-js' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/bootstrap/bootstrap.min.js',
+						'js/bootstrap/bootstrap-tooltip-init.js',
+						'js/bootstrap/bootstrap-tab.js',
+						'js/bootstrap/bootstrap-tab-init.js',
+						'js/bootstrap/bootstrap-switch.min.js',
+					),
+				),
+				
+				'template' => array(
 					'baseUrl' => '/',
 					'js' => array('js/scripts.js'),
+                    'css' => array('themes/perevozkin/css/screen.css'),
 					'depends' => array('jquery'),
 				),
             ),

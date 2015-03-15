@@ -1,4 +1,5 @@
 <?php /* @var $this Controller */ ?>
+<?php include('init-variables.php'); ?>
 <?php $this->beginContent('//layouts/main'); ?>
 <div class="span-19">
 	<div id="content">

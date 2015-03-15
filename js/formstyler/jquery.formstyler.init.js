@@ -1,5 +1,5 @@
 (function($) {
 $(function() {
-	$('select').styler();
+	$('select, .checkbox').styler();
 });
 })(jQuery);

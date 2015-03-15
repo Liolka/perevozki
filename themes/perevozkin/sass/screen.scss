@@ -22,16 +22,24 @@
 @import "compass/utilities/sprites";
 
 
-$icons-layout: smart;
+$ico-layout: smart;
 $ico-sprite-dimensions: true;
-
 @import "ico/*.png"; 
 @include all-ico-sprites;
 
+$cat-layout: smart; 
+$cat-sprite-dimensions: true;
+@import "cat/*.png"; 
+@include all-cat-sprites;
 
-$icons-layout: vertical;
-$ico-sprite-dimensions: true;
+$catn-layout: smart; 
+$catn-sprite-dimensions: true;
+@import "catn/*.png"; 
+@include all-catn-sprites;
 
+
+$btns-layout: vertical;
+//$btns-sprite-dimensions: true;
 @import "btns/*.png"; 
 @include all-btns-sprites;
 
@@ -51,6 +59,10 @@ $ico-sprite-dimensions: true;
 @import "_my-page";
 @import "_my-top-menu";
 @import "_my-contact-info";
+@import "_my-documents";
+@import "_my-transport";
+@import "_my-requests";
+@import "_add-bid-form";
 
 
 @import "_header";

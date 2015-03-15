@@ -35,8 +35,10 @@ class UserLogin extends CFormModel
 	{
 		return array(
 			'rememberMe'=>UserModule::t("Remember me next time"),
-			'username'=>UserModule::t("username or email"),
-			'password'=>UserModule::t("password"),
+			//'username'=>UserModule::t("username or email"),
+			//'password'=>UserModule::t("password"),
+			'username'=>"E-mail",
+			'password'=>"Пароль",
 		);
 	}
 

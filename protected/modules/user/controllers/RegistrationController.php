@@ -29,7 +29,7 @@ class RegistrationController extends Controller
 	 */
 	
 	public function actionRegistration() {
-		
+        
 		if(isset($_POST['user_type']) || isset($_POST['RegistrationForm'])) {
 			
             $model = new RegistrationForm;
@@ -46,12 +46,13 @@ class RegistrationController extends Controller
 		    if (Yii::app()->user->id) {
 		    	$this->redirect(Yii::app()->controller->module->profileUrl);
 		    } else {
+                $layout = '/user/registration-modal';
 		    	if(isset($_POST['RegistrationForm'])) {
 					//echo'<pre>';print_r($_POST['RegistrationForm']);echo'</pre>';//die;
 					$model->scenario = RegistrationForm::SCENARIO_REGISTRATION;
 					
 					$model->attributes=$_POST['RegistrationForm'];
-					//echo'<pre>';print_r($model->attributes);echo'</pre>';//die;
+					//echo'<pre>';print_r($model->attributes);echo'</pre>';die;
 					$profile->attributes=((isset($_POST['Profile'])?$_POST['Profile']:array()));
 					if($model->validate()&&$profile->validate())
 					{
@@ -88,22 +89,36 @@ class RegistrationController extends Controller
 								} else {
 									Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email."));
 								}
-								$this->refresh();
+								//$this->refresh();
+                                //$this->renderPartial($layout, array('model'=>$model,'profile'=>$profile));die;
 							}
 						}
 					} else $profile->validate();
 				}
 				
 				$model->user_status = 1;
+                
+                switch($_POST['user_type']) {
+                    case 1:
+                        $form_title = "Грузодатель";
+                        break;
+                    case 2:
+                        $form_title = "Перевозчик";
+                        break;
+                }
 				
-				$layout = '/user/registration';
 				
-			    $this->render($layout, array('model'=>$model,'profile'=>$profile));
+				
+			    $this->renderPartial($layout, array(
+                    'model'=>$model,
+                    'profile'=>$profile,
+                    'form_title'=>$form_title,
+                ));
 		    }
 			
 		}	else	{
-			$layout = '/user/registration_select_type';
-			$this->render($layout, array());
+			$layout = '/user/registration_select_type-modal';
+			$this->renderPartial($layout, array());
 			
 		}
 	}

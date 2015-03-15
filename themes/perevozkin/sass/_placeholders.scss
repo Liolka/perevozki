@@ -16,6 +16,7 @@
 %c_2e3c54 { color: #2e3c54; }
 %c_33a72c { color: #33a72c; }
 %c_53aae2 { color: #53aae2; }
+%c_61a40a { color: #61a40a; }
 %c_697f9a { color: #697f9a; }
 %c_70a3c4 { color: #70a3c4; }
 %c_71a72c { color: #71a72c; }
@@ -25,8 +26,10 @@
 %c_96a5b8 { color: #96a5b8; }
 %c_aab1ba { color: #aab1ba; }
 %c_b8b8b8 { color: #b8b8b8; }
+%c_cbe0eb { color: #cbe0eb; }
 %c_ccd3d7 { color: #ccd3d7; }
 %c_eb4c4c { color: #eb4c4c; }
+%c_de5151 { color: #de5151; }
 %c_fff { color: #fff; }
 
 %font_10 { font-size: 10px; }
@@ -47,11 +50,14 @@
 %font_30 { font-size: 30px; }
 %font_36 { font-size: 36px; }
 %font_37 { font-size: 37px; }
+%font_46 { font-size: 46px; }
 %font_48 { font-size: 48px; }
 
 %normal { font-weight: normal; }
 %bold { font-weight: bold; }
 %italic { font-style: italic; }
+
+%lh_18 { line-height: 18px; }
 
 %uppercase { text-transform: uppercase; }
 
@@ -94,6 +100,8 @@
 %db { display: block; }
 %di { display: inline; }
 %dib { display: inline-block; }
+%dtr { display: table-row; }
+%dtc { display: table-cell; }
 
 %hide { display: none; }
 
@@ -111,6 +119,11 @@
 %w_33 { width: 33%; }
 %w_50 { width: 50%; }
 %w_100 { width: 100%; }
+
+
+%h_100 { height: 100%; }
+
+%border_box { box-sizing: border-box; }
 
 /*font family*/
 %pt_sans_narrow_bold { font-family: 'ptsans-narrow-bold', sans-serif; }

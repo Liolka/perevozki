@@ -1,3 +1,15 @@
+FTP:
+skorohod.by
+skorohod@skorohod.by
+aK2G3Rg8
+
+Data Base:
+http://trubkin.by/phpMyAdmin/
+База Данных:            neoli357_skoro
+Хост:                   localhost
+Имя Пользователя:       neoli357_skoro
+Пароль:                 vfca3X8D
+
 http://gf-club.net:2082
 gfclubne
 fL3mKc5jH20Plx1

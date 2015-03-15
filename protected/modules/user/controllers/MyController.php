@@ -35,6 +35,12 @@ class MyController extends Controller
 				$template = 'my_grizodatel';
 				break;
 		}
+		
+		if($app->user->id == 1) {
+			$this->layout='//layouts/column2r';
+			$template = 'my_admin';
+		}
+		
 	    $this->render($template, array(
 	    	'app'=>$app,
 	    	'model'=>$model,

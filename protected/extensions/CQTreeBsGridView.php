@@ -17,7 +17,7 @@ class CQTreeBsGridView extends BsGridView
 		parent::init();
 		foreach($this->dataProvider->data as $model) {
 			$separator = '';
-			for ($x=1; $x++ < $model->level;) $separator .= ' - ';
+			for ($x=2; $x++ < $model->level;) $separator .= ' - ';
 			/*
 			if($model->level == 2)	{
 				$model->name = '<strong>'.$separator.$model->name.'</strong>';

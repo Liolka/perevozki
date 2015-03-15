@@ -1,9 +1,17 @@
-<?php $this->pageTitle=Yii::app()->name . ' - '.UserModule::t("Registration");
+<?php 
+$app = Yii::app();
+
+$this->pageTitle = $app->name . ' - '.UserModule::t("Registration");
+
+
 $this->breadcrumbs=array(
 	UserModule::t("Registration"),
 );
 
-Yii::app()->clientScript->registerScript('search', "
+$cs = $app->getClientScript();
+$cs->registerCoreScript('jquery');
+
+$app->clientScript->registerScript('search', "
 $('#select_type_form a').on('click', function(){
 	$('#user_type').val($(this).data('type'));
 	$('#select_type_form').submit();
