@@ -366,3 +366,10 @@
 .step-login-block {
 	border-left: 1px solid #b2daeb;
 }
+
+.date-unknown-block {
+	right: 0;
+	top: 26px;
+	
+	@extend %pos_rel;
+}

@@ -1128,7 +1128,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   display: none;
 }
 
-.rating-stars, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .footer .created-by {
+.rating-stars, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .footer .created-by {
   position: relative;
 }
 
@@ -2814,6 +2814,11 @@ button.close:hover {
 
 .step-login-block {
   border-left: 1px solid #b2daeb;
+}
+
+.date-unknown-block {
+  right: 0;
+  top: 26px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */

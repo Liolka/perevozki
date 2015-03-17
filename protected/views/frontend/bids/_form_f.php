@@ -25,7 +25,7 @@
 
 			<div class="row">
 				<div class="col-md-6 col-lg-6">
-					<div class="row form-row">
+					<div class="row form-row" style="position:relative;">
 						<div class="col-md-4 col-lg-4">
 							<?php echo $form->labelEx($model,'date_transportation', array('class'=>'lbl-block')); ?>
 							<?php echo $form->textField($model,'date_transportation', array('class'=>'width100')); ?>
@@ -36,7 +36,7 @@
 							<?php echo $form->textField($model,'time_transportation'); ?>
 							<?php echo $form->error($model,'time_transportation'); ?>
 						</div>
-						<div class="col-md-4 col-lg-4">
+						<div class="col-md-4 col-lg-4 date-unknown-block">
 							<?php echo $form->checkBox($model,'date_unknown', array('class'=>'checkbox')); ?>
 							<?php echo $form->labelEx($model,'date_unknown', array('class'=>'checkbox-lbl')); ?>						
 							<?php echo $form->error($model,'date_unknown'); ?>
