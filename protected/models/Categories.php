@@ -273,5 +273,11 @@ class Categories extends CActiveRecord
 		return $command->queryAll();
 	}
 	
+	public function getDropDownList($categories)
+	{
+		$result = CHtml::listData($categories, 'id', 'name');
+		return $result;
+	}
+	
 
 }

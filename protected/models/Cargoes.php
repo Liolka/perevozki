@@ -33,6 +33,62 @@ class Cargoes extends CActiveRecord
 		2 => array('id' => 2, 'name' => 'тонн'),
 	);
 	
+	public $category1;
+	public $name1;
+	public $comment1;
+	public $unit1;
+	public $porters1;
+	public $lift_to_floor1;
+	public $floor1;
+	public $weight1;
+	public $length1;
+	public $width1;
+	public $height1;
+	public $volume1;
+	public $foto1;
+	
+	public $category2;
+	public $name2;
+	public $comment2;
+	public $unit2;
+	public $porters2;
+	public $lift_to_floor2;
+	public $floor2;
+	public $weight2;
+	public $length2;
+	public $width2;
+	public $height2;
+	public $volume2;
+	public $foto2;
+	
+	public $category3;
+	public $name3;
+	public $comment3;
+	public $unit3;
+	public $porters3;
+	public $lift_to_floor3;
+	public $floor3;
+	public $weight3;
+	public $length3;
+	public $width3;
+	public $height3;
+	public $volume3;
+	public $foto3;
+	
+	public $category4;
+	public $name4;
+	public $comment4;
+	public $unit4;
+	public $porters4;
+	public $lift_to_floor4;
+	public $floor4;
+	public $weight4;
+	public $length4;
+	public $width4;
+	public $height4;
+	public $volume4;
+	public $foto4;
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -51,11 +107,31 @@ class Cargoes extends CActiveRecord
 		return array(
 			//array('name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume', 'required'),
 			array('unit, porters, lift_to_floor, floor', 'numerical', 'integerOnly'=>true),
-			array('weight, length, width, height, volume', 'numerical'),
-			array('name, foto', 'length', 'max'=>255),
+			array(
+				'weight, length, width, height, volume, 
+				 weight1, length1, width1, height1, volume1, 
+				 weight2, length2, width2, height2, volume2, 
+				 weight3, length3, width3, height3, volume3, 
+				 weight4, length4, width4, height4, volume4', 
+				'numerical'
+			),
+			array(
+				'name, foto, 
+				 name1, foto1,
+				 name2, foto2,
+				 name3, foto3,
+				 name4, foto4', 
+				'length', 'max'=>255
+			),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cargo_id, name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume', 'safe', 'on'=>'search'),
+			array(
+				'cargo_id, name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume, 
+				 cargo_id1, name1, comment1, weight1, unit1, foto1, porters1, lift_to_floo1r, floor1, length1, width1, heigh1t, volume1,
+				 cargo_id2, name2, comment2, weight2, unit2, foto2, porters2, lift_to_floor2, floor2, length2, width2, height2, volume2,
+				 cargo_id3, name3, comment3, weight3, unit3, foto3, porters3, lift_to_floor3, floor3, length3, width3, height3, volume3,
+				 cargo_id4, name4, comment4, weight4, unit4, foto4, porters4, lift_to_floor4, floor4, length4, width4, height4, volume4', 
+				'safe', 'on'=>'search'),
 		);
 	}
 

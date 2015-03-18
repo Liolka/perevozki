@@ -43,6 +43,10 @@
 	}
 }
 
+.add-cargo-step-container {
+	padding-top: 20px;
+}
+
 .step1-category-item {
 	height: 155px;
 	//background-color: #e0e0e0;
@@ -355,6 +359,7 @@
 	@extend %pos_rel;
 }
 
+.delete-add-cargo-block,
 .delete-loading-unloading-block {
 	top: -3px;
 	right: -3px;

@@ -86,8 +86,10 @@ class BidsController extends Controller
 		//echo'<pre>';print_r($categories_list_level1);echo'</pre>';
 
 		//if(isset($_POST['Bids']))
-		if(isset($_POST['Cargoes']))
-		{
+		if(isset($_POST['Cargoes'])) {
+			
+			//echo'<pre>';print_r($_POST);echo'</pre>';die;
+			
 			$form = '_form_f';
 			$data = array(
 				'model'=>$model,
@@ -228,6 +230,12 @@ class BidsController extends Controller
 		$model->DropDownUnitsList = Cargoes::model()->getDropDownUnitsList();
 		$model->SelectedUnitsList = array();
 		
+		$categories_list_level2 = Categories::model()->getCategoriesLevel2($connection, $category_id);
+		$categories_list = Categories::model()->getDropDownList($categories_list_level2);
+		
+		//echo'<pre>';print_r($categories_list_level2);echo'</pre>';die;
+		
+		
 
 		//$categories_list_level2 = Categories::model()->getCategoriesLevel2($connection, $category_id);
 		switch($category_id) {
@@ -241,6 +249,7 @@ class BidsController extends Controller
 		$this->renderPartial($layout, array(
 			'model'=>$model,
 			'category_id'=>$category_id,
+			'categories_list'=>$categories_list,
 		));
 	}
 	

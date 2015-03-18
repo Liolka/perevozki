@@ -9,7 +9,7 @@
 				<? foreach($categories_list_level2 as $cat) {	?>
 					<li class="col-md-3 col-lg-3 step2-list-item">
 						<p class="step2-category-item">
-							<input type="checkbox" name="category[]" onchange="change_step2_cat(this)" id="step2-category-item-<?=$cat['id']?>" class="checkbox step2-category-item-checkbox" value="<?=$cat['id']?>"><label for="step2-category-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
+							<input type="checkbox" name="Cargoes[category1][]" onchange="change_step2_cat(this)" id="step2-category-item-<?=$cat['id']?>" class="checkbox step2-category-item-checkbox" value="<?=$cat['id']?>"><label for="step2-category-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
 						</p>
 					</li>
 				<? } ?>

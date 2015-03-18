@@ -42,7 +42,7 @@
 	<div id="step3Container"></div>
 	
 	<div id="step-final-btn-wr" class="buttons text-align-center hide-block">
-		<?php echo CHtml::submitButton('Перейти к финальному шагу', array('class'=>'btn-green-52 step-final-btn')); ?>
+		<?php echo CHtml::submitButton('Перейти к финальному шагу', array('class'=>'btn-green-52 step-final-btn', 'name' => 'step3')); ?>
 	</div>
 	
 <?php $this->endWidget(); ?>

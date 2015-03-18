@@ -1132,7 +1132,8 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   position: relative;
 }
 
-.rating-stars .stars-empty, .rating-stars .stars-full, .requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-loading-unloading-block, .footer .created-by a {
+.rating-stars .stars-empty, .rating-stars .stars-full, .requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
+.delete-loading-unloading-block, .footer .created-by a {
   position: absolute;
 }
 
@@ -2681,6 +2682,10 @@ button.close:hover {
   margin: 25px 100px;
 }
 
+.add-cargo-step-container {
+  padding-top: 20px;
+}
+
 .step1-category-item {
   height: 155px;
   border: 3px dashed #fff;
@@ -2806,6 +2811,7 @@ button.close:hover {
   padding-top: 15px;
 }
 
+.delete-add-cargo-block,
 .delete-loading-unloading-block {
   top: -3px;
   right: -3px;
