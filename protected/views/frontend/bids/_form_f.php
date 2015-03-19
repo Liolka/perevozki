@@ -49,7 +49,7 @@ if($('#Bids_have_account').is(':checked')) {
 							<?php //echo $form->textField($model,'date_transportation', array('class'=>'width100')); ?>
 							<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 									'model'=>$model,
-									'name' => 'date_transportation',
+									'name' => 'Bids[date_transportation]',
 									'language' => 'ru',
 									'value' => $model->date_transportation,
 									'options'=>array(
@@ -242,6 +242,8 @@ if($('#Bids_have_account').is(':checked')) {
 					</div>			
 					
 				</div>
+				
+				<? if($this->app->user->isGuest) { ?>
 				<div class="col-md-6 col-lg-6 step-login-block">
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
@@ -296,6 +298,7 @@ if($('#Bids_have_account').is(':checked')) {
 					</div>
 				
 				</div>
+				<? } ?>
 			</div>
 			
 

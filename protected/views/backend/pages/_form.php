@@ -26,11 +26,13 @@ $form=$this->beginWidget('bootstrap.widgets.BsActiveForm', array(
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
+	<?/*
 	<div class="row">
 		<?php echo $form->labelEx($model,'alias'); ?>
 		<?php echo $form->textField($model,'alias',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'alias'); ?>
 	</div>
+	*/?>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'text'); ?>

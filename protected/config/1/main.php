@@ -10,7 +10,7 @@ return array(
 	'name'=>'perevozki',
 	'sourceLanguage' => 'en',
 	'language' => 'ru',
-	'homeUrl'=>'http://perevozki.gf-club.net',
+	'homeUrl'=>'http://skorohod.by/',
 	
 
 	// preloading 'log' component
@@ -92,9 +92,6 @@ return array(
             'returnLogoutUrl' => array('/'),
         ),
 		
-		'pages' => array(
-			'class' => 'application.modules.pages.PagesModule',
-		),
 	),
 
 	// application components
@@ -251,6 +248,6 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
-		'images_live_url' => 'http://perevozki/',
+		'images_live_url' => 'http://skorohod.by/',
 	),
 );

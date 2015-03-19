@@ -88,182 +88,296 @@ class BidsController extends Controller
 		//echo'<pre>';print_r($_POST);echo'</pre>';die;
 
 		if(isset($_POST['Bids']) && !isset($_POST['ajax'])) {
+				//если пришли данные из последнего шага и без аякс-валидации
 				
 				//echo'<pre>';print_r($_POST['Bids']);echo'</pre>';die;
 			
 				$model->attributes = $_POST['Bids'];
 			
-				$model->have_account = $_POST['Bids']['have_account'];
+				$create_bid = false;
 			
-				if($_POST['Bids']['have_account'] == 1) {
-					$model->scenario = Bids::SCENARIO_LOGIN_FORM;
-				} else {
-					$model->scenario = Bids::SCENARIO_REG_FORM;
-				}
+				$msg = '';
 			
 				//echo'<pre>';print_r($model->scenario);echo'</pre>';die;
 			
 				if($model->validate()) {
+					//валидация входных данных успешна
 					
 					$bidMessageSuccess = 'Ваша заявка успешно размещена';
 					
-					if($model->have_account == 1) {
+					if($this->app->user->isGuest) {
+						$model->have_account = $_POST['Bids']['have_account'];
 						
-						$user_model=new UserLogin;
-						// collect user input data
-						$user_model->username = $model->login_email;
-						$user_model->password = $model->login_password;
-						$user_model->rememberMe = false;
-						// validate user input and redirect to previous page if valid
-						//var_dump($user_model->validate());die;
-						if($user_model->validate()) {
-							$lastVisit = User::model()->notsafe()->findByPk(Yii::app()->user->id);
-							$lastVisit->lastvisit = time();
-							$lastVisit->save();
+						if($_POST['Bids']['have_account'] == 1) {
+							$model->scenario = Bids::SCENARIO_LOGIN_FORM;
+						} else {
+							$model->scenario = Bids::SCENARIO_REG_FORM;
+						}
+						
+						
+						if($model->have_account == 1) {
+							//если пользователь уже зареген то проверяем введенные им данные и логиним его
+							$user_model=new UserLogin;
+							$user_model->username = $model->login_email;
+							$user_model->password = $model->login_password;
+							$user_model->rememberMe = false;
+							//var_dump($user_model->validate());die;
+							if($user_model->validate()) {
+								$lastVisit = User::model()->notsafe()->findByPk($this->app->user->id);
+								$lastVisit->lastvisit = time();
+								$lastVisit->save();
 
-							$model->save(false);
-							echo 'saved'.$model->bid_id;
+								$this->app->user->setFlash('bidMessageSuccess', $bidMessageSuccess);
+								$model->user_id = $this->app->user->id;
+								$create_bid = true;
 
-							$form = '_form';
-							$categories_list_level1 = Categories::model()->getCategoriesLevel1($connection);
+							} else {
+								
+								foreach($user_model->errors as $er) {
+									$msg .= '<li>'.$er[0].'</li>';
+								}
 
-							$this->app->user->setFlash('bidMessageSuccess', $bidMessageSuccess);
+								$create_bid = false;
 
-							$data = array(
-								'category_id'=>'0',
-								'model'=>$model,
-								'form'=>$form,
-								'model_Cargoes'=>null,
-								'categories_list_level1'=>$categories_list_level1,
-								'categories_list_level2'=>array(),
-								'categories_list'=>array(),
+							}
 
-							);
+
 
 						} else {
-							$msg = '';
-							foreach($user_model->errors as $er) {
+							//если это новый пользователь - регим его
+							 header('Content-Type: text/html; charset=utf-8');
+							$model_reg = new RegistrationForm;
+							$profile = new Profile;
+							$profile->regMode = true;
+
+							$model_reg->scenario = RegistrationForm::SCENARIO_REGISTRATION;
+
+							//$model_reg->attributes=$_POST['RegistrationForm'];
+							$model_reg->username = $model->bid_name;
+							$model_reg->email = $model->bid_email;
+							$model_reg->password = $this->createPassword();
+							$model_reg->verifyPassword = $model_reg->password;
+							$model_reg->accept_rules = 1;
+							//echo'<pre>';print_r($model->attributes);echo'</pre>';die;
+							$profile->attributes = array();
+							//var_dump($model_reg->validate());//die;
+							//echo'<pre>';print_r($model->bid_name);echo'</pre>';die;
+							//echo'<pre>';print_r($model_reg);echo'</pre>';die;
+							if($model_reg->validate()) {
+								$soucePassword = $model_reg->password;
+								$model_reg->activkey=UserModule::encrypting(microtime().$model_reg->password);
+								$model_reg->password=UserModule::encrypting($model_reg->password);
+								$model_reg->verifyPassword=UserModule::encrypting($model_reg->verifyPassword);
+								$model_reg->superuser=0;
+								//$model_reg->status=((Yii::app()->controller->module->activeAfterRegister)?User::STATUS_ACTIVE:User::STATUS_NOACTIVE);
+								$model_reg->status=User::STATUS_NOACTIVE;
+
+								$model_reg->user_type = 1;
+								$model_reg->user_status = 1;
+
+								if ($model_reg->save()) {
+									$profile->user_id=$model_reg->id;
+									$profile->save();
+									//if (Yii::app()->controller->module->sendActivationMail) {
+										$activation_url = $this->createAbsoluteUrl('/user/activation/activation',array("activkey" => $model_reg->activkey, "email" => $model_reg->email));
+										UserModule::sendMail($model_reg->email,UserModule::t("You registered from {site_name}",array('{site_name}'=>Yii::app()->name)),UserModule::t("Please activate you account go to {activation_url}",array('{activation_url}'=>$activation_url)).' 
+										Пароль для входа: '.$soucePassword);
+									//}
+
+									/*
+
+									if ((Yii::app()->controller->module->loginNotActiv||(Yii::app()->controller->module->activeAfterRegister&&Yii::app()->controller->module->sendActivationMail==false))&&Yii::app()->controller->module->autoLogin) {
+											$identity=new UserIdentity($model_reg->username,$soucePassword);
+											$identity->authenticate();
+											Yii::app()->user->login($identity,0);
+											$this->redirect(Yii::app()->controller->module->returnUrl);
+									} else {
+									*/
+
+										/*
+										if (!Yii::app()->controller->module->activeAfterRegister&&!Yii::app()->controller->module->sendActivationMail) {
+											Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Contact Admin to activate your account."));
+										} elseif(Yii::app()->controller->module->activeAfterRegister&&Yii::app()->controller->module->sendActivationMail==false) {
+											Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please {{login}}.",array('{{login}}'=>CHtml::link(UserModule::t('Login'),Yii::app()->controller->module->loginUrl))));
+										} elseif(Yii::app()->controller->module->loginNotActiv) {
+											Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email or login."));
+										} else {
+											Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email."));
+										}
+										*/
+										Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email or login."));
+										//$this->refresh();
+										//$this->renderPartial($layout, array('model'=>$model,'profile'=>$profile));die;
+									//}
+								}
+
+								$create_bid = true;
+
+								$model->user_id = $model_reg->id;
+
+
+
+							} else {
+								$msg = '';
+								foreach($model_reg->errors as $er) {
+									$msg .= '<li>'.$er[0].'</li>';
+								}
+
+								$create_bid = false;
+							}
+						}						
+
+					} else {
+						$model->user_id = $this->app->user->id;
+						$create_bid = true;
+					}
+					
+				} else {
+					foreach($model->errors as $er) {
+						$msg .= '<li>'.$er[0].'</li>';
+					}
+
+					$create_bid = false;
+					
+				}
+			
+				if($create_bid) {
+					
+					$NewBid_Cargoes	= $this->app->session['NewBid.Cargoes'];
+					
+					//echo'<pre>';print_r($NewBid_Cargoes);echo'</pre>';die;
+					
+					$model->save(false);
+					
+					$cargo = new Cargoes;
+					$cargo->name = $NewBid_Cargoes['name1'];
+					$cargo->comment = $NewBid_Cargoes['comment1'];
+					$cargo->weight = $NewBid_Cargoes['weight1'];
+					$cargo->unit = $NewBid_Cargoes['unit1'];
+					$cargo->porters = $NewBid_Cargoes['porters1'];
+					//$cargo->foto = $NewBid_Cargoes['foto1'];
+					$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor1'];
+					$cargo->floor = $NewBid_Cargoes['floor1'];
+					$cargo->length = $NewBid_Cargoes['length1'];
+					$cargo->width = $NewBid_Cargoes['width1'];
+					$cargo->height = $NewBid_Cargoes['height1'];
+					$cargo->volume = $NewBid_Cargoes['volume1'];
+					
+					if($cargo->validate()) {
+						$cargo->save();
+						$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
+						foreach($NewBid_Cargoes['category1'] as $category_id) {
+							$this->createCargoesCategories($cargo->cargo_id, $category_id);
+						}
+						
+					} else {
+						foreach($model_reg->errors as $er) {
+							$msg .= '<li>'.$er[0].'</li>';
+						}
+					}
+					
+					if($msg == '' && $NewBid_Cargoes['name2'] != '') {
+						$cargo = new Cargoes;
+						$cargo->name = $NewBid_Cargoes['name2'];
+						$cargo->comment = $NewBid_Cargoes['comment2'];
+						$cargo->weight = $NewBid_Cargoes['weight2'];
+						$cargo->unit = $NewBid_Cargoes['unit2'];
+						$cargo->porters = $NewBid_Cargoes['porters2'];
+						//$cargo->foto = $NewBid_Cargoes['foto2'];
+						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor2'];
+						$cargo->floor = $NewBid_Cargoes['floor2'];
+						$cargo->length = $NewBid_Cargoes['length2'];
+						$cargo->width = $NewBid_Cargoes['width2'];
+						$cargo->height = $NewBid_Cargoes['height2'];
+						$cargo->volume = $NewBid_Cargoes['volume2'];
+
+						if($cargo->validate()) {
+							$cargo->save();
+							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
+							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category2']);
+						} else {
+							foreach($model_reg->errors as $er) {
+								$msg .= '<li>'.$er[0].'</li>';
+							}
+						}
+					}
+					
+					if($msg == '' && $NewBid_Cargoes['name3'] != '') {
+						$cargo = new Cargoes;
+						$cargo->name = $NewBid_Cargoes['name3'];
+						$cargo->comment = $NewBid_Cargoes['comment3'];
+						$cargo->weight = $NewBid_Cargoes['weight3'];
+						$cargo->unit = $NewBid_Cargoes['unit3'];
+						$cargo->porters = $NewBid_Cargoes['porters3'];
+						//$cargo->foto = $NewBid_Cargoes['foto3'];
+						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor3'];
+						$cargo->floor = $NewBid_Cargoes['floor3'];
+						$cargo->length = $NewBid_Cargoes['length3'];
+						$cargo->width = $NewBid_Cargoes['width3'];
+						$cargo->height = $NewBid_Cargoes['height3'];
+						$cargo->volume = $NewBid_Cargoes['volume3'];
+
+						if($cargo->validate()) {
+							$cargo->save();
+							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
+							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category3']);
+						} else {
+							foreach($model_reg->errors as $er) {
+								$msg .= '<li>'.$er[0].'</li>';
+							}
+						}
+					}
+					
+					if($msg == '' && $NewBid_Cargoes['name4'] != '') {
+						$cargo = new Cargoes;
+						$cargo->name = $NewBid_Cargoes['name4'];
+						$cargo->comment = $NewBid_Cargoes['comment4'];
+						$cargo->weight = $NewBid_Cargoes['weight4'];
+						$cargo->unit = $NewBid_Cargoes['unit4'];
+						$cargo->porters = $NewBid_Cargoes['porters4'];
+						//$cargo->foto = $NewBid_Cargoes['foto4'];
+						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor4'];
+						$cargo->floor = $NewBid_Cargoes['floor4'];
+						$cargo->length = $NewBid_Cargoes['length4'];
+						$cargo->width = $NewBid_Cargoes['width4'];
+						$cargo->height = $NewBid_Cargoes['height4'];
+						$cargo->volume = $NewBid_Cargoes['volume4'];
+
+						if($cargo->validate()) {
+							$cargo->save();
+							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
+							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category4']);
+						} else {
+							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
 							}
 
-							$msg = '<ul>'.$msg.'</ul>';
 
-							$this->app->user->setFlash('bidMessageError', $msg);
-
-							$form = '_form_f';
-							$data = array(
-								'category_id'=>'0',
-								'model'=>$model,
-								'model_Cargoes'=>null,
-								'form'=>$form,
-								'categories_list_level1'=>array(),
-								'categories_list_level2'=>array(),
-								'categories_list'=>array(),
-							);
 						}
-
-
-						
-					} else {
-						 header('Content-Type: text/html; charset=utf-8');
-						$model_reg = new RegistrationForm;
-						$profile = new Profile;
-						$profile->regMode = true;
-						
-						$model_reg->scenario = RegistrationForm::SCENARIO_REGISTRATION;
-
-						//$model_reg->attributes=$_POST['RegistrationForm'];
-						$model_reg->username = $model->bid_name;
-						$model_reg->email = $model->bid_email;
-						$model_reg->password = $this->createPassword();
-						$model_reg->verifyPassword = $model_reg->password;
-						$model_reg->accept_rules = 1;
-						//echo'<pre>';print_r($model->attributes);echo'</pre>';die;
-						$profile->attributes = array();
-						//var_dump($model_reg->validate());die;
-						//echo'<pre>';print_r($model->bid_name);echo'</pre>';die;
-						//echo'<pre>';print_r($model_reg);echo'</pre>';die;
-						if($model_reg->validate()) {
-							$soucePassword = $model_reg->password;
-							$model_reg->activkey=UserModule::encrypting(microtime().$model_reg->password);
-							$model_reg->password=UserModule::encrypting($model_reg->password);
-							$model_reg->verifyPassword=UserModule::encrypting($model_reg->verifyPassword);
-							$model_reg->superuser=0;
-							//$model_reg->status=((Yii::app()->controller->module->activeAfterRegister)?User::STATUS_ACTIVE:User::STATUS_NOACTIVE);
-							$model_reg->status=User::STATUS_NOACTIVE;
-
-							$model_reg->user_type = 1;
-							$model_reg->user_status = 1;
-
-							if ($model_reg->save()) {
-								$profile->user_id=$model_reg->id;
-								$profile->save();
-								//if (Yii::app()->controller->module->sendActivationMail) {
-									$activation_url = $this->createAbsoluteUrl('/user/activation/activation',array("activkey" => $model_reg->activkey, "email" => $model_reg->email));
-									UserModule::sendMail($model_reg->email,UserModule::t("You registered from {site_name}",array('{site_name}'=>Yii::app()->name)),UserModule::t("Please activate you account go to {activation_url}",array('{activation_url}'=>$activation_url)));
-								//}
-								
-								/*
-
-								if ((Yii::app()->controller->module->loginNotActiv||(Yii::app()->controller->module->activeAfterRegister&&Yii::app()->controller->module->sendActivationMail==false))&&Yii::app()->controller->module->autoLogin) {
-										$identity=new UserIdentity($model_reg->username,$soucePassword);
-										$identity->authenticate();
-										Yii::app()->user->login($identity,0);
-										$this->redirect(Yii::app()->controller->module->returnUrl);
-								} else {
-								*/
-									
-									/*
-									if (!Yii::app()->controller->module->activeAfterRegister&&!Yii::app()->controller->module->sendActivationMail) {
-										Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Contact Admin to activate your account."));
-									} elseif(Yii::app()->controller->module->activeAfterRegister&&Yii::app()->controller->module->sendActivationMail==false) {
-										Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please {{login}}.",array('{{login}}'=>CHtml::link(UserModule::t('Login'),Yii::app()->controller->module->loginUrl))));
-									} elseif(Yii::app()->controller->module->loginNotActiv) {
-										Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email or login."));
-									} else {
-										Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email."));
-									}
-									*/
-									Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email or login."));
-									//$this->refresh();
-									//$this->renderPartial($layout, array('model'=>$model,'profile'=>$profile));die;
-								//}
-							}
-							
-							$model->save(false);
-							echo 'saved'.$model->bid_id;
-
-							$form = '_form';
-							$categories_list_level1 = Categories::model()->getCategoriesLevel1($connection);
-
-							$this->app->user->setFlash('bidMessageSuccess', $bidMessageSuccess);
-
-							$data = array(
-								'category_id'=>'0',
-								'model'=>$model,
-								'form'=>$form,
-								'model_Cargoes'=>null,
-								'categories_list_level1'=>$categories_list_level1,
-								'categories_list_level2'=>array(),
-								'categories_list'=>array(),
-
-							);
-							
-							
-						} //else $profile->validate();
-						
-						
 					}
 					
-					//echo'<pre>';print_r($user_model->errors);echo'</pre>';//die;
-					//echo'<pre>';print_r($model);echo'</pre>';
-					//die;
-					
-					
-					
-					
+					$form = '_form';
+					$categories_list_level1 = Categories::model()->getCategoriesLevel1($connection);
+
+					$this->app->user->setFlash('bidMessageSuccess', $bidMessageSuccess);
+
+					$data = array(
+						'category_id'=>'0',
+						'model'=>$model,
+						'form'=>$form,
+						'model_Cargoes'=>null,
+						'categories_list_level1'=>$categories_list_level1,
+						'categories_list_level2'=>array(),
+						'categories_list'=>array(),
+
+					);
 					
 				} else {
+					
+					if($msg != '') {
+						$msg = '<ul>'.$msg.'</ul>';
+						$this->app->user->setFlash('bidMessageError', $msg);
+					}
 					
 					$form = '_form_f';
 					$data = array(
@@ -274,12 +388,10 @@ class BidsController extends Controller
 						'categories_list_level1'=>array(),
 						'categories_list_level2'=>array(),
 						'categories_list'=>array(),
-
 					);
-
+					
 				}
-				//die;
-			
+				/*
 				$NewBid_Cargoes	= $this->app->session['NewBid.Cargoes'];
 			
 				$model_Cargoes = new Cargoes;
@@ -335,7 +447,7 @@ class BidsController extends Controller
 				$model_Cargoes->width4 = $this->app->session['NewBid.Cargoes']['width4'];
 				$model_Cargoes->height4 = $this->app->session['NewBid.Cargoes']['height4'];
 				$model_Cargoes->volume4 = $this->app->session['NewBid.Cargoes']['volume4'];
-			
+				*/
 			
 			
 		} elseif(isset($_POST['Cargoes'])) {
@@ -619,6 +731,22 @@ class BidsController extends Controller
 			'category_id'=>$category_id,
 			'categories_list'=>$categories_list,
 		));
+	}
+	
+	public function createBidsCargoes($bid_id, $cargo_id)
+	{
+		$BidsCargoes = new BidsCargoes;
+		$BidsCargoes->bid_id = $bid_id;
+		$BidsCargoes->cargo_id = $cargo_id;
+		$BidsCargoes->save();
+	}
+	
+	public function createCargoesCategories($cargo_id, $category_id)
+	{
+		$CargoesCategories = new CargoesCategories;
+		$CargoesCategories->cargo_id = $cargo_id;
+		$CargoesCategories->category_id = $category_id;
+		$CargoesCategories->save();
 	}
 	
 	public function createPassword()

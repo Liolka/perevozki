@@ -2,26 +2,30 @@
 /* @var $this PagesController */
 /* @var $model Pages */
 
+
+
 $this->breadcrumbs=array(
-	'Pages'=>array('index'),
 	$model->name,
 );
 
+$clientScript = $this->app->clientScript;
+
+
+if ($model->meta_title)	{
+  $this->pageTitle = $model->meta_title;
+}	else	{
+	$this->pageTitle = $model->name;
+}
+
+if ($model->meta_keywords)	
+	$clientScript->registerMetaTag($model->meta_keywords, 'keywords');
+
+if ($model->meta_description)		
+	$clientScript->registerMetaTag($model->meta_description, 'description');
+
 ?>
 
-<h1>View Pages #<?php echo $model->id; ?></h1>
+
+<h1><?php echo $model->name; ?></h1>
 
 <? echo $model->text; ?>
-
-<?
-/*
-маз 8585 белый
-16.15
-
-
-автобус
-
-
-коробочка для алексея
-*/
-?>

@@ -3,8 +3,7 @@
 /* @var $model Bids */
 
 $this->breadcrumbs=array(
-	'Bids'=>array('index'),
-	'Create',
+	'Заявка на перевозку грузов',
 );
 /*
 $this->menu=array(

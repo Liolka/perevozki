@@ -36,11 +36,12 @@
 				<div class="width-wrap">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
-							array('label'=>'Как это работает', 'url'=>array('/site/emptypage')),
-							array('label'=>'Гарантии', 'url'=>array('/site/emptypage')),
-							array('label'=>'Контакты', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'contacts')),
-							array('label'=>'Помощь грузодателю', 'url'=>array('/site/emptypage'), 'itemOptions'=>array('class'=>'gruzodatel')),
-							array('label'=>'Помощь перевозчику', 'url'=>array('/site/emptypage'), 'itemOptions'=>array('class'=>'perevozchik')),
+							array('label'=>'Как это работает', 'url'=>array('/pages/view', 'id'=>2)),
+							array('label'=>'Гарантии', 'url'=>array('/pages/view', 'id'=>3)),
+							array('label'=>'Контакты', 'url'=>array('/pages/view', 'id'=>4), 'itemOptions'=>array('class'=>'contacts')),
+							//array('label'=>'Контакты', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'contacts')),
+							array('label'=>'Помощь грузодателю', 'url'=>array('/pages/view', 'id'=>5), 'itemOptions'=>array('class'=>'gruzodatel')),
+							array('label'=>'Помощь перевозчику', 'url'=>array('/pages/view', 'id'=>6), 'itemOptions'=>array('class'=>'perevozchik')),
 							
 							array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items'), 'linkOptions'=>array('id'=>'register-btn')),
 							array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
@@ -203,7 +204,7 @@
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 					array('label'=>'Закажу перевозку', 'url'=>array('site/emptypage')),
-					array('label'=>'Помощь грузодателю', 'url'=>array('site/emptypage')),
+					array('label'=>'Помощь грузодателю', 'url'=>array('/pages/view', 'id'=>5)),
 					array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu1')
 			)); ?>
@@ -213,7 +214,7 @@
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
 					array('label'=>'Перевезу груз', 'url'=>array('site/emptypage')),
-					array('label'=>'Помощь перевозчику', 'url'=>array('site/emptypage')),
+					array('label'=>'Помощь перевозчику', 'url'=>array('/pages/view', 'id'=>6)),
 					array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu2')
 			)); ?>
@@ -221,12 +222,12 @@
 		<div class="footer-cell">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
-					array('label'=>'Как работает сайт', 'url'=>array('site/emptypage')),
-					array('label'=>'Частые вопросы', 'url'=>array('site/emptypage')),
-					array('label'=>'Интернет-магазинам', 'url'=>array('site/emptypage')),
-					array('label'=>'Система рейтинга', 'url'=>array('site/emptypage')),
-					array('label'=>'Гарантии', 'url'=>array('site/emptypage')),
-					array('label'=>'Контакты', 'url'=>array('site/emptypage')),
+					array('label'=>'Как работает сайт', 'url'=>array('/pages/view', 'id'=>2)),
+					array('label'=>'Частые вопросы', 'url'=>array('/pages/view', 'id'=>7)),
+					array('label'=>'Интернет-магазинам', 'url'=>array('/pages/view', 'id'=>8)),
+					array('label'=>'Система рейтинга', 'url'=>array('/pages/view', 'id'=>9)),
+					array('label'=>'Гарантии', 'url'=>array('/pages/view', 'id'=>3)),
+					array('label'=>'Контакты', 'url'=>array('/pages/view', 'id'=>4)),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu3')
 			)); ?>
 		</div>

@@ -45,6 +45,16 @@ class Bids extends CActiveRecord
 	{
 		return '{{bids}}';
 	}
+	
+	public function behaviors()
+	{
+		return array(
+			'CTimestampBehavior' => array(
+			'class' => 'zii.behaviors.CTimestampBehavior',
+			'createAttribute' => 'created',
+			)
+		);
+	}	
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -60,6 +70,9 @@ class Bids extends CActiveRecord
 			array('login_email, bid_email', 'email'),
 			array('login_password', 'length', 'max'=>128, 'min' => 4),
 			array('bid_phone, bid_name', 'length', 'max'=>128),
+			//array('date_transportation, time_transportation', 'length', 'max'=>255),
+			array('date_transportation', 'date', 'format' => 'yyyy-MM-dd'),
+			array('time_transportation', 'date', 'format' => 'HH:mm'),
 			
 			array('user_id, published, date_unknown, price', 'numerical', 'integerOnly'=>true),
 			array('loading_town, loading_address, add_loading_unloading_town_1, add_loading_unloading_address_1, add_loading_unloading_town_2, add_loading_unloading_address_2, add_loading_unloading_town_3, add_loading_unloading_address_3, unloading_town, unloading_address', 'length', 'max'=>255),
