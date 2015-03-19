@@ -130,6 +130,7 @@ $(document).ready(function () {
     $('.step1-category-item').on('click', function () {
 		$('.step1-category-item').removeClass('active');
 		$(this).addClass('active');
+		$('#category_id').val($(this).data('catid'));
 		
 		$.ajax({
 			type: 'get',
@@ -282,13 +283,13 @@ function change_step2_cat(el) {
 			success: function (msg) {
 				$('#step3Container').html(msg);
 				$('#step3Container .checkbox, #step3Container select').styler();
-				$('#Cargoes_name').val(cargo_name);
+				$('#Cargoes_name1').val(cargo_name);
 				$('#step-final-btn-wr').show();
 			}
 		});
 		
 	} else {
-		$('#Cargoes_name').val(cargo_name);
+		$('#Cargoes_name1').val(cargo_name);
 	}
 	
 	//console.log($(el).val());

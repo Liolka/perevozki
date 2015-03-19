@@ -33,6 +33,7 @@
 					</li>
 				<? } ?>
 				</ul>
+				<input type="hidden" name="Cargoes[category_id]" id="category_id" value="<?=$category_id?>" />
 			</div>
 
 		</div>

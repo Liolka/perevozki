@@ -18,7 +18,11 @@ $this->menu=array(
 
 <?php 
 $this->renderPartial($form, array(
+	'category_id'=>$category_id,
 	'model'=>$model,
+	'model_Cargoes'=>$model_Cargoes,
 	'categories_list_level1'=>$categories_list_level1,
+	'categories_list_level2'=>$categories_list_level2,	
+	'categories_list'=>$categories_list,	
 )); 
 ?>

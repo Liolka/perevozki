@@ -106,7 +106,14 @@ class Cargoes extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			//array('name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume', 'required'),
-			array('unit, porters, lift_to_floor, floor', 'numerical', 'integerOnly'=>true),
+			array(
+				'unit, porters, lift_to_floor, floor,
+				 unit1, porters1, lift_to_floor1, floor1
+				 unit2, porters2, lift_to_floor2, floor2
+				 unit3, porters3, lift_to_floor3, floor3
+				 unit4, porters4, lift_to_floor4, floor4', 
+				'numerical', 'integerOnly'=>true
+			),
 			array(
 				'weight, length, width, height, volume, 
 				 weight1, length1, width1, height1, volume1, 
@@ -125,6 +132,7 @@ class Cargoes extends CActiveRecord
 			),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
+			/*
 			array(
 				'cargo_id, name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume, 
 				 cargo_id1, name1, comment1, weight1, unit1, foto1, porters1, lift_to_floo1r, floor1, length1, width1, heigh1t, volume1,
@@ -132,6 +140,14 @@ class Cargoes extends CActiveRecord
 				 cargo_id3, name3, comment3, weight3, unit3, foto3, porters3, lift_to_floor3, floor3, length3, width3, height3, volume3,
 				 cargo_id4, name4, comment4, weight4, unit4, foto4, porters4, lift_to_floor4, floor4, length4, width4, height4, volume4', 
 				'safe', 'on'=>'search'),
+			*/
+			array(
+				'cargo_id, name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume, 
+				 cargo_id1, name1, comment1, weight1, unit1, foto1, porters1, lift_to_floo1r, floor1, length1, width1, heigh1t, volume1,
+				 cargo_id2, name2, comment2, weight2, unit2, foto2, porters2, lift_to_floor2, floor2, length2, width2, height2, volume2,
+				 cargo_id3, name3, comment3, weight3, unit3, foto3, porters3, lift_to_floor3, floor3, length3, width3, height3, volume3,
+				 cargo_id4, name4, comment4, weight4, unit4, foto4, porters4, lift_to_floor4, floor4, length4, width4, height4, volume4', 
+				'safe'),
 		);
 	}
 

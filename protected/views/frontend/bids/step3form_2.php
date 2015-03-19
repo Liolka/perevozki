@@ -314,8 +314,8 @@
 				
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
-							<?php echo $form->dropDownList($model, 'category2', $categories_list, array('data-placeholder'=>'выберите...', 'options' => array(), 'class'=>'width100'));?>
-							<?php echo $form->error($model,'category2'); ?>
+							<?php echo $form->dropDownList($model, 'category4', $categories_list, array('data-placeholder'=>'выберите...', 'options' => array(), 'class'=>'width100'));?>
+							<?php echo $form->error($model,'category4'); ?>
 						</div>
 					</div>
 					
@@ -327,16 +327,16 @@
 						</div>
 						<div class="col-md-10 col-lg-10">
 							<?php echo $form->labelEx($model,'name', array('class'=>'lbl-block')); ?>
-							<?php echo $form->textField($model,'name2', array('class'=>'width100')); ?>
-							<?php echo $form->error($model,'name2'); ?>
+							<?php echo $form->textField($model,'name4', array('class'=>'width100')); ?>
+							<?php echo $form->error($model,'name4'); ?>
 						</div>
 					</div>
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
 						<?php echo $form->labelEx($model,'comment', array('class'=>'lbl-block')); ?>
-						<?php echo $form->textArea($model,'comment2',array('rows'=>7, 'cols'=>50, 'class'=>'width100')); ?>
-						<?php echo $form->error($model,'comment2'); ?>
+						<?php echo $form->textArea($model,'comment4',array('rows'=>7, 'cols'=>50, 'class'=>'width100')); ?>
+						<?php echo $form->error($model,'comment4'); ?>
 						</div>
 					</div>
 					

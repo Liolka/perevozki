@@ -273,8 +273,16 @@ class Categories extends CActiveRecord
 		return $command->queryAll();
 	}
 	
+	public function getCategoriesFromIds(&$connection, $category_ids = array())
+	{
+		$sql = "SELECT `id`, `name` FROM ".$this->tableName()." WHERE `id` IN(".implode(',', $category_ids).") ORDER BY `root`, `lft`";
+		$command = $connection->createCommand($sql);
+		return $command->queryAll();
+	}
+	
 	public function getDropDownList($categories)
 	{
+		$categories = array(-1=> array('id'=>0, 'name'=>'Выберите')) + $categories;
 		$result = CHtml::listData($categories, 'id', 'name');
 		return $result;
 	}
