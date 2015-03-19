@@ -12,9 +12,20 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	'enableAjaxValidation'=>true,
 )); ?>
 
+	<?php if($this->app->user->hasFlash('registration')): ?>
+		<div class="success flash-message flash-success">
+			<?php echo $this->app->user->getFlash('registration'); ?>
+		</div>
+	<?php endif; ?>
+
+	<?php if($this->app->user->hasFlash('bidMessageSuccess')): ?>
+		<div class="success flash-message flash-success">
+			<?php echo $this->app->user->getFlash('bidMessageSuccess'); ?>
+		</div>
+	<?php endif; ?>
 
 	<?php echo $form->errorSummary($model); ?>
 	<div class="step-container">

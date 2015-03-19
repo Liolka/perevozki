@@ -243,6 +243,10 @@ $(document).ready(function () {
 		return false;
 	});
 	
+	$('#step3Container').on('change', '#Cargoes_category2', function () {
+		$('#Cargoes_name2').val($(this).children(':selected').text())
+	});
+	
     
     
     

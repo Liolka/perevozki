@@ -2,6 +2,15 @@
 /* @var $this BidsController */
 /* @var $model Bids */
 /* @var $form CActiveForm */
+
+Yii::app()->clientScript->registerScript('form_f', "
+if($('#Bids_have_account').is(':checked')) {
+	$('#step-reg-form').hide();
+	$('#step-login-form').show();
+}
+
+");
+
 ?>
 
 <div class="form">
@@ -12,9 +21,18 @@
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
-	'enableAjaxValidation'=>false,
+	//'enableAjaxValidation'=>true,
+	'clientOptions'=>array(
+		'validateOnSubmit'=>true,
+	),
+	
 )); ?>
 
+	<?php if($this->app->user->hasFlash('bidMessageError')): ?>
+		<div class="error flash-message flash-error">
+			<?php echo $this->app->user->getFlash('bidMessageError'); ?>
+		</div>
+	<?php endif; ?>
 
 	<?php echo $form->errorSummary($model); ?>
 	<div class="step-container">
@@ -28,7 +46,34 @@
 					<div class="row form-row" style="position:relative;">
 						<div class="col-md-4 col-lg-4">
 							<?php echo $form->labelEx($model,'date_transportation', array('class'=>'lbl-block')); ?>
-							<?php echo $form->textField($model,'date_transportation', array('class'=>'width100')); ?>
+							<?php //echo $form->textField($model,'date_transportation', array('class'=>'width100')); ?>
+							<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+									'model'=>$model,
+									'name' => 'date_transportation',
+									'language' => 'ru',
+									'value' => $model->date_transportation,
+									'options'=>array(
+										'showAnim'=>'fold',
+										'dateFormat'=>'yy-mm-dd',
+										'defaultDate' => '+1w',
+										'changeMonth' => 'true',
+										'changeYear'=>'true',
+										'constrainInput' => 'false',
+										'onSelect' => "js:function( selectedDate ) {
+										jQuery('#lastdate').datepicker('option', 'minDate', selectedDate)
+									}"
+									),
+									'htmlOptions'=>array(
+										  //'style'=>'height:20px;',
+										  'id'=>'date_transportation',
+											'class'=>'width100'
+									),
+
+									// DONT FORGET TO ADD TRUE this will create the datepicker return
+									// as string
+								),true);
+							?>
+							
 							<?php echo $form->error($model,'date_transportation'); ?>						
 						</div>
 						<div class="col-md-4 col-lg-4">
@@ -192,7 +237,7 @@
 						</div>
 
 						<div class="col-md-7 col-lg-7">
-							<?php echo CHtml::submitButton('Подтвердить размещение', array('class'=>'btn-green-52 width100')); ?>				
+							<?php echo CHtml::submitButton('Подтвердить размещение', array('class'=>'btn-green-52 width100', 'name'=>'send-new-bid')); ?>				
 						</div>				
 					</div>			
 					
@@ -256,13 +301,6 @@
 
 		</div>
 	</div>
-	
-	
-	<div id="step-final-btn-wr" class="buttons text-align-center hide-block">
-		<?php echo CHtml::submitButton('Перейти к финальному шагу', array('class'=>'btn-green-52 step-final-btn')); ?>
-	</div>
-	
-	
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

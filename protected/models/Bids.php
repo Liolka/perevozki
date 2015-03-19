@@ -29,6 +29,9 @@
 class Bids extends CActiveRecord
 {
 	
+	const SCENARIO_LOGIN_FORM = 'login_form';
+	const SCENARIO_REG_FORM = 'reg_form';
+	
 	public $bid_email;
 	public $bid_phone;
 	public $bid_name;
@@ -51,7 +54,13 @@ class Bids extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, created, published, date_transportation, time_transportation, date_unknown, price, loading_town, loading_address, add_loading_unloading_town_1, add_loading_unloading_address_1, add_loading_unloading_town_2, add_loading_unloading_address_2, add_loading_unloading_town_3, add_loading_unloading_address_3, unloading_town, unloading_address', 'required'),
+			array('loading_town, loading_address, unloading_town, unloading_address', 'required'),
+			array('login_email, login_password', 'required', 'on'=>self::SCENARIO_LOGIN_FORM),
+			array('bid_email, bid_phone, bid_name', 'required', 'on'=>self::SCENARIO_REG_FORM),
+			array('login_email, bid_email', 'email'),
+			array('login_password', 'length', 'max'=>128, 'min' => 4),
+			array('bid_phone, bid_name', 'length', 'max'=>128),
+			
 			array('user_id, published, date_unknown, price', 'numerical', 'integerOnly'=>true),
 			array('loading_town, loading_address, add_loading_unloading_town_1, add_loading_unloading_address_1, add_loading_unloading_town_2, add_loading_unloading_address_2, add_loading_unloading_town_3, add_loading_unloading_address_3, unloading_town, unloading_address', 'length', 'max'=>255),
 			// The following rule is used by search().
