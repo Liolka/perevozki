@@ -231,7 +231,6 @@ $(document).ready(function () {
 	});
 
 	$('#step3Container').on('click', '.delete-add-cargo-block', function (e) {
-	//$('.delete-add-cargo-block').on('click', function (e) {
 		e.preventDefault();
 
 		$(this).parent().find('input[type="text"]').each(function () {
@@ -247,6 +246,40 @@ $(document).ready(function () {
 		$('#Cargoes_name2').val($(this).children(':selected').text())
 	});
 	
+	$('#bids-filter-categories-check').on('click', function (e) {
+		e.preventDefault();
+		
+		//$('#bids-filter-categories input[type="checkbox"]').attr('checked', 'checked').trigger('refresh');
+		$('#bids-filter-categories input').attr('checked', 'checked');
+		
+		setTimeout(function() {  
+		  $('#bids-filter-categories input').trigger('refresh');  
+		}, 2)  		
+		
+		/*
+		$('#bids-filter-categories input[type="checkbox"]').each(function () {
+			$(this).attr('checked', 'checked').trigger('refresh');
+		});		
+		*/
+		return false;
+	});
+
+	$('#bids-filter-categories-uncheck').on('click', function (e) {
+		e.preventDefault();
+		//$('#bids-filter-categories input[type="checkbox"]').removeAttr('checked').trigger('refresh');
+		$('#bids-filter-categories input').removeAttr('checked');
+		
+		setTimeout(function() {  
+		  $('#bids-filter-categories input').trigger('refresh');  
+		}, 2)  		
+		/*
+		$('#bids-filter-categories input[type="checkbox"]').each(function () {
+			$(this).removeAttr('checked').trigger('refresh');;
+		});		
+		*/
+		return false;
+	});
+
     
     
     

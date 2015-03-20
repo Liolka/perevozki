@@ -1,4 +1,6 @@
 <?php
+error_reporting (E_ALL);
+
 require(dirname(__FILE__).'/protected/components/GlobalFunctions.php');
 
 // путь до фреймворка и нужного нам конфига

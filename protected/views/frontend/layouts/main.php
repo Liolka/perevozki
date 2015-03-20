@@ -76,7 +76,7 @@
 					<? if($this->app->user->isGuest) {	?>
 						<p class="buttons-block">
 							<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-52 btn-zakazhu">Закажу перевозку</a>
-							<a href="<?=$this->createUrl('/site/perevezu')?>" class="btn-blue-52 btn-perevezu">Перевезу груз</a>
+							<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-52 btn-perevezu">Перевезу груз</a>
 						</p>
 					<?	}	elseif($this->app->user->user_type == 1)	{	?>
 						<p class="buttons-block">
@@ -84,7 +84,7 @@
 						</p>
 					<?	}	elseif($this->app->user->user_type == 2)	{	?>
 						<p class="buttons-block">
-							<a href="<?=$this->createUrl('/site/perevezu')?>" class="btn-blue-52 btn-perevezu btn-perevezu-270">Перевезу груз</a>
+							<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-52 btn-perevezu btn-perevezu-270">Перевезу груз</a>
 						</p>
 					<?	}	?>
 					
@@ -119,7 +119,7 @@
 			<p class="info">
 				<span>Любой груз в любую точку</span>
 				<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-66 btn-zakazhu">Закажу перевозку</a>
-				<a href="<?=$this->createUrl('/site/perevezu')?>" class="btn-blue-66 btn-perevezu">Перевезу груз</a>
+				<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-66 btn-perevezu">Перевезу груз</a>
 			</p>
 		</div>
 
@@ -203,7 +203,7 @@
 		<div class="footer-cell">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
-					array('label'=>'Закажу перевозку', 'url'=>array('site/emptypage')),
+					array('label'=>'Закажу перевозку', 'url'=>array('/bids/create')),
 					array('label'=>'Помощь грузодателю', 'url'=>array('/pages/view', 'id'=>5)),
 					array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu1')
@@ -213,7 +213,7 @@
 		<div class="footer-cell">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
-					array('label'=>'Перевезу груз', 'url'=>array('site/emptypage')),
+					array('label'=>'Перевезу груз', 'url'=>array('/bids/index')),
 					array('label'=>'Помощь перевозчику', 'url'=>array('/pages/view', 'id'=>6)),
 					array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu2')

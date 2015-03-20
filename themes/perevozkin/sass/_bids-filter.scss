@@ -1,0 +1,144 @@
+.bids-filter {
+	background: #516170;
+	
+	
+	.checkbox-lbl {
+		@extend %c_fff;
+		@extend %underline_n_y;
+	}
+	
+	.lbl-block {
+		margin-bottom: 5px;
+		@extend %c_fff;
+		@extend %normal;
+		
+	}
+	
+	.checkbox-lbl {
+		@extend %font_12;
+	}
+	
+	.jq-checkbox .jq-checkbox__div {
+		//background-color: #fff;
+	}
+}
+
+.bids-filter-block {
+	padding: 20px;
+	border-top: 1px solid #5e6e7d;
+	border-bottom: 1px solid #3f4f5e;
+	
+	@extend %text_c;
+	
+	& > p {
+		margin-top: 10px;
+	}
+	p {
+		
+		@extend %text_l;
+	}
+	
+	.dates-txt {
+		line-height: 24px;
+		
+		@extend %c_fff;
+	}
+}
+
+.bids-filter-topbtns {
+	border-top: none;		
+}
+
+.bids-filter-categories {
+	border-bottom: none;
+}
+
+.bids-filter-clear-wr {
+	margin-bottom: 15px;
+	
+	@extend %text_c;
+	@extend %font_12;
+}
+
+.bids-filter-categories-check,
+.bids-filter-categories-uncheck,
+.bids-filter-clear {
+	border-bottom: 1px #62e3ff dotted;
+	
+	@extend %c_62e3ff;
+	@extend %underline_n_n;
+	
+	&:focus,
+	&:active,
+	&:hover {
+		border-bottom: none;
+		@extend %c_62e3ff;
+	}
+}
+
+.bids-filter-title {
+	@extend %c_fff;
+	@extend %bold;
+}
+
+.bids-filter-dates .bids-filter-dates-from,
+.bids-filter-dates .bids-filter-dates-to {
+	width: 215px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	@extend %fr;
+	
+}
+
+.bids-filter-categories-btns,
+.bids-filter-dates .dates {
+	@extend %pos_rel;
+}
+
+.calendar-icon {
+	width: 30px;
+	height: 26px;
+	
+	right: 0;
+	top: 0;
+	
+	@extend %for_sprite;
+	@extend %pos_abs;
+	@extend %db;
+	
+	@include background-image(linear-gradient(#91a6c0, #697f9a));
+	@include border-radius(0 3px 3px 0);
+	
+	
+	&:before {
+		top: 50%;
+		left: 50%;
+		margin: -7px 0 0 -7px;
+		
+		@extend .ico-calendar1;
+	}
+	
+}
+
+
+.bids-filter-categories-uncheck {
+	top: 0;
+	right: 0;
+	
+	@extend %db;
+	@extend %pos_abs;
+	@extend %font_12;
+}
+
+.bids-filter-block .radio, 
+.bids-filter-block .checkbox {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	background-color: #fff;
+}
+
+.bids-filter-categories {
+	ul {
+		margin-top: 20px;
+	}
+}

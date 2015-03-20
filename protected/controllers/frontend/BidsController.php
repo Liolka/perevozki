@@ -391,65 +391,6 @@ class BidsController extends Controller
 					);
 					
 				}
-				/*
-				$NewBid_Cargoes	= $this->app->session['NewBid.Cargoes'];
-			
-				$model_Cargoes = new Cargoes;
-				
-				$model_Cargoes->category1 = $this->app->session['NewBid.Cargoes']['category1'];
-				$model_Cargoes->name1 = $this->app->session['NewBid.Cargoes']['name1'];
-				$model_Cargoes->comment1 = $this->app->session['NewBid.Cargoes']['comment1'];
-				$model_Cargoes->weight1 = $this->app->session['NewBid.Cargoes']['weight1'];
-				$model_Cargoes->unit1 = $this->app->session['NewBid.Cargoes']['unit1'];
-				$model_Cargoes->porters1 = $this->app->session['NewBid.Cargoes']['porters1'];
-				$model_Cargoes->lift_to_floor1 = $this->app->session['NewBid.Cargoes']['lift_to_floor1'];
-				$model_Cargoes->floor1 = $this->app->session['NewBid.Cargoes']['floor1'];
-				$model_Cargoes->length1 = $this->app->session['NewBid.Cargoes']['length1'];
-				$model_Cargoes->width1 = $this->app->session['NewBid.Cargoes']['width1'];
-				$model_Cargoes->height1 = $this->app->session['NewBid.Cargoes']['height1'];
-				$model_Cargoes->volume1 = $this->app->session['NewBid.Cargoes']['volume1'];
-				
-				$model_Cargoes->category2 = $this->app->session['NewBid.Cargoes']['category2'];
-				$model_Cargoes->name2 = $this->app->session['NewBid.Cargoes']['name2'];
-				$model_Cargoes->comment2 = $this->app->session['NewBid.Cargoes']['comment2'];
-				$model_Cargoes->weight2 = $this->app->session['NewBid.Cargoes']['weight2'];
-				$model_Cargoes->unit2 = $this->app->session['NewBid.Cargoes']['unit2'];
-				$model_Cargoes->porters2 = $this->app->session['NewBid.Cargoes']['porters2'];
-				$model_Cargoes->lift_to_floor2 = $this->app->session['NewBid.Cargoes']['lift_to_floor2'];
-				$model_Cargoes->floor2 = $this->app->session['NewBid.Cargoes']['floor2'];
-				$model_Cargoes->length2 = $this->app->session['NewBid.Cargoes']['length2'];
-				$model_Cargoes->width2 = $this->app->session['NewBid.Cargoes']['width2'];
-				$model_Cargoes->height2 = $this->app->session['NewBid.Cargoes']['height2'];
-				$model_Cargoes->volume2 = $this->app->session['NewBid.Cargoes']['volume2'];
-				
-				$model_Cargoes->category3 = $this->app->session['NewBid.Cargoes']['category3'];
-				$model_Cargoes->name3 = $this->app->session['NewBid.Cargoes']['name3'];
-				$model_Cargoes->comment3 = $this->app->session['NewBid.Cargoes']['comment3'];
-				$model_Cargoes->weight3 = $this->app->session['NewBid.Cargoes']['weight3'];
-				$model_Cargoes->unit3 = $this->app->session['NewBid.Cargoes']['unit3'];
-				$model_Cargoes->porters3 = $this->app->session['NewBid.Cargoes']['porters3'];
-				$model_Cargoes->lift_to_floor3 = $this->app->session['NewBid.Cargoes']['lift_to_floor3'];
-				$model_Cargoes->floor3 = $this->app->session['NewBid.Cargoes']['floor3'];
-				$model_Cargoes->length3 = $this->app->session['NewBid.Cargoes']['length3'];
-				$model_Cargoes->width3 = $this->app->session['NewBid.Cargoes']['width3'];
-				$model_Cargoes->height3 = $this->app->session['NewBid.Cargoes']['height3'];
-				$model_Cargoes->volume3 = $this->app->session['NewBid.Cargoes']['volume3'];
-				
-				$model_Cargoes->category4 = $this->app->session['NewBid.Cargoes']['category4'];
-				$model_Cargoes->name4 = $this->app->session['NewBid.Cargoes']['name4'];
-				$model_Cargoes->comment4 = $this->app->session['NewBid.Cargoes']['comment4'];
-				$model_Cargoes->weight4 = $this->app->session['NewBid.Cargoes']['weight4'];
-				$model_Cargoes->unit4 = $this->app->session['NewBid.Cargoes']['unit4'];
-				$model_Cargoes->porters4 = $this->app->session['NewBid.Cargoes']['porters4'];
-				$model_Cargoes->lift_to_floor4 = $this->app->session['NewBid.Cargoes']['lift_to_floor4'];
-				$model_Cargoes->floor4 = $this->app->session['NewBid.Cargoes']['floor4'];
-				$model_Cargoes->length4 = $this->app->session['NewBid.Cargoes']['length4'];
-				$model_Cargoes->width4 = $this->app->session['NewBid.Cargoes']['width4'];
-				$model_Cargoes->height4 = $this->app->session['NewBid.Cargoes']['height4'];
-				$model_Cargoes->volume4 = $this->app->session['NewBid.Cargoes']['volume4'];
-				*/
-			
-			
 		} elseif(isset($_POST['Cargoes'])) {
 			
 			$this->app->session['NewBid.Cargoes'] = $_POST['Cargoes'];
@@ -473,89 +414,6 @@ class BidsController extends Controller
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->bid_id));
 			*/
-			
-			/*
-		} elseif(isset($this->app->session['NewBid.Cargoes'])) {
-			
-				$model_Cargoes = new Cargoes;
-				
-				$model_Cargoes->category1 = $this->app->session['NewBid.Cargoes']['category1'];
-				$model_Cargoes->name1 = $this->app->session['NewBid.Cargoes']['name1'];
-				$model_Cargoes->comment1 = $this->app->session['NewBid.Cargoes']['comment1'];
-				$model_Cargoes->weight1 = $this->app->session['NewBid.Cargoes']['weight1'];
-				$model_Cargoes->unit1 = $this->app->session['NewBid.Cargoes']['unit1'];
-				$model_Cargoes->porters1 = $this->app->session['NewBid.Cargoes']['porters1'];
-				$model_Cargoes->lift_to_floor1 = $this->app->session['NewBid.Cargoes']['lift_to_floor1'];
-				$model_Cargoes->floor1 = $this->app->session['NewBid.Cargoes']['floor1'];
-				$model_Cargoes->length1 = $this->app->session['NewBid.Cargoes']['length1'];
-				$model_Cargoes->width1 = $this->app->session['NewBid.Cargoes']['width1'];
-				$model_Cargoes->height1 = $this->app->session['NewBid.Cargoes']['height1'];
-				$model_Cargoes->volume1 = $this->app->session['NewBid.Cargoes']['volume1'];
-				
-				$model_Cargoes->category2 = $this->app->session['NewBid.Cargoes']['category2'];
-				$model_Cargoes->name2 = $this->app->session['NewBid.Cargoes']['name2'];
-				$model_Cargoes->comment2 = $this->app->session['NewBid.Cargoes']['comment2'];
-				$model_Cargoes->weight2 = $this->app->session['NewBid.Cargoes']['weight2'];
-				$model_Cargoes->unit2 = $this->app->session['NewBid.Cargoes']['unit2'];
-				$model_Cargoes->porters2 = $this->app->session['NewBid.Cargoes']['porters2'];
-				$model_Cargoes->lift_to_floor2 = $this->app->session['NewBid.Cargoes']['lift_to_floor2'];
-				$model_Cargoes->floor2 = $this->app->session['NewBid.Cargoes']['floor2'];
-				$model_Cargoes->length2 = $this->app->session['NewBid.Cargoes']['length2'];
-				$model_Cargoes->width2 = $this->app->session['NewBid.Cargoes']['width2'];
-				$model_Cargoes->height2 = $this->app->session['NewBid.Cargoes']['height2'];
-				$model_Cargoes->volume2 = $this->app->session['NewBid.Cargoes']['volume2'];
-				
-				$model_Cargoes->category3 = $this->app->session['NewBid.Cargoes']['category3'];
-				$model_Cargoes->name3 = $this->app->session['NewBid.Cargoes']['name3'];
-				$model_Cargoes->comment3 = $this->app->session['NewBid.Cargoes']['comment3'];
-				$model_Cargoes->weight3 = $this->app->session['NewBid.Cargoes']['weight3'];
-				$model_Cargoes->unit3 = $this->app->session['NewBid.Cargoes']['unit3'];
-				$model_Cargoes->porters3 = $this->app->session['NewBid.Cargoes']['porters3'];
-				$model_Cargoes->lift_to_floor3 = $this->app->session['NewBid.Cargoes']['lift_to_floor3'];
-				$model_Cargoes->floor3 = $this->app->session['NewBid.Cargoes']['floor3'];
-				$model_Cargoes->length3 = $this->app->session['NewBid.Cargoes']['length3'];
-				$model_Cargoes->width3 = $this->app->session['NewBid.Cargoes']['width3'];
-				$model_Cargoes->height3 = $this->app->session['NewBid.Cargoes']['height3'];
-				$model_Cargoes->volume3 = $this->app->session['NewBid.Cargoes']['volume3'];
-				
-				$model_Cargoes->category4 = $this->app->session['NewBid.Cargoes']['category4'];
-				$model_Cargoes->name4 = $this->app->session['NewBid.Cargoes']['name4'];
-				$model_Cargoes->comment4 = $this->app->session['NewBid.Cargoes']['comment4'];
-				$model_Cargoes->weight4 = $this->app->session['NewBid.Cargoes']['weight4'];
-				$model_Cargoes->unit4 = $this->app->session['NewBid.Cargoes']['unit4'];
-				$model_Cargoes->porters4 = $this->app->session['NewBid.Cargoes']['porters4'];
-				$model_Cargoes->lift_to_floor4 = $this->app->session['NewBid.Cargoes']['lift_to_floor4'];
-				$model_Cargoes->floor4 = $this->app->session['NewBid.Cargoes']['floor4'];
-				$model_Cargoes->length4 = $this->app->session['NewBid.Cargoes']['length4'];
-				$model_Cargoes->width4 = $this->app->session['NewBid.Cargoes']['width4'];
-				$model_Cargoes->height4 = $this->app->session['NewBid.Cargoes']['height4'];
-				$model_Cargoes->volume4 = $this->app->session['NewBid.Cargoes']['volume4'];
-			
-				$model_Cargoes->DropDownUnitsList = Cargoes::model()->getDropDownUnitsList();
-				$model_Cargoes->SelectedUnitsList = array();
-			
-				
-			
-				
-				
-				//echo'<pre>';print_r($categories_list);echo'</pre>';//die;
-				//echo'<pre>';print_r($this->app->session['NewBid.Cargoes']);echo'</pre>';die;
-				//echo'<pre>';print_r($model_Cargoes->attributes);echo'</pre>';die;
-			
-				$form = '_form1_full';
-				$categories_list_level1 = Categories::model()->getCategoriesLevel1($connection);
-				$categories_list_level2 = Categories::model()->getCategoriesFromIds($connection, $model_Cargoes->category1);
-				$categories_list = Categories::model()->getDropDownList($categories_list_level2);
-				$data = array(
-					'category_id'=>$this->app->session['NewBid.Cargoes']['category_id'],
-					'model'=>$model,
-					'form'=>$form,
-					'model_Cargoes'=>$model_Cargoes,
-					'categories_list_level1'=>$categories_list_level1,				
-					'categories_list_level2'=>$categories_list_level2,				
-					'categories_list'=>$categories_list,			
-				);
-		*/	
 			
 		} elseif(isset($_POST['ajax'])) {
 			$model->attributes = $_POST['Bids'];
@@ -591,6 +449,9 @@ class BidsController extends Controller
 				
 			);
 		}
+		
+		//echo'<pre>';print_r($data);echo'</pre>';die;
+		
 
 		$this->render('create', $data);
 	}
@@ -600,6 +461,7 @@ class BidsController extends Controller
 	 * If update is successful, the browser will be redirected to the 'view' page.
 	 * @param integer $id the ID of the model to be updated
 	 */
+	/*
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
@@ -618,12 +480,13 @@ class BidsController extends Controller
 			'model'=>$model,
 		));
 	}
-
+	*/
 	/**
 	 * Deletes a particular model.
 	 * If deletion is successful, the browser will be redirected to the 'admin' page.
 	 * @param integer $id the ID of the model to be deleted
 	 */
+	/*
 	public function actionDelete($id)
 	{
 		$this->loadModel($id)->delete();
@@ -632,21 +495,48 @@ class BidsController extends Controller
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
-
+	*/
 	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Bids');
+		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		$model = new BidsFilter;
+		
+		//$rows_pages = Bids::model()->getBids();
+		
+		$criteria = new CDbCriteria;
+		
+		$criteria->select = "t.*, u.username";
+		
+		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		
+		$criteria->order = 't.bid_id DESC';
+		
+ 
+        $dataProvider = new CActiveDataProvider('Bids', array(
+            'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>2,
+            ),
+        ));		
+		
+		$categories_list = Categories::model()->getCategoriesLevel1($connection);
+		
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'model' => $model,
+			'categories_list' => $categories_list,
+			'dataProvider' => $dataProvider,
 		));
 	}
 
 	/**
 	 * Manages all models.
 	 */
+	/*
 	public function actionAdmin()
 	{
 		$model=new Bids('search');
@@ -658,6 +548,7 @@ class BidsController extends Controller
 			'model'=>$model,
 		));
 	}
+	*/
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.

@@ -38,6 +38,11 @@ class Bids extends CActiveRecord
 	public $have_account;
 	public $login_email;
 	public $login_password;
+	
+	
+	public $username;
+	
+	
 	/**
 	 * @return string the associated database table name
 	 */

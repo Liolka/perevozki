@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @font-face {
     font-family: 'ptsans-narrow-bold';
     src: url('../../../fonts/PT_Sans-Narrow-Bold.eot');
@@ -485,10 +487,9 @@ body {
 
 
 .sideLeft {
-  @extend %fl;
-  position: relative;
-  width: 210px;
-  margin-right: -210px;
+	position: relative;
+	width: 285px;
+	@extend %fl;	
 }
 
 
@@ -505,7 +506,9 @@ body {
 }
 
 .column2l {
-  padding-left: 220px;
+	width: 915px;
+	margin: 0 0 0 25px;
+	@extend %fl;
 }
 
 .column2r {
@@ -784,4 +787,70 @@ button.close {
     @extend %font_24;
     @extend %text_c;
     
+}
+
+.bids-sorting-block {
+	border-bottom: 1px solid #b2daeb;
+	margin-bottom: 30px;
+}
+
+.bids-sorting-block-list {
+	@extend %dtr;
+	
+	li {
+		padding: 15px 30px;
+		border-right: 1px solid #b2daeb;
+		
+		@extend %dtc;
+		
+		
+		
+	}
+	
+	.active {
+		background-color: #f4fbfe;
+		padding-right: 45px;
+		
+		@extend %bold;
+		@extend %pos_rel;
+		
+		&:before {
+			content: '▼';
+			right: 20px;
+			top: 15px;
+			
+			@extend %pos_abs;
+			@extend %c_cbe0eb;
+		}
+		
+		a,
+		a:hover,
+		a:active,
+		a:focus {
+			@extend %c_2e3c54;
+			border-color: #2e3c54;
+		}
+	}
+	
+	a {
+		border-bottom: 1px dotted #1e90d9;
+		@extend %underline_n_n;
+	}
+	
+	a,
+	a:hover,
+	a:active,
+	a:focus {
+		@extend %c_1e91da
+	}
+}
+
+.bids-sorting-block-btn {
+	border-top: 1px solid #b2daeb;
+	
+	&:hover {
+		background-color: #f4fbfe;
+	}
+	
+	
 }

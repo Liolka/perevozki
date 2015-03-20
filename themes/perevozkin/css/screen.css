@@ -61,268 +61,280 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .requests-list-head .addr:before, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-comment, .my-transport-comment:before, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-calendar, .ico-calendar1, .calendar-icon:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-comment, .my-transport-comment:before, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-image: url('../images/ico-s07d022f82f.png');
+  background-image: url('../images/ico-s721a3a126c.png');
   background-repeat: no-repeat;
 }
 
 .ico-addr, .requests-list-head .addr:before {
-  background-position: -34px 0;
+  background-position: -54px 0;
   height: 17px;
   width: 11px;
 }
 
 .ico-arrow-right, .stages-block .stage1:before,
 .stages-block .stage2:before {
-  background-position: -77px 0;
+  background-position: -65px 0;
   height: 20px;
   width: 13px;
 }
 
 .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before {
-  background-position: -13px -20px;
+  background-position: -5px -20px;
   height: 11px;
   width: 11px;
 }
 
+.ico-calendar {
+  background-position: -28px -139px;
+  height: 26px;
+  width: 31px;
+}
+
+.ico-calendar1, .calendar-icon:before {
+  background-position: 0 -57px;
+  height: 14px;
+  width: 14px;
+}
+
 .ico-car1, .requests-list-item_number:before {
-  background-position: 0 -179px;
+  background-position: 0 -204px;
   height: 27px;
   width: 40px;
 }
 
 .ico-car2 {
-  background-position: -14px -60px;
+  background-position: -33px -57px;
   height: 17px;
   width: 26px;
 }
 
 .ico-close-blue {
-  background-position: -19px -144px;
+  background-position: 0 -169px;
   height: 28px;
   width: 29px;
 }
 
 .ico-close-red {
-  background-position: -21px -83px;
+  background-position: -19px -110px;
   height: 28px;
   width: 29px;
 }
 
 .ico-close-white {
-  background-position: -53px -20px;
+  background-position: 0 -37px;
   height: 12px;
   width: 12px;
 }
 
 .ico-comment, .my-transport-comment:before {
-  background-position: 0 -220px;
+  background-position: 0 -139px;
   height: 25px;
   width: 28px;
 }
 
 .ico-double-arrow-left, .radnom-reviews-item-text:before {
-  background-position: 0 0;
+  background-position: -41px 0;
   height: 13px;
   width: 13px;
 }
 
 .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right {
-  background-position: -13px 0;
+  background-position: -28px 0;
   height: 13px;
   width: 13px;
 }
 
 .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before {
-  background-position: -10px -113px;
+  background-position: -8px 0;
   height: 13px;
   width: 20px;
 }
 
 .ico-farba, .footer .created-by a:before {
-  background-position: 0 -144px;
+  background-position: -43px -80px;
   height: 30px;
   width: 19px;
 }
 
 .ico-girya, .requests-list-item-info_gruzchiki:before {
-  background-position: 0 -60px;
+  background-position: -42px -37px;
   height: 19px;
   width: 14px;
 }
 
 .ico-gruz-big, .map-block .btn-zakazhu:before {
-  background-position: 0 -352px;
+  background-position: 0 -377px;
   height: 50px;
   width: 50px;
 }
 
 .ico-info-popup {
-  background-position: 0 -113px;
+  background-position: 0 -80px;
   height: 6px;
   width: 10px;
 }
 
 .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before {
-  background-position: 0 -20px;
+  background-position: -10px -80px;
   height: 11px;
   width: 13px;
 }
 
 .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before {
-  background-position: -48px -20px;
+  background-position: 0 -20px;
   height: 12px;
   width: 5px;
 }
 
 .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before {
-  background-position: -26px 0;
+  background-position: 0 0;
   height: 14px;
   width: 8px;
 }
 
 .ico-menu-documents-s, .my-top-menu-documents:before {
-  background-position: -30px -113px;
+  background-position: -62px -80px;
   height: 29px;
   width: 25px;
 }
 
 .ico-menu-documents, .my-menu-item-documents:before {
-  background-position: -43px -307px;
+  background-position: -43px -332px;
   height: 45px;
   width: 37px;
 }
 
 .ico-menu-info-s, .my-top-menu-info:before {
-  background-position: 0 -83px;
+  background-position: -59px -139px;
   height: 30px;
   width: 21px;
 }
 
 .ico-menu-info, .my-menu-item-info:before {
-  background-position: 0 -264px;
+  background-position: 0 -289px;
   height: 43px;
   width: 31px;
 }
 
 .ico-menu-profile-s, .my-top-menu-profile:before {
-  background-position: -55px -113px;
+  background-position: 0 -245px;
   height: 31px;
   width: 32px;
 }
 
 .ico-menu-profile, .my-menu-item-profile:before {
-  background-position: 0 -307px;
+  background-position: 0 -332px;
   height: 42px;
   width: 43px;
 }
 
 .ico-menu-transport-s, .my-top-menu-transport:before {
-  background-position: -50px -83px;
+  background-position: -48px -110px;
   height: 29px;
   width: 40px;
 }
 
 .ico-menu-transport, .my-menu-item-transport:before {
-  background-position: -31px -264px;
+  background-position: -31px -289px;
   height: 37px;
   width: 51px;
 }
 
 .ico-menu-zayavki-s, .my-top-menu-zayavki:before {
-  background-position: -48px -144px;
+  background-position: -29px -169px;
   height: 35px;
   width: 37px;
 }
 
 .ico-menu-zayavki, .my-menu-item-zayavki:before {
-  background-position: -40px -179px;
+  background-position: -40px -204px;
   height: 41px;
   width: 41px;
 }
 
 .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before {
-  background-position: -12px -37px;
+  background-position: -28px -37px;
   height: 19px;
   width: 14px;
 }
 
 .ico-plus, .header-row2 .btn-zakazhu:before {
-  background-position: -61px 0;
+  background-position: -52px -20px;
   height: 16px;
   width: 16px;
 }
 
 .ico-ptica {
-  background-position: -45px 0;
+  background-position: -12px -37px;
   height: 15px;
   width: 16px;
 }
 
 .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before {
-  background-position: -65px -20px;
+  background-position: -68px -20px;
   height: 17px;
   width: 17px;
 }
 
 .ico-rating-bad, .requests1-list-item-review-bad:before {
-  background-position: -59px -60px;
+  background-position: -59px -57px;
   height: 23px;
   width: 19px;
 }
 
 .ico-rating-good, .requests1-list-item-review-good:before {
-  background-position: -26px -37px;
+  background-position: 0 -110px;
   height: 23px;
   width: 19px;
 }
 
 .ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before {
-  background-position: -66px -37px;
+  background-position: -23px -80px;
   height: 20px;
   width: 20px;
 }
 
 .ico-star-empty {
-  background-position: -24px -20px;
+  background-position: -40px -20px;
   height: 12px;
   width: 12px;
 }
 
 .ico-star-full-blue {
-  background-position: -36px -20px;
+  background-position: -16px -20px;
   height: 12px;
   width: 12px;
 }
 
 .ico-star-full {
-  background-position: 0 -37px;
+  background-position: -28px -20px;
   height: 12px;
   width: 12px;
 }
 
 .ico-watches-big, .benefits-block li:before {
-  background-position: 0 -402px;
+  background-position: 0 -427px;
   height: 89px;
   width: 90px;
 }
 
 .ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before {
-  background-position: -45px -37px;
+  background-position: -56px -37px;
   height: 20px;
   width: 21px;
 }
 
 .ico-zoom-big, .map-block .btn-perevezu:before {
-  background-position: -28px -220px;
+  background-position: -32px -245px;
   height: 44px;
   width: 44px;
 }
 
 .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-position: -40px -60px;
+  background-position: -14px -57px;
   height: 19px;
   width: 19px;
 }
@@ -783,12 +795,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .header-row1-menu .gruzodatel,
+.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before {
   content: ' ';
   position: absolute;
@@ -805,14 +817,20 @@ a, .breadcrumbs a, .change-email-block .current-email,
   color: #0a80cb;
 }
 
-.requests-list-item-info_url, .requests-list-item-info_url:visited, .requests-more-btn, .requests-more-btn:hover, .requests-more-btn:visited, .requests1-list-head-info a, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .radnom-reviews .header a:visited {
+.bids-sorting-block-list a,
+.bids-sorting-block-list a:hover,
+.bids-sorting-block-list a:active,
+.bids-sorting-block-list a:focus, .requests-list-item-info_url, .requests-list-item-info_url:visited, .requests-more-btn, .requests-more-btn:hover, .requests-more-btn:visited, .requests1-list-head-info a, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .radnom-reviews .header a:visited {
   color: #1e91da;
 }
 
 body, input[type="text"],
 input[type="password"],
 .inputbox,
-textarea, h1, .modal-title, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .requests1-list-item-numb, .requests1-list-item-review, .last-requests .header, .my-username, .my-last-requests-title, .my-rewiews-head, .my-rewiews-table .head, .my-requests-sort-block .active a, .footer .questions, .footer .questions .title {
+textarea, h1, .modal-title, .bids-sorting-block-list .active a,
+.bids-sorting-block-list .active a:hover,
+.bids-sorting-block-list .active a:active,
+.bids-sorting-block-list .active a:focus, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .requests1-list-item-numb, .requests1-list-item-review, .last-requests .header, .my-username, .my-last-requests-title, .my-rewiews-head, .my-rewiews-table .head, .my-requests-sort-block .active a, .footer .questions, .footer .questions .title {
   color: #2e3c54;
 }
 
@@ -823,7 +841,10 @@ a:hover {
 body, input[type="text"],
 input[type="password"],
 .inputbox,
-textarea, h1, .modal-title, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .requests1-list-item-numb, .requests1-list-item-review, .last-requests .header, .my-username, .my-last-requests-title, .my-rewiews-head, .my-rewiews-table .head, .my-requests-sort-block .active a, .footer .questions, .footer .questions .title {
+textarea, h1, .modal-title, .bids-sorting-block-list .active a,
+.bids-sorting-block-list .active a:hover,
+.bids-sorting-block-list .active a:active,
+.bids-sorting-block-list .active a:focus, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests-list-item_town, .requests-list-item-price_price, .requests1-list-item-numb, .requests1-list-item-review, .last-requests .header, .my-username, .my-last-requests-title, .my-rewiews-head, .my-rewiews-table .head, .my-requests-sort-block .active a, .footer .questions, .footer .questions .title {
   color: #2e3c54;
 }
 
@@ -837,6 +858,18 @@ textarea, h1, .modal-title, .requests-list-item_number, .requests-list-item-info
 
 .step1-category-item:hover .span-wr2 {
   color: #61a40a;
+}
+
+.bids-filter-categories-check,
+.bids-filter-categories-uncheck,
+.bids-filter-clear, .bids-filter-categories-check:focus, .bids-filter-categories-check:active, .bids-filter-categories-check:hover,
+.bids-filter-categories-uncheck:focus,
+.bids-filter-categories-uncheck:active,
+.bids-filter-categories-uncheck:hover,
+.bids-filter-clear:focus,
+.bids-filter-clear:active,
+.bids-filter-clear:hover {
+  color: #62e3ff;
 }
 
 label, .modal-content label, .stages-block .title, .benefits-block .header, .step-container .step-title span, .step1-category-item, .step-subheader, .footer .created-by {
@@ -868,7 +901,7 @@ h1 span, .breadcrumbs, .my-last-requests-title span, .header-row2 .questions .ti
   color: #b8b8b8;
 }
 
-.my-requests-sort-block .active .sort-direction {
+.bids-sorting-block-list .active:before, .my-requests-sort-block .active .sort-direction {
   color: #cbe0eb;
 }
 
@@ -919,7 +952,7 @@ label.error, .errorSummary {
 .btn-green-66:hover, .btn-blue1,
 .btn-red, .btn-blue1:hover,
 .btn-red:hover, .map-block .info span, .flash-message, button.close, button.close:hover, .modal-footer .modal-title, .statistic-block li, .requests-list-item_suggestions .suggestion-orange,
-.requests-list-item_suggestions .suggestion-green, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .my-rating-container .my-rating, .my-rating-info > div, .my-rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .my-docs-files-item .popup-info, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2 {
+.requests-list-item_suggestions .suggestion-green, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .my-rating-container .my-rating, .my-rating-info > div, .my-rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .my-docs-files-item .popup-info, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2, .bids-filter .checkbox-lbl, .bids-filter .lbl-block, .bids-filter-block .dates-txt, .bids-filter-title {
   color: #fff;
 }
 
@@ -927,7 +960,7 @@ label.error, .errorSummary {
   font-size: 11px;
 }
 
-.errorMessage, .stages-block .descr, .benefits-block li, .requests-list-head li, .requests-list-item_number, .requests-list-item-info_url, .requests-list-item-info_descr, .requests-list-item-info_gruzchiki, .requests-list-item_adress, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .my-rewiews-table .head, .my-transport-comment, .header-row1-menu a, .footer .created-by a, .footer-cell a, .footer-cell-last span,
+.errorMessage, .stages-block .descr, .benefits-block li, .requests-list-head li, .requests-list-item_number, .requests-list-item-info_url, .requests-list-item-info_descr, .requests-list-item-info_gruzchiki, .requests-list-item_adress, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .my-rewiews-table .head, .my-transport-comment, .bids-filter .checkbox-lbl, .bids-filter-clear-wr, .bids-filter-categories-uncheck, .header-row1-menu a, .footer .created-by a, .footer-cell a, .footer-cell-last span,
 .footer-cell-last a {
   font-size: 12px;
 }
@@ -996,14 +1029,14 @@ h1 span, .step-container .num-step {
   font-size: 48px;
 }
 
-button.close, .my-last-requests-title span, .my-last-requests-title a {
+button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-filter .lbl-block {
   font-weight: normal;
 }
 
 h1, h2, h3, b,
-strong, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
+strong, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bids-sorting-block-list .active, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
 .change-password-block label, .change-email-block .current-email,
-.change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span, .add-transport-btn, .add-transport p, .my-transport-name, .my-requests-sort-block .active a, .step-subheader {
+.change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span, .add-transport-btn, .add-transport p, .my-transport-name, .my-requests-sort-block .active a, .step-subheader, .bids-filter-title {
   font-weight: bold;
 }
 
@@ -1030,10 +1063,10 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   text-decoration: none;
 }
 
-.footer-cell a {
+.bids-filter .checkbox-lbl, .footer-cell a {
   text-decoration: none;
 }
-.footer-cell a:hover {
+.bids-filter .checkbox-lbl:hover, .footer-cell a:hover {
   text-decoration: underline;
 }
 
@@ -1058,7 +1091,9 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .btn-blue1,
-.btn-red, .add-transport-btn, .my-requests-sort-block a, .header-row1-menu .logout a, .footer-cell-last .logout a {
+.btn-red, .bids-sorting-block-list a, .add-transport-btn, .my-requests-sort-block a, .bids-filter-categories-check,
+.bids-filter-categories-uncheck,
+.bids-filter-clear, .header-row1-menu .logout a, .footer-cell-last .logout a {
   text-decoration: none;
 }
 .btn-grey-33:hover,
@@ -1066,7 +1101,9 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .btn-green-33:hover, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66:hover,
 .btn-green-66:hover, .btn-blue1:hover,
-.btn-red:hover, .add-transport-btn:hover, .my-requests-sort-block a:hover, .header-row1-menu .logout a:hover, .footer-cell-last .logout a:hover {
+.btn-red:hover, .bids-sorting-block-list a:hover, .add-transport-btn:hover, .my-requests-sort-block a:hover, .bids-filter-categories-check:hover,
+.bids-filter-categories-uncheck:hover,
+.bids-filter-clear:hover, .header-row1-menu .logout a:hover, .footer-cell-last .logout a:hover {
   text-decoration: none;
 }
 
@@ -1077,7 +1114,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   text-decoration: underline;
 }
 
-.fLeft, .sideLeft, .sideRight, .column2r, #RegistrationForm_user_status input,
+.fLeft, .sideLeft, .sideRight, .column2l, .column2r, #RegistrationForm_user_status input,
 #RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-head li, .requests-list-item > div, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .my-rating-info > div, .change-email-block,
 .change-password-block, .my-top-menu-item, .my-contact-info-company-list, .my-docs-files-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
   float: left;
@@ -1086,7 +1123,8 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .fRight, .requests-list-item .requests-list-item_price, .change-email-block .cancel-btn,
 .change-email-block input[name="cancel"],
 .change-password-block .cancel-btn,
-.change-password-block input[name="cancel"], .step3-category-ico, .header-row1-menu .login-items, .header-row2 .questions, .footer-cell-last {
+.change-password-block input[name="cancel"], .step3-category-ico, .bids-filter-dates .bids-filter-dates-from,
+.bids-filter-dates .bids-filter-dates-to, .header-row1-menu .login-items, .header-row2 .questions, .footer-cell-last {
   float: right;
 }
 
@@ -1096,7 +1134,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
 .requests-list-item_price a, .requests-more-btn, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .change-email-block label,
-.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
+.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
   display: block;
 }
 
@@ -1115,11 +1153,11 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   display: inline-block;
 }
 
-.my-transport-info {
+.bids-sorting-block-list, .my-transport-info {
   display: table-row;
 }
 
-.my-transport-info span {
+.bids-sorting-block-list li, .my-transport-info span {
   display: table-cell;
 }
 
@@ -1128,16 +1166,17 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   display: none;
 }
 
-.rating-stars, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .footer .created-by {
+.rating-stars, .bids-sorting-block-list .active, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
+.bids-filter-dates .dates, .footer .created-by {
   position: relative;
 }
 
-.rating-stars .stars-empty, .rating-stars .stars-full, .requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
-.delete-loading-unloading-block, .footer .created-by a {
+.rating-stars .stars-empty, .rating-stars .stars-full, .bids-sorting-block-list .active:before, .requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
+.delete-loading-unloading-block, .calendar-icon, .bids-filter-categories-uncheck, .footer .created-by a {
   position: absolute;
 }
 
-.modal-footer {
+.modal-footer, .bids-filter-block p {
   text-align: left;
 }
 
@@ -1146,7 +1185,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .btn-blue1,
-.btn-red, .map-block .info, .select-user-type-lbl, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .requests1-list-head-rating, .requests1-list-item-numb, .my-rewiews-head, .my-rewiews-table td, .my-docs-files-item .info, .my-docs-files-item .popup-info, .add-transport-btn, .step-container .num-step, .step1-category-item .span-wr1, .header-row2 .btn-zakazhu-270,
+.btn-red, .map-block .info, .select-user-type-lbl, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .requests1-list-head-rating, .requests1-list-item-numb, .my-rewiews-head, .my-rewiews-table td, .my-docs-files-item .info, .my-docs-files-item .popup-info, .add-transport-btn, .step-container .num-step, .step1-category-item .span-wr1, .bids-filter-block, .bids-filter-clear-wr, .header-row2 .btn-zakazhu-270,
 .header-row2 .btn-perevezu-270 {
   text-align: center;
 }
@@ -1525,8 +1564,7 @@ body {
 
 .sideLeft {
   position: relative;
-  width: 210px;
-  margin-right: -210px;
+  width: 285px;
 }
 
 .sideRight {
@@ -1535,7 +1573,8 @@ body {
 }
 
 .column2l {
-  padding-left: 220px;
+  width: 915px;
+  margin: 0 0 0 25px;
 }
 
 .column2r {
@@ -1700,6 +1739,41 @@ button.close:hover {
 
 #RegistrationForm_user_status label {
   padding: 0 35px 0 5px;
+}
+
+.bids-sorting-block {
+  border-bottom: 1px solid #b2daeb;
+  margin-bottom: 30px;
+}
+
+.bids-sorting-block-list li {
+  padding: 15px 30px;
+  border-right: 1px solid #b2daeb;
+}
+.bids-sorting-block-list .active {
+  background-color: #f4fbfe;
+  padding-right: 45px;
+}
+.bids-sorting-block-list .active:before {
+  content: '▼';
+  right: 20px;
+  top: 15px;
+}
+.bids-sorting-block-list .active a,
+.bids-sorting-block-list .active a:hover,
+.bids-sorting-block-list .active a:active,
+.bids-sorting-block-list .active a:focus {
+  border-color: #2e3c54;
+}
+.bids-sorting-block-list a {
+  border-bottom: 1px dotted #1e90d9;
+}
+
+.bids-sorting-block-btn {
+  border-top: 1px solid #b2daeb;
+}
+.bids-sorting-block-btn:hover {
+  background-color: #f4fbfe;
 }
 
 .stages-block {
@@ -2825,6 +2899,96 @@ button.close:hover {
 .date-unknown-block {
   right: 0;
   top: 26px;
+}
+
+.bids-filter {
+  background: #516170;
+}
+.bids-filter .lbl-block {
+  margin-bottom: 5px;
+}
+
+.bids-filter-block {
+  padding: 20px;
+  border-top: 1px solid #5e6e7d;
+  border-bottom: 1px solid #3f4f5e;
+}
+.bids-filter-block > p {
+  margin-top: 10px;
+}
+.bids-filter-block .dates-txt {
+  line-height: 24px;
+}
+
+.bids-filter-topbtns {
+  border-top: none;
+}
+
+.bids-filter-categories {
+  border-bottom: none;
+}
+
+.bids-filter-clear-wr {
+  margin-bottom: 15px;
+}
+
+.bids-filter-categories-check,
+.bids-filter-categories-uncheck,
+.bids-filter-clear {
+  border-bottom: 1px #62e3ff dotted;
+}
+.bids-filter-categories-check:focus, .bids-filter-categories-check:active, .bids-filter-categories-check:hover,
+.bids-filter-categories-uncheck:focus,
+.bids-filter-categories-uncheck:active,
+.bids-filter-categories-uncheck:hover,
+.bids-filter-clear:focus,
+.bids-filter-clear:active,
+.bids-filter-clear:hover {
+  border-bottom: none;
+}
+
+.bids-filter-dates .bids-filter-dates-from,
+.bids-filter-dates .bids-filter-dates-to {
+  width: 215px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.calendar-icon {
+  width: 30px;
+  height: 26px;
+  right: 0;
+  top: 0;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzkxYTZjMCIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzY5N2Y5YSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #91a6c0), color-stop(100%, #697f9a));
+  background-image: -moz-linear-gradient(#91a6c0, #697f9a);
+  background-image: -webkit-linear-gradient(#91a6c0, #697f9a);
+  background-image: linear-gradient(#91a6c0, #697f9a);
+  -moz-border-radius: 0 3px 3px 0;
+  -webkit-border-radius: 0;
+  border-radius: 0 3px 3px 0;
+}
+.calendar-icon:before {
+  top: 50%;
+  left: 50%;
+  margin: -7px 0 0 -7px;
+}
+
+.bids-filter-categories-uncheck {
+  top: 0;
+  right: 0;
+}
+
+.bids-filter-block .radio,
+.bids-filter-block .checkbox {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #fff;
+}
+
+.bids-filter-categories ul {
+  margin-top: 20px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */
