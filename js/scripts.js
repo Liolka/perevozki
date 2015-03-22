@@ -280,6 +280,27 @@ $(document).ready(function () {
 		return false;
 	});
 
+	$('#bids-sorting-block-list a').on('click', function (e) {
+		e.preventDefault();
+		//console.log($(this).data('sort'));
+		$('#type-sort').val($(this).data('sort'));
+		$('#sort-bids-form').submit();
+		return false;
+	});
+
+	$('#bids-filter-filterig').on('click', function (e) {
+		e.preventDefault();
+		$('#bids-filter-form').submit();
+		return false;
+	});
+
+	$('#bids-filter-clear').on('click', function (e) {
+		e.preventDefault();
+		$('#clear-bids-filter').val(1);
+		$('#bids-filter-form').submit();
+		return false;
+	});
+
     
     
     

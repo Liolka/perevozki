@@ -7,6 +7,7 @@
 	<div class="step-container">
 		<div class="container ">
 		
+			<?php echo $form->hiddenField($model,'category_id'); ?>
 			
 			<p class="num-step num-step-light-blue">3</p>
 			
@@ -17,7 +18,7 @@
 					<div class="row form-row">
 						
 						<div class="col-md-2 col-lg-2">
-							<p class="step3-category-ico catn-c<?=$category_id?>-b"> </p>
+							<p class="step3-category-ico catn-c<?=$model->category_id?>-b"> </p>
 						</div>
 						<div class="col-md-10 col-lg-10">
 							<?php echo $form->labelEx($model,'name', array('class'=>'lbl-block')); ?>
@@ -120,7 +121,7 @@
 					<div class="row form-row">
 						
 						<div class="col-md-2 col-lg-2">
-							<p class="step3-category-ico catn-c<?=$category_id?>-b"> </p>
+							<p class="step3-category-ico catn-c<?=$model->category_id?>-b"> </p>
 						</div>
 						<div class="col-md-10 col-lg-10">
 							<?php echo $form->labelEx($model,'name', array('class'=>'lbl-block')); ?>
@@ -222,7 +223,7 @@
 					<div class="row form-row">
 						
 						<div class="col-md-2 col-lg-2">
-							<p class="step3-category-ico catn-c<?=$category_id?>-b"> </p>
+							<p class="step3-category-ico catn-c<?=$model->category_id?>-b"> </p>
 						</div>
 						<div class="col-md-10 col-lg-10">
 							<?php echo $form->labelEx($model,'name', array('class'=>'lbl-block')); ?>
@@ -323,7 +324,7 @@
 					<div class="row form-row">
 						
 						<div class="col-md-2 col-lg-2">
-							<p class="step3-category-ico catn-c<?=$category_id?>-b"> </p>
+							<p class="step3-category-ico catn-c<?=$model->category_id?>-b"> </p>
 						</div>
 						<div class="col-md-10 col-lg-10">
 							<?php echo $form->labelEx($model,'name', array('class'=>'lbl-block')); ?>

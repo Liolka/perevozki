@@ -41,6 +41,8 @@ class Bids extends CActiveRecord
 	
 	
 	public $username;
+	public $full_name;
+	public $need_porters;
 	
 	
 	/**
@@ -79,7 +81,7 @@ class Bids extends CActiveRecord
 			array('date_transportation', 'date', 'format' => 'yyyy-MM-dd'),
 			array('time_transportation', 'date', 'format' => 'HH:mm'),
 			
-			array('user_id, published, date_unknown, price', 'numerical', 'integerOnly'=>true),
+			array('user_id, category_id, published, date_unknown, price', 'numerical', 'integerOnly'=>true),
 			array('loading_town, loading_address, add_loading_unloading_town_1, add_loading_unloading_address_1, add_loading_unloading_town_2, add_loading_unloading_address_2, add_loading_unloading_town_3, add_loading_unloading_address_3, unloading_town, unloading_address', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -94,10 +96,11 @@ class Bids extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'bidsCargoes' => array(self::HAS_MANY, 'BidsCargoes', 'bid_id'),
-		);
-	}
+        return array(
+            'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+            'category' => array(self::BELONGS_TO, 'Categories', 'category_id'),
+            'bidsCargoes' => array(self::HAS_MANY, 'BidsCargoes', 'bid_id'),
+        );	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)

@@ -37,6 +37,8 @@ if($('#Bids_have_account').is(':checked')) {
 	<?php echo $form->errorSummary($model); ?>
 	<div class="step-container">
 		<div class="container ">
+			
+			<?php echo $form->hiddenField($model,'category_id'); ?>
 
 			<p class="num-step num-step-green">4</p>
 			<p class="step-title">Пункты погрузки и выгрузки<span>Завершающий этап</span> </p>

@@ -294,7 +294,7 @@ class BidsController extends Controller
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
-							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category2']);
+							//$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category2']);
 						} else {
 							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
@@ -320,7 +320,7 @@ class BidsController extends Controller
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
-							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category3']);
+							//$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category3']);
 						} else {
 							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
@@ -346,7 +346,7 @@ class BidsController extends Controller
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
-							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category4']);
+							//$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category4']);
 						} else {
 							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
@@ -395,6 +395,9 @@ class BidsController extends Controller
 			
 			$this->app->session['NewBid.Cargoes'] = $_POST['Cargoes'];
 			$model_Cargoes = null;
+			
+			//$model->category_id = $this->app->request->getParam('Cargoes[category_id]', 1);
+			$model->category_id = $_POST['Cargoes']['category_id'];
 			
 			//echo'<pre>';print_r($_POST);echo'</pre>';die;
 			
@@ -508,29 +511,192 @@ class BidsController extends Controller
 		
 		//$rows_pages = Bids::model()->getBids();
 		
+		$this->processPageRequest('page');
+		
+		
+		
+		$clear_bids_filter = $this->app->request->getParam('clear-bids-filter', 0);
+		if($clear_bids_filter)	{
+			unset($this->app->session['bidslst.BidsFilter']);
+			unset($this->app->session['bidslst.BidsFilterCategories']);
+			$this->redirect(array('index'));
+		}
+		
+		$type_sort = $this->app->request->getParam('type-sort', '');
+		
+		if($type_sort != '')	{
+			$this->app->session['bidslst.type_sort'] = $type_sort;
+			//$this->redirect(array('index'));
+		}	elseif(isset($this->app->session['bidslst.type_sort'])) {
+			$type_sort = $this->app->session['bidslst.type_sort'];
+		}	else	{
+			$type_sort = 'datepub';
+		}
+		
+		//echo'<pre>';print_r($_POST);echo'</pre>';
+		
+		$filtering = false;
+		if(isset($_POST['BidsFilter']))	{
+			$model->attributes = $_POST['BidsFilter'];
+			//echo'<pre>';print_r($model->attributes);echo'</pre>';
+			if($model->validate())	{
+				$this->app->session['bidslst.BidsFilter'] = $_POST['BidsFilter'];
+				$filtering = true;
+			}	else	{
+				
+			}
+		}	elseif(isset($this->app->session['bidslst.BidsFilter']))	{
+			$model->attributes = $this->app->session['bidslst.BidsFilter'];
+			$filtering = true;
+
+		}
+		
+		$BidsFilterCategories = array();
+		
+		if(isset($_POST['bids-filter-categories']))	{
+			$this->app->session['bidslst.BidsFilterCategories'] = $_POST['bids-filter-categories'];
+			$BidsFilterCategories = $_POST['bids-filter-categories'];
+			$filtering = true;
+		} elseif(isset($_POST['BidsFilter']) && !isset($_POST['bids-filter-categories']))	{
+			unset($this->app->session['bidslst.BidsFilterCategories']);
+			
+		} elseif(isset($this->app->session['bidslst.BidsFilterCategories']))	{
+			$BidsFilterCategories = $this->app->session['bidslst.BidsFilterCategories'];
+			$filtering = true;
+		}
+		
+		
 		$criteria = new CDbCriteria;
 		
 		$criteria->select = "t.*, u.username";
 		
 		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
 		
-		$criteria->order = 't.bid_id DESC';
+		switch($type_sort) {
+			case 'datepub':
+				$criteria->order = 't.created DESC';
+				break;
+			case 'dateperevoz':
+				$criteria->order = 't.date_transportation DESC';
+				break;
+			default:
+				$criteria->order = 't.bid_id DESC';
+			break;
+		}
+		
+		if($filtering === true)	{
+			
+			$condition_arr = array();
+
+			if($model->bids_filter_dates_from != '')	{
+				$condition_arr[] = "t.date_transportation >= '".$model->bids_filter_dates_from."'";
+			}
+
+			if($model->bids_filter_dates_to != '')	{
+				$condition_arr[] = "t.date_transportation <= '".$model->bids_filter_dates_to."'";
+			}
+
+			if($model->town_from != '' && $model->town_to != '')	{
+				$condition_arr[] = "t.loading_town = '".$model->town_from."' AND t.unloading_town = '".$model->town_to."'";
+			}	elseif($model->town_from != '' )	{
+				$condition_arr[] = "t.loading_town = '".$model->town_from."'";
+			}	elseif($model->town_to != '')	{
+				$condition_arr[] = "t.unloading_town = '".$model->town_to."'";
+			}
+			
+			if(count($BidsFilterCategories)) {
+				$condition_arr[] = "t.category_id IN (".implode(', ', $BidsFilterCategories).")";
+			}
+
+			if(count($condition_arr))	{
+				$criteria->condition = implode(' AND ', $condition_arr);
+			}
+		}
+		
+		
 		
  
         $dataProvider = new CActiveDataProvider('Bids', array(
             'criteria'=>$criteria,
             'pagination'=>array(
-                'pageSize'=>2,
+                'pageSize'=>20,
+				'pageVar' =>'page',
             ),
-        ));		
+        ));
+		
+		//echo'<pre>';print_r($dataProvider->data);echo'</pre>';
+		
+		$bid_ids = array();
+		foreach($dataProvider->data as $row) {
+			$bid_ids[] = $row->bid_id;
+		}
+		
+		//echo'<pre>';print_r($bid_ids);echo'</pre>';die;
+		
+		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
 		
 		$categories_list = Categories::model()->getCategoriesLevel1($connection);
+		foreach($categories_list as &$i) {
+			$checked = false;
+			foreach($BidsFilterCategories as $cat) {
+				if($i['id'] == $cat)	{
+					$checked = true;
+					break;
+				}
+			}
+			if($checked === true)	{
+				$i['checked'] = 1;
+			}	else	{
+				$i['checked'] = 0;
+			}
+			
+		}
+		//echo'<pre>';print_r($BidsFilterCategories);echo'</pre>';//die;
+		//echo'<pre>';print_r($categories_list);echo'</pre>';die;
 		
+		
+		foreach($dataProvider->data as $row) {
+			$cargo_name = array();
+			$porters = false;
+
+			foreach($cargoes_info as $cargo) {
+				if($cargo['bid_id'] == $row->bid_id) {
+					$cargo_name[] = $cargo['name'];
+
+					if($cargo['porters'] == 1) {
+						$porters = true;
+					}
+				}
+			}
+			
+			$row->full_name = implode('. ', $cargo_name);
+			$row->need_porters = $porters;
+			
+		}
+		
+		//echo'<pre>';print_r($bid_ids);echo'</pre>';
+		//echo'<pre>';print_r($cargoes_info);echo'</pre>';
+		
+		/*
 		$this->render('index',array(
 			'model' => $model,
 			'categories_list' => $categories_list,
 			'dataProvider' => $dataProvider,
 		));
+		*/
+        if ($this->app->request->isAjaxRequest){
+            $this->renderPartial('_loopAjax', array(
+                'dataProvider'=>$dataProvider,
+            ));
+            $this->app->end();
+        } else {
+            $this->render('index', array(
+				'model' => $model,
+				'categories_list' => $categories_list,
+                'dataProvider'=>$dataProvider,
+                'type_sort'=>$type_sort,
+            ));
+        }		
 	}
 
 	/**
@@ -597,6 +763,8 @@ class BidsController extends Controller
 		
 		$model = new Cargoes;
 		
+		$model->category_id = $category_id;
+
 		//подготавливаем выпадающий список наличия товара
 		$model->DropDownUnitsList = Cargoes::model()->getDropDownUnitsList();
 		$model->SelectedUnitsList = array();
@@ -619,7 +787,7 @@ class BidsController extends Controller
 		
 		$this->renderPartial($layout, array(
 			'model'=>$model,
-			'category_id'=>$category_id,
+			//'category_id'=>$category_id,
 			'categories_list'=>$categories_list,
 		));
 	}
@@ -664,6 +832,11 @@ class BidsController extends Controller
 		return $password;
 	}
 	
+    protected function processPageRequest($param='page')
+    {
+        if (Yii::app()->request->isAjaxRequest && isset($_POST[$param]))
+            $_GET[$param] = Yii::app()->request->getPost($param);
+    }	
 	
 	
 }

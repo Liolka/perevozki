@@ -23,3 +23,7 @@ perevozki@gf-club.net
 public $user = 'gfclubne_orisad';
 public $password = 'wkd?S#}nDVFk';
 public $db = 'gfclubne_orisad';
+
+Ваши данные для входа в систему:
+E-mail: aldegtyarev@yandex.ru
+Пароль: 858F86l0

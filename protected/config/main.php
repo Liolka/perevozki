@@ -8,8 +8,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'perevozki',
-	'sourceLanguage' => 'en',
+	'sourceLanguage' => 'en_US',
 	'language' => 'ru',
+	'charset'=>'utf-8',
 	'homeUrl'=>'http://perevozki.gf-club.net',
 	
 
@@ -54,7 +55,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111', '178.121.127.200',),
+			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111', '178.121.66.13',),
 		),
 		
 

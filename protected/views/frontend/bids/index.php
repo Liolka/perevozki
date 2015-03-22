@@ -5,8 +5,9 @@ $this->breadcrumbs=array(
 	'Заявки на перевозку грузов',
 );
 
-
 $bids_filter_dates_from = $bids_filter_dates_to = '';
+
+
 ?>
 
 <h1>Заявки на перевозку грузов</h1>
@@ -28,9 +29,13 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 				),
 
 			)); ?>
+			
+			<?php echo $form->errorSummary($model); ?>
+			
 			<div class="bids-filter-block bids-filter-topbtns">
-				<p class="bids-filter-clear-wr"><a href="#" class="bids-filter-clear">Сбросить фильтры</a></p>
-				<a href="#" class="btn-blue-33 bids-filter-filterig">Отфильтровать</a>
+				<input type="hidden" name="clear-bids-filter" id="clear-bids-filter" value="0" />
+				<p class="bids-filter-clear-wr"><a href="#" id="bids-filter-clear" class="bids-filter-clear">Сбросить фильтры</a></p>
+				<a href="#" id="bids-filter-filterig" class="btn-blue-33 bids-filter-filterig">Отфильтровать</a>
 			</div>
 			<div class="bids-filter-block bids-filter-dates">
 				<span class="bids-filter-title">Дата перевозки</span>
@@ -40,7 +45,7 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 					
 					<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 							'model'=>$model,
-							'name' => 'BidsFilter[bids-filter-dates-from]',
+							'name' => 'BidsFilter[bids_filter_dates_from]',
 							'language' => 'ru',
 							'value' => $model->bids_filter_dates_from,
 							'options'=>array(
@@ -70,7 +75,7 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 					<span class="dates-txt">По</span>
 					<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
 							'model'=>$model,
-							'name' => 'BidsFilter[bids-filter-dates-to]',
+							'name' => 'BidsFilter[bids_filter_dates_to]',
 							'language' => 'ru',
 							'value' => $model->bids_filter_dates_to,
 							'options'=>array(
@@ -121,7 +126,7 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 				<? foreach($categories_list as $cat) {	?>
 					<li class="bids-filter-categories-list-item">
 						<p class="bids-filter-categories-item">
-							<input type="checkbox" name="filter-categories[]" id="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox bids-filter-categories-item-checkbox" value="<?=$cat['id']?>"><label for="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
+							<input type="checkbox" name="bids-filter-categories[]" id="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox bids-filter-categories-item-checkbox" value="<?=$cat['id']?>" <?=$cat['checked']? 'checked="checked"' : '' ?></input><label for="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
 						</p>
 					</li>
 				<? } ?>
@@ -139,10 +144,13 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 
 	<div class="content column2l">
 		<div class="bids-sorting-block">
-			<ul class="bids-sorting-block-list clearfix">
+			<form action="" method="post" id="sort-bids-form">
+				<input type="hidden" id="type-sort" name="type-sort" value="" />
+			</form>
+			<ul id="bids-sorting-block-list" class="bids-sorting-block-list clearfix">
 				<li class="bids-sorting-block-title">Сортировка:</li>
-				<li class="bids-sorting-block-btn active"><a href="?sort=datepub">По дате публикации</a></li>
-				<li class="bids-sorting-block-btn"><a href="?sort=dateperevoz">По дате перевозки</a></li>
+				<li class="bids-sorting-block-btn <? if($type_sort == 'datepub') echo 'active' ?>"><a href="#" data-sort="datepub" rel="nofollow">По дате публикации</a></li>
+				<li class="bids-sorting-block-btn <? if($type_sort == 'dateperevoz') echo 'active' ?>"><a href="#" data-sort="dateperevoz" rel="nofollow">По дате перевозки</a></li>
 			</ul>
 		</div>
 	
@@ -155,6 +163,7 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 				<li class="date">Дата выезда / Предложения</li>
 				<li class="price">Предложенная стоимость</li>
 			</ul>
+			<? /*
 			<ul class="requests-list-items">
 				<li class="requests-list-item clearfix">
 					<div class="requests-list-item_number">8523963</div>
@@ -261,16 +270,13 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 				</li>
 
 			</ul>
-
-			<a href="#" class="requests-more-btn">Показать еще</a>
+			*/ ?>
 			
-				<?php $this->widget('zii.widgets.CListView', array(
-					'dataProvider'=>$dataProvider,
-					'itemView'=>'_view',
-					'ajaxUpdate'=>true,
-					'template'=>"{items}\n{pager}",
-					'itemsCssClass' => 'requests-list-items',
-				)); ?>
+			
+			<?php $this->renderPartial('_loop', array('dataProvider'=>$dataProvider)); ?>
+			
+			
+			
 				
 		</div>	
 	</div>
