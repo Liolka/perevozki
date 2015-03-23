@@ -41,6 +41,7 @@ class Cargoes extends CActiveRecord
 	public $unit1;
 	public $porters1;
 	public $lift_to_floor1;
+	public $lift1;
 	public $floor1;
 	public $weight1;
 	public $length1;
@@ -55,6 +56,7 @@ class Cargoes extends CActiveRecord
 	public $unit2;
 	public $porters2;
 	public $lift_to_floor2;
+	public $lift2;
 	public $floor2;
 	public $weight2;
 	public $length2;
@@ -69,6 +71,7 @@ class Cargoes extends CActiveRecord
 	public $unit3;
 	public $porters3;
 	public $lift_to_floor3;
+	public $lift3;
 	public $floor3;
 	public $weight3;
 	public $length3;
@@ -83,6 +86,7 @@ class Cargoes extends CActiveRecord
 	public $unit4;
 	public $porters4;
 	public $lift_to_floor4;
+	public $lift4;
 	public $floor4;
 	public $weight4;
 	public $length4;
@@ -109,10 +113,10 @@ class Cargoes extends CActiveRecord
 		return array(
 			//array('name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume', 'required'),
 			array(
-				'unit, porters, lift_to_floor, floor,
-				 unit1, porters1, lift_to_floor1, floor1
-				 unit2, porters2, lift_to_floor2, floor2
-				 unit3, porters3, lift_to_floor3, floor3
+				'unit, porters, lift_to_floor, floor, lift,
+				 unit1, porters1, lift_to_floor1, floor1, lift1,
+				 unit2, porters2, lift_to_floor2, floor2, lift2,
+				 unit3, porters3, lift_to_floor3, floor3, lift3,
 				 unit4, porters4, lift_to_floor4, floor4', 
 				'numerical', 'integerOnly'=>true
 			),
@@ -180,6 +184,7 @@ class Cargoes extends CActiveRecord
 			'foto' => 'Загрузить фото ',
 			'porters' => 'На погрузку выгрузку',
 			'lift_to_floor' => 'Подъем на этаж',
+			'lift' => 'Лифт',
 			'floor' => 'Этаж',
 			'length' => 'Примерные габариты',
 			'width' => 'Width',

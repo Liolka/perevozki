@@ -77,10 +77,20 @@ class BidsController extends Controller
 		
 		$bid_name = implode('. ', $bid_name_arr);
 		
+		$route_arr = array();
+		$this->addRouteItem($model->loading_town, $model->loading_address, $route_arr);
+		$this->addRouteItem($model->add_loading_unloading_town_1, $model->add_loading_unloading_address_1, $route_arr);
+		$this->addRouteItem($model->add_loading_unloading_town_2, $model->add_loading_unloading_address_2, $route_arr);
+		$this->addRouteItem($model->add_loading_unloading_town_3, $model->add_loading_unloading_address_2, $route_arr);
+		$this->addRouteItem($model->unloading_town, $model->unloading_address, $route_arr);
+		
+		//echo'<pre>';print_r($route_arr);echo'</pre>';
+		
 		$this->render('view',array(
 			'model'=> $model,
 			'cargoes'=> $cargoes,
 			'bid_name'=> $bid_name,
+			'route_arr'=> $route_arr,
 		));
 	}
 
@@ -268,6 +278,7 @@ class BidsController extends Controller
 					$cargo->porters = $NewBid_Cargoes['porters1'];
 					//$cargo->foto = $NewBid_Cargoes['foto1'];
 					$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor1'];
+					$cargo->lift = $NewBid_Cargoes['lift1'];
 					$cargo->floor = $NewBid_Cargoes['floor1'];
 					$cargo->length = $NewBid_Cargoes['length1'];
 					$cargo->width = $NewBid_Cargoes['width1'];
@@ -296,6 +307,7 @@ class BidsController extends Controller
 						$cargo->porters = $NewBid_Cargoes['porters2'];
 						//$cargo->foto = $NewBid_Cargoes['foto2'];
 						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor2'];
+						$cargo->lift = $NewBid_Cargoes['lift2'];
 						$cargo->floor = $NewBid_Cargoes['floor2'];
 						$cargo->length = $NewBid_Cargoes['length2'];
 						$cargo->width = $NewBid_Cargoes['width2'];
@@ -322,6 +334,7 @@ class BidsController extends Controller
 						$cargo->porters = $NewBid_Cargoes['porters3'];
 						//$cargo->foto = $NewBid_Cargoes['foto3'];
 						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor3'];
+						$cargo->lift = $NewBid_Cargoes['lift3'];
 						$cargo->floor = $NewBid_Cargoes['floor3'];
 						$cargo->length = $NewBid_Cargoes['length3'];
 						$cargo->width = $NewBid_Cargoes['width3'];
@@ -348,6 +361,7 @@ class BidsController extends Controller
 						$cargo->porters = $NewBid_Cargoes['porters4'];
 						//$cargo->foto = $NewBid_Cargoes['foto4'];
 						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor4'];
+						$cargo->lift = $NewBid_Cargoes['lift4'];
 						$cargo->floor = $NewBid_Cargoes['floor4'];
 						$cargo->length = $NewBid_Cargoes['length4'];
 						$cargo->width = $NewBid_Cargoes['width4'];
@@ -843,11 +857,19 @@ class BidsController extends Controller
 		return $password;
 	}
 	
+	public function addRouteItem($town = '', $address = '', &$route_arr)
+	{
+		if($town != '' && $address != '') {
+			$route_arr[] = "'".$town.", ".$address."'";
+		}
+		
+	}
+	
     protected function processPageRequest($param='page')
     {
         if (Yii::app()->request->isAjaxRequest && isset($_POST[$param]))
             $_GET[$param] = Yii::app()->request->getPost($param);
-    }	
+    }
 	
 	
 }

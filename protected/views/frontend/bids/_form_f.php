@@ -91,6 +91,14 @@ if($('#Bids_have_account').is(':checked')) {
 					</div>
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
+							<?php echo $form->checkBox($model,'quickly', array('class'=>'checkbox')); ?>
+							<?php echo $form->labelEx($model,'quickly', array('class'=>'checkbox-lbl')); ?>						
+							<?php echo $form->error($model,'quickly'); ?>
+						</div>
+					</div>
+					
+					<div class="row form-row">
+						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'price', array('class'=>'lbl-block')); ?>
 							<?php echo $form->textField($model,'price'); ?>  <label class="" for="Bids_price">белорусских рублей</label>
 							<?php echo $form->error($model,'price'); ?>

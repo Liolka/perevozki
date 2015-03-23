@@ -66,7 +66,7 @@
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12"><label class="lbl-block">Грузчики</label></div>
-						<div class="col-md-4 col-lg-5">
+						<div class="col-md-5 col-lg-5">
 								<?php echo $form->checkBox($model,'porters1', array('class'=>'checkbox')); ?>
 								<?php echo $form->labelEx($model,'porters', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'porters1'); ?>
@@ -76,7 +76,7 @@
 								<?php echo $form->labelEx($model,'lift_to_floor', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'lift_to_floor1'); ?>
 						</div>
-						<div class="col-md-4 col-lg-3" style="padding-top:4px;">
+						<div class="col-md-3 col-lg-3" style="padding-top:4px;">
 								<?php echo $form->textField($model,'floor1', array('size'=>1)); ?>
 								<?php echo $form->labelEx($model,'floor'); ?>
 								
@@ -84,17 +84,23 @@
 						</div>
 					</div>
 					<div class="row form-row">
-						<div class="col-md-12 col-lg-12">
-						<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-						<?php echo $form->textField($model,'length1', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'width1', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'height1', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'volume1', array('size'=>5)); ?>
-						<span class="dimensions-separator">M<sup>3</sup> </span>
+						<div class="col-md-10 col-lg-10">
+							<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textField($model,'length1', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'width1', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'height1', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'volume1', array('size'=>3)); ?>
+							<span class="dimensions-separator">M<sup>3</sup> </span>
 						</div>
+						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
+							<?php echo $form->checkBox($model,'lift1', array('class'=>'checkbox')); ?>
+							<?php echo $form->labelEx($model,'lift', array('class'=>'checkbox-lbl')); ?>						
+							<?php echo $form->error($model,'lift1'); ?>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -168,7 +174,7 @@
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12"><label class="lbl-block">Грузчики</label></div>
-						<div class="col-md-4 col-lg-5">
+						<div class="col-md-5 col-lg-5">
 								<?php echo $form->checkBox($model,'porters2', array('class'=>'checkbox')); ?>
 								<?php echo $form->labelEx($model,'porters', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'porters2'); ?>
@@ -178,7 +184,7 @@
 								<?php echo $form->labelEx($model,'lift_to_floor', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'lift_to_floor2'); ?>
 						</div>
-						<div class="col-md-4 col-lg-3" style="padding-top:4px;">
+						<div class="col-md-3 col-lg-3" style="padding-top:4px;">
 								<?php echo $form->textField($model,'floor2', array('size'=>1)); ?>
 								<?php echo $form->labelEx($model,'floor'); ?>
 								
@@ -186,17 +192,23 @@
 						</div>
 					</div>
 					<div class="row form-row">
-						<div class="col-md-12 col-lg-12">
-						<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-						<?php echo $form->textField($model,'length2', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'width2', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'height2', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'volume2', array('size'=>5)); ?>
-						<span class="dimensions-separator">M<sup>3</sup> </span>
+						<div class="col-md-10 col-lg-10">
+							<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textField($model,'length2', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'width2', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'height2', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'volume2', array('size'=>3)); ?>
+							<span class="dimensions-separator">M<sup>3</sup> </span>
 						</div>
+						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
+							<?php echo $form->checkBox($model,'lift2', array('class'=>'checkbox')); ?>
+							<?php echo $form->labelEx($model,'lift', array('class'=>'checkbox-lbl')); ?>						
+							<?php echo $form->error($model,'lift2'); ?>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -270,7 +282,7 @@
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12"><label class="lbl-block">Грузчики</label></div>
-						<div class="col-md-4 col-lg-5">
+						<div class="col-md-5 col-lg-5">
 								<?php echo $form->checkBox($model,'porters3', array('class'=>'checkbox')); ?>
 								<?php echo $form->labelEx($model,'porters', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'porters3'); ?>
@@ -280,24 +292,30 @@
 								<?php echo $form->labelEx($model,'lift_to_floor', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'lift_to_floor3'); ?>
 						</div>
-						<div class="col-md-4 col-lg-3" style="padding-top:4px;">
+						<div class="col-md-3 col-lg-3" style="padding-top:4px;">
 								<?php echo $form->textField($model,'floor3', array('size'=>1)); ?>
 								<?php echo $form->labelEx($model,'floor'); ?>
 								<?php echo $form->error($model,'floor3'); ?>
 						</div>
 					</div>
 					<div class="row form-row">
-						<div class="col-md-12 col-lg-12">
+						<div class="col-md-10 col-lg-10">
 						<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-						<?php echo $form->textField($model,'length3', array('size'=>5)); ?>
+						<?php echo $form->textField($model,'length3', array('size'=>3)); ?>
 						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'width3', array('size'=>5)); ?>
+						<?php echo $form->textField($model,'width3', array('size'=>3)); ?>
 						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'height3', array('size'=>5)); ?>
+						<?php echo $form->textField($model,'height3', array('size'=>3)); ?>
 						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'volume3', array('size'=>5)); ?>
+						<?php echo $form->textField($model,'volume3', array('size'=>3)); ?>
 						<span class="dimensions-separator">M<sup>3</sup> </span>
 						</div>
+						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
+							<?php echo $form->checkBox($model,'lift3', array('class'=>'checkbox')); ?>
+							<?php echo $form->labelEx($model,'lift', array('class'=>'checkbox-lbl')); ?>						
+							<?php echo $form->error($model,'lift3'); ?>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -371,7 +389,7 @@
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12"><label class="lbl-block">Грузчики</label></div>
-						<div class="col-md-4 col-lg-5">
+						<div class="col-md-5 col-lg-5">
 								<?php echo $form->checkBox($model,'porters4', array('class'=>'checkbox')); ?>
 								<?php echo $form->labelEx($model,'porters', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'porters4'); ?>
@@ -381,7 +399,7 @@
 								<?php echo $form->labelEx($model,'lift_to_floor', array('class'=>'checkbox-lbl')); ?>						
 								<?php echo $form->error($model,'lift_to_floor4'); ?>
 						</div>
-						<div class="col-md-4 col-lg-3" style="padding-top:4px;">
+						<div class="col-md-3 col-lg-3" style="padding-top:4px;">
 								<?php echo $form->textField($model,'floor4', array('size'=>1)); ?>
 								<?php echo $form->labelEx($model,'floor'); ?>
 								
@@ -389,17 +407,23 @@
 						</div>
 					</div>
 					<div class="row form-row">
-						<div class="col-md-12 col-lg-12">
-						<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-						<?php echo $form->textField($model,'length4', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'width4', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'height4', array('size'=>5)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'volume4', array('size'=>5)); ?>
-						<span class="dimensions-separator">M<sup>3</sup> </span>
+						<div class="col-md-10 col-lg-10">
+							<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textField($model,'length4', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'width4', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'height4', array('size'=>3)); ?>
+							<span class="dimensions-separator">M x </span>
+							<?php echo $form->textField($model,'volume4', array('size'=>3)); ?>
+							<span class="dimensions-separator">M<sup>3</sup> </span>
 						</div>
+						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
+							<?php echo $form->checkBox($model,'lift4', array('class'=>'checkbox')); ?>
+							<?php echo $form->labelEx($model,'lift', array('class'=>'checkbox-lbl')); ?>						
+							<?php echo $form->error($model,'lift4'); ?>
+						</div>
+						
 					</div>
 				</div>
 			</div>

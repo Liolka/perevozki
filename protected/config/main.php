@@ -249,5 +249,12 @@ return array(
 		'adminEmail'=>'webmaster@example.com',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
 		'images_live_url' => 'http://perevozki/',
+		
+		'UnitsListArray' => array(
+			1 => array('id' => 1, 'name' => 'кг'),
+			2 => array('id' => 2, 'name' => 'тонн'),
+		),
+		
+		
 	),
 );

@@ -64,9 +64,7 @@
 	
 	.requests-list-item_price {
 		@extend %fr;
-	}
-
-	
+	}	
 }
 
 .requests-list-item_number {
@@ -84,6 +82,66 @@
 		
 		@extend .ico-car1;
 	}
+}
+
+.requests-list-item_number-cat-2:before {
+	margin-left: -19px;
+	@extend .catn-c2-b;
+}
+
+.requests-list-item_number-cat-3:before {
+	margin-left: -18px;
+	@extend .catn-c3-b;
+}
+
+.requests-list-item_number-cat-4:before {
+	margin-left: -18px;
+	@extend .catn-c4-b;
+}
+
+.requests-list-item_number-cat-7:before {
+	margin-left: -18px;
+	@extend .catn-c7-b;
+}
+
+.requests-list-item_number-cat-8:before {
+	margin-left: -18px;
+	@extend .catn-c8-b;
+}
+
+.requests-list-item_number-cat-9:before {
+	margin-left: -24px;
+	@extend .catn-c9-b;
+}
+
+.requests-list-item_number-cat-10:before {
+	margin-left: -18px; 
+	@extend .catn-c10-b;
+}
+
+.requests-list-item_number-cat-11:before {
+	margin-left: -18px; 
+	@extend .catn-c11-b;
+}
+
+.requests-list-item_number-cat-12:before {
+	margin-left: -18px; 
+	@extend .catn-c12-b;
+}
+
+.requests-list-item_number-cat13:before {
+	margin-left: -24px; 
+	@extend .catn-c13-b;
+}
+
+.requests-list-item_number-cat-14:before {
+	margin-left: -23px; 
+	@extend .catn-c14-b;
+}
+
+.requests-list-item_number-cat-15:before {
+	margin-left: -18px; 
+	@extend .catn-c15-b;
 }
 
 .requests-list-item_info {

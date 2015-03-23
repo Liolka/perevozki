@@ -61,9 +61,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .requests-list-head .addr:before, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-calendar, .ico-calendar1, .calendar-icon:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-comment, .my-transport-comment:before, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
-.header-row1-menu .perevozchik:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
-  background-image: url('../images/ico-s721a3a126c.png');
+.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-calendar, .ico-calendar1, .calendar-icon:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-comment, .my-transport-comment:before, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya-big, .bid-detail-cargo-listitem-porters:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-money, .bid-detail-price:before, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica-big, .bid-detail-respond-btn:before, .ico-ptica, .ico-question, .header-row1-menu .gruzodatel:before,
+.header-row1-menu .perevozchik:before, .ico-quickly, .bid-detail-date-quickly:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
+  background-image: url('../images/ico-s31ea6f6833.png');
   background-repeat: no-repeat;
 }
 
@@ -87,7 +87,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-calendar {
-  background-position: -28px -139px;
+  background-position: 0 -110px;
   height: 26px;
   width: 31px;
 }
@@ -99,7 +99,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-car1, .requests-list-item_number:before {
-  background-position: 0 -204px;
+  background-position: -31px -110px;
   height: 27px;
   width: 40px;
 }
@@ -111,13 +111,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-close-blue {
-  background-position: 0 -169px;
+  background-position: -32px -137px;
   height: 28px;
   width: 29px;
 }
 
 .ico-close-red {
-  background-position: -19px -110px;
+  background-position: -40px -167px;
   height: 28px;
   width: 29px;
 }
@@ -129,7 +129,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-comment, .my-transport-comment:before {
-  background-position: 0 -139px;
+  background-position: -61px -196px;
   height: 25px;
   width: 28px;
 }
@@ -158,6 +158,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 19px;
 }
 
+.ico-girya-big, .bid-detail-cargo-listitem-porters:before {
+  background-position: 0 -227px;
+  height: 34px;
+  width: 25px;
+}
+
 .ico-girya, .requests-list-item-info_gruzchiki:before {
   background-position: -42px -37px;
   height: 19px;
@@ -165,7 +171,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-gruz-big, .map-block .btn-zakazhu:before {
-  background-position: 0 -377px;
+  background-position: -37px -385px;
   height: 50px;
   width: 50px;
 }
@@ -201,57 +207,63 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-menu-documents, .my-menu-item-documents:before {
-  background-position: -43px -332px;
+  background-position: 0 -385px;
   height: 45px;
   width: 37px;
 }
 
 .ico-menu-info-s, .my-top-menu-info:before {
-  background-position: -59px -139px;
+  background-position: -61px -137px;
   height: 30px;
   width: 21px;
 }
 
 .ico-menu-info, .my-menu-item-info:before {
-  background-position: 0 -289px;
+  background-position: 0 -341px;
   height: 43px;
   width: 31px;
 }
 
 .ico-menu-profile-s, .my-top-menu-profile:before {
-  background-position: 0 -245px;
+  background-position: 0 -196px;
   height: 31px;
   width: 32px;
 }
 
 .ico-menu-profile, .my-menu-item-profile:before {
-  background-position: 0 -332px;
+  background-position: -41px -299px;
   height: 42px;
   width: 43px;
 }
 
 .ico-menu-transport-s, .my-top-menu-transport:before {
-  background-position: -48px -110px;
+  background-position: 0 -167px;
   height: 29px;
   width: 40px;
 }
 
 .ico-menu-transport, .my-menu-item-transport:before {
-  background-position: -31px -289px;
+  background-position: -34px -262px;
   height: 37px;
   width: 51px;
 }
 
 .ico-menu-zayavki-s, .my-top-menu-zayavki:before {
-  background-position: -29px -169px;
+  background-position: -25px -227px;
   height: 35px;
   width: 37px;
 }
 
 .ico-menu-zayavki, .my-menu-item-zayavki:before {
-  background-position: -40px -204px;
+  background-position: 0 -299px;
   height: 41px;
   width: 41px;
+}
+
+.ico-money, .bid-detail-price:before {
+  background-position: 0 -262px;
+  height: 36px;
+  width: 34px;
 }
 
 .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before {
@@ -264,6 +276,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-position: -52px -20px;
   height: 16px;
   width: 16px;
+}
+
+.ico-ptica-big, .bid-detail-respond-btn:before {
+  background-position: -32px -196px;
+  height: 31px;
+  width: 29px;
 }
 
 .ico-ptica {
@@ -279,14 +297,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 17px;
 }
 
+.ico-quickly, .bid-detail-date-quickly:before {
+  background-position: 0 -137px;
+  height: 28px;
+  width: 32px;
+}
+
 .ico-rating-bad, .requests1-list-item-review-bad:before {
-  background-position: -59px -57px;
+  background-position: -71px -110px;
   height: 23px;
   width: 19px;
 }
 
 .ico-rating-good, .requests1-list-item-review-good:before {
-  background-position: 0 -110px;
+  background-position: -59px -57px;
   height: 23px;
   width: 19px;
 }
@@ -316,7 +340,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-watches-big, .benefits-block li:before {
-  background-position: 0 -427px;
+  background-position: 0 -435px;
   height: 89px;
   width: 90px;
 }
@@ -328,7 +352,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .ico-zoom-big, .map-block .btn-perevezu:before {
-  background-position: -32px -245px;
+  background-position: -31px -341px;
   height: 44px;
   width: 44px;
 }
@@ -584,12 +608,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 79px;
 }
 
-.catn-sprite, .catn-c10-b, .catn-c10-d, .catn-c11-b, .catn-c11-d, .catn-c12-b, .catn-c12-d, .catn-c13-b, .catn-c13-d, .catn-c14-b, .catn-c14-d, .catn-c15-b, .catn-c15-d, .catn-c2-b, .catn-c2-d, .catn-c3-b, .catn-c3-d, .catn-c4-b, .catn-c4-d, .catn-c7-b, .catn-c7-d, .catn-c8-b, .catn-c8-d, .catn-c9-b, .catn-c9-d {
+.catn-sprite, .catn-c10-b, .requests-list-item_number-cat-10:before, .catn-c10-d, .catn-c11-b, .requests-list-item_number-cat-11:before, .catn-c11-d, .catn-c12-b, .requests-list-item_number-cat-12:before, .catn-c12-d, .catn-c13-b, .requests-list-item_number-cat13:before, .catn-c13-d, .catn-c14-b, .requests-list-item_number-cat-14:before, .catn-c14-d, .catn-c15-b, .requests-list-item_number-cat-15:before, .catn-c15-d, .catn-c2-b, .requests-list-item_number-cat-2:before, .bid-detail-cargo-listitem-cat-2:before, .catn-c2-d, .catn-c3-b, .requests-list-item_number-cat-3:before, .catn-c3-d, .catn-c4-b, .requests-list-item_number-cat-4:before, .catn-c4-d, .catn-c7-b, .requests-list-item_number-cat-7:before, .catn-c7-d, .catn-c8-b, .requests-list-item_number-cat-8:before, .catn-c8-d, .catn-c9-b, .requests-list-item_number-cat-9:before, .catn-c9-d {
   background-image: url('../images/catn-sfe840d97a0.png');
   background-repeat: no-repeat;
 }
 
-.catn-c10-b {
+.catn-c10-b, .requests-list-item_number-cat-10:before {
   background-position: 0 -181px;
   height: 27px;
   width: 43px;
@@ -601,7 +625,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 43px;
 }
 
-.catn-c11-b {
+.catn-c11-b, .requests-list-item_number-cat-11:before {
   background-position: 0 -451px;
   height: 37px;
   width: 39px;
@@ -613,7 +637,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 39px;
 }
 
-.catn-c12-b {
+.catn-c12-b, .requests-list-item_number-cat-12:before {
   background-position: 0 -48px;
   height: 26px;
   width: 40px;
@@ -625,7 +649,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 40px;
 }
 
-.catn-c13-b {
+.catn-c13-b, .requests-list-item_number-cat13:before {
   background-position: 0 -769px;
   height: 43px;
   width: 50px;
@@ -637,7 +661,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 50px;
 }
 
-.catn-c14-b {
+.catn-c14-b, .requests-list-item_number-cat-14:before {
   background-position: 0 -308px;
   height: 34px;
   width: 48px;
@@ -649,7 +673,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 48px;
 }
 
-.catn-c15-b {
+.catn-c15-b, .requests-list-item_number-cat-15:before {
   background-position: 0 -24px;
   height: 24px;
   width: 43px;
@@ -661,7 +685,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 43px;
 }
 
-.catn-c2-b {
+.catn-c2-b, .requests-list-item_number-cat-2:before, .bid-detail-cargo-listitem-cat-2:before {
   background-position: 0 -208px;
   height: 33px;
   width: 38px;
@@ -673,7 +697,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 38px;
 }
 
-.catn-c3-b {
+.catn-c3-b, .requests-list-item_number-cat-3:before {
   background-position: 0 -684px;
   height: 42px;
   width: 37px;
@@ -685,7 +709,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 37px;
 }
 
-.catn-c4-b {
+.catn-c4-b, .requests-list-item_number-cat-4:before {
   background-position: 0 -603px;
   height: 39px;
   width: 43px;
@@ -697,7 +721,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 43px;
 }
 
-.catn-c7-b {
+.catn-c7-b, .requests-list-item_number-cat-7:before {
   background-position: 0 -526px;
   height: 38px;
   width: 39px;
@@ -709,7 +733,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 39px;
 }
 
-.catn-c8-b {
+.catn-c8-b, .requests-list-item_number-cat-8:before {
   background-position: 0 -378px;
   height: 36px;
   width: 41px;
@@ -721,7 +745,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 41px;
 }
 
-.catn-c9-b {
+.catn-c9-b, .requests-list-item_number-cat-9:before {
   background-position: 0 -100px;
   height: 27px;
   width: 55px;
@@ -795,12 +819,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .stages-block .stage1,
-.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .header-row1-menu .gruzodatel,
+.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .bid-detail-date-quickly, .bid-detail-price:before, .bid-detail-respond-btn, .bid-detail-cargo-listitem, .bid-detail-cargo-listitem-porters, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .bid-detail-date-quickly:before, .bid-detail-price:before, .bid-detail-respond-btn:before, .bid-detail-cargo-listitem:before, .bid-detail-cargo-listitem-porters:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before {
   content: ' ';
   position: absolute;
@@ -917,6 +941,10 @@ label.error, .errorSummary {
   color: #de5151;
 }
 
+.bid-detail-date-quickly-val {
+  color: #ffa100;
+}
+
 .btn-red:visited,
 .btn-blue1:visited,
 .btn-grey-33:visited,
@@ -975,8 +1003,12 @@ input[type="password"],
 .inputbox,
 textarea, .btn-grey-33,
 .btn-blue-33,
-.btn-green-33, .my-menu-url, .my-last-requests-title a, .my-rating-age, .my-rewiews-head, .my-rewiews-table .good, .my-rewiews-table .bad, .my-top-menu-item a, .my-contact-info-company-list p, .my-contact-info-descr, .step-container .step-title span {
+.btn-green-33, .my-menu-url, .my-last-requests-title a, .my-rating-age, .my-rewiews-head, .my-rewiews-table .good, .my-rewiews-table .bad, .my-top-menu-item a, .my-contact-info-company-list p, .my-contact-info-descr, .step-container .step-title span, .bid-detail-date-quickly-val {
   font-size: 14px;
+}
+
+.bid-detail-date {
+  font-size: 16px;
 }
 
 .requests-list-item-price_price {
@@ -1000,8 +1032,12 @@ h3, .add-transport p, .my-transport-name {
   font-size: 22px;
 }
 
+.bid-detail-number {
+  font-size: 23px;
+}
+
 .narrow_bold_24, .btn-blue-66,
-.btn-green-66, .select-user-type-lbl, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .header-row2 .questions {
+.btn-green-66, .select-user-type-lbl, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .header-row2 .questions {
   font-size: 24px;
 }
 
@@ -1029,14 +1065,14 @@ h1 span, .step-container .num-step {
   font-size: 48px;
 }
 
-button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-filter .lbl-block {
+button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-filter .lbl-block, .bid-detail-date-quickly-val {
   font-weight: normal;
 }
 
 h1, h2, h3, b,
 strong, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bids-sorting-block-list .active, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
 .change-password-block label, .change-email-block .current-email,
-.change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span, .add-transport-btn, .add-transport p, .my-transport-name, .my-requests-sort-block .active a, .step-subheader, .bids-filter-title {
+.change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span, .add-transport-btn, .add-transport p, .my-transport-name, .my-requests-sort-block .active a, .step-subheader, .bids-filter-title, .bid-detail-date, .bid-detail-price-wr, .bid-detail-cargo-listitem-cargo-name {
   font-weight: bold;
 }
 
@@ -1044,7 +1080,7 @@ strong, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bid
   font-style: italic;
 }
 
-.my-docs-files-item .popup-info, .my-docs-notice, .my-transport-comment {
+.my-docs-files-item .popup-info, .my-docs-notice, .my-transport-comment, .bid-detail-cargo-listitem-comment {
   line-height: 18px;
 }
 
@@ -1134,7 +1170,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
 .requests-list-item_price a, .requests-more-btn, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .change-email-block label,
-.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
+.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
   display: block;
 }
 
@@ -1167,7 +1203,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 }
 
 .rating-stars, .bids-sorting-block-list .active, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
-.bids-filter-dates .dates, .footer .created-by {
+.bids-filter-dates .dates, .bid-detail-price, .footer .created-by {
   position: relative;
 }
 
@@ -1240,7 +1276,7 @@ h1, .narrow_bold_24, .btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66, .map-block .info span, .modal-title, .select-user-type-lbl, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .my-contact-info-header, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
+.btn-green-66, .map-block .info span, .modal-title, .select-user-type-lbl, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .my-contact-info-header, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .bid-detail-number, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
@@ -1900,6 +1936,54 @@ button.close:hover {
   top: 0;
   left: 50%;
   margin-left: -20px;
+}
+
+.requests-list-item_number-cat-2:before {
+  margin-left: -19px;
+}
+
+.requests-list-item_number-cat-3:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat-4:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat-7:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat-8:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat-9:before {
+  margin-left: -24px;
+}
+
+.requests-list-item_number-cat-10:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat-11:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat-12:before {
+  margin-left: -18px;
+}
+
+.requests-list-item_number-cat13:before {
+  margin-left: -24px;
+}
+
+.requests-list-item_number-cat-14:before {
+  margin-left: -23px;
+}
+
+.requests-list-item_number-cat-15:before {
+  margin-left: -18px;
 }
 
 .requests-list-item_info {
@@ -2989,6 +3073,72 @@ button.close:hover {
 
 .bids-filter-categories ul {
   margin-top: 20px;
+}
+
+.bid-detail-number {
+  margin: -40px 0 40px 0;
+}
+
+.bid-detail-date-quickly:before {
+  left: 15px;
+  top: 0;
+}
+
+.bid-detail-date-quickly-val {
+  margin-top: 10px;
+}
+
+.bid-detail-price:before {
+  left: 14px;
+  top: 0;
+}
+
+.bid-detail-price-wr {
+  margin-top: 5px;
+}
+
+.bid-detail-date,
+.bid-detail-price {
+  padding-left: 60px;
+  margin-bottom: 30px;
+}
+
+.bid-detail-respond-btn {
+  padding-left: 90px;
+}
+.bid-detail-respond-btn:before {
+  left: 45px;
+  top: 50%;
+  margin-top: -16px;
+}
+
+.bid-detail-cargo-listitem {
+  padding-left: 60px;
+  margin-bottom: 45px;
+}
+.bid-detail-cargo-listitem:before {
+  left: 0;
+  top: 0;
+}
+
+.bid-detail-cargo-listitem-row {
+  margin-bottom: 20px;
+}
+
+.bid-detail-cargo-listitem-cargo-name {
+  margin-bottom: 5px;
+}
+
+.bid-detail-cargo-listitem-porters {
+  min-height: 40px;
+}
+.bid-detail-cargo-listitem-porters:before {
+  left: -53px;
+  top: 0;
+}
+
+.bid-detail-cargo-listitem-comment {
+  margin-left: -45px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */
