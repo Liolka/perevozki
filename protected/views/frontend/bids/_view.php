@@ -28,7 +28,7 @@ foreach($cargoes_info as $cargo) {
 
 	<div class="requests-list-item_number"><?php echo $data->bid_id; ?></div>
 	<div class="requests-list-item_info">
-		<a class="requests-list-item-info_url" href="#"><?=$data->full_name?></a>
+		<a class="requests-list-item-info_url" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
 		<span class="requests-list-item-info_descr">Вес ~60кг / Объем 6м<sup>3</sup></span>
 		<? if($data->need_porters) { ?>
 			<span class="requests-list-item-info_gruzchiki">Нужны грузчики</span>

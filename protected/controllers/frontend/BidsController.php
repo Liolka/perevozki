@@ -64,8 +64,23 @@ class BidsController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		$model = $this->loadModel($id);
+		$cargoes = BidsCargoes::model()->getCargoresBids($connection, $model->bid_id);
+		
+		$bid_name_arr = array();
+		foreach($cargoes as $cargo) {
+			$bid_name_arr[] = $cargo['name'];
+		}
+		
+		$bid_name = implode('. ', $bid_name_arr);
+		
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
+			'model'=> $model,
+			'cargoes'=> $cargoes,
+			'bid_name'=> $bid_name,
 		));
 	}
 
@@ -138,11 +153,7 @@ class BidsController extends Controller
 								}
 
 								$create_bid = false;
-
 							}
-
-
-
 						} else {
 							//если это новый пользователь - регим его
 							 header('Content-Type: text/html; charset=utf-8');
