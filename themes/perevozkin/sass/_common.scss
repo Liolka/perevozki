@@ -149,8 +149,14 @@ h3 {
 }
 
 b,
-strong {
+strong
+.bold{
     @extend %bold;
+}
+
+i,
+.italic {
+	@extend %italic;
 }
 
 label {

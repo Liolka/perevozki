@@ -1,0 +1,21 @@
+.kak-rabotaet-sait {
+	background: url(../images/kak-rabotaet-sait.jpg) no-repeat top left;
+	width: 1225px;
+	height: 512px;
+	overflow: hidden;
+	padding-left: 15px;
+	
+	@extend %border_box
+}
+
+.kak-rabotaet-sait-tbl {
+	td {
+		padding: 20px 75px;
+		vertical-align: top;
+	}
+	
+	.bold {
+		text-indent: -20px;
+		@extend %font_18;
+	}
+}

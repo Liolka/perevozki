@@ -36,9 +36,11 @@
 				<div class="width-wrap">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
-							array('label'=>'Как это работает', 'url'=>array('/pages/view', 'id'=>2)),
-							array('label'=>'Гарантии', 'url'=>array('/pages/view', 'id'=>3)),
-							array('label'=>'Контакты', 'url'=>array('/pages/view', 'id'=>4), 'itemOptions'=>array('class'=>'contacts')),
+							array('label'=>'Главная', 'url'=>array('/')),
+							array('label'=>'Как работает сайт', 'url'=>array('/pages/view', 'id'=>2)),
+							array('label'=>'О сервисе', 'url'=>array('/pages/view', 'id'=>10)),
+							
+							//array('label'=>'Контакты', 'url'=>array('/pages/view', 'id'=>4), 'itemOptions'=>array('class'=>'contacts')),
 							//array('label'=>'Контакты', 'url'=>array('/site/contact'), 'itemOptions'=>array('class'=>'contacts')),
 							array('label'=>'Помощь грузодателю', 'url'=>array('/pages/view', 'id'=>5), 'itemOptions'=>array('class'=>'gruzodatel')),
 							array('label'=>'Помощь перевозчику', 'url'=>array('/pages/view', 'id'=>6), 'itemOptions'=>array('class'=>'perevozchik')),
@@ -222,8 +224,8 @@
 		<div class="footer-cell">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
-					array('label'=>'Как работает сайт', 'url'=>array('/pages/view', 'id'=>2)),
-					array('label'=>'Частые вопросы', 'url'=>array('/pages/view', 'id'=>7)),
+					//array('label'=>'Как работает сайт', 'url'=>array('/pages/view', 'id'=>2)),
+					array('label'=>'Советы при перевозке', 'url'=>array('/pages/view', 'id'=>7)),
 					array('label'=>'Интернет-магазинам', 'url'=>array('/pages/view', 'id'=>8)),
 					array('label'=>'Система рейтинга', 'url'=>array('/pages/view', 'id'=>9)),
 					array('label'=>'Гарантии', 'url'=>array('/pages/view', 'id'=>3)),
@@ -254,8 +256,6 @@
 </div><!-- footer -->
 
 <div class="modal fade"></div>
-
-
 
 </body>
 </html>

@@ -1015,7 +1015,7 @@ textarea, .btn-grey-33,
   font-size: 17px;
 }
 
-.breadcrumbs, .radnom-reviews .header a, .my-contact-info-header, .my-contact-info-list p, .step1-category-item .span-wr1, .step-subheader, .footer .questions, .footer .questions .title {
+.breadcrumbs, .radnom-reviews .header a, .my-contact-info-header, .my-contact-info-list p, .step1-category-item .span-wr1, .step-subheader, .kak-rabotaet-sait-tbl .bold, .footer .questions, .footer .questions .title {
   font-size: 18px;
 }
 
@@ -1070,13 +1070,15 @@ button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-fil
 }
 
 h1, h2, h3, b,
-strong, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bids-sorting-block-list .active, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
+strong
+.bold, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bids-sorting-block-list .active, .requests-list-item_town, .requests-list-item-price_price, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
 .change-password-block label, .change-email-block .current-email,
 .change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span, .add-transport-btn, .add-transport p, .my-transport-name, .my-requests-sort-block .active a, .step-subheader, .bids-filter-title, .bid-detail-date, .bid-detail-price-wr, .bid-detail-cargo-listitem-cargo-name {
   font-weight: bold;
 }
 
-.errorMessage, .modal-content .hint, .my-transport-comment {
+i,
+.italic, .errorMessage, .modal-content .hint, .my-transport-comment {
   font-style: italic;
 }
 
@@ -1267,7 +1269,7 @@ textarea, .btn-red,
 .btn-green-66,
 .btn-blue-52,
 .btn-green-52, .row,
-.container {
+.container, .kak-rabotaet-sait {
   box-sizing: border-box;
 }
 
@@ -3139,6 +3141,22 @@ button.close:hover {
 
 .bid-detail-cargo-listitem-comment {
   margin-left: -45px;
+}
+
+.kak-rabotaet-sait {
+  background: url(../images/kak-rabotaet-sait.jpg) no-repeat top left;
+  width: 1225px;
+  height: 512px;
+  overflow: hidden;
+  padding-left: 15px;
+}
+
+.kak-rabotaet-sait-tbl td {
+  padding: 20px 75px;
+  vertical-align: top;
+}
+.kak-rabotaet-sait-tbl .bold {
+  text-indent: -20px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */
