@@ -81,7 +81,7 @@ class BidsController extends Controller
 		$this->addRouteItem($model->loading_town, $model->loading_address, $route_arr);
 		$this->addRouteItem($model->add_loading_unloading_town_1, $model->add_loading_unloading_address_1, $route_arr);
 		$this->addRouteItem($model->add_loading_unloading_town_2, $model->add_loading_unloading_address_2, $route_arr);
-		$this->addRouteItem($model->add_loading_unloading_town_3, $model->add_loading_unloading_address_2, $route_arr);
+		$this->addRouteItem($model->add_loading_unloading_town_3, $model->add_loading_unloading_address_3, $route_arr);
 		$this->addRouteItem($model->unloading_town, $model->unloading_address, $route_arr);
 		
 		//echo'<pre>';print_r($route_arr);echo'</pre>';

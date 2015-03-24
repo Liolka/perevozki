@@ -445,6 +445,19 @@ span sup{text-decoration:none;}
 	width: 180px;
 }
 
+.narrow-regular-24 {
+	@extend %pt_sans_narrow_regular;
+	@extend %font_24;
+}
+
+
+.font-17 {
+	@extend %font_17;
+}
+
+.c_8e95a1 {
+	@extend %c_8e95a1;
+}
 
 html,
 body {
@@ -610,17 +623,26 @@ body {
 		@extend %pos_abs;
 	}
 	
+	.stars-full-blue,
+	.stars-full-green,
 	.stars-full {
 		top: 0;
 		left: 0;
 		height: 100%;
-		background: url(../images/star-full.png) repeat-x;
 		z-index: 2;
 		width: 10%;
 		
-		
 		@extend %db;
 		@extend %pos_abs;
+	}
+	
+	.stars-full-green,
+	.stars-full {
+		background: url(../images/star-full-green.png) repeat-x;
+	}
+	
+	.stars-full-blue {
+		background: url(../images/star-full-blue.png) repeat-x;
 	}
 	
 }

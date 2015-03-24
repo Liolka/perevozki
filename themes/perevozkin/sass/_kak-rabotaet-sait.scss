@@ -3,19 +3,200 @@
 	width: 1225px;
 	height: 512px;
 	overflow: hidden;
-	padding-left: 15px;
+	padding-left: 25px;
 	
-	@extend %border_box
+	@extend %border_box;
 }
 
 .kak-rabotaet-sait-tbl {
+	width: 1100px;
+	
 	td {
-		padding: 20px 75px;
+		
 		vertical-align: top;
+		width: 220px;
+	}
+	
+	.row1 {
+		td {
+			
+			padding-top: 50px;
+			padding-bottom: 30px;
+		}
+		
+		p {
+			padding-left: 70px;
+			width: 170px;
+			
+			@extend %border_box
+		}
+		
+		.cell4 {
+			@extend %pos_rel;
+			
+			.bold {
+				width: 120px;
+				padding: 0;
+				top: 265px;
+				left: 130px;
+				text-indent: 0;
+				
+				@extend %c_fff;
+				@extend %pos_abs;
+				@extend %text_c;
+				
+			}
+		}
+		.cell5 {
+			padding-top: 75px;
+			//padding-right: 95px;
+		}
+	}
+	
+	.row2 {
+		td {
+			//padding-left: 70px;
+			padding-bottom: 50px;
+			vertical-align: middle;
+			height: 80px;
+			
+			@extend %pos_rel;
+		}
+		
+		.cell1 {
+			p {
+				width: 150px;
+				top: 30px;
+				left: 110px;
+				
+				@extend %pos_abs;
+			}
+		}
+		
+		
+		.p1,
+		.p2 {
+			top: 0;
+			left: 0;
+			
+			@extend %pos_abs;
+		}
+		
+		.cell3,
+		.cell2 {
+			.p1 {
+				left: 70px;
+				width: 160px;
+			}
+			.p2 {
+				top: 60px;
+				left: 70px;
+				width: 155px;
+			}
+		}
+	}
+	
+	.row3 {
+		td {
+			padding-top: 50px;
+			height: 85px; 
+			@extend %pos_rel;
+		}
+		
+		.bold {
+			top: 50px;
+			
+			@extend %pos_abs;
+		}
+		
+		.cell1 {
+			.bold {
+				left: 100px;
+				width: 150px;
+			}
+		}
+		.cell2 {
+			.bold {
+				left: 120px;
+				width: 130px;
+			}
+		}
+		.cell3 {
+			.bold {
+				left: 125px;
+				width: 110px;
+			}
+		}
+		
+		.cell5 {
+			padding-top: 70px;
+			
+			.p1 {
+				margin-left: 100px;
+			}
+			.p2 {
+				margin-left: 80px;
+			}
+			
+		}
+	}
+	
+	.row4 {
+		td {
+			height: 80px; 
+			@extend %pos_rel;
+		}
+		
+		.p1,
+		.p2 {
+			top: 0;
+			left: 0;
+			
+			@extend %pos_abs;
+		}
+		
+		.cell1 {
+			p {
+				width: 165px;
+				top: 25px;
+				left: 45px;
+				
+				@extend %pos_abs;
+			}
+		}
+		
+		
+		.cell3,
+		.cell2 {
+			.p1 {
+				left: 55px;
+				width: 160px;
+			}
+			.p2 {
+				top: 60px;
+				left: 10px;
+				width: 155px;
+			}
+		}
+		
 	}
 	
 	.bold {
 		text-indent: -20px;
 		@extend %font_18;
 	}
+	
+	.p1,
+	.p2 {
+		text-indent: -10px;
+	}
+	
+	.p1 {
+		margin-left: 10px;
+		margin-bottom: 20px;
+	}
+	
+	.p2 {
+		margin-left: 30px;
+	} 
 }

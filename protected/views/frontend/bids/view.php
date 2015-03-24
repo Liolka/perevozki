@@ -60,6 +60,52 @@ $NumberFormatter = $this->app->NumberFormatter;
 
 <p class="bid-detail-number">Заявка №<?=$model->bid_id;?></p>
 
+
+<div class="bid-detail-route-block">
+	<ul class="clearfix">
+		<li class="route-start ">
+			<p class="route-town counry-by"><?=$model->loading_town?></p>
+			<p class="route-address"><?=$model->loading_address?></p>			
+		</li>
+		<? if($model->add_loading_unloading_town_1 != '')	{	?>
+			<li class="route-item">
+				<div class="route-item-arrow"></div>
+				<div class="route-item-wr">
+					<p class="route-town counry-by"><?=$model->add_loading_unloading_town_1?></p>
+					<p class="route-address"><?=$model->add_loading_unloading_address_1?></p>
+				</div>
+			</li>
+		<?	}	?>
+		<? if($model->add_loading_unloading_town_2 != '')	{	?>
+			<li class="route-item">
+				<div class="route-item-arrow"></div>
+				<div class="route-item-wr">
+					<p class="route-town counry-by"><?=$model->add_loading_unloading_town_2?></p>
+					<p class="route-address"><?=$model->add_loading_unloading_address_2?></p>
+				</div>
+			</li>
+		<?	}	?>
+		<? if($model->add_loading_unloading_town_3 != '')	{	?>
+			<li class="route-item">
+				<div class="route-item-arrow"></div>
+				<div class="route-item-wr">
+					<p class="route-town counry-by"><?=$model->add_loading_unloading_town_3?></p>
+					<p class="route-address"><?=$model->add_loading_unloading_address_3?></p>
+				</div>
+			</li>
+		<?	}	?>
+		
+		<li class="route-item route-end ">
+			<div class="route-item-arrow"></div>
+			<div class="route-item-wr">
+				<p class="route-town counry-by"><?=$model->unloading_town?></p>
+				<p class="route-address"><?=$model->unloading_address?></p>
+			</div>		
+		</li>
+		
+	</ul>
+</div>
+
 <div class="row">
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		<div id="map" style="width: 100%; height: 350px"></div>
@@ -152,10 +198,11 @@ $NumberFormatter = $this->app->NumberFormatter;
 		<?	}	?>
 		</ul>
 	</div>
-	
+
+		
 
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<?php /*$this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'bid_id',
@@ -177,6 +224,43 @@ $NumberFormatter = $this->app->NumberFormatter;
 		'unloading_town',
 		'unloading_address',
 	),
-)); ?>
+));*/ ?>
 
+</div>
+
+<div class="bid-detail-deals-block">
+	<p class="narrow-regular-24">Предложения от перевозчиков</p>
+	
+	<div class="bid-detail-deals">
+		<div class="bid-detail-deals-head">
+			<p> </p>
+			<p>Ставка</p>
+			<p>Исполнитель</p>
+			<p>Услуги</p>
+			<p>Дата перевозки</p>
+			<p> </p>
+		</div>
+		<div class="bid-detail-deals-row">
+			<div class="bid-detail-deals-col1">
+				<div class="ico-notice-blue">0</div>
+			</div>
+			<div class="bid-detail-deals-col2">
+				<p class="font-17">до 500 000 р.</p>
+				<p class="font-12 c_8e95a1">до 500 000 р.</p>
+			</div>
+			<div class="bid-detail-deals-col3">
+				<a href="#">Перевозчик Man</a>
+				<div class="rating-stars"><span class="stars-empty"></span><span class="stars-full-blue" style="width:78%;"></span></div>
+			</div>
+			<div class="bid-detail-deals-col4">
+				
+			</div>
+			<div class="bid-detail-deals-col5">
+				
+			</div>
+			<div class="bid-detail-deals-col6">
+				
+			</div>
+		</div>
+	</div>
 </div>

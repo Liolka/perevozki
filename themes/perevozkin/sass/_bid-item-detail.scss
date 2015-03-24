@@ -5,6 +5,57 @@
 	@extend %pt_sans_narrow_bold;
 }
 
+
+.bid-detail-route-block {
+	margin-bottom: 30px;
+	
+	li {
+		@extend %fl;
+	}
+	
+	.route-town {
+		padding-left: 20px;
+		margin-left: 20px;
+		margin-bottom: 5px;
+		
+		@extend %for_sprite;
+		@extend %bold;
+		
+		&:before {
+			left: -20px;
+			top: 0;
+			
+			@extend .ico-addr;
+		}
+	}
+	
+	.route-item {
+		margin-left: 40px;
+		
+		@extend %dtr;
+		
+		& > div {
+			@extend %dtc;
+		}
+		
+		.route-item-arrow {
+			min-width: 58px;
+			height: 35px;
+			padding-right: 25px;
+			
+			@extend %for_sprite;
+			
+			&:before {
+				left: 0;
+				top: 20px;
+				@extend .ico-route-arrow;
+			}
+		}
+	}
+	
+}
+
+
 .bid-detail-date {
 	@extend %font_16;
 	@extend %bold;
