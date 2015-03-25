@@ -36,7 +36,8 @@
 				<div class="width-wrap">
 					<?php $this->widget('zii.widgets.CMenu',array(
 						'items'=>array(
-							array('label'=>'Главная', 'url'=>array('/')),
+							//array('label'=>'Главная', 'url'=>array('/site/index')),
+							array('label'=>'Главная', 'url'=>($this->app->homeUrl)),
 							array('label'=>'Как работает сайт', 'url'=>array('/pages/view', 'id'=>2)),
 							array('label'=>'О сервисе', 'url'=>array('/pages/view', 'id'=>10)),
 							

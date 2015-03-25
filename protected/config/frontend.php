@@ -5,7 +5,7 @@ return CMap::mergeArray(
     
     array(
 		
-		'name'=>'PEREVOZKIN.BY',
+		'name'=>'Скороход',
 		'theme'=>'perevozkin',
         
         
@@ -17,13 +17,14 @@ return CMap::mergeArray(
 
 
 			// uncomment the following to enable URLs in path-format
-			/*
+			
 			'urlManager'=>array(
 				'class'=>'UrlManager',
 				'showScriptName'=>false,
 				'urlFormat'=>'path',
 				'urlSuffix' => '.html',
 				'rules'=>array(
+					/*
 					'<_action:(companies|contact|feedback)>'=>'site/<_action>',
 					'oplata-i-dostavka'=>'site/oplataidostavka',
 					'companyes'=>'companies/index',
@@ -36,6 +37,7 @@ return CMap::mergeArray(
 					//'<path:.+-detail>'=>'shopproducts/detail',
 					'product/<product>'=>'shopproducts/detail',
 					'<path:.+>'=>'shopcategories/show',
+					/**/
 					'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 					'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 					'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',

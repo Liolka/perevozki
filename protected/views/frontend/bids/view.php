@@ -249,7 +249,7 @@ $NumberFormatter = $this->app->NumberFormatter;
 				<p class="font-12 c_8e95a1">до 500 000 р.</p>
 			</div>
 			<div class="bid-detail-deals-col3">
-				<a href="#">Перевозчик Man</a>
+				<a href="#" class="profile-link">Перевозчик Man</a>
 				<div class="rating-stars"><span class="stars-empty"></span><span class="stars-full-blue" style="width:78%;"></span></div>
 			</div>
 			<div class="bid-detail-deals-col4">

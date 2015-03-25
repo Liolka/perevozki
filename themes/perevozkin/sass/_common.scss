@@ -450,6 +450,19 @@ span sup{text-decoration:none;}
 	@extend %font_24;
 }
 
+.profile-link {
+	@extend %c_1e91da;
+	@extend %font_12;
+	@extend %for_sprite;
+
+	&:before {
+		right: -19px;
+		top: 2px;
+
+		@extend .ico-info;
+	}
+}
+
 
 .font-17 {
 	@extend %font_17;

@@ -4,7 +4,7 @@ return CMap::mergeArray(
     require_once(dirname(__FILE__).'/main.php'),
     
     array(
-		'name'=>'perevozkin_backend',
+		'name'=>'Скороход. АдминПанель.',
 		'theme'=>'perevozkin_cms',
 		
 		
