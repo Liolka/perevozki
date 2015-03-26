@@ -21,6 +21,10 @@ $cs->registerScript('loading', "
     );
 	
 ");
+
+    //$cs1 = $this->app->getClientScript();
+	$cs->registerCoreScript('ajax-upload');
+
 ?>
  
 
@@ -29,7 +33,7 @@ $cs->registerScript('loading', "
 <ul class="my-transport-list clearfix">
     <li class="my-transport-list-item add-transport-wr">
         <div class="add-transport clearfix">
-            <a href="#" class="add-transport-btn">+</a>
+            <a href="<? echo $this->createUrl('/user/my/transportcreate') ?>" id="add-transport-btn" class="add-transport-btn">+</a>
             <p>Добавить транспорт</p>
         </div>
     </li>

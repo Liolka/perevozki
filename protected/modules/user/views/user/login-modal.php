@@ -18,12 +18,12 @@
 
             <div class="form-group">
                 <p class="col-sm-12"><?php echo CHtml::activeLabelEx($model,'username'); ?></p>
-                <p class="col-sm-12"><?php echo CHtml::activeTextField($model,'username') ?></p>
+                <p class="col-sm-12"><?php echo CHtml::activeTextField($model,'username', array('class'=>'width100')) ?></p>
             </div>
 
             <div class="form-group">
                 <p class="col-sm-12"><?php echo CHtml::activeLabelEx($model,'password'); ?></p>
-                <p class="col-sm-12"><?php echo CHtml::activePasswordField($model,'password') ?></p>
+                <p class="col-sm-12"><?php echo CHtml::activePasswordField($model,'password', array('class'=>'width100')) ?></p>
             </div>
             
             <div class="form-group rememberMe">

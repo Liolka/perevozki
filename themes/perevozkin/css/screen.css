@@ -963,7 +963,7 @@ label.error, .errorSummary {
   color: #ffa100;
 }
 
-.btn-red:visited,
+.c_fff, .map-block .info span, .flash-message, button.close, button.close:hover, .modal-footer .modal-title, .btn-red:visited,
 .btn-blue1:visited,
 .btn-grey-33:visited,
 .btn-blue-33:visited,
@@ -997,7 +997,7 @@ label.error, .errorSummary {
 .btn-green-66, .btn-blue-66:hover,
 .btn-green-66:hover, .btn-blue1,
 .btn-red, .btn-blue1:hover,
-.btn-red:hover, .map-block .info span, .flash-message, button.close, button.close:hover, .modal-footer .modal-title, .statistic-block li, .requests-list-item_suggestions .suggestion-orange,
+.btn-red:hover, .statistic-block li, .requests-list-item_suggestions .suggestion-orange,
 .requests-list-item_suggestions .suggestion-green, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .my-rating-container .my-rating, .my-rating-info > div, .my-rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .my-docs-files-item .popup-info, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2, .bids-filter .checkbox-lbl, .bids-filter .lbl-block, .bids-filter-block .dates-txt, .bids-filter-title, .kak-rabotaet-sait-tbl .row1 .cell4 .bold {
   color: #fff;
 }
@@ -1033,7 +1033,7 @@ textarea, .btn-grey-33,
   font-size: 17px;
 }
 
-.breadcrumbs, .radnom-reviews .header a, .my-contact-info-header, .my-contact-info-list p, .step1-category-item .span-wr1, .step-subheader, .kak-rabotaet-sait-tbl .bold, .footer .questions, .footer .questions .title {
+.narrow-regular-18, .breadcrumbs, .radnom-reviews .header a, .my-contact-info-header, .my-contact-info-list p, .step1-category-item .span-wr1, .step-subheader, .kak-rabotaet-sait-tbl .bold, .footer .questions, .footer .questions .title {
   font-size: 18px;
 }
 
@@ -1054,8 +1054,8 @@ h3, .add-transport p, .my-transport-name {
   font-size: 23px;
 }
 
-.narrow_bold_24, .btn-blue-66,
-.btn-green-66, .narrow-regular-24, .select-user-type-lbl, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .header-row2 .questions {
+.narrow_bold_24, .narrow-regular-24, .select-user-type-lbl, .btn-blue-66,
+.btn-green-66, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .header-row2 .questions {
   font-size: 24px;
 }
 
@@ -1083,7 +1083,7 @@ h1 span, .step-container .num-step {
   font-size: 48px;
 }
 
-button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-filter .lbl-block, .bid-detail-date-quickly-val {
+button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-filter .lbl-block, .bid-detail-date-quickly-val, #transport-form .normal {
   font-weight: normal;
 }
 
@@ -1126,7 +1126,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   text-decoration: underline;
 }
 
-.btn-red:focus, .btn-red:active,
+.bids-sorting-block-list a, .btn-red:focus, .btn-red:active,
 .btn-blue1:focus,
 .btn-blue1:active,
 .btn-grey-33:focus,
@@ -1147,17 +1147,17 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .btn-blue1,
-.btn-red, .bids-sorting-block-list a, .add-transport-btn, .my-requests-sort-block a, .bids-filter-categories-check,
+.btn-red, .add-transport-btn, .my-requests-sort-block a, .bids-filter-categories-check,
 .bids-filter-categories-uncheck,
 .bids-filter-clear, .header-row1-menu .logout a, .footer-cell-last .logout a {
   text-decoration: none;
 }
-.btn-grey-33:hover,
+.bids-sorting-block-list a:hover, .btn-grey-33:hover,
 .btn-blue-33:hover,
 .btn-green-33:hover, .btn-blue-52:hover,
 .btn-green-52:hover, .btn-blue-66:hover,
 .btn-green-66:hover, .btn-blue1:hover,
-.btn-red:hover, .bids-sorting-block-list a:hover, .add-transport-btn:hover, .my-requests-sort-block a:hover, .bids-filter-categories-check:hover,
+.btn-red:hover, .add-transport-btn:hover, .my-requests-sort-block a:hover, .bids-filter-categories-check:hover,
 .bids-filter-categories-uncheck:hover,
 .bids-filter-clear:hover, .header-row1-menu .logout a:hover, .footer-cell-last .logout a:hover {
   text-decoration: none;
@@ -1201,12 +1201,12 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   display: inline;
 }
 
-.btn-grey-33,
+.dib, .btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .btn-blue1,
-.btn-red, .dib, .requests-list-item_suggestions .suggestion-orange,
+.btn-red, .requests-list-item_suggestions .suggestion-orange,
 .requests-list-item_suggestions .suggestion-green, .radnom-reviews-item-text .double-arrow-right, .reject-deal-btn {
   display: inline-block;
 }
@@ -1229,7 +1229,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 }
 
 .rating-stars, .bids-sorting-block-list .active, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests-list-item_from, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
-.bids-filter-dates .dates, .bid-detail-price, .bid-detail-deals-col6, .kak-rabotaet-sait-tbl .row1 .cell4, .kak-rabotaet-sait-tbl .row2 td, .kak-rabotaet-sait-tbl .row3 td, .kak-rabotaet-sait-tbl .row4 td, .footer .created-by {
+.bids-filter-dates .dates, .bid-detail-price, .bid-detail-deals-col6, .bid-detail-deals-row-answer-block-comment, .kak-rabotaet-sait-tbl .row1 .cell4, .kak-rabotaet-sait-tbl .row2 td, .kak-rabotaet-sait-tbl .row3 td, .kak-rabotaet-sait-tbl .row4 td, .footer .created-by {
   position: relative;
 }
 
@@ -1246,12 +1246,12 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
   text-align: left;
 }
 
-.text-align-center, .btn-grey-33,
+.text-align-center, .text_c, .map-block .info, .select-user-type-lbl, .btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
 .btn-green-66, .btn-blue1,
-.btn-red, .text_c, .map-block .info, .select-user-type-lbl, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .requests1-list-head-rating, .requests1-list-item-numb, .my-rewiews-head, .my-rewiews-table td, .my-docs-files-item .info, .my-docs-files-item .popup-info, .add-transport-btn, .step-container .num-step, .step1-category-item .span-wr1, .bids-filter-block, .bids-filter-clear-wr, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .header-row2 .btn-zakazhu-270,
+.btn-red, .statistic-block li, .benefits-block .header, .benefits-block li, .requests-list-head .price, .requests-more-btn, .requests1-list-head-rating, .requests1-list-item-numb, .my-rewiews-head, .my-rewiews-table td, .my-docs-files-item .info, .my-docs-files-item .popup-info, .add-transport-btn, .step-container .num-step, .step1-category-item .span-wr1, .bids-filter-block, .bids-filter-clear-wr, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .header-row2 .btn-zakazhu-270,
 .header-row2 .btn-perevezu-270 {
   text-align: center;
 }
@@ -1288,7 +1288,8 @@ input[type="file"], .btn-grey-33,
 input[type="text"],
 input[type="password"],
 .inputbox,
-textarea, .btn-red,
+textarea, .row,
+.container, .btn-red,
 .btn-blue1,
 .btn-grey-33,
 .btn-blue-33,
@@ -1296,21 +1297,20 @@ textarea, .btn-red,
 .btn-blue-66,
 .btn-green-66,
 .btn-blue-52,
-.btn-green-52, .row,
-.container, .kak-rabotaet-sait, .kak-rabotaet-sait-tbl .row1 p {
+.btn-green-52, .kak-rabotaet-sait, .kak-rabotaet-sait-tbl .row1 p {
   box-sizing: border-box;
 }
 
 /*font family*/
-h1, .narrow_bold_24, .btn-grey-33,
+h1, .narrow_bold_24, .map-block .info span, .modal-title, .select-user-type-lbl, .btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66, .map-block .info span, .modal-title, .select-user-type-lbl, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .my-contact-info-header, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .bid-detail-number, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
+.btn-green-66, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .my-contact-info-header, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .bid-detail-number, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
-h1 span, .narrow-regular-24, .breadcrumbs, .statistic-block li, .benefits-block .header, .benefits-block li span, .requests-more-btn, .last-requests .header, .radnom-reviews .header, .my-last-requests-title span, .header-row2 .questions, .footer .questions .title {
+h1 span, .narrow-regular-24, .narrow-regular-18, .breadcrumbs, .statistic-block li, .benefits-block .header, .benefits-block li span, .requests-more-btn, .last-requests .header, .radnom-reviews .header, .my-last-requests-title span, .header-row2 .questions, .footer .questions .title {
   font-family: 'ptsans-narrow-regular', sans-serif;
 }
 
@@ -1427,6 +1427,10 @@ h2 {
   margin-bottom: 15px;
 }
 
+.required {
+  color: red;
+}
+
 .clr {
   clear: both;
 }
@@ -1469,126 +1473,18 @@ span sup {
   padding: 0 5px;
 }
 
-.btn-grey-33,
-.btn-blue-33,
-.btn-green-33 {
-  padding: 0 35px;
-  height: 33px;
-  line-height: 33px;
-  border: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.btn-grey-33 {
-  background-repeat: repeat-x;
-}
-.btn-grey-33:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-green-33 {
-  text-shadow: #209122 1px 1px 0;
-  background-repeat: repeat-x;
-}
-.btn-green-33:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-blue-33 {
-  text-shadow: #165caa 1px 1px 0;
-  background-repeat: repeat-x;
-}
-.btn-blue-33:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-blue-52,
-.btn-green-52 {
-  padding: 0 40px;
-  height: 52px;
-  line-height: 52px;
-  border: none;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.btn-green-52 {
-  text-shadow: #209122 1px 1px 0;
-  background-repeat: repeat-x;
-}
-.btn-green-52:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-blue-52 {
-  text-shadow: #165caa 1px 1px 0;
-  background-repeat: repeat-x;
-}
-.btn-blue-52:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-blue-66,
-.btn-green-66 {
-  padding: 0 60px;
-  height: 66px;
-  line-height: 66px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-}
-
-.btn-green-66 {
-  text-shadow: #209122 1px 1px 0;
-  background-repeat: repeat-x;
-}
-.btn-green-66:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-blue-66 {
-  text-shadow: #165caa 1px 1px 0;
-  background-repeat: repeat-x;
-}
-.btn-blue-66:hover {
-  background-repeat: repeat-x;
-}
-
-.btn-blue1,
-.btn-red {
-  padding: 0 20px;
-  line-height: 34px;
-  border: none;
-}
-
-.btn-red {
-  background-color: #de5151;
-}
-.btn-red:hover {
-  background-color: #d42828;
-}
-
-.btn-blue1 {
-  background-color: #697f9a;
-}
-.btn-blue1:hover {
-  background-color: #54667c;
-}
-
-.btn-w270 {
-  width: 200px;
-}
-
-.btn-w250 {
-  width: 180px;
+.dimentions .inputbox {
+  /* width: 47px; */
+  width: 38px;
 }
 
 .profile-link:before {
   right: -19px;
   top: 2px;
+}
+
+.normal {
+  @extens %normal;
 }
 
 .mb-5 {
@@ -1631,8 +1527,25 @@ span sup {
   margin-top: 40px;
 }
 
+.lh-34 {
+  line-height: 34px;
+}
+
 .blue-border-1 {
   border: 1px solid #b2daeb;
+}
+
+.bg_425770 {
+  background-color: #425770;
+}
+
+.bg_697f9a {
+  background-color: #697f9a !important;
+}
+
+input[name="userfile"] {
+  display: block !important;
+  margin-top: -40px !important;
 }
 
 html,
@@ -1800,16 +1713,18 @@ body {
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
   border-radius: 0;
+    /*
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+    }
+	*/
 }
 .modal-content label {
   padding-bottom: 10px;
 }
 .modal-content input[type="radio"] {
   margin-top: 0;
-}
-.modal-content input[type="text"],
-.modal-content input[type="password"] {
-  width: 100%;
 }
 .modal-content .checkbox-wr label {
   padding: 0;
@@ -1897,6 +1812,123 @@ button.close:hover {
 }
 .bids-sorting-block-btn:hover {
   background-color: #f4fbfe;
+}
+
+.btn-grey-33,
+.btn-blue-33,
+.btn-green-33 {
+  padding: 0 35px;
+  height: 33px;
+  line-height: 33px;
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.btn-grey-33 {
+  background-repeat: repeat-x;
+}
+.btn-grey-33:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-green-33 {
+  text-shadow: #209122 1px 1px 0;
+  background-repeat: repeat-x;
+}
+.btn-green-33:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-blue-33 {
+  text-shadow: #165caa 1px 1px 0;
+  background-repeat: repeat-x;
+}
+.btn-blue-33:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-blue-52,
+.btn-green-52 {
+  padding: 0 40px;
+  height: 52px;
+  line-height: 52px;
+  border: none;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.btn-green-52 {
+  text-shadow: #209122 1px 1px 0;
+  background-repeat: repeat-x;
+}
+.btn-green-52:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-blue-52 {
+  text-shadow: #165caa 1px 1px 0;
+  background-repeat: repeat-x;
+}
+.btn-blue-52:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-blue-66,
+.btn-green-66 {
+  padding: 0 60px;
+  height: 66px;
+  line-height: 66px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.btn-green-66 {
+  text-shadow: #209122 1px 1px 0;
+  background-repeat: repeat-x;
+}
+.btn-green-66:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-blue-66 {
+  text-shadow: #165caa 1px 1px 0;
+  background-repeat: repeat-x;
+}
+.btn-blue-66:hover {
+  background-repeat: repeat-x;
+}
+
+.btn-blue1,
+.btn-red {
+  padding: 0 20px;
+  line-height: 34px;
+  border: none;
+}
+
+.btn-red {
+  background-color: #de5151;
+}
+.btn-red:hover {
+  background-color: #d42828;
+}
+
+.btn-blue1 {
+  background-color: #697f9a;
+}
+.btn-blue1:hover {
+  background-color: #54667c;
+}
+
+.btn-w270 {
+  width: 200px;
+}
+
+.btn-w250 {
+  width: 180px;
 }
 
 .stages-block {
@@ -3274,14 +3306,29 @@ button.close:hover {
   top: 0;
 }
 
-.bid-detail-deals-row:hover {
+.bid-detail-deals-row.active, .bid-detail-deals-row:hover {
   background-color: #f4fbfe;
 }
 .bid-detail-deals-row > div {
   border-top: 1px solid #b2daeb;
   border-bottom: 1px solid #b2daeb;
+  height: 50px;
 }
 
+.bid-detail-deals-head > p {
+  border: none;
+}
+
+.bid-detail-deals-row > .bid-detail-deals-row-answer-block-reviews {
+  border-top: none;
+  border-left: 1px solid #b2daeb;
+  border-right: 1px solid #b2daeb;
+  height: auto;
+  padding: 0;
+}
+
+.bid-detail-deals-row-answer-block-comment,
+.bid-detail-deals-row-answer-block-reviews-wr,
 .bid-detail-deals-row > div,
 .bid-detail-deals-head > p {
   padding: 15px;
@@ -3289,6 +3336,23 @@ button.close:hover {
 
 .bid-detail-deals-col1 {
   border-left: 1px solid #b2daeb;
+  width: 35px;
+}
+
+.bid-detail-deals-col2 {
+  width: 160px;
+}
+
+.bid-detail-deals-col3 {
+  width: 230px;
+}
+
+.bid-detail-deals-col4 {
+  width: 338px;
+}
+
+.bid-detail-deals-col5 {
+  width: 100px;
 }
 
 .bid-detail-deals-col6 {
@@ -3309,6 +3373,26 @@ button.close:hover {
 
 .bid-detail-deals-row-empty {
   height: 10px;
+}
+
+.bid-detail-deals-row-answer-block-reviews-cell1,
+.bid-detail-deals-row-answer-block-reviews-cell2 {
+  padding: 15px;
+}
+
+.bid-detail-deals-row-answer-block-reviews-cell1 {
+  padding-left: 65px;
+  width: 160px;
+}
+
+.bid-detail-deals-row-answer-block-comment {
+  border-top: 1px solid #b2daeb;
+  background-color: #daf0fa;
+}
+
+.bid-detail-send-comment-btn {
+  right: 15px;
+  /* @extend %pos_abs; */
 }
 
 .kak-rabotaet-sait {
@@ -3435,6 +3519,31 @@ button.close:hover {
 }
 .kak-rabotaet-sait-tbl .p2 {
   margin-left: 30px;
+}
+
+#transport-form .table-cell {
+  padding-bottom: 5px;
+}
+#transport-form .modal-body {
+  padding: 15px;
+}
+#transport-form .modal-header .close {
+  margin-top: 0;
+}
+#transport-form .upload-transport-image .btn-grey-33 {
+  padding: 0 16px;
+  text-transform: none;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}
+
+.transport-form-title {
+  padding-left: 15px;
+}
+
+.Transport_name {
+  width: 280px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */

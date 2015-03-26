@@ -225,6 +225,14 @@ return array(
 						'js/bootstrap/bootstrap-switch.min.js',
 					),
 				),
+				'ajax-upload' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.ajax.upload.js',
+					),
+					'depends' => array('jquery'),
+				),
+				
 				
 				'template' => array(
 					'baseUrl' => '/',

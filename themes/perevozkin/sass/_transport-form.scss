@@ -1,0 +1,33 @@
+#transport-form {
+	.table-cell {
+		padding-bottom: 5px;
+	}
+	
+	.normal {
+		@extend %normal;
+	}
+	
+	.modal-body {
+		padding: 15px;
+	}
+	
+	.modal-header .close {
+		margin-top: 0;
+	}
+	
+	.upload-transport-image .btn-grey-33 {
+		padding: 0 16px;
+		text-transform: none;
+		
+		
+		@include border-radius(0);
+	}
+}
+
+.transport-form-title {
+	padding-left: 15px;
+}
+
+.Transport_name {
+	width: 280px;
+}

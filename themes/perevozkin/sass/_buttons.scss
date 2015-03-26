@@ -1,0 +1,207 @@
+.btn-red,
+.btn-blue1,
+.btn-grey-33,
+.btn-blue-33,
+.btn-green-33,
+.btn-blue-66,
+.btn-green-66,
+.btn-blue-52,
+.btn-green-52 {
+    @extend %border_box;
+    
+	&:visited {
+		@extend %c_fff;
+	}
+    
+	&:focus,
+	&:active {
+		@extend %c_fff;
+		@extend %underline_n_n;
+	}
+}
+
+.btn-grey-33,
+.btn-blue-33,
+.btn-green-33 {
+	padding: 0 35px;
+	height: 33px;
+	line-height: 33px;
+	border: none;
+	
+	@include border-radius(3px);	
+	
+	@extend %dib;
+	@extend %font_14;
+	@extend %uppercase;
+	@extend %c_fff;
+	@extend %underline_n_n;
+	@extend %pt_sans_narrow_bold;
+	@extend %text_c;
+	@extend %pointer;
+	
+	&:hover {
+		@extend %c_fff;
+	}
+}
+
+
+.btn-grey-33 {
+	@extend .btns-grey-33;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-grey-33-h;
+		background-repeat: repeat-x;
+	}
+}
+
+.btn-green-33 {
+	@include text-shadow(#209122 1px 1px 0);	
+	@extend .btns-green-33;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-green-33-h;
+		background-repeat: repeat-x;
+	}
+}
+
+.btn-blue-33 {
+	@include text-shadow(#165caa 1px 1px 0);
+	@extend .btns-blue-33;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-blue-33-h;
+		background-repeat: repeat-x;
+	}
+}
+
+
+.btn-blue-52,
+.btn-green-52 {
+	padding: 0 40px;
+	height: 52px;
+	line-height: 52px;
+	border: none;
+	
+	@include border-radius(3px);	
+	
+	@extend %dib;
+	@extend %font_20;
+	@extend %uppercase;
+	@extend %c_fff;
+	@extend %underline_n_n;
+	@extend %pt_sans_narrow_bold;
+	@extend %text_c;
+	@extend %pointer;
+	
+	&:hover {
+		@extend %c_fff;
+	}
+}
+
+
+.btn-green-52 {
+	@include text-shadow(#209122 1px 1px 0);	
+	@extend .btns-green-52;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-green-52-h;
+		background-repeat: repeat-x;
+	}
+}
+
+.btn-blue-52 {
+	@include text-shadow(#165caa 1px 1px 0);
+	@extend .btns-blue-52;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-blue-52-h;
+		background-repeat: repeat-x;
+	}
+}
+
+
+.btn-blue-66,
+.btn-green-66 {
+	padding: 0 60px;
+	height: 66px;
+	line-height: 66px;
+	
+	@include border-radius(3px);	
+	
+	@extend %dib;
+	@extend %font_24;
+	@extend %uppercase;
+	@extend %c_fff;
+	@extend %underline_n_n;
+	@extend %pt_sans_narrow_bold;
+	@extend %text_c;
+	
+	&:hover {
+		@extend %c_fff;
+	}
+}
+
+
+.btn-green-66 {
+	@include text-shadow(#209122 1px 1px 0);	
+	@extend .btns-green-66;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-green-66-h;
+		background-repeat: repeat-x;
+	}
+}
+
+.btn-blue-66 {
+	@include text-shadow(#165caa 1px 1px 0);
+	@extend .btns-blue-66;
+	background-repeat: repeat-x;
+	&:hover {
+		@extend .btns-blue-66-h;
+		background-repeat: repeat-x;
+	}
+}
+
+.btn-blue1,
+.btn-red {
+    padding: 0 20px;
+    line-height: 34px;
+    border: none;
+    
+    @extend %c_fff;
+    @extend %text_c;
+    @extend %dib;
+    @extend %pointer;
+    @extend %underline_n_n;
+    
+    &:hover {
+        @extend %c_fff;
+    }
+    
+
+}
+
+.btn-red {
+    background-color: #de5151;
+    
+    &:hover {
+        background-color: darken(#de5151, 10%); 
+    }
+}
+
+.btn-blue1 {
+    background-color: #697f9a;
+    
+    &:hover {
+        background-color: darken(#697f9a, 10%); 
+    }    
+}
+
+//суммарный паддинг в 70 пикс нужно учитывать
+.btn-w270 {
+	width: 200px;
+}
+
+.btn-w250 {
+	width: 180px;
+}

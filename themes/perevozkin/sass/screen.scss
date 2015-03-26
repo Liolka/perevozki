@@ -48,6 +48,8 @@ $btns-layout: vertical;
 
 @import "_placeholders";
 @import "_common";	//общие стили 
+@import "_buttons";
+
 @import "_stages-block";
 @import "_statistic-block";
 @import "_benefits-block";
@@ -66,6 +68,7 @@ $btns-layout: vertical;
 @import "_bids-filter";
 @import "_bid-item-detail";
 @import "_kak-rabotaet-sait";
+@import "_transport-form";
 
 
 @import "_header";

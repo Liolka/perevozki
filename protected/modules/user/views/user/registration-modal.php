@@ -33,22 +33,22 @@
 
             <div class="form-group">
                 <p class="col-sm-12"><?php echo $form->labelEx($model,'username'); ?></p>
-                <p class="col-sm-12"><?php echo $form->textField($model,'username'); ?></p>
+                <p class="col-sm-12"><?php echo $form->textField($model,'username', array('class'=>'width100')); ?></p>
             </div>
 
             <div class="form-group">
                 <p class="col-sm-12"><?php echo $form->labelEx($model,'email'); ?></p>
-                <p class="col-sm-12"><?php echo $form->textField($model,'email'); ?></p>
+                <p class="col-sm-12"><?php echo $form->textField($model,'email', array('class'=>'width100')); ?></p>
             </div>
             
             <div class="form-group passwords-group">
                 <p class="col-sm-6">
                     <?php echo $form->labelEx($model,'password'); ?>
-                    <?php echo $form->passwordField($model,'password'); ?>
+                    <?php echo $form->passwordField($model,'password', array('class'=>'width100')); ?>
                 </p>
                 <p class="col-sm-6">
                     <?php echo $form->labelEx($model,'verifyPassword'); ?>
-                    <?php echo $form->passwordField($model,'verifyPassword'); ?>
+                    <?php echo $form->passwordField($model,'verifyPassword', array('class'=>'width100')); ?>
                 </p>
             </div>
             

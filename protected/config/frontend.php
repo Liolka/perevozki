@@ -18,6 +18,7 @@ return CMap::mergeArray(
 
 			// uncomment the following to enable URLs in path-format
 			
+			
 			'urlManager'=>array(
 				'class'=>'UrlManager',
 				'showScriptName'=>false,

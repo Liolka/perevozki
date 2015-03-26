@@ -175,6 +175,10 @@ label {
 	@extend %bold;
 }
 
+.required {
+	color: red;
+}
+
 .narrow_bold_24 {
 	@extend %pt_sans_narrow_bold;
 	@extend %bold;
@@ -237,217 +241,22 @@ span sup{text-decoration:none;}
 	padding: 0 5px;
 }
 
-.btn-red,
-.btn-blue1,
-.btn-grey-33,
-.btn-blue-33,
-.btn-green-33,
-.btn-blue-66,
-.btn-green-66,
-.btn-blue-52,
-.btn-green-52 {
-    @extend %border_box;
-    
-	&:visited {
-		@extend %c_fff;
-	}
-    
-	&:focus,
-	&:active {
-		@extend %c_fff;
-		@extend %underline_n_n;
+.dimentions {
+	.inputbox {
+		/* width: 47px; */
+		width: 38px;
 	}
 }
 
-.btn-grey-33,
-.btn-blue-33,
-.btn-green-33 {
-	padding: 0 35px;
-	height: 33px;
-	line-height: 33px;
-	border: none;
-	
-	@include border-radius(3px);	
-	
-	@extend %dib;
-	@extend %font_14;
-	@extend %uppercase;
-	@extend %c_fff;
-	@extend %underline_n_n;
-	@extend %pt_sans_narrow_bold;
-	@extend %text_c;
-	@extend %pointer;
-	
-	&:hover {
-		@extend %c_fff;
-	}
-}
-
-
-.btn-grey-33 {
-	@extend .btns-grey-33;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-grey-33-h;
-		background-repeat: repeat-x;
-	}
-}
-
-.btn-green-33 {
-	@include text-shadow(#209122 1px 1px 0);	
-	@extend .btns-green-33;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-green-33-h;
-		background-repeat: repeat-x;
-	}
-}
-
-.btn-blue-33 {
-	@include text-shadow(#165caa 1px 1px 0);
-	@extend .btns-blue-33;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-blue-33-h;
-		background-repeat: repeat-x;
-	}
-}
-
-
-.btn-blue-52,
-.btn-green-52 {
-	padding: 0 40px;
-	height: 52px;
-	line-height: 52px;
-	border: none;
-	
-	@include border-radius(3px);	
-	
-	@extend %dib;
-	@extend %font_20;
-	@extend %uppercase;
-	@extend %c_fff;
-	@extend %underline_n_n;
-	@extend %pt_sans_narrow_bold;
-	@extend %text_c;
-	@extend %pointer;
-	
-	&:hover {
-		@extend %c_fff;
-	}
-}
-
-
-.btn-green-52 {
-	@include text-shadow(#209122 1px 1px 0);	
-	@extend .btns-green-52;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-green-52-h;
-		background-repeat: repeat-x;
-	}
-}
-
-.btn-blue-52 {
-	@include text-shadow(#165caa 1px 1px 0);
-	@extend .btns-blue-52;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-blue-52-h;
-		background-repeat: repeat-x;
-	}
-}
-
-
-.btn-blue-66,
-.btn-green-66 {
-	padding: 0 60px;
-	height: 66px;
-	line-height: 66px;
-	
-	@include border-radius(3px);	
-	
-	@extend %dib;
-	@extend %font_24;
-	@extend %uppercase;
-	@extend %c_fff;
-	@extend %underline_n_n;
-	@extend %pt_sans_narrow_bold;
-	@extend %text_c;
-	
-	&:hover {
-		@extend %c_fff;
-	}
-}
-
-
-.btn-green-66 {
-	@include text-shadow(#209122 1px 1px 0);	
-	@extend .btns-green-66;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-green-66-h;
-		background-repeat: repeat-x;
-	}
-}
-
-.btn-blue-66 {
-	@include text-shadow(#165caa 1px 1px 0);
-	@extend .btns-blue-66;
-	background-repeat: repeat-x;
-	&:hover {
-		@extend .btns-blue-66-h;
-		background-repeat: repeat-x;
-	}
-}
-
-.btn-blue1,
-.btn-red {
-    padding: 0 20px;
-    line-height: 34px;
-    border: none;
-    
-    @extend %c_fff;
-    @extend %text_c;
-    @extend %dib;
-    @extend %pointer;
-    @extend %underline_n_n;
-    
-    &:hover {
-        @extend %c_fff;
-    }
-    
-
-}
-
-.btn-red {
-    background-color: #de5151;
-    
-    &:hover {
-        background-color: darken(#de5151, 10%); 
-    }
-}
-
-.btn-blue1 {
-    background-color: #697f9a;
-    
-    &:hover {
-        background-color: darken(#697f9a, 10%); 
-    }    
-}
-
-//суммарный паддинг в 70 пикс нужно учитывать
-.btn-w270 {
-	width: 200px;
-}
-
-.btn-w250 {
-	width: 180px;
-}
 
 .narrow-regular-24 {
 	@extend %pt_sans_narrow_regular;
 	@extend %font_24;
+}
+
+.narrow-regular-18 {
+	@extend %pt_sans_narrow_regular;
+	@extend %font_18;
 }
 
 .profile-link {
@@ -463,17 +272,16 @@ span sup{text-decoration:none;}
 	}
 }
 
+.normal { @extens %normal; }
 
 .font-12 { @extend %font_13; }
-
 .font-13 { @extend %font_13; }
-
 .font-17 { @extend %font_17; }
 
 .c_8e95a1 { @extend %c_8e95a1; }
-
 .c_757575 { @extend %c_757575; }
 .c_1e91da { @extend %c_1e91da; }
+.c_fff { @extend %c_fff; }
 
 .dib { @extend %dib; }
 .di { @extend %di; }
@@ -499,7 +307,17 @@ span sup{text-decoration:none;}
 .mt-30 { margin-top: 30px; }
 .mt-40 { margin-top: 40px; }
 
+.lh-34 { line-height: 34px; }
+
 .blue-border-1 { border: 1px solid #b2daeb; }
+
+.bg_425770 {background-color: #425770; }
+.bg_697f9a {background-color: #697f9a !important; }
+
+input[name="userfile"] {
+	display: block !important;
+	margin-top: -40px !important;
+}
 
 
 html,
@@ -758,11 +576,12 @@ body {
     input[type="radio"] {
         margin-top: 0;
     }
-    
+    /*
     input[type="text"],
     input[type="password"] {
         width: 100%;
     }
+	*/
     
     .checkbox-wr {
         label {

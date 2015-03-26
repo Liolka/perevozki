@@ -134,7 +134,7 @@ $(document).ready(function () {
 		
 		$.ajax({
 			type: 'get',
-			url: '/index.php?r=bids/step2form',
+			url: '/bids/step2form',
 			data: {category_id : $(this).data('catid')},
 			dataType: 'html',
 			beforeSend: function () {
@@ -161,27 +161,6 @@ $(document).ready(function () {
 			$('#step-login-form').hide();
 			
 		}
-		
-		//console.log('1121');
-		/*
-		$('.step1-category-item').removeClass('active');
-		$(this).addClass('active');
-		console.log($(this).data('catid'));
-		
-		$.ajax({
-			type: 'get',
-			url: '/index.php?r=bids/step2form',
-			data: {category_id : $(this).data('catid')},
-			dataType: 'html',
-			beforeSend: function () {
-			},
-			success: function (msg) {
-				$('#step2Container').html(msg);
-				$('#step2Container .checkbox').styler();
-			}
-		});
-		*/
-		
 	});
 	
 	$('#add-loading-unloading-block').on('click', function (e) {
@@ -301,6 +280,70 @@ $(document).ready(function () {
 		return false;
 	});
 
+	$('.bid-detail-deals-row > .fLeft').on('click', function (e) {
+		e.preventDefault();
+		$(this).parent().children('.bid-detail-deals-row-answer-block-reviews').slideToggle(100);
+		$(this).parent().toggleClass('active');
+	});
+	
+    $('#add-transport-btn').click(function () {
+        var url = $(this).attr('href'),
+            modal = $('.modal');
+        
+        $.get(url, function (data) {
+            modal.html(data).modal('show');
+			
+			var upload = new AjaxUpload('#userfile', {
+					//upload script 
+					action: '/user/my/uploadfoto.html',
+					//action: '/upload.php',
+					onSubmit : function(file, extension){
+					//show loading animation
+					$("#loading").show();
+					//check file extension
+					if (! (extension && /^(jpg|png|jpeg|gif)$/.test(extension))){
+				   // extension is not allowed
+						 $("#loading").hide();
+						 $("<span class='error'>Error: Not a valid file extension</span>").appendTo("#file_holder #errormes");
+						// cancel upload
+				   return false;
+						} else {
+						  // get rid of error
+						$('.error').hide();
+						}	
+						//send the data
+						upload.setData({'file': file});
+					},
+					onComplete : function(file, response){
+					//hide the loading animation
+					$("#loading").hide();
+					//add display:block to success message holder
+					$(".success").css("display", "block");
+
+			//This lower portion gets the error message from upload.php file and appends it to our specifed error message block
+					//find the div in the iFrame and append to error message	
+					var oBody = $(".iframe").contents().find("div");
+					//add the iFrame to the errormes td
+					$(oBody).appendTo("#file_holder #errormes");
+
+			//This is the demo dummy success message, comment this out when using the above code
+					//$("#file_holder #errormes").html("<span class='success'>Your file was uploaded successfully</span>");
+			}
+				});
+			
+        });
+        return false;
+    });
+
+    
+	
+	$('.modal').on('click', '#upload-transport-foto', function () {
+		console.log('click');
+		$('.modal').find('#userfile').click();
+        return false;
+    });
+
+
     
     
     
@@ -333,7 +376,7 @@ function change_step2_cat(el) {
 	if(get_step3form) {
 		$.ajax({
 			type: 'get',
-			url: '/index.php?r=bids/step3form',
+			url: '/bids/step3form',
 			data: {category_id : $('.step1-category-item.active').data('catid')},
 			dataType: 'html',
 			beforeSend: function () {

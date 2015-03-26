@@ -55,7 +55,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111', '178.121.66.13',),
+			'ipFilters'=>array('127.0.0.1','::1','93.125.72.243', '178.121.66.13',),
 		),
 		
 
@@ -224,6 +224,14 @@ return array(
 						'js/bootstrap/bootstrap-tab-init.js',
 						'js/bootstrap/bootstrap-switch.min.js',
 					),
+				),
+				
+				'ajax-upload' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.ajax.upload.js',
+					),
+					'depends' => array('jquery'),
 				),
 				
 				'template' => array(

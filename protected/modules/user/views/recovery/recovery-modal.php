@@ -22,7 +22,7 @@
 
             <div class="form-group">
                 <p class="col-sm-12"><?php echo CHtml::activeLabel($form,'login_or_email'); ?></p>
-                <p class="col-sm-12"><?php echo CHtml::activeTextField($form,'login_or_email') ?></p>
+                <p class="col-sm-12"><?php echo CHtml::activeTextField($form,'login_or_email', array('class'=>'width100')) ?></p>
                 <p class="col-sm-12 hint"><?php echo UserModule::t("Please enter your login or email addres."); ?></p>
             </div>
 
