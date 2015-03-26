@@ -106,7 +106,7 @@ $NumberFormatter = $this->app->NumberFormatter;
 	</ul>
 </div>
 
-<div class="row">
+<div class="row mb-40">
 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
 		<div id="map" style="width: 100%; height: 350px"></div>
 	</div>
@@ -229,38 +229,98 @@ $NumberFormatter = $this->app->NumberFormatter;
 </div>
 
 <div class="bid-detail-deals-block">
-	<p class="narrow-regular-24">Предложения от перевозчиков</p>
+	<p class="narrow-regular-24 mb-20 bid-detail-deals-title">Предложения от перевозчиков</p>
 	
-	<div class="bid-detail-deals">
-		<div class="bid-detail-deals-head">
-			<p> </p>
-			<p>Ставка</p>
-			<p>Исполнитель</p>
-			<p>Услуги</p>
-			<p>Дата перевозки</p>
-			<p> </p>
+	<div class="bid-detail-deals table">
+		<div class="bid-detail-deals-head table-row">
+			<p class="table-cell font-12 c_757575"> </p>
+			<p class="table-cell font-12 c_757575">Ставка</p>
+			<p class="table-cell font-12 c_757575">Исполнитель</p>
+			<p class="table-cell font-12 c_757575">Услуги</p>
+			<p class="table-cell font-12 c_757575">Дата перевозки</p>
+			<p class="table-cell font-12 c_757575"> </p>
 		</div>
-		<div class="bid-detail-deals-row">
-			<div class="bid-detail-deals-col1">
-				<div class="ico-notice-blue">0</div>
+		
+		<div class="bid-detail-deals-row table-row">
+			<div class="bid-detail-deals-col1 table-cell">
+				<div class="ico-notice-blue bid-detail-notice-blue text_c">0</div>
 			</div>
-			<div class="bid-detail-deals-col2">
-				<p class="font-17">до 500 000 р.</p>
-				<p class="font-12 c_8e95a1">до 500 000 р.</p>
+			<div class="bid-detail-deals-col2 table-cell">
+				<p class="font-17 bold mb-10">до 500 000 р.</p>
+				<p class="font-12 c_8e95a1">Доб. 03.12.14 / 11:27 </p>
 			</div>
-			<div class="bid-detail-deals-col3">
-				<a href="#" class="profile-link">Перевозчик Man</a>
-				<div class="rating-stars"><span class="stars-empty"></span><span class="stars-full-blue" style="width:78%;"></span></div>
+			<div class="bid-detail-deals-col3 table-cell">
+				<a href="#" class="profile-link bid-detail-deals-profile-link">Перевозчик Man</a>
+				<div class="bid-detail-deals-rating-block mt-5">
+					<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:68%;"></span></div>
+					<p class="rewiews-count font-12 c_8e95a1 dib">(52 отзыва)</p>
+				</div>
 			</div>
-			<div class="bid-detail-deals-col4">
+			<div class="bid-detail-deals-col4 table-cell">
+				<p class="services font-13 bold">Перевозка + грузчик/и</p>
+			</div>
+			<div class="bid-detail-deals-col5 table-cell">
+				<p class="deal-date font-13 bold mb-5">07.06.2015</p>
+				<p class="deal-time font-13 c_8e95a1">21:00</p>
 				
 			</div>
-			<div class="bid-detail-deals-col5">
-				
-			</div>
-			<div class="bid-detail-deals-col6">
-				
+			<div class="bid-detail-deals-col6 table-cell">
+				<a href="#" class="btn-grey-33 accept-deal-btn">Принять</a>
+				<a href="#" class="ico-close-blue reject-deal-btn">x</a>
 			</div>
 		</div>
+		<div class="bid-detail-deals-row-answer-block table-row">
+			<div class="bid-detail-deals-row-answer-block-wr table-cell">
+				<div class="bid-detail-deals-row-answer-block-reviews table">
+					<div class="table-row">
+						<div class="table-cell font-12 c_8e95a1">03.12.14 / 11:27</div>
+						<div class="table-cell">
+							<p class="font-12"><a href="#" class="c_1e91da">Макс фургон</a> <span class="c_8e95a1">(перевозчик)</span></p>
+							<p class="font-12">Приехал вовремя. Загрузили и разобрали шкафы-купе. Мастерски владеет фургоном в узких дворах! </p>
+						</div>
+					</div>
+					<div class="table-row">
+						<div class="table-cell font-12 c_8e95a1">03.12.14 / 11:27</div>
+						<div class="table-cell">
+							<p class="font-12"><a href="#" class="c_1e91da">Макс фургон</a> <span class="c_8e95a1">(перевозчик)</span></p>
+							<p class="font-12">Приехал вовремя. Загрузили и разобрали шкафы-купе. Мастерски владеет фургоном в узких дворах! </p>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="bid-detail-deals-row-empty table-row"></div>
+		
+		<div class="bid-detail-deals-row table-row">
+			<div class="bid-detail-deals-col1 table-cell">
+				<div class="ico-notice-blue bid-detail-notice-blue text_c">17</div>
+			</div>
+			<div class="bid-detail-deals-col2 table-cell">
+				<p class="font-17 bold mb-10">до 500 000 р.</p>
+				<p class="font-12 c_8e95a1">Доб. 03.12.14 / 11:27 </p>
+			</div>
+			<div class="bid-detail-deals-col3 table-cell">
+				<a href="#" class="profile-link bid-detail-deals-profile-link">Перевозчик Man</a>
+				<div class="bid-detail-deals-rating-block mt-5">
+					<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:68%;"></span></div>
+					<p class="rewiews-count font-12 c_8e95a1 dib">(52 отзыва)</p>
+				</div>
+			</div>
+			<div class="bid-detail-deals-col4 table-cell">
+				<p class="services font-13 bold">Перевозка + грузчик/и</p>
+			</div>
+			<div class="bid-detail-deals-col5 table-cell">
+				<p class="deal-date font-13 bold mb-5">07.06.2015</p>
+				<p class="deal-time font-13 c_8e95a1">21:00</p>
+				
+			</div>
+			<div class="bid-detail-deals-col6 table-cell">
+				<a href="#" class="btn-grey-33 accept-deal-btn">Принять</a>
+				<a href="#" class="ico-close-blue reject-deal-btn">x</a>
+			</div>
+		</div>
+		
 	</div>
 </div>

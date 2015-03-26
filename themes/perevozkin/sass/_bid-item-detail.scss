@@ -173,4 +173,88 @@
 	@extend %lh_18;
 }
 
+.bid-detail-notice-blue {
+	line-height: 22px;
+}
+
+.reject-deal-btn {
+	overflow: hidden;
+	text-indent: 777px;
+	right: 15px;
+	top: 50%;
+	margin-top: -14px;
+	
+	@extend %dib;
+	@extend %pos_abs;
+	
+}
+
+.bid-detail-deals-profile-link {
+	padding-left: 20px;
+	
+	&:after {
+		content: '';
+		
+		left: 0;
+		top: 0;
+		
+		@extend %pos_abs;
+		@extend .ico-car3;
+	}
+}
+
+.bid-detail-deals-row {
+	&:hover {
+		background-color: #f4fbfe;
+	}
+	
+	& > div {
+		border-top: 1px solid #b2daeb;
+		border-bottom: 1px solid #b2daeb;
+	}
+}
+
+.bid-detail-deals-row > div,
+.bid-detail-deals-head > p {
+	padding: 15px;
+}
+
+.bid-detail-deals-col1 {
+	border-left: 1px solid #b2daeb;
+}
+
+.bid-detail-deals-col6 {
+	border-right: 1px solid #b2daeb;
+	width: 180px;
+	
+	@extend %pos_rel;
+	
+	.accept-deal-btn {
+		left: 15px;
+		top: 50%;
+		margin-top: -16px;
+		
+		padding-left: 50px;
+		
+		@extend %for_sprite;
+		@extend %pos_abs;
+		
+		&:before {
+			left: 25px;
+			top: 50%;
+			margin-top: -10px;
+			
+			@extend .ico-ptica;
+		}
+	}
+}
+
+.bid-detail-deals-row-empty {
+	height: 10px;
+}
+
+
+
+
+
 

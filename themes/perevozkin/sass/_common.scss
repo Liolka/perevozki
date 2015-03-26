@@ -149,7 +149,7 @@ h3 {
 }
 
 b,
-strong
+strong,
 .bold{
     @extend %bold;
 }
@@ -464,13 +464,43 @@ span sup{text-decoration:none;}
 }
 
 
-.font-17 {
-	@extend %font_17;
-}
+.font-12 { @extend %font_13; }
 
-.c_8e95a1 {
-	@extend %c_8e95a1;
-}
+.font-13 { @extend %font_13; }
+
+.font-17 { @extend %font_17; }
+
+.c_8e95a1 { @extend %c_8e95a1; }
+
+.c_757575 { @extend %c_757575; }
+.c_1e91da { @extend %c_1e91da; }
+
+.dib { @extend %dib; }
+.di { @extend %di; }
+.db { @extend %db; }
+
+.text_c { @extend %text_c; }
+
+.table { @extend %dt; }
+
+.table-row { @extend %dtr; }
+
+.table-cell { @extend %dtc; }
+
+.mb-5 { margin-bottom: 5px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-40 { margin-bottom: 40px; }
+
+.mt-5 { margin-top: 5px; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+
+.blue-border-1 { border: 1px solid #b2daeb; }
+
 
 html,
 body {
