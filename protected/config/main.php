@@ -149,6 +149,14 @@ return array(
 				*/
 			),
 		),
+		'image' => array (
+			'class'=>'application.extensions.image.CImageComponent',
+			// GD or ImageMagick
+			'driver'=>'GD',
+			// ImageMagick setup path
+			'params'=>array('directory'=>'/opt/local/bin'),
+		),
+		
 
 	
 		'clientScript'=>array(
@@ -257,6 +265,8 @@ return array(
 		'adminEmail'=>'webmaster@example.com',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
 		'images_live_url' => 'http://perevozki/',
+		'transport_imagePath' => 'webroot.images.transport',
+		'transport_tmb_params' => array('width' => 105, 'height' => 105),	//параметры для создания миниатюр
 		
 		'UnitsListArray' => array(
 			1 => array('id' => 1, 'name' => 'кг'),

@@ -96,13 +96,19 @@ class MyController extends Controller
 	public function actionUploadfoto()
 	{
 		$this->app = Yii::app();
+		
+		$model = new UploadTransportFoto();
+		
+		
+		
 		$max_filesize = 2097152; // Maximum filesize in BYTES.
 		$allowed_filetypes = array('.jpg','.jpeg','.gif','.png'); // These will be the types of file that will pass the validation.
 		$filename = $_FILES['userfile']['name']; // Get the name of the file (including file extension).
 		$ext = substr($filename, strpos($filename,'.'), strlen($filename)-1); // Get the extension from the filename.
 		$file_strip = str_replace(" ","_",$filename); //Strip out spaces in filename
 		//$upload_path = '/path/to/uploads/'; //Set upload path
-		$upload_path = '/home/gfclubne/public_html/perevozki/images/transport/'; //Set upload path
+		//$upload_path = '/home/gfclubne/public_html/perevozki/images/transport/'; //Set upload path
+		$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
 
 		// Check if the filetype is allowed, if not DIE and inform the user.
 		if(!in_array($ext,$allowed_filetypes)) {
@@ -119,13 +125,44 @@ class MyController extends Controller
 			die('<div class="error">You cannot upload to the '.$upload_path.' folder. The permissions must be changed.</div>');
 		}
 		
-		$new_filename = md5(time()).$ext;
+		$filename_ = md5(strtotime('now'));
+		$new_filename = 'full_'.$filename_.$ext;
 		// Move the file if eveything checks out.
-		if(move_uploaded_file($_FILES['userfile']['tmp_name'],$upload_path . $new_filename)) {
+		if(move_uploaded_file($_FILES['userfile']['tmp_name'], $upload_path . $new_filename)) {
+			
+			if(isset($this->app->session['transport_tmp_foto']))	{
+				$tmp_name = $this->app->session['transport_tmp_foto'];
+				unlink($upload_path . DIRECTORY_SEPARATOR . 'full_'.$tmp_name);
+				unlink($upload_path . DIRECTORY_SEPARATOR . 'thumb_'.$tmp_name);
+			}
+			
+			$file_path = $upload_path . DIRECTORY_SEPARATOR . $new_filename;
+			
+			$Image = $this->app->image->load($file_path);
+			
+			$img_width_config = $this->app->params->transport_tmb_params['width'];
+			$img_height_config = $this->app->params->transport_tmb_params['height'];
+			
+			
+			if(($Image->width/$Image->height) >= ($img_width_config/$img_height_config)){
+				$Image -> resize($img_width_config, $img_height_config, Image::HEIGHT);
+			}	else	{
+				$Image -> resize($img_width_config, $img_height_config, Image::WIDTH);
+			}
+			//$Image->crop($img_width_config, $img_height_config, 'top', 'center')->quality(75);
+			//$Image->resize($img_width_config, $img_height_config)->quality(75);
+			//echo'<pre>';print_r($app->params->product_tmb_params,0);echo'</pre>';die;
+			$Image->save($upload_path . DIRECTORY_SEPARATOR . 'thumb_'.$filename_.$ext);
+			
+			$this->app->session['transport_tmp_foto'] = $filename_.$ext;
+			
+			
+			
 			echo '<div class="success">'. $file_strip .' uploaded successfully</div>'; // It worked.
 		} else {
 			echo '<div class="error">'. $file_strip .' was not uploaded.  Please try again.</div>'; // It failed :(.
 		}
+		
 		
 		$this->app->end();
 		

@@ -314,10 +314,18 @@ span sup{text-decoration:none;}
 .bg_425770 {background-color: #425770; }
 .bg_697f9a {background-color: #697f9a !important; }
 
-input[name="userfile"] {
-	display: block !important;
-	margin-top: -40px !important;
+.success {
+	color: green;
 }
+
+.error {
+	color: red;
+}
+
+//input[name="userfile"] {
+//	display: block !important;
+//	margin-top: -40px !important;
+//}
 
 
 html,

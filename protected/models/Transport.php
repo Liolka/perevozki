@@ -22,6 +22,11 @@
  */
 class Transport extends CActiveRecord
 {
+	const SCENARIO_UPLOADING_FOTO = 'uploading_foto';
+	
+	public $uploading_foto;
+	public $userfile;
+	
 	/**
 	 * @return string the associated database table name
 	 */
@@ -43,6 +48,7 @@ class Transport extends CActiveRecord
 			array('length, width, height, volume', 'numerical'),
 			array('carrying', 'length', 'max'=>10),
 			array('name, body_type, loading_type, comment', 'length', 'max'=>255),
+
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('transport_id, user_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment', 'safe', 'on'=>'search'),

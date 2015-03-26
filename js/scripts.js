@@ -301,45 +301,46 @@ $(document).ready(function () {
 					//show loading animation
 					$("#loading").show();
 					//check file extension
-					if (! (extension && /^(jpg|png|jpeg|gif)$/.test(extension))){
-				   // extension is not allowed
-						 $("#loading").hide();
-						 $("<span class='error'>Error: Not a valid file extension</span>").appendTo("#file_holder #errormes");
+					if (! (extension && /^(jpg|png|jpeg|gif)$/.test(extension))) {
+						// extension is not allowed
+						$("#loading").hide();
+						$("<span class='error'>Неправильный тип файла</span>").appendTo("#file_holder #errormes");
 						// cancel upload
-				   return false;
-						} else {
-						  // get rid of error
+						return false;
+					} else {
+						// get rid of error
 						$('.error').hide();
-						}	
-						//send the data
-						upload.setData({'file': file});
+					}	
+					//send the data
+					upload.setData({'file': file});
+						
 					},
-					onComplete : function(file, response){
-					//hide the loading animation
-					$("#loading").hide();
-					//add display:block to success message holder
-					$(".success").css("display", "block");
+					onComplete : function(file, response) {
+						//hide the loading animation
+						$("#loading").hide();
+						//add display:block to success message holder
+						$(".success").css("display", "block");
 
-			//This lower portion gets the error message from upload.php file and appends it to our specifed error message block
-					//find the div in the iFrame and append to error message	
-					var oBody = $(".iframe").contents().find("div");
-					//add the iFrame to the errormes td
-					$(oBody).appendTo("#file_holder #errormes");
+						//This lower portion gets the error message from upload.php file and appends it to our specifed error message block
+						//find the div in the iFrame and append to error message	
+						var oBody = $(".iframe").contents().find("div");
+						//add the iFrame to the errormes td
+						$(oBody).appendTo("#file_holder #errormes");
 
-			//This is the demo dummy success message, comment this out when using the above code
-					//$("#file_holder #errormes").html("<span class='success'>Your file was uploaded successfully</span>");
-			}
-				});
+						//This is the demo dummy success message, comment this out when using the above code
+						//$("#file_holder #errormes").html("<span class='success'>Your file was uploaded successfully</span>");
+					}
+			});
 			
         });
         return false;
     });
 
-    
 	
+	//обработка клика по кнопке "Загрузить фото транспорта"
 	$('.modal').on('click', '#upload-transport-foto', function () {
-		console.log('click');
-		$('.modal').find('#userfile').click();
+		var pItems = $('input[name="userfile"]');
+		$(pItems[1]).click();
         return false;
     });
 

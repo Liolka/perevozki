@@ -10,6 +10,7 @@
 			// There is a call to performAjaxValidation() commented in generated controller code.
 			// See class documentation of CActiveForm for details on this.
 			'enableAjaxValidation'=>false,
+			'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 		)); ?>
 
         <div class="modal-header bg_425770 clearfix">
@@ -22,12 +23,12 @@
         <div class="modal-body">
 			<div class="row">
 				<div class="col-md-4 col-lg-4">
-					<div class="upload-transport-image">
+					<div id="file_holder" class="upload-transport-image">
 						<img src="/images/transport-no-foto.jpg" alt="" class="my-transport-image">
-						<button id="upload-transport-foto" class="btn-grey-33">Загузить фото</button>
-						<input type="file" name="userfile" id="userfile" class="userfile" />
-						<div id="loading" class="hide-block"><img src="/images/ajax-loader.gif" alt="Loading" /> Loading, please wait...</div>
-						<div id="errormes"></div>
+						<button id="upload-transport-foto" class="btn-grey-33">Загрузить фото</button>
+						<input type="file" name="userfile" id="userfile" class="userfile" style="display:none;" />
+						<div id="loading" class="hide-block font-12"><img src="/images/ajax-loader.gif" alt="Loading" /> Загрузка...</div>
+						<div id="errormes" class="font-12"></div>
 						
 					</div>
 					

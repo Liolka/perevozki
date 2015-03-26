@@ -1543,9 +1543,12 @@ span sup {
   background-color: #697f9a !important;
 }
 
-input[name="userfile"] {
-  display: block !important;
-  margin-top: -40px !important;
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
 }
 
 html,
