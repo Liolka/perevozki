@@ -280,13 +280,22 @@ $(document).ready(function () {
 		return false;
 	});
 
-	$('.bid-detail-deals-row > .fLeft').on('click', function (e) {
-		e.preventDefault();
-		$(this).parent().children('.bid-detail-deals-row-answer-block-reviews').slideToggle(100);
-		$(this).parent().toggleClass('active');
+	$('.bid-detail-deals-row .show-deals-comments').on('click', function () {
+		var deals_block = $(this).parent().parent();
+		//e.preventDefault();
+		//console.log('11');
+		deals_block.children('.bid-detail-deals-row-answer-block-reviews').slideToggle(100);
+		deals_block.toggleClass('active');
+		deals_block.find('.accept-deal-btn').toggleClass('btn-grey-33');
+		deals_block.find('.accept-deal-btn').toggleClass('btn-green-33');
+		
+		deals_block.find('.reject-deal-btn').toggleClass('ico-close-blue');
+		deals_block.find('.reject-deal-btn').toggleClass('ico-close-red');
+		
 	});
 	
-    $('#add-transport-btn').click(function () {
+    //отображение модального окна для добавления / редактирования транспорта
+	$('#add-transport-btn, .my-transport-edit-btn').click(function () {
         var url = $(this).attr('href'),
             modal = $('.modal');
         
@@ -323,9 +332,20 @@ $(document).ready(function () {
 
 						//This lower portion gets the error message from upload.php file and appends it to our specifed error message block
 						//find the div in the iFrame and append to error message	
-						var oBody = $(".iframe").contents().find("div");
+						//var oBody = $(".iframe").contents().find("div");
+						//var oBody = $(".iframe").contents().find("div");
+						var pItems = $(".iframe"),
+							response = $.parseJSON($(pItems[(pItems.length - 1)]).contents().find('body').text());
+						//console.log($(".iframe").contents().find('body').text());
+						//console.log(response.res);
+						//console.log($('.modal').find('#my-transport-image'));
+						if(response.res == 'ok') {
+							//alert('url('+response.msg+')');
+							$('.modal').find('#my-transport-image').css('background-image', ('url('+response.msg+')'));
+							$('.modal').find('#Transport_foto').val(response.foto);
+						}
 						//add the iFrame to the errormes td
-						$(oBody).appendTo("#file_holder #errormes");
+						//$(oBody).appendTo("#file_holder #errormes");
 
 						//This is the demo dummy success message, comment this out when using the above code
 						//$("#file_holder #errormes").html("<span class='success'>Your file was uploaded successfully</span>");
@@ -336,19 +356,58 @@ $(document).ready(function () {
         return false;
     });
 
-	
 	//обработка клика по кнопке "Загрузить фото транспорта"
 	$('.modal').on('click', '#upload-transport-foto', function () {
 		var pItems = $('input[name="userfile"]');
 		$(pItems[1]).click();
         return false;
     });
+	
+    //обработка клика по кнопке сохранить с модальном окне редактирования транпорта
+	$('.modal').on('click', '#saveTransportButton', function () {
+        var form = $(this).closest('form'),
+            modal = $('.modal');
+        
+        $.post(
+            form.attr('action'),
+            form.serialize(),
+            function (data) {
+                if (data == 'ok') {
+                    window.location.reload();
+                } else {
+                    //$('.modal').html(data);
+                    modal.children('.modal-dialog').remove();
+                    modal.append(data);
+                    
+                }
+                
+                //$('.modal').modal('hide');
+            }
+        );
+        return false;
+    });
+	
 
 
     
     
     
 });
+
+function cancel_changes() {
+	$.ajax({
+		type: 'get',
+		url: '/user/my/cleartransportfoto.html',
+		beforeSend: function () {
+		},
+		success: function (msg) {
+		}
+	});
+}
+
+function close_popup() {
+	$('button.close').click();
+}
 
 function change_step2_cat(el) {
 	var get_step3form = false,

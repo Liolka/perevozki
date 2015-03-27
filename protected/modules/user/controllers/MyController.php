@@ -61,6 +61,7 @@ class MyController extends Controller
 	    ));
 	}
 
+	/*
 	public function actionTransport()
 	{
 		$model = $this->loadUser();
@@ -73,6 +74,34 @@ class MyController extends Controller
 			'profile'=>$model->profile,
 	    ));
 	}
+	*/
+
+	public function actionTransport()
+	{
+		$this->app = Yii::app();
+		
+		$model = new Transport;
+		
+		$criteria = new CDbCriteria;
+		
+		$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+		
+		$criteria->order = 'transport_id DESC';		
+		
+        $dataProvider = new CActiveDataProvider('Transport', array(
+            'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>50,
+				'pageVar' =>'page',
+            ),
+        ));
+		
+				
+	    $this->render('transport', array(
+	    	'model'=>$model,
+			'dataProvider'=>$dataProvider,
+	    ));
+	}
 
 	public function actionTransportcreate()
 	{
@@ -80,18 +109,85 @@ class MyController extends Controller
 		
 		$this->app = Yii::app();
 		
-		/*
-		if(isset($_POST['ajax']) && $_POST['ajax']==='transport-form')
-		{
-			echo CActiveForm::validate($model);
-			$app->end();
+		if(isset($_POST['Transport'])) {
+			
+			$model->attributes = $_POST['Transport'];
+			$model->user_id = $this->app->user->id;
+			
+			if($model->validate()) {
+				$model->save(false);
+				unset($this->app->session['transport_tmp_foto']);
+				
+				$this->app->user->setFlash('success', "Добавлено");
+				
+				echo 'ok';
+				$this->app->end();
+			}
 		}
-		*/
 		
 	    $this->renderPartial('transport_create', array(
 	    	'model'=>$model,
 	    ));
 	}
+	
+	public function actionTransportdelete($id)
+	{
+		
+		//print_r($_POST);die;
+		
+		$this->app = Yii::app();
+		
+		$model = Transport::model()->findByPk($id);
+		
+		if($model === null) {
+			throw new CHttpException(404,'The requested page does not exist.');
+		}	else	{
+			$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
+			
+			if (file_exists($upload_path . 'full_'.$model->foto)) {
+				unlink($upload_path . 'full_'.$model->foto);
+			}
+			
+			if (file_exists($upload_path . 'thumb_'.$model->foto)) {
+				unlink($upload_path . 'thumb_'.$model->foto);
+			}
+			
+			$model->delete();
+			$this->app->user->setFlash('success', "Удалено");
+		}
+
+		$this->redirect(array('/user/my/transport'));
+	}
+	
+	public function actionTransportupdate($id)
+	{
+		
+		$model = Transport::model()->findByPk($id);
+		if($model !== null) {
+			$this->app->session['transport_tmp_foto'] = $model->foto;
+		}
+		
+		$this->app = Yii::app();
+		
+		if(isset($_POST['Transport'])) {
+			
+			$model->attributes = $_POST['Transport'];
+			
+			if($model->validate()) {
+				$model->save(false);
+				unset($this->app->session['transport_tmp_foto']);
+				$this->app->user->setFlash('success', "Сохранено");
+				
+				echo 'ok';
+				$this->app->end();
+			}
+		}
+		
+	    $this->renderPartial('transport_update', array(
+	    	'model'=>$model,
+	    ));
+	}
+	
 
 	public function actionUploadfoto()
 	{
@@ -99,9 +195,9 @@ class MyController extends Controller
 		
 		$model = new UploadTransportFoto();
 		
+		$allOk = true;
 		
-		
-		$max_filesize = 2097152; // Maximum filesize in BYTES.
+		$max_filesize = (2 * 1024 * 1024); // Maximum filesize in BYTES.
 		$allowed_filetypes = array('.jpg','.jpeg','.gif','.png'); // These will be the types of file that will pass the validation.
 		$filename = $_FILES['userfile']['name']; // Get the name of the file (including file extension).
 		$ext = substr($filename, strpos($filename,'.'), strlen($filename)-1); // Get the extension from the filename.
@@ -109,63 +205,108 @@ class MyController extends Controller
 		//$upload_path = '/path/to/uploads/'; //Set upload path
 		//$upload_path = '/home/gfclubne/public_html/perevozki/images/transport/'; //Set upload path
 		$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
+		
+		$json_arr = array();
 
 		// Check if the filetype is allowed, if not DIE and inform the user.
 		if(!in_array($ext,$allowed_filetypes)) {
-			die('<div class="error">The file you attempted to upload is not allowed.</div>');
+			$allOk = false;
+			$json_arr['res'] = 'err';
+			$json_arr['msg'] = 'Неверный тип файла.';
 		}
 		
 		// Now check the filesize, if it is too large then DIE and inform the user.
 		if(filesize($_FILES['userfile']['tmp_name']) > $max_filesize) {
-			die('<div class="error">The file you attempted to upload is too large.</div>');
+			$allOk = false;
+			$json_arr['res'] = 'err';
+			$json_arr['msg'] = 'Загружаемый файл слишком велик.';
 		}
 		
 		// Check if we can upload to the specified path, if not DIE and inform the user.
 		if(!is_writable($upload_path)) {
-			die('<div class="error">You cannot upload to the '.$upload_path.' folder. The permissions must be changed.</div>');
+			$allOk = false;
+			$json_arr['res'] = 'err';
+			$json_arr['msg'] = 'Ошибка прав доступа к каталогу.';
+			
 		}
 		
-		$filename_ = md5(strtotime('now'));
-		$new_filename = 'full_'.$filename_.$ext;
-		// Move the file if eveything checks out.
-		if(move_uploaded_file($_FILES['userfile']['tmp_name'], $upload_path . $new_filename)) {
-			
-			if(isset($this->app->session['transport_tmp_foto']))	{
-				$tmp_name = $this->app->session['transport_tmp_foto'];
-				unlink($upload_path . DIRECTORY_SEPARATOR . 'full_'.$tmp_name);
-				unlink($upload_path . DIRECTORY_SEPARATOR . 'thumb_'.$tmp_name);
+		if($allOk)	{
+			$filename_ = md5(strtotime('now'));
+			$new_filename = 'full_'.$filename_.$ext;
+			// Move the file if eveything checks out.
+			if(move_uploaded_file($_FILES['userfile']['tmp_name'], $upload_path . $new_filename)) {
+
+				if(isset($this->app->session['transport_tmp_foto']))	{
+					$tmp_name = $this->app->session['transport_tmp_foto'];
+					if (file_exists($upload_path . 'full_'.$tmp_name)) {
+						unlink($upload_path . 'full_'.$tmp_name);
+					}
+					if (file_exists($upload_path . 'thumb_'.$tmp_name)) {
+						unlink($upload_path . 'thumb_'.$tmp_name);
+					}
+				}
+
+				$file_path = $upload_path . DIRECTORY_SEPARATOR . $new_filename;
+
+				$Image = $this->app->image->load($file_path);
+
+				$img_width_config = $this->app->params->transport_tmb_params['width'];
+				$img_height_config = $this->app->params->transport_tmb_params['height'];
+
+
+				if(($Image->width/$Image->height) >= ($img_width_config/$img_height_config)){
+					$Image -> resize($img_width_config, $img_height_config, Image::HEIGHT);
+				}	else	{
+					$Image -> resize($img_width_config, $img_height_config, Image::WIDTH);
+				}
+				//$Image->crop($img_width_config, $img_height_config, 'top', 'center')->quality(75);
+				//$Image->resize($img_width_config, $img_height_config)->quality(75);
+				//echo'<pre>';print_r($app->params->product_tmb_params,0);echo'</pre>';die;
+				$Image->save($upload_path . DIRECTORY_SEPARATOR . 'thumb_'.$filename_.$ext);
+
+				$this->app->session['transport_tmp_foto'] = $filename_.$ext;
+
+
+				$json_arr['res'] = 'ok';
+				$json_arr['msg'] = $this->app->params->transport_imageLive.'thumb_'.$filename_.$ext;
+				$json_arr['foto'] = $filename_.$ext;
+				//echo '<div class="success">'. $file_strip .' uploaded successfully</div>'; // It worked.
+			} else {
+				$json_arr['res'] = 'err';
+				$json_arr['msg'] = 'Ошибка загрузки. Попробуйте еще раз.';
 			}
 			
-			$file_path = $upload_path . DIRECTORY_SEPARATOR . $new_filename;
-			
-			$Image = $this->app->image->load($file_path);
-			
-			$img_width_config = $this->app->params->transport_tmb_params['width'];
-			$img_height_config = $this->app->params->transport_tmb_params['height'];
-			
-			
-			if(($Image->width/$Image->height) >= ($img_width_config/$img_height_config)){
-				$Image -> resize($img_width_config, $img_height_config, Image::HEIGHT);
-			}	else	{
-				$Image -> resize($img_width_config, $img_height_config, Image::WIDTH);
-			}
-			//$Image->crop($img_width_config, $img_height_config, 'top', 'center')->quality(75);
-			//$Image->resize($img_width_config, $img_height_config)->quality(75);
-			//echo'<pre>';print_r($app->params->product_tmb_params,0);echo'</pre>';die;
-			$Image->save($upload_path . DIRECTORY_SEPARATOR . 'thumb_'.$filename_.$ext);
-			
-			$this->app->session['transport_tmp_foto'] = $filename_.$ext;
-			
-			
-			
-			echo '<div class="success">'. $file_strip .' uploaded successfully</div>'; // It worked.
-		} else {
-			echo '<div class="error">'. $file_strip .' was not uploaded.  Please try again.</div>'; // It failed :(.
 		}
+		
+		echo json_encode($json_arr);
 		
 		
 		$this->app->end();
 		
+	}
+
+	// метод удаляет загружееное фото транспорта если нажали
+	// закрыть в модальном окне
+	public function actionCleartransportfoto()
+	{
+		$this->app = Yii::app();
+		
+		if(isset($this->app->session['transport_tmp_foto']))	{
+			$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
+			$tmp_name = $this->app->session['transport_tmp_foto'];
+			
+			if(isset($this->app->session['transport_tmp_foto']))	{
+				$tmp_name = $this->app->session['transport_tmp_foto'];
+				if (file_exists($upload_path . 'full_'.$tmp_name)) {
+					unlink($upload_path . 'full_'.$tmp_name);
+				}
+				if (file_exists($upload_path . 'thumb_'.$tmp_name)) {
+					unlink($upload_path . 'thumb_'.$tmp_name);
+				}
+			}
+			
+			unset($this->app->session['transport_tmp_foto']);
+		}
 	}
 
 	public function actionDocuments()
@@ -258,6 +399,8 @@ class MyController extends Controller
 			));
 	    }
 	}
+	
+	
 	
 	/**
 	 * Change password

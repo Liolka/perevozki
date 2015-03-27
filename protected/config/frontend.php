@@ -25,20 +25,6 @@ return CMap::mergeArray(
 				'urlFormat'=>'path',
 				'urlSuffix' => '.html',
 				'rules'=>array(
-					/*
-					'<_action:(companies|contact|feedback)>'=>'site/<_action>',
-					'oplata-i-dostavka'=>'site/oplataidostavka',
-					'companyes'=>'companies/index',
-					
-					//'shop/<path:.+>'=>'/shopcategories/show',
-
-					//'addtocart'=>'cart/addtocart',
-					//'showcart'=>'cart/showcart',
-					'<path:.+cart>'=>'cart/<path>',
-					//'<path:.+-detail>'=>'shopproducts/detail',
-					'product/<product>'=>'shopproducts/detail',
-					'<path:.+>'=>'shopcategories/show',
-					/**/
 					'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 					'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 					'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',

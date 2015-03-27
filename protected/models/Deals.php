@@ -1,38 +1,35 @@
 <?php
 
 /**
- * This is the model class for table "{{transport}}".
+ * This is the model class for table "{{deals}}".
  *
- * The followings are the available columns in table '{{transport}}':
- * @property integer $transport_id
+ * The followings are the available columns in table '{{deals}}':
+ * @property integer $id
+ * @property integer $bid_id
  * @property integer $user_id
- * @property integer $name
- * @property integer $foto
- * @property string $carrying
- * @property double $length
- * @property double $width
- * @property double $height
- * @property double $volume
- * @property string $body_type
- * @property string $loading_type
+ * @property integer $transport_id
+ * @property string $created
+ * @property integer $price
+ * @property string $deal_date
+ * @property string $deal_time
+ * @property integer $porters
  * @property string $comment
+ * @property integer $accepted
+ * @property integer $rejected
  *
  * The followings are the available model relations:
+ * @property Transport $transport
+ * @property Bids $bid
  * @property Users $user
  */
-class Transport extends CActiveRecord
+class Deals extends CActiveRecord
 {
-	const SCENARIO_UPLOADING_FOTO = 'uploading_foto';
-	
-	public $uploading_foto;
-	public $userfile;
-	
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{transport}}';
+		return '{{deals}}';
 	}
 
 	/**
@@ -43,15 +40,12 @@ class Transport extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('length, width, height, volume', 'numerical'),
-			array('carrying', 'length', 'max'=>10),
-			array('name, body_type, loading_type, comment, foto', 'length', 'max'=>255),
-
+			array('bid_id, user_id, transport_id, created, price, deal_date, deal_time, porters, comment, accepted, rejected', 'required'),
+			array('bid_id, user_id, transport_id, price, porters, accepted, rejected', 'numerical', 'integerOnly'=>true),
+			array('comment', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('transport_id, user_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment', 'safe', 'on'=>'search'),
+			array('id, bid_id, user_id, transport_id, created, price, deal_date, deal_time, porters, comment, accepted, rejected', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,6 +57,8 @@ class Transport extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'transport' => array(self::BELONGS_TO, 'Transport', 'transport_id'),
+			'bid' => array(self::BELONGS_TO, 'Bids', 'bid_id'),
 			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
 		);
 	}
@@ -73,18 +69,18 @@ class Transport extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'transport_id' => 'Transport',
+			'id' => 'ID',
+			'bid_id' => 'Bid',
 			'user_id' => 'User',
-			'name' => 'Название',
-			'foto' => 'Foto',
-			'carrying' => 'Грузоподъёмность',
-			'length' => 'Д х Ш х В',
-			'width' => 'Width',
-			'height' => 'Height',
-			'volume' => 'Объём',
-			'body_type' => 'Тип кузова',
-			'loading_type' => 'Тип загрузки',
-			'comment' => 'Комментарий',
+			'transport_id' => 'Transport',
+			'created' => 'Created',
+			'price' => 'Price',
+			'deal_date' => 'Deal Date',
+			'deal_time' => 'Deal Time',
+			'porters' => 'Porters',
+			'comment' => 'Comment',
+			'accepted' => 'Accepted',
+			'rejected' => 'Rejected',
 		);
 	}
 
@@ -106,18 +102,18 @@ class Transport extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('transport_id',$this->transport_id);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('bid_id',$this->bid_id);
 		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('name',$this->name);
-		$criteria->compare('foto',$this->foto);
-		$criteria->compare('carrying',$this->carrying,true);
-		$criteria->compare('length',$this->length);
-		$criteria->compare('width',$this->width);
-		$criteria->compare('height',$this->height);
-		$criteria->compare('volume',$this->volume);
-		$criteria->compare('body_type',$this->body_type,true);
-		$criteria->compare('loading_type',$this->loading_type,true);
+		$criteria->compare('transport_id',$this->transport_id);
+		$criteria->compare('created',$this->created,true);
+		$criteria->compare('price',$this->price);
+		$criteria->compare('deal_date',$this->deal_date,true);
+		$criteria->compare('deal_time',$this->deal_time,true);
+		$criteria->compare('porters',$this->porters);
 		$criteria->compare('comment',$this->comment,true);
+		$criteria->compare('accepted',$this->accepted);
+		$criteria->compare('rejected',$this->rejected);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -128,7 +124,7 @@ class Transport extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Transport the static model class
+	 * @return Deals the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

@@ -926,6 +926,10 @@ h1 span, .breadcrumbs, .my-last-requests-title span, .header-row2 .questions .ti
   color: #8093a9;
 }
 
+.show-deals-comments {
+  color: #85bf32;
+}
+
 .c_8e95a1, .requests-list-item-info_descr, .requests-list-item_adress, .requests-list-item_author, .requests-list-item_author a, .requests-list-item_suggestions,
 .requests-list-item_date {
   color: #8e95a1;
@@ -1055,7 +1059,7 @@ h3, .add-transport p, .my-transport-name {
 }
 
 .narrow_bold_24, .narrow-regular-24, .select-user-type-lbl, .btn-blue-66,
-.btn-green-66, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .header-row2 .questions {
+.btn-green-66, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .show-deals-comments, .header-row2 .questions {
   font-size: 24px;
 }
 
@@ -1192,7 +1196,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .requests-list-item_from span,
 .requests-list-item_from a, .requests-list-item_price span,
 .requests-list-item_price a, .requests-more-btn, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .change-email-block label,
-.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
+.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .bid-detail-deals-row:hover .show-deals-comments, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
   display: block;
 }
 
@@ -1236,7 +1240,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .rating-stars .stars-empty, .rating-stars .stars-full-blue,
 .rating-stars .stars-full-green,
 .rating-stars .stars-full, .bids-sorting-block-list .active:before, .requests-list-item_author, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
-.delete-loading-unloading-block, .calendar-icon, .bids-filter-categories-uncheck, .reject-deal-btn, .bid-detail-deals-profile-link:after, .bid-detail-deals-col6 .accept-deal-btn, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .kak-rabotaet-sait-tbl .row2 .cell1 p, .kak-rabotaet-sait-tbl .row2 .p1,
+.delete-loading-unloading-block, .calendar-icon, .bids-filter-categories-uncheck, .reject-deal-btn, .bid-detail-deals-profile-link:after, .bid-detail-deals-col6 .accept-deal-btn, .show-deals-comments, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .kak-rabotaet-sait-tbl .row2 .cell1 p, .kak-rabotaet-sait-tbl .row2 .p1,
 .kak-rabotaet-sait-tbl .row2 .p2, .kak-rabotaet-sait-tbl .row3 .bold, .kak-rabotaet-sait-tbl .row4 .p1,
 .kak-rabotaet-sait-tbl .row4 .p2, .kak-rabotaet-sait-tbl .row4 .cell1 p, .footer .created-by a {
   position: absolute;
@@ -1260,7 +1264,7 @@ input[type="file"], .btn-grey-33,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue1,
-.btn-red {
+.btn-red, .show-deals-comments {
   cursor: pointer;
 }
 
@@ -1475,7 +1479,7 @@ span sup {
 
 .dimentions .inputbox {
   /* width: 47px; */
-  width: 38px;
+  width: 49px;
 }
 
 .profile-link:before {
@@ -1485,6 +1489,10 @@ span sup {
 
 .normal {
   @extens %normal;
+}
+
+.pos-rel {
+  position: relative;
 }
 
 .mb-5 {
@@ -2826,7 +2834,11 @@ button.close:hover {
 }
 
 .my-transport-image {
-  width: 105px;
+  width: 106px;
+  height: 106px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .my-transport-info-wr {
@@ -3398,6 +3410,13 @@ button.close:hover {
   /* @extend %pos_abs; */
 }
 
+.show-deals-comments {
+  /* @extend %db; */
+  bottom: 5px;
+  left: 50%;
+  margin-left: -13px;
+}
+
 .kak-rabotaet-sait {
   background: url(../images/kak-rabotaet-sait.jpg) no-repeat top left;
   width: 1225px;
@@ -3534,7 +3553,7 @@ button.close:hover {
   margin-top: 0;
 }
 #transport-form .upload-transport-image .btn-grey-33 {
-  padding: 0 16px;
+  padding: 0 14px;
   text-transform: none;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
@@ -3545,8 +3564,18 @@ button.close:hover {
   padding-left: 15px;
 }
 
+.Transport_comment,
 .Transport_name {
-  width: 280px;
+  width: 322px;
+}
+
+.upload-transport-image .my-transport-image {
+  width: 95px;
+  height: 95px;
+}
+
+.transport-form-col1 {
+  width: 125px;
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */

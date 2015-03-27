@@ -16,7 +16,7 @@
 	}
 	
 	.upload-transport-image .btn-grey-33 {
-		padding: 0 16px;
+		padding: 0 14px;
 		text-transform: none;
 		
 		
@@ -28,6 +28,18 @@
 	padding-left: 15px;
 }
 
+.Transport_comment,
 .Transport_name {
-	width: 280px;
+	width: 322px;
+}
+
+.upload-transport-image {
+	.my-transport-image {
+		width: 95px;
+		height: 95px;
+	}
+}
+
+.transport-form-col1 {
+	width: 125px;
 }

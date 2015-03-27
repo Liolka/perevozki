@@ -69,7 +69,11 @@
 }
 
 .my-transport-image {
-    width: 105px;
+    width: 106px;
+	height: 106px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
     
     @extend %db;
     @extend %fl;   

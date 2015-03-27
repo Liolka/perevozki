@@ -55,7 +55,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','93.125.72.243', '178.121.66.13',),
+			'ipFilters'=>array('127.0.0.1','::1','93.125.72.193', '178.121.66.13',),
 		),
 		
 
@@ -265,6 +265,7 @@ return array(
 		'adminEmail'=>'webmaster@example.com',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
 		'images_live_url' => 'http://perevozki/',
+		'transport_imageLive' => '/images/transport/',
 		'transport_imagePath' => 'webroot.images.transport',
 		'transport_tmb_params' => array('width' => 105, 'height' => 105),	//параметры для создания миниатюр
 		

@@ -1,6 +1,6 @@
 <?php 
 
-$title = 'Добавить транспорт';
+$title = 'Редактировать транспорт';
 
 $this->renderPartial('_transport_form', array(
 	'model'=>$model,

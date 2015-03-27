@@ -198,34 +198,6 @@ $NumberFormatter = $this->app->NumberFormatter;
 		<?	}	?>
 		</ul>
 	</div>
-
-		
-
-
-<?php /*$this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'bid_id',
-		'user_id',
-		'created',
-		'published',
-		'date_transportation',
-		'time_transportation',
-		'date_unknown',
-		'price',
-		'loading_town',
-		'loading_address',
-		'add_loading_unloading_town_1',
-		'add_loading_unloading_address_1',
-		'add_loading_unloading_town_2',
-		'add_loading_unloading_address_2',
-		'add_loading_unloading_town_3',
-		'add_loading_unloading_address_3',
-		'unloading_town',
-		'unloading_address',
-	),
-));*/ ?>
-
 </div>
 
 <div class="bid-detail-deals-block">
@@ -242,8 +214,9 @@ $NumberFormatter = $this->app->NumberFormatter;
 		</div>
 		
 		<div class="bid-detail-deals-row width100 mb-10 clearfix">
-			<div class="bid-detail-deals-col1 fLeft">
+			<div class="bid-detail-deals-col1 fLeft pos-rel">
 				<div class="ico-notice-blue bid-detail-notice-blue text_c">0</div>
+				<span class="show-deals-comments hide-block">▼</span>
 			</div>
 			<div class="bid-detail-deals-col2 fLeft">
 				<p class="font-17 bold mb-10">до 500 000 р.</p>
@@ -295,8 +268,9 @@ $NumberFormatter = $this->app->NumberFormatter;
 			
 		</div>		
 		<div class="bid-detail-deals-row width100 mb-10 clearfix">
-			<div class="bid-detail-deals-col1 fLeft">
+			<div class="bid-detail-deals-col1 fLeft pos-rel">
 				<div class="ico-notice-blue bid-detail-notice-blue text_c">0</div>
+				<span class="show-deals-comments hide-block">▼</span>
 			</div>
 			<div class="bid-detail-deals-col2 fLeft">
 				<p class="font-17 bold mb-10">до 500 000 р.</p>
@@ -353,10 +327,47 @@ $NumberFormatter = $this->app->NumberFormatter;
 		
 		<p class="narrow-regular-24 bold">Добавление моего предложения</p>
 		<div class="add-new-deal-form">
-			<div class="row-form">
-				<label for="" class="db c_8e95a1 ">За какую цену вы готовы выполнить заказ</label>
-				<input type="text" />
+			<? $model = $deals; ?>
+			<?php $form = $this->beginWidget('CActiveForm', array(
+				'id'=>'bids-form',
+				// Please note: When you enable ajax validation, make sure the corresponding
+				// controller action is handling ajax validation correctly.
+				// There is a call to performAjaxValidation() commented in generated controller code.
+				// See class documentation of CActiveForm for details on this.
+				//'enableAjaxValidation'=>true,
+				'clientOptions'=>array(
+					//'validateOnSubmit'=>true,
+				),
+
+			)); ?>
+			<div class="row">
+				<div class="col-md-3 col-lg-3">
+					<?php echo $form->labelEx($model,'price', array('class'=>'lbl-block')); ?>
+					<?php echo $form->textField($model,'price',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
+					<?php echo $form->error($model,'price'); ?>
+				</div>
+
+				<div class="col-md-3 col-lg-3">
+					<div class="row">
+						<div class="col-md-6 col-lg-6">
+							<?php echo $form->labelEx($model,'deal_date', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textField($model,'deal_date',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
+							<?php echo $form->error($model,'deal_date'); ?>
+						
+						</div>
+						
+						<div class="col-md-6 col-lg-6">
+							<?php echo $form->labelEx($model,'deal_time', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textField($model,'deal_time',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
+							<?php echo $form->error($model,'deal_time'); ?>
+						
+						</div>
+					</div>
+				</div>
+
 			</div>
+			
+			<?php $this->endWidget(); ?>
 		</div>
 		
 	</div>

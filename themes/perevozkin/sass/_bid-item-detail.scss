@@ -310,6 +310,22 @@
 	/* @extend %pos_abs; */
 }
 
+.show-deals-comments {
+	/* @extend %db; */
+	@extend %pos_abs;
+	@extend %c_85bf32;
+	@extend %font_24;
+	@extend %pointer;
+	
+	bottom: 5px;
+	left: 50%;
+	margin-left: -13px;
+}
+
+.bid-detail-deals-row:hover .show-deals-comments {
+	@extend %db;
+}
+
 
 
 

@@ -84,6 +84,8 @@ class BidsController extends Controller
 		$this->addRouteItem($model->add_loading_unloading_town_3, $model->add_loading_unloading_address_3, $route_arr);
 		$this->addRouteItem($model->unloading_town, $model->unloading_address, $route_arr);
 		
+		$deals = new Deals();
+		
 		//echo'<pre>';print_r($route_arr);echo'</pre>';
 		
 		$this->render('view',array(
@@ -91,6 +93,7 @@ class BidsController extends Controller
 			'cargoes'=> $cargoes,
 			'bid_name'=> $bid_name,
 			'route_arr'=> $route_arr,
+			'deals'=> $deals,
 		));
 	}
 

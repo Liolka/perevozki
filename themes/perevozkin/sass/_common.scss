@@ -244,7 +244,7 @@ span sup{text-decoration:none;}
 .dimentions {
 	.inputbox {
 		/* width: 47px; */
-		width: 38px;
+		width: 49px;
 	}
 }
 
@@ -287,6 +287,8 @@ span sup{text-decoration:none;}
 .di { @extend %di; }
 .db { @extend %db; }
 
+.pos-rel { position: relative; }
+
 .text_c { @extend %text_c; }
 
 .table { @extend %dt; }
@@ -314,13 +316,8 @@ span sup{text-decoration:none;}
 .bg_425770 {background-color: #425770; }
 .bg_697f9a {background-color: #697f9a !important; }
 
-.success {
-	color: green;
-}
-
-.error {
-	color: red;
-}
+.success { color: green; }
+.error { color: red; }
 
 //input[name="userfile"] {
 //	display: block !important;
