@@ -256,6 +256,14 @@ return array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
-		'images_live_url' => 'http://skorohod.by/',
+		'images_live_url' => 'http://perevozki/',
+		'transport_imageLive' => '/images/transport/',
+		'transport_imagePath' => 'webroot.images.transport',
+		'transport_tmb_params' => array('width' => 105, 'height' => 105),	//параметры для создания миниатюр
+		
+		'UnitsListArray' => array(
+			1 => array('id' => 1, 'name' => 'кг'),
+			2 => array('id' => 2, 'name' => 'тонн'),
+		),
 	),
 );

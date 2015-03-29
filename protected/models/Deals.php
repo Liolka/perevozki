@@ -31,6 +31,17 @@ class Deals extends CActiveRecord
 	{
 		return '{{deals}}';
 	}
+	
+	public function behaviors()
+	{
+		return array(
+			'CTimestampBehavior' => array(
+			'class' => 'zii.behaviors.CTimestampBehavior',
+			'createAttribute' => 'created',
+			'updateAttribute' => 'modified',
+			)
+		);
+	}	
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -40,9 +51,12 @@ class Deals extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('bid_id, user_id, transport_id, created, price, deal_date, deal_time, porters, comment, accepted, rejected', 'required'),
+			array('price', 'required'),
 			array('bid_id, user_id, transport_id, price, porters, accepted, rejected', 'numerical', 'integerOnly'=>true),
 			array('comment', 'length', 'max'=>255),
+			array('deal_date', 'date', 'format' => 'yyyy-MM-dd'),
+			array('deal_time', 'date', 'format' => 'HH:mm'),
+			
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, bid_id, user_id, transport_id, created, price, deal_date, deal_time, porters, comment, accepted, rejected', 'safe', 'on'=>'search'),
@@ -60,6 +74,7 @@ class Deals extends CActiveRecord
 			'transport' => array(self::BELONGS_TO, 'Transport', 'transport_id'),
 			'bid' => array(self::BELONGS_TO, 'Bids', 'bid_id'),
 			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+			'dealsPosts' => array(self::HAS_MANY, 'DealsPosts', 'deal_id'),
 		);
 	}
 
@@ -74,13 +89,13 @@ class Deals extends CActiveRecord
 			'user_id' => 'User',
 			'transport_id' => 'Transport',
 			'created' => 'Created',
-			'price' => 'Price',
-			'deal_date' => 'Deal Date',
-			'deal_time' => 'Deal Time',
-			'porters' => 'Porters',
-			'comment' => 'Comment',
-			'accepted' => 'Accepted',
-			'rejected' => 'Rejected',
+			'price' => 'За какую цену вы готовы выполнить заказ',
+			'deal_date' => 'Дата',
+			'deal_time' => 'Время',
+			'porters' => 'Грузчики',
+			'comment' => 'Комментарий',
+			'accepted' => 'Заявка принята',
+			'rejected' => 'Заявка отклонена',
 		);
 	}
 
@@ -129,5 +144,29 @@ class Deals extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	public function getBidDeals(&$connection, $bid_id)
+	{
+		$sql = "SELECT d.`id`, d.`bid_id`, d.`user_id`, d.`transport_id`, d.`created`, d.`price`, d.`deal_date`, d.`deal_time`, d.`porters`, d.`comment`, d.`accepted`, d.`rejected`, u.`username`, u.`rating`, u.`reviews_count` FROM ".$this->tableName()." AS d INNER JOIN {{users}} AS u ON d.`user_id` = u.`id` WHERE `bid_id` = :bid_id ORDER BY d.`created` DESC";
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":bid_id", $bid_id, PDO::PARAM_INT);
+		return $command->queryAll();		
+	}
+	
+	//возвращает кол-во предложений по каждой заявке
+	public function getBidDealsCount(&$connection, $bid_ids)
+	{
+		$sql = "SELECT `bid_id`, count(`id`) AS bids_count FROM ".$this->tableName()." WHERE `bid_id` IN (".implode(', ', $bid_ids).") GROUP BY `bid_id`";
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$rows = $command->queryAll();
+		$result = array();
+		foreach($rows as $row)	{
+			$result[$row['bid_id']] = $row['bids_count'];
+		}
+		
+		return $result;
 	}
 }

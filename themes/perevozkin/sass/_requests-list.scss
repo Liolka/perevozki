@@ -1,11 +1,11 @@
 .requests-list-head {
-	margin-bottom: 15px;
+//	margin-bottom: 15px;
 	
-	li {
-		@extend %fl;
-		@extend %font_12;
-		@extend %c_757575;
-	}
+//	li {
+//		@extend %fl;
+//		@extend %font_12;
+//		@extend %c_757575;
+//	}
 	
 	.numb {
 		margin-left: 50px;
@@ -50,21 +50,13 @@
 
 
 .requests-list-item {
-	border: 1px solid #b2daeb;
-	padding: 25px 25px 20px 25px;
-	margin: 0 0 10px 0;
+//	border: 1px solid #b2daeb;
+//	padding: 25px 25px 20px 25px;
+//	margin: 0 0 10px 0;
 	
 	&:hover {
 		background-color: #f4fbfe;
 	}
-	
-	& > div {
-		@extend %fl;
-	}
-	
-	.requests-list-item_price {
-		@extend %fr;
-	}	
 }
 
 .requests-list-item_number {
@@ -72,8 +64,8 @@
 	margin: 0 29px 0 0;
 	
 	@extend %for_sprite;
-	@extend %font_12;
-	@extend %c_2e3c54;
+//	@extend %font_12;
+//	@extend %c_2e3c54;
 	
 	&:before {
 		top: 0;
@@ -148,17 +140,14 @@
 	margin-right: 50px;
 	width: 151px;
 	
-	span,
-	a {
-		@extend %db;
-	}
+//	span,
+//	a {
+//		@extend %db;
+//	}
 }
 
 .requests-list-item-info_url {
-	padding-bottom: 5px;
-	
-	@extend %c_1e91da;
-	@extend %font_12;
+//	padding-bottom: 5px;
 	
 	&:visited {
 		@extend %c_1e91da;
@@ -167,9 +156,6 @@
 
 .requests-list-item-info_descr {
 	margin: 0 0 17px 0;
-	
-	@extend %c_8e95a1;
-	@extend %font_12;
 }
 
 .requests-list-item-info_gruzchiki {
@@ -177,8 +163,8 @@
 	line-height: 19px;
 	padding: 0 0 0 22px;
 	
-	@extend %c_2e3c54;
-	@extend %font_12;
+//	@extend %c_2e3c54;
+//	@extend %font_12;
 	@extend %for_sprite;
 	
 	&:before {
@@ -198,42 +184,42 @@
 	span,
 	a {
 		padding-left: 25px;
-		@extend %db;
+//		@extend %db;
 	}
 }
 
 .requests-list-item_from {
 	height: 66px;
 	
-	@extend %pos_rel;
+//	@extend %pos_rel;
 }
 
-.requests-list-item_town {
-	padding-bottom: 5px;
-	
-	@extend %c_2e3c54;
-	@extend %font_13;
-	@extend %bold;
-}
+//.requests-list-item_town {
+//	padding-bottom: 5px;
+//	
+//	@extend %c_2e3c54;
+//	@extend %font_13;
+//	@extend %bold;
+//}
 
-.requests-list-item_adress {
-	@extend %c_8e95a1;
-	@extend %font_12;	
-}
+//.requests-list-item_adress {
+//	@extend %c_8e95a1;
+//	@extend %font_12;	
+//}
 
 .requests-list-item_author {
 	white-space: nowrap;
 	bottom: 0;
 	
-	@extend %font_11;
-	@extend %c_8e95a1;
-	@extend %pos_abs;
+//	@extend %font_11;
+//	@extend %c_8e95a1;
+//	@extend %pos_abs;
 	
 	a {
 		padding-left: 0;
-		@extend %font_11;
-		@extend %c_8e95a1;
-		@extend %di;
+//		@extend %font_11;
+//		@extend %c_8e95a1;
+//		@extend %di;
 		
 	}
 }
@@ -242,34 +228,32 @@
 
 .requests-list-item_price {
 
-	
-	span,
-	a {
-		@extend %db;
-	}
-	
-	.btn-blue-33 {
-		padding: 0 20px;
-	}
+//	
+//	span,
+//	a {
+//		@extend %db;
+//	}
+//	
+//	.btn-blue-33 {
+//		padding: 0 20px;
+//	}
 }
 
-.requests-list-item_created {
-	
-}
 
-.requests-list-item_suggestions,
-.requests-list-item_date {
-	@extend %font_13;
-	@extend %c_8e95a1;
-}
 
-.requests-list-item_date {
-	
-}
+//.requests-list-item_suggestions,
+//.requests-list-item_date {
+//	@extend %font_13;
+//	@extend %c_8e95a1;
+//}
 
-.requests-list-item_created {
-	
-}
+//.requests-list-item_date {
+//	
+//}
+//
+//.requests-list-item_created {
+//	
+//}
 
 .requests-list-item_suggestions {
 	margin-top: 34px;
@@ -281,8 +265,8 @@
 		
 		@include border-radius(2px);
 		
-		@extend %c_fff;
-		@extend %dib;
+//		@extend %c_fff;
+//		@extend %dib;
 	}
 	
 	.suggestion-green {
@@ -294,32 +278,33 @@
 	}
 }
 
-.requests-list-item-price_price {
-	margin-bottom: 15px;
-	
-	@extend %bold;
-	@extend %font_17;
-	@extend %c_2e3c54;
-}
+//.requests-list-item-price_price {
+//	margin-bottom: 15px;
+//	
+//	@extend %bold;
+//	@extend %font_17;
+//	@extend %c_2e3c54;
+//}
 
 
 .counry-by {
-	background: url(../images/flags/by.gif) no-repeat left center;
+	background: url(../images/flags/by.gif) no-repeat left 3px;
 	height: 16px;
 	line-height: 16px;
 }
 
 .requests-more-btn {
-	border: 1px solid #b2daeb;
-	padding: 10px 0 12px 0;	
-	background-color: #f4fbfe;	
+//	border: 1px solid #b2daeb;
+	padding: 10px 0 12px 0;  
+//	background-color: #f4fbfe;	
 	
-	@extend %db;
-	@extend %text_c;
-	@extend %c_1e91da;
-	@extend %font_20;
-	@extend %pt_sans_narrow_regular;
+//	@extend %db;
+//	@extend %text_c;
+//	@extend %c_1e91da;
+//	@extend %font_20;
+//	@extend %pt_sans_narrow_regular;
 	
+	&:focus,
 	&:hover,
 	&:visited {
 		@extend %c_1e91da;

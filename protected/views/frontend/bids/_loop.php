@@ -20,10 +20,10 @@
 <?php if ($dataProvider->totalItemCount > $dataProvider->pagination->pageSize): ?>
  
     <? /*<p id="loading" style="display:none"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/loading.gif" alt="" /></p> */ ?>
-    <p id="loading" class="requests-more-btn" style="display:none">Загрузка...</p>
+    <p id="loading" class="requests-more-btn text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe" style="display:none">Загрузка...</p>
     <? /* <p id="showMore">Показать ещё</p> */ ?>
     <? /*<a href="#" class="requests-more-btn">Показать еще</a> */?>
-	<a href="#" id="showMore" class="requests-more-btn">Показать еще</a>
+	<a href="#" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Показать еще</a>
     <? /*<p id="showMore" class="requests-more-btn">Показать еще</p> */ ?>
  
     <script type="text/javascript">

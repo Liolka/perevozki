@@ -155,13 +155,13 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 		</div>
 	
 		<div class="requests-list-container">
-			<ul class="requests-list-head clearfix">
-				<li class="numb">№</li>
-				<li class="info">Информация о грузе</li>
-				<li class="addr from">Откуда</li>
-				<li class="addr to">Куда</li>
-				<li class="date">Дата выезда / Предложения</li>
-				<li class="price">Предложенная стоимость</li>
+			<ul class="requests-list-head clearfix mb-15">
+				<li class="numb c_757575 font-12 fLeft">№</li>
+				<li class="info c_757575 font-12 fLeft">Информация о грузе</li>
+				<li class="addr from c_757575 font-12 fLeft">Откуда</li>
+				<li class="addr to c_757575 font-12 fLeft">Куда</li>
+				<li class="date c_757575 font-12 fLeft">Дата выезда / Предложения</li>
+				<li class="price c_757575 font-12 fLeft">Предложенная стоимость</li>
 			</ul>
 			<? /*
 			<ul class="requests-list-items">

@@ -281,7 +281,7 @@ $(document).ready(function () {
 	});
 
 	$('.bid-detail-deals-row .show-deals-comments').on('click', function () {
-		var deals_block = $(this).parent().parent();
+		var deals_block = $(this).parent().parent().parent();
 		//e.preventDefault();
 		//console.log('11');
 		deals_block.children('.bid-detail-deals-row-answer-block-reviews').slideToggle(100);
@@ -384,6 +384,27 @@ $(document).ready(function () {
                 //$('.modal').modal('hide');
             }
         );
+        return false;
+    });
+	
+	$('#deal-set-transport').on('click', function () {
+		$('#deals-form-transport-list').slideToggle(200);
+        return false;
+    });
+	
+	$('.deals-form-transport-list-item').on('click', function (e) {
+		e.preventDefault();
+		$('#deal-transport-item .name').text($(this).text());
+		$('#deal-transport-id').val($(this).data('transport'));
+		$('#deal-transport-item').show();
+		$('#deals-form-transport-list').slideToggle(200);
+        return false;
+    });
+	
+	$('#deal-transport-item .ico').on('click', function (e) {
+		e.preventDefault();
+		$('#deal-transport-id').val('');
+		$('#deal-transport-item').hide();
         return false;
     });
 	

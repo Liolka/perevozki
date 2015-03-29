@@ -250,7 +250,7 @@ class Cargoes extends CActiveRecord
 	public function getCargoresInfo(&$connection, $bid_ids = array())
 	{
 		if(count($bid_ids))	{
-			$sql = "SELECT bc.`bid_id`, c.`cargo_id`, c.`name`, c.`porters` FROM ".$this->tableName()." as c INNER JOIN {{bids_cargoes}} AS bc USING(`cargo_id`) WHERE bc.`bid_id` IN(".implode(',', $bid_ids).") ORDER BY bc.`bid_id`";
+			$sql = "SELECT bc.`bid_id`, c.`cargo_id`, c.`name`, c.`porters`, c.`weight`, c.`unit`, c.`volume` FROM ".$this->tableName()." as c INNER JOIN {{bids_cargoes}} AS bc USING(`cargo_id`) WHERE bc.`bid_id` IN(".implode(',', $bid_ids).") ORDER BY bc.`bid_id`";
 			//echo'<pre>';print_r($sql);echo'</pre>';
 			$command = $connection->createCommand($sql);
 			return $command->queryAll();			

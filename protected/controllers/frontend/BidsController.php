@@ -41,6 +41,10 @@ class BidsController extends Controller
 					'view',
 					'step2form',
 					'step3form',
+					'acceptdeal',
+					'cancelaccepteddeal',
+					'rejectdeal',
+					'cancelrejecteddeal',
 				),
 				'users'=>array('*'),
 			),
@@ -64,8 +68,36 @@ class BidsController extends Controller
 	 */
 	public function actionView($id)
 	{
+		//throw new CHttpException(500,'Неверные параметры запроса');
+		
 		$this->app = Yii::app();
 		$connection = $this->app->db;
+		
+		$deals = new Deals();
+		
+		if(isset($_POST['Deals'])) {
+			$deals->attributes = $_POST['Deals'];
+			$deals->bid_id = $id;
+			$deals->user_id = $this->app->user->id;
+			if($deals->validate())	{
+				$deals->save(false);
+				$this->app->user->setFlash('success', 'Ваше предложение размещено.');
+				$this->redirect(array('bids/view','id'=>$id));
+			}
+		}
+		
+		if(isset($_POST['deal-post'])) {
+			$deal_post = new DealsPosts();
+			$deal_post->user_id = $this->app->user->id;
+			$deal_post->deal_id = $_POST['deal-id'];
+			$deal_post->text = $_POST['deal-post'];
+			if($deal_post->validate())	{
+				$deal_post->save();
+				$this->app->user->setFlash('success', 'Ваше сообщение размещено.');
+			}
+			$this->redirect(array('bids/view','id'=>$id));
+		}
+		
 		
 		$model = $this->loadModel($id);
 		$cargoes = BidsCargoes::model()->getCargoresBids($connection, $model->bid_id);
@@ -84,9 +116,28 @@ class BidsController extends Controller
 		$this->addRouteItem($model->add_loading_unloading_town_3, $model->add_loading_unloading_address_3, $route_arr);
 		$this->addRouteItem($model->unloading_town, $model->unloading_address, $route_arr);
 		
-		$deals = new Deals();
 		
-		//echo'<pre>';print_r($route_arr);echo'</pre>';
+		
+		if(!$this->app->user->isGuest && $this->app->user->user_type == 2)	{
+			$is_perevozchik = true;
+			$transport_list = Transport::model()->getUserTransportList($connection, $this->app->user->id);
+		}	else	{
+			$is_perevozchik = false;
+			$transport_list = array();
+		}
+		
+		$deals_list = Deals::model()->getBidDeals($connection, $id);
+		
+		$deals_ids = array();
+		foreach($deals_list as $row) {
+			$deals_ids[] = $row['id'];
+		}
+		
+		$deals_posts_list = DealsPosts::model()->getDealsPosts($connection, $deals_ids);
+		
+		
+		
+		//echo'<pre>';print_r($deals_list);echo'</pre>';
 		
 		$this->render('view',array(
 			'model'=> $model,
@@ -94,7 +145,47 @@ class BidsController extends Controller
 			'bid_name'=> $bid_name,
 			'route_arr'=> $route_arr,
 			'deals'=> $deals,
+			'is_perevozchik'=> $is_perevozchik,
+			'transport_list'=> $transport_list,
+			'deals_list'=> $deals_list,
+			'deals_posts_list'=> $deals_posts_list,
 		));
+	}
+	
+	//принять заявку
+	public function actionAcceptdeal($id)
+	{
+		$this->app = Yii::app();
+		$deal_id = $this->app->request->getParam('deal_id', 0);
+		
+		$this->updateBid($id, $deal_id, 'accepted', 1, 'Предложение принято.');
+	}
+	
+	//отменить принятую заявку
+	public function actionCancelaccepteddeal($id)
+	{
+		$this->app = Yii::app();
+		$deal_id = $this->app->request->getParam('deal_id', 0);
+		
+		$this->updateBid($id, $deal_id, 'accepted', 0, 'Выбранное предложение отменено.');		
+	}
+
+	//отклонить заявку
+	public function actionRejectdeal($id)
+	{
+		$this->app = Yii::app();
+		$deal_id = $this->app->request->getParam('deal_id', 0);
+		
+		$this->updateBid($id, $deal_id, 'rejected', 1, 'Предложение отклонено.');	
+	}
+
+	//отменить отклонение заявки
+	public function actionCancelrejecteddeal($id)
+	{
+		$this->app = Yii::app();
+		$deal_id = $this->app->request->getParam('deal_id', 0);
+		
+		$this->updateBid($id, $deal_id, 'rejected', 0, 'Отклоненное предложение восстановлено.');	
 	}
 
 	/**
@@ -600,6 +691,8 @@ class BidsController extends Controller
 		
 		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
 		
+		
+		
 		switch($type_sort) {
 			case 'datepub':
 				$criteria->order = 't.created DESC';
@@ -611,6 +704,8 @@ class BidsController extends Controller
 				$criteria->order = 't.bid_id DESC';
 			break;
 		}
+		
+		//echo'<pre>';print_r($criteria->order);echo'</pre>';
 		
 		if($filtering === true)	{
 			
@@ -679,13 +774,18 @@ class BidsController extends Controller
 			}
 			
 		}
-		//echo'<pre>';print_r($BidsFilterCategories);echo'</pre>';//die;
-		//echo'<pre>';print_r($categories_list);echo'</pre>';die;
 		
+		//получаем инфу по кол-ву предложений по заявкам
+		$deals_count_list = Deals::model()->getBidDealsCount($connection, $bid_ids);
 		
 		foreach($dataProvider->data as $row) {
 			$cargo_name = array();
 			$porters = false;
+			
+			$row->total_weight = 0;
+			$row->total_volume = 0;
+			$row->deals_count = isset($deals_count_list[$row->bid_id]) ? $deals_count_list[$row->bid_id] : 0;
+			
 
 			foreach($cargoes_info as $cargo) {
 				if($cargo['bid_id'] == $row->bid_id) {
@@ -694,6 +794,11 @@ class BidsController extends Controller
 					if($cargo['porters'] == 1) {
 						$porters = true;
 					}
+					
+					$row->total_weight = $row->total_weight + $cargo['weight'];
+					$row->total_unit = $cargo['unit'];
+					$row->total_volume = $row->total_volume + $cargo['volume'];
+					
 				}
 			}
 			
@@ -702,16 +807,8 @@ class BidsController extends Controller
 			
 		}
 		
-		//echo'<pre>';print_r($bid_ids);echo'</pre>';
 		//echo'<pre>';print_r($cargoes_info);echo'</pre>';
-		
-		/*
-		$this->render('index',array(
-			'model' => $model,
-			'categories_list' => $categories_list,
-			'dataProvider' => $dataProvider,
-		));
-		*/
+
         if ($this->app->request->isAjaxRequest){
             $this->renderPartial('_loopAjax', array(
                 'dataProvider'=>$dataProvider,
@@ -771,6 +868,31 @@ class BidsController extends Controller
 			Yii::app()->end();
 		}
 	}
+	
+	public function updateBid($bid_id, $deal_id, $field, $value, $message)
+	{
+		if($deal_id == 0)	{
+			throw new CHttpException(500, 'Отсутствует ID предложения');
+		}
+		
+		$bid_model = $this->loadModel($bid_id);
+		$deal_model = Deals::model()->findByPk($deal_id);
+		
+		if($deal_model->bid_id != $bid_id) {
+			throw new CHttpException(500, 'Предложение не принаджежит заявке');
+		}
+		
+		$this->app->user->setFlash('success', $message);
+		
+		$deal_model->deal_time = substr($deal_model->deal_time, 0, -3);
+		$deal_model->$field = $value;
+		$deal_model->save();
+		
+		$this->redirect(array('bids/view','id'=>$bid_id));
+		
+	}
+	
+	
 	
 	public function actionStep2form($category_id)
 	{
@@ -874,5 +996,39 @@ class BidsController extends Controller
             $_GET[$param] = Yii::app()->request->getPost($param);
     }
 	
-	
+/**
+	 * Переводим TIMESTAMP в формат вида: 5 дн. назад
+	 * или 1 мин. назад и тп.
+	 *
+	 * @param unknown_type $date_time
+	 * @return unknown
+	 */
+	public function getTimeAgo($date_time)
+	{
+		$timeAgo = time() - strtotime($date_time);
+		$timePer = array(
+			'day' 	=> array(3600 * 24, 'дн.'),
+			'hour' 	=> array(3600, ''),
+			'min' 	=> array(60, 'мин.'),
+			'sek' 	=> array(1, 'сек.'),
+			);
+		foreach ($timePer as $type =>  $tp) {
+			$tpn = floor($timeAgo / $tp[0]);
+			if ($tpn){
+				
+				switch ($type) {
+					case 'hour':
+						if (in_array($tpn, array(1, 21))){
+							$tp[1] = 'час';
+						}elseif (in_array($tpn, array(2, 3, 4, 22, 23)) ) {
+							$tp[1] = 'часa';
+						}else {
+							$tp[1] = 'часов';
+						}
+						break;
+				}
+				return $tpn.' '.$tp[1].' назад';
+			}
+		}
+	}	
 }

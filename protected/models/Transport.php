@@ -134,4 +134,13 @@ class Transport extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+	
+	public function getUserTransportList(&$connection, $user_id)
+	{
+		$sql = "SELECT `transport_id`, `name` FROM ".$this->tableName()." WHERE `user_id` = :user_id";
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		return $command->queryAll();
+	}
 }

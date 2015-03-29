@@ -89,6 +89,7 @@ if($('#Bids_have_account').is(':checked')) {
 							<?php echo $form->error($model,'date_unknown'); ?>
 						</div>
 					</div>
+					<?/*
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
 							<?php echo $form->checkBox($model,'quickly', array('class'=>'checkbox')); ?>
@@ -96,6 +97,7 @@ if($('#Bids_have_account').is(':checked')) {
 							<?php echo $form->error($model,'quickly'); ?>
 						</div>
 					</div>
+					*/ ?>
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">

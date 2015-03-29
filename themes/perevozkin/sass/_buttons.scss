@@ -3,6 +3,7 @@
 .btn-grey-33,
 .btn-blue-33,
 .btn-green-33,
+.btn-red-33,
 .btn-blue-66,
 .btn-green-66,
 .btn-blue-52,
@@ -20,6 +21,7 @@
 	}
 }
 
+.btn-red-33,
 .btn-grey-33,
 .btn-blue-33,
 .btn-green-33 {
@@ -28,7 +30,7 @@
 	line-height: 33px;
 	border: none;
 	
-	@include border-radius(3px);	
+	@include border-radius(3px);
 	
 	@extend %dib;
 	@extend %font_14;
@@ -72,6 +74,11 @@
 		@extend .btns-blue-33-h;
 		background-repeat: repeat-x;
 	}
+}
+
+.btn-red-33 {
+	@extend .btns-red-33;
+	background-repeat: repeat-x;
 }
 
 

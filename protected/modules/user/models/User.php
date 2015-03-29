@@ -71,7 +71,8 @@ class User extends CActiveRecord
             array('create_at', 'default', 'value' => date('Y-m-d H:i:s'), 'setOnEmpty' => true, 'on' => 'insert'),
             array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
 			array('username, email, superuser, status', 'required'),
-			array('superuser, status', 'numerical', 'integerOnly'=>true),
+			array('superuser, status, reviews_count', 'numerical', 'integerOnly'=>true),
+			array('rating', 'numerical'),
 			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, user_type, user_status', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
 			array('username, email', 'required'),

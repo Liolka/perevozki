@@ -44,6 +44,11 @@ class Bids extends CActiveRecord
 	public $full_name;
 	public $need_porters;
 	
+	public $total_weight;
+	public $total_unit;
+	public $total_volume;
+	public $deals_count;
+	
 	
 	/**
 	 * @return string the associated database table name
