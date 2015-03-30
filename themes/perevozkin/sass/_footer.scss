@@ -21,41 +21,6 @@
 		}
 	}
 	
-	.created-by {
-		font-size: 14px;
-		line-height: 42px;
-		margin: 20px 0 0 0;
-		
-		@extend %c_697f9a;
-		@extend %pos_rel;
-		
-		a:visited,
-		a:hover,
-		a {
-			color: inherit;			
-		}
-		
-		a {
-			height: 30px;
-			right: 0;
-			top: 0;
-			padding-left: 30px;
-			line-height: 42px;
-			
-			@extend %db;
-			@extend %pos_abs;
-			@extend %for_sprite;
-			@extend %underline_y_n;
-			@extend %font_12;
-			
-			&:before {
-				left: 5px;
-				top: 0;
-				@extend .ico-farba;
-			}
-			
-		}
-	}
 
 }
 
@@ -155,5 +120,38 @@
 	}
 	
 }
+
+.created-by {
+	line-height: 42px;
+	width: 230px;
+	right: 0;
+	bottom: 0;
+
+
+	a:visited,
+	a:hover,
+	a {
+		color: inherit;			
+	}
+
+	a {
+		height: 30px;
+		right: 0;
+		top: 0;
+		line-height: 42px;
+		line-height: 42px;
+
+		@extend %for_sprite;
+		@extend %pos_abs;		
+
+		&:before {
+			left: 5px;
+			top: 0;
+			@extend .ico-farba;
+		}
+
+	}
+}
+
 
 

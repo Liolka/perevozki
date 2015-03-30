@@ -61,7 +61,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /* необходимо для @filter-gradient */
 .ico-sprite, .ico-addr, .requests-list-head .addr:before, .bid-detail-route-block .route-town:before, .ico-arrow-right, .stages-block .stage1:before,
-.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-calendar, .ico-calendar1, .calendar-icon:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-car3, .bid-detail-deals-profile-link:after, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-comment, .my-transport-comment:before, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .footer .created-by a:before, .ico-girya-big, .bid-detail-cargo-listitem-porters:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .profile-link:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-money, .bid-detail-price:before, .ico-notice-blue, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica-big, .bid-detail-respond-btn:before, .ico-ptica, .bid-detail-deals-col6 .accept-deal-btn:before, .ico-question, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .ico-avatar-s, .header-row1-menu .profile:before, .footer-cell-last .profile:before, .ico-calendar, .ico-calendar1, .calendar-icon:before, .ico-car1, .requests-list-item_number:before, .ico-car2, .ico-car3, .bid-detail-deals-profile-link:after, .ico-close-blue, .ico-close-red, .ico-close-white, .ico-comment, .my-transport-comment:before, .ico-double-arrow-left, .radnom-reviews-item-text:before, .ico-double-arrow-right, .radnom-reviews-item-text .double-arrow-right, .ico-email-blue, .my-contact-info-company-edit .contacts .email:before, .my-contact-info-list .email:before, .ico-farba, .created-by a:before, .ico-girya-big, .bid-detail-cargo-listitem-porters:before, .ico-girya, .requests-list-item-info_gruzchiki:before, .ico-gruz-big, .map-block .btn-zakazhu:before, .ico-info-popup, .ico-info, .profile-link:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .ico-key, .header-row1-menu .login:before, .footer-cell-last .login:before, .ico-logout, .header-row1-menu .logout a:before, .footer-cell-last .logout a:before, .ico-menu-documents-s, .my-top-menu-documents:before, .ico-menu-documents, .my-menu-item-documents:before, .ico-menu-info-s, .my-top-menu-info:before, .ico-menu-info, .my-menu-item-info:before, .ico-menu-profile-s, .my-top-menu-profile:before, .ico-menu-profile, .my-menu-item-profile:before, .ico-menu-transport-s, .my-top-menu-transport:before, .ico-menu-transport, .my-menu-item-transport:before, .ico-menu-zayavki-s, .my-top-menu-zayavki:before, .ico-menu-zayavki, .my-menu-item-zayavki:before, .ico-money, .bid-detail-price:before, .ico-notice-blue, .ico-phone-blue, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-list .phone:before, .ico-plus, .header-row2 .btn-zakazhu:before, .ico-ptica-big, .bid-detail-respond-btn:before, .ico-ptica, .bid-detail-deals-col6 .accept-deal-btn:before, .ico-question, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .ico-quickly, .bid-detail-date-quickly:before, .ico-rating-bad, .requests1-list-item-review-bad:before, .ico-rating-good, .requests1-list-item-review-good:before, .ico-route-arrow, .bid-detail-route-block .route-item .route-item-arrow:before, .ico-skype-blue, .my-contact-info-company-edit .contacts .skype:before, .my-contact-info-list .skype:before, .ico-star-empty, .ico-star-full-blue, .ico-star-full, .ico-watches-big, .benefits-block li:before, .ico-website-blue, .my-contact-info-company-edit .contacts .website:before, .my-contact-info-list .website:before, .ico-zoom-big, .map-block .btn-perevezu:before, .ico-zoom, .header-row2 .btn-perevezu:before {
   background-image: url('../images/ico-s3abf81bcb2.png');
   background-repeat: no-repeat;
@@ -158,7 +158,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 20px;
 }
 
-.ico-farba, .footer .created-by a:before {
+.ico-farba, .created-by a:before {
   background-position: 0 -127px;
   height: 30px;
   width: 19px;
@@ -842,12 +842,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .map-block .btn-zakazhu, .map-block .btn-perevezu, .profile-link, .stages-block .stage1,
 .stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .bid-detail-route-block .route-town, .bid-detail-route-block .route-item .route-item-arrow, .bid-detail-date-quickly, .bid-detail-price:before, .bid-detail-respond-btn, .bid-detail-cargo-listitem, .bid-detail-cargo-listitem-porters, .bid-detail-deals-col6 .accept-deal-btn, .header-row1-menu .gruzodatel,
-.header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer .created-by a, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile {
+.header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile, .created-by a {
   position: relative;
 }
 .map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .profile-link:before, .stages-block .stage1:before,
 .stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .bid-detail-route-block .route-town:before, .bid-detail-route-block .route-item .route-item-arrow:before, .bid-detail-date-quickly:before, .bid-detail-price:before, .bid-detail-respond-btn:before, .bid-detail-cargo-listitem:before, .bid-detail-cargo-listitem-porters:before, .bid-detail-deals-col6 .accept-deal-btn:before, .header-row1-menu .gruzodatel:before,
-.header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer .created-by a:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before {
+.header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before, .created-by a:before {
   content: ' ';
   position: absolute;
 }
@@ -918,7 +918,7 @@ textarea, h1, .modal-title, .bids-sorting-block-list .active a,
   color: #62e3ff;
 }
 
-label, .modal-content label, .stages-block .title, .benefits-block .header, .step-container .step-title span, .step1-category-item, .step-subheader, .footer .created-by {
+label, .modal-content label, .c_697f9a, .stages-block .title, .benefits-block .header, .step-container .step-title span, .step1-category-item, .step-subheader {
   color: #697f9a;
 }
 
@@ -1017,7 +1017,7 @@ label.error, .errorSummary {
   font-size: 11px;
 }
 
-.errorMessage, .profile-link, .font-12, .stages-block .descr, .benefits-block li, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .my-rewiews-table .head, .my-transport-comment, .bids-filter .checkbox-lbl, .bids-filter-clear-wr, .bids-filter-categories-uncheck, .header-row1-menu a, .footer .created-by a, .footer-cell a, .footer-cell-last span,
+.errorMessage, .profile-link, .font-12, .stages-block .descr, .benefits-block li, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .my-menu-descr, .my-rewiews-table .head, .my-transport-comment, .bids-filter .checkbox-lbl, .bids-filter-clear-wr, .bids-filter-categories-uncheck, .header-row1-menu a, .footer-cell a, .footer-cell-last span,
 .footer-cell-last a {
   font-size: 12px;
 }
@@ -1124,10 +1124,10 @@ h2, .btn-red-33,
   text-transform: uppercase;
 }
 
-a, .checkbox-lbl, .footer .created-by a, .footer-cell-last a {
+a, .checkbox-lbl, .underline_y_n, .footer-cell-last a {
   text-decoration: underline;
 }
-a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
+a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
   text-decoration: none;
 }
 
@@ -1203,7 +1203,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .lbl-block, .map-block .info span, .rating-stars .stars-empty, .rating-stars .stars-full-blue,
 .rating-stars .stars-full-green,
 .rating-stars .stars-full, .modal-content label, .db, .statistic-block li span, .benefits-block li span, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .change-email-block label,
-.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .bid-detail-deals-row:hover .show-deals-comments, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer .created-by a, .footer-cell-last .logout a {
+.change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .bid-detail-deals-row:hover .show-deals-comments, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer-cell-last .logout a {
   display: block;
 }
 
@@ -1240,7 +1240,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 }
 
 .rating-stars, .bids-sorting-block-list .active, .pos-rel, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
-.bids-filter-dates .dates, .bid-detail-price, .bid-detail-deals-col6, .deal-transport-item, .kak-rabotaet-sait-tbl .row1 .cell4, .kak-rabotaet-sait-tbl .row2 td, .kak-rabotaet-sait-tbl .row3 td, .kak-rabotaet-sait-tbl .row4 td, .footer .created-by {
+.bids-filter-dates .dates, .bid-detail-price, .bid-detail-deals-col6, .deal-transport-item, .kak-rabotaet-sait-tbl .row1 .cell4, .kak-rabotaet-sait-tbl .row2 td, .kak-rabotaet-sait-tbl .row3 td, .kak-rabotaet-sait-tbl .row4 td {
   position: relative;
 }
 
@@ -1249,7 +1249,7 @@ a:hover, .checkbox-lbl:hover, .footer .created-by a:hover {
 .rating-stars .stars-full, .bids-sorting-block-list .active:before, .pos-abs, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
 .delete-loading-unloading-block, .calendar-icon, .bids-filter-categories-uncheck, .reject-deal-btn, .bid-detail-deals-profile-link:after, .bid-detail-deals-col6 .accept-deal-btn, .show-deals-comments, .deal-transport-item .name, .deal-porters-checkbox, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .kak-rabotaet-sait-tbl .row2 .cell1 p, .kak-rabotaet-sait-tbl .row2 .p1,
 .kak-rabotaet-sait-tbl .row2 .p2, .kak-rabotaet-sait-tbl .row3 .bold, .kak-rabotaet-sait-tbl .row4 .p1,
-.kak-rabotaet-sait-tbl .row4 .p2, .kak-rabotaet-sait-tbl .row4 .cell1 p, .footer .created-by a {
+.kak-rabotaet-sait-tbl .row4 .p2, .kak-rabotaet-sait-tbl .row4 .cell1 p, .created-by a {
   position: absolute;
 }
 
@@ -1979,6 +1979,10 @@ button.close:hover {
 
 .pb-10 {
   padding-bottom: 10px;
+}
+
+.pl-30 {
+  padding-left: 30px;
 }
 
 .lh-34 {
@@ -3811,27 +3815,6 @@ button.close:hover {
 .footer .questions {
   margin: 5px 0 0 99px;
 }
-.footer .created-by {
-  font-size: 14px;
-  line-height: 42px;
-  margin: 20px 0 0 0;
-}
-.footer .created-by a:visited,
-.footer .created-by a:hover,
-.footer .created-by a {
-  color: inherit;
-}
-.footer .created-by a {
-  height: 30px;
-  right: 0;
-  top: 0;
-  padding-left: 30px;
-  line-height: 42px;
-}
-.footer .created-by a:before {
-  left: 5px;
-  top: 0;
-}
 
 .footer-cell {
   margin-right: 110px;
@@ -3866,4 +3849,27 @@ button.close:hover {
 }
 .footer-cell-last .separator {
   margin: 0 15px;
+}
+
+.created-by {
+  line-height: 42px;
+  width: 230px;
+  right: 0;
+  bottom: 0;
+}
+.created-by a:visited,
+.created-by a:hover,
+.created-by a {
+  color: inherit;
+}
+.created-by a {
+  height: 30px;
+  right: 0;
+  top: 0;
+  line-height: 42px;
+  line-height: 42px;
+}
+.created-by a:before {
+  left: 5px;
+  top: 0;
 }

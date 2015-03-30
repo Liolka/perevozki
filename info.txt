@@ -27,3 +27,12 @@ public $db = 'gfclubne_orisad';
 Ваши данные для входа в систему:
 E-mail: aldegtyarev@yandex.ru
 Пароль: 858F86l0
+
+http://yiiframework.ru/forum/viewtopic.php?t=13508
+
+Username:       suport@skorohod.by
+Password:       fJqjKJ5B
+Pop3 Server:    mail.skorohod.by
+Smtp Server:    mail.skorohod.by
+
+http://skorohod.by/roundcube/

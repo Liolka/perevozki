@@ -55,7 +55,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','93.125.72.193', '178.121.90.33',),
+			'ipFilters'=>array('127.0.0.1','::1','93.125.44.40', '178.121.90.33',),
 		),
 		
 
@@ -249,7 +249,27 @@ return array(
 					'depends' => array('jquery'),
 				),
             ),
-        ),	
+        ),
+		
+		'dpsMailer' => array(
+				'class' => 'ext.dpsMailer.components.dpsMailer',
+				'sViewPath' => '/path/to/protected/views/mail', // путь к шаблонам
+				'aFrom' => array( 'no-reply@example.com' => 'Администрация' ), // от кого будут отправляться письма по умолчанию
+				'aBehaviors' => array(
+					'swift' => array(
+						'class' => 'ext.dpsMailer.behaviors.dpsSwiftMailerBehavior',
+						'sLibPath'=> 'ext.swiftmailer-5.x.lib', // путь к папке, c библиотекой swift http://swiftmailer.org/
+						'sTransport' => 'Swift_SmtpTransport',
+						'aOptions' => array(// настройки swift
+							'Host'            => 'smtp.gmail.com',
+							'Port'            => 465,
+							'Encryption'        => 'ssl',
+							'Username'        => '[username]',
+							'Password'        => '[password]',
+						),
+					),
+				),
+		),		
 	),
 
 	'behaviors'=>array(

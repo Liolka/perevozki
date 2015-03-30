@@ -269,11 +269,12 @@ foreach($deals_list as $row) {
 							<? if($accepted_deal > 0 && $row['id'] != $accepted_deal || $row['rejected'] == 1)	{	?>
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
-						
-							<a href="<?=$this->createUrl('/user/profile', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link">Перевозчик <?php echo $row['username'] ?></a>
-							<div class="bid-detail-deals-rating-block mt-5">
-								<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating']*10)?>%;"></span></div>
-								<p class="rewiews-count font-12 c_8e95a1 dib">(<?=$row['reviews_count']?> <?php echo Yii::t('app', 'отзыв|отзыва|отзывов|отзыва', $row['reviews_count']); ?>)</p>
+							<div class="bid-detail-deals-perevozhik">
+								<a href="<?=$this->createUrl('/user/profile', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link">Перевозчик <?php echo $row['username'] ?></a>
+								<div class="bid-detail-deals-rating-block mt-5">
+									<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating']*10)?>%;"></span></div>
+									<p class="rewiews-count font-12 c_8e95a1 dib">(<?=$row['reviews_count']?> <?php echo Yii::t('app', 'отзыв|отзыва|отзывов|отзыва', $row['reviews_count']); ?>)</p>
+								</div>
 							</div>
 						</div>
 						

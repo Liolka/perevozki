@@ -1,6 +1,6 @@
 <?
 $this->breadcrumbs=array(
-	$app->user->username => array('/user/my'),
+	$this->app->user->username => array('/user/my'),
 	'Информация о компании, контакты',
 );
 
@@ -13,12 +13,27 @@ $this->breadcrumbs=array(
 		<p class="my-contact-info-header">Контактная информация</p>
 		<ul class="my-contact-info-list">
 			<li>
-				<p class="phone">+ 375 (46) 567 81 82</p>
-				<p class="phone">+ 375 (46) 567 81 82</p>
+				<? if($user_company->phone1 != '')	{	?>
+					<p class="phone"><?=$user_company->phone1?></p>
+				<?	}	?>
+				
+				<? if($user_company->phone2 != '')	{	?>
+					<p class="phone"><?=$user_company->phone2?></p>
+				<?	}	?>
+				
+				<? if($user_company->phone3 != '')	{	?>
+					<p class="phone"><?=$user_company->phone3?></p>
+				<?	}	?>
+				
+				<? if($user_company->phone4 != '')	{	?>
+					<p class="phone"><?=$user_company->phone4?></p>
+				<?	}	?>
+				
+
 			</li>
-			<li><p class="email">vanya125@mail.ru</p></li>
-			<li><p class="skype">vanya125</p></li>
-			<li><p class="website">vanya125.ru</p></li>
+			<li><p class="email"><?=$user_company->email?></p></li>
+			<li><p class="skype"><?=$user_company->skype?></p></li>
+			<li><p class="website"><?=$user_company->site?></p></li>
 		</ul>
 		<a href="<?=$this->createUrl('/user/my/infoedit')?>" class="btn-blue-33 btn-w250">Редактировать</a>
 	</div>
@@ -29,19 +44,19 @@ $this->breadcrumbs=array(
 				<ul class="my-contact-info-company-list">
 					<li>
 						<p>Тип компании:</p>
-						<p><span>ООО</span></p>
+						<p><?=$user_company->type ? '<span>'.$user_company->type.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
 						<p>Год основания:</p>
-						<p><span>2004</span></p>
+						<p><?=$user_company->year ? '<span>'.$user_company->year.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
 						<p>Кол-во авто:</p>
-						<p><span>54</span></p>
+						<p><?=$user_company->count_auto ? '<span>'.$user_company->count_auto.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
 						<p>Количество сотрудников:</p>
-						<p>Не указано</p>
+						<p><?=$user_company->count_staff ? '<span>'.$user_company->count_staff.'</span>' : 'Не указано' ?></p>
 					</li>
 				</ul>
 
@@ -52,21 +67,24 @@ $this->breadcrumbs=array(
 					</li>
 					<li>
 						<p>Головной офис:</p>
-						<p><span>Россия, Москва, ул.Лукинская</span></p>
+						<p><?=$user_company->main_office ? '<span>'.$user_company->main_office.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
 						<p>Филиалы:</p>
-						<p>Не указано</p>
+						<p><?=$user_company->filials ? '<span>'.$user_company->filials.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
 						<p>Склады и терминалы:</p>
-						<p>Не указано</p>
+						<p><?=$user_company->terminals ? '<span>'.$user_company->terminals.'</span>' : 'Не указано' ?></p>
 					</li>
 				</ul>
 			</div>
+			
+			<? if($user_company->description != '')	{	?>
+				<p class="my-contact-info-header">Дополнительно</p>
+				<p class="my-contact-info-descr"><?=$user_company->description?></p>
+			<?	}	?>
 
-			<p class="my-contact-info-header">Дополнительно</p>
-			<p class="my-contact-info-descr">Перевозка автомобилей конструктивно предусмотренными, многоместными прицепными системами – автовозами. Собственный парк автовозов европейского производства, в безупречном техническом состоянии, оборудованных всем необходимым для транспортировки автомобилей любых типов и размеров.</p>
 
 		</div>
 	</div>

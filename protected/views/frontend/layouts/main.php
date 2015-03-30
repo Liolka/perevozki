@@ -191,16 +191,13 @@
 	
 </div><!-- page -->	
 <div class="footer">
-	<div class="width-wrap clearfix">
+	<div class="width-wrap clearfix pos-rel">
 		<div class="footer-cell">
 			<a href="/" class="logo-bottom"><img src="<?=$this->theme_baseUrl?>/images/logo-bottom.png" alt="Перевозкин" /></a>
 			<p class="questions">
 				<span class="title">Есть вопросы?</span>
 				+375 (33) 678-98-11
 			</p>
-			<div class="created-by">
-				Разработка сайта - <a href="#" title="Farba Studio">Farba Studio</a>
-			</div>
 
 		</div>
 		<div class="footer-cell">
@@ -236,20 +233,26 @@
 		</div>
 
 		<div class="footer-cell footer-cell-last">
-				<?php $this->widget('zii.widgets.CMenu',array(
-					'items'=>array(
-						array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
-						array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-						array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),							
-						
-						
-						array('label'=>$this->app->user->name, 'url'=>array('/user/my'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'profile login-items')),
-						array('label'=>'/', 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-						array('label'=>'Выход', 'url'=>array('/user/logout'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'logout login-items')),
-						
-						
-					),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu4')
-				)); ?>
+			<?php $this->widget('zii.widgets.CMenu',array(
+				'items'=>array(
+					array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+					array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
+					array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),							
+
+
+					array('label'=>$this->app->user->name, 'url'=>array('/user/my'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'profile login-items')),
+					array('label'=>'/', 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
+					array('label'=>'Выход', 'url'=>array('/user/logout'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'logout login-items')),
+
+
+				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu4')
+			)); ?>
+
+				
+		</div>
+		
+		<div class="created-by pos-abs font-14 c_697f9a">
+			Разработка сайта - <a href="#" title="Farba Studio" class="db font-12 underline_y_n pl-30">Farba Studio</a>
 		</div>
 
 

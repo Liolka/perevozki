@@ -47,12 +47,14 @@
 
 .c_1e91da { @extend %c_1e91da; }
 .c_2e3c54 { @extend %c_2e3c54; }
+.c_697f9a { @extend %c_697f9a; }
 .c_757575 { @extend %c_757575; }
 .c_8e95a1 { @extend %c_8e95a1; }
 .c_fff { @extend %c_fff; }
 
 .tahoma { font-family: Tahoma, Arial; }
 
+.underline_y_n { @extend %underline_y_n; }
 .underline_n_y { @extend %underline_n_y; }
 .underline_n_n { @extend %underline_n_n; }
 
@@ -98,8 +100,11 @@
 .p-10-0 { padding: 10px 0; }
 
 .pt-10 { padding-top: 10px; }
+
 .pb-5 { padding-bottom: 5px; }
 .pb-10 { padding-bottom: 10px; }
+
+.pl-30 { padding-left: 30px; }
 
 .lh-34 { line-height: 34px; }
 

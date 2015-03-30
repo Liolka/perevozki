@@ -143,4 +143,21 @@ class Transport extends CActiveRecord
 		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
 		return $command->queryAll();
 	}
+	
+	public function getTransportListFromIds(&$connection, $transport_ids)
+	{
+		$result = array();
+		if(count($transport_ids)) {
+			$sql = "SELECT `transport_id`, `user_id`, `name`, `foto`, `carrying`, `length`, `width`, `height`, `volume`, `body_type`, `loading_type`, `comment` FROM ".$this->tableName()." WHERE `transport_id` IN (".implode(',', $transport_ids).")";
+			//echo'<pre>';print_r($sql);echo'</pre>';
+			$command = $connection->createCommand($sql);
+			$rows = $command->queryAll();
+			foreach($rows as $row)	{
+				$result[$row['transport_id']] = $row;
+			}
+		}
+		
+		return $result;
+	}
 }
+

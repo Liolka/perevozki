@@ -324,27 +324,64 @@ class MyController extends Controller
 
 	public function actionInfo()
 	{
-		$model = $this->loadUser();
+		$this->app = Yii::app();
 		
-		$app = Yii::app();
+		$user = $this->loadUser();
+		$user_company = $user->company;
+		if($user_company === null) {
+			$user_company = new UsersCompanies();
+		}
+		
+		
+		
 				
 	    $this->render('info', array(
-	    	'app'=>$app,
-	    	'model'=>$model,
-			'profile'=>$model->profile,
+	    
+	    	'user'=>$user,
+	    	'user_company'=>$user_company,
+		
 	    ));
 	}
 
 	public function actionInfoedit()
 	{
-		$model = $this->loadUser();
+		$this->app = Yii::app();
 		
-		$app = Yii::app();
+		$user = $this->loadUser();
+		
+		$user_company = $user->company;
+		if($user_company === null) {
+			$user_company = new UsersCompanies();
+		}
+		
+		
+		if(isset($_POST['UsersCompanies']))	{
+			foreach($_POST['UsersCompanies'] as &$attr)	{
+				$attr = strip_tags($attr);
+			}
+			
+			//$user_company = new UsersCompanies();
+			$user_company->attributes = $_POST['UsersCompanies'];
+			if(!$user_company->user_id)	{
+				$user_company->user_id = $this->app->user->id;
+			}
+			if($user_company->save()) {
+				$this->redirect(array("info"));
+			}
+			
+		}	else	{
+			//echo'<pre>';var_dump($model->company);echo'</pre>';die;
+			
+		}
+		
+		
+		
 				
 	    $this->render('info_edit', array(
-	    	'app'=>$app,
-	    	'model'=>$model,
-			'profile'=>$model->profile,
+	    	//'app'=>$app,
+	    	'user'=>$user,
+	    	'user_company'=>$user_company,
+			//'profile'=>$model->profile,
 	    ));
 	}
 
