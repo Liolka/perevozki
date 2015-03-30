@@ -252,24 +252,26 @@ return array(
         ),
 		
 		'dpsMailer' => array(
-				'class' => 'ext.dpsMailer.components.dpsMailer',
-				'sViewPath' => '/path/to/protected/views/mail', // путь к шаблонам
-				'aFrom' => array( 'no-reply@example.com' => 'Администрация' ), // от кого будут отправляться письма по умолчанию
+				'class' => 'ext.dpsmailer.components.dpsMailer',
+				'sViewPath' => './protected/views/email', // путь к шаблонам
+				'aFrom' => array( 'info@perevozki.gf-club.net' => 'Администрация' ), // от кого будут отправляться письма по умолчанию
 				'aBehaviors' => array(
 					'swift' => array(
-						'class' => 'ext.dpsMailer.behaviors.dpsSwiftMailerBehavior',
-						'sLibPath'=> 'ext.swiftmailer-5.x.lib', // путь к папке, c библиотекой swift http://swiftmailer.org/
+						'class' => 'ext.dpsmailer.behaviors.dpsSwiftMailerBehavior',
+						'sLibPath'=> './protected/extensions/swiftmailer/lib', // путь к папке, c библиотекой swift http://swiftmailer.org/
 						'sTransport' => 'Swift_SmtpTransport',
 						'aOptions' => array(// настройки swift
-							'Host'            => 'smtp.gmail.com',
+							'Host'            => 'vh11.uh.freedom.by',
 							'Port'            => 465,
 							'Encryption'        => 'ssl',
-							'Username'        => '[username]',
-							'Password'        => '[password]',
+							'Username'        => 'info@perevozki.gf-club.net',
+							'Password'        => '5nTUTF5(?693',
 						),
 					),
 				),
 		),		
+		
+		
 	),
 
 	'behaviors'=>array(

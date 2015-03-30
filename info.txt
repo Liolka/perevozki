@@ -36,3 +36,18 @@ Pop3 Server:    mail.skorohod.by
 Smtp Server:    mail.skorohod.by
 
 http://skorohod.by/roundcube/
+
+
+info@perevozki.gf-club.net
+5nTUTF5(?693
+
+Параметры безопасности SSL/TLS
+(Рекомендуется)
+Имя пользователя:	info@perevozki.gf-club.net
+Пароль:	Воспользуйтесь паролем к учетной записи электронной почты.
+Сервер входящей почты:	vh11.uh.freedom.by
+Порт IMAP: 993
+Порт POP3: 995
+Сервер исходящей почты:	vh11.uh.freedom.by
+Порт SMTP: 465
+Для протоколов IMAP, POP3 и SMTP требуется проверка подлинности.

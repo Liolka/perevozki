@@ -241,7 +241,28 @@ return array(
 					'depends' => array('jquery'),
 				),
             ),
-        ),	
+        ),
+		
+		'dpsMailer' => array(
+				'class' => 'ext.dpsmailer.components.dpsMailer',
+				'sViewPath' => './protected/views/email', // путь к шаблонам
+				'aFrom' => array( 'suport@skorohod.by' => 'Администрация' ), // от кого будут отправляться письма по умолчанию
+				'aBehaviors' => array(
+					'swift' => array(
+						'class' => 'ext.dpsmailer.behaviors.dpsSwiftMailerBehavior',
+						'sLibPath'=> './protected/extensions/swiftmailer/lib', // путь к папке, c библиотекой swift http://swiftmailer.org/
+						'sTransport' => 'Swift_SmtpTransport',
+						'aOptions' => array(// настройки swift
+							'Host'            => 'mail.skorohod.by',
+							'Port'            => 465,
+							'Encryption'        => 'ssl',
+							'Username'        => 'suport@skorohod.by',
+							'Password'        => 'fJqjKJ5B',
+						),
+					),
+				),
+		),		
+		
 	),
 
 	'behaviors'=>array(

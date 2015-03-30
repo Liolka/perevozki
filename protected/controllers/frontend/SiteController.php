@@ -70,6 +70,18 @@ class SiteController extends Controller
 	 */
 	public function actionContact()
 	{
+		//echo'<pre>';print_r(Yii::app()->dpsMailer);echo'</pre>';die;
+		
+		Yii::app()->dpsMailer->sendByView(
+			array( 'aldegtyarev@yandex.ru' => 'получатель' ), // определяем кому отправляется письмо
+			'emailTpl', // view шаблона письма
+			array(
+				'sUsername' => 'Участник',
+				//'sLogoPicPath' => '/path/to/logo.gif',
+				//'sFilePath' => '/path/to/attachment.txt',
+			)
+		);
+
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{
@@ -87,6 +99,9 @@ class SiteController extends Controller
 				$this->refresh();
 			}
 		}
+		
+ 		
+		
 		$this->render('contact',array('model'=>$model));
 	}
 	/**
