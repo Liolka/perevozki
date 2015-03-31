@@ -2,15 +2,16 @@
 
 class MyDocuments extends CFormModel
 {
+	public $file;
 	public $file1;
 	public $file2;
-	public $file3;
-	public $file4;
+//	public $file3;
+//	public $file4;
 
 	public function rules()
 	{
 		return array(
-			array('file1', 'file', 'types'=>'ZIP,RAR,DOC,DOCX', 'minSize' => 1024,'maxSize' => 1048576, 'wrongType'=>'Не формат. Только {extensions}', 'tooLarge' => 'Допустимый вес 1Мб'),
+			array('file', 'file', 'types'=>'ZIP,RAR,DOC,DOCX', 'minSize' => 1024,'maxSize' => 1048576, 'wrongType'=>'Не формат. Только {extensions}', 'tooLarge' => 'Допустимый вес 1Мб'),
 		);
 	}
 
@@ -18,6 +19,7 @@ class MyDocuments extends CFormModel
 	{
 		return array(
 			'file1'=>'Пример договора',
+			'file2'=>'Свидетельство о постановке на налоговый учет (ИНН)',
 		);
 	}
 

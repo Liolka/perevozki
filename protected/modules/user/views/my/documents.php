@@ -29,6 +29,85 @@ $this->breadcrumbs=array(
 //$user->file1 = '12312312312.zip';
 //$user->file1_checked = 1;
 
+function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '')
+{
+	$html = '';
+	$class = 'my-docs-files-item'.($user->$attr ? ' my-docs-files-item-ok' : '');
+	$html .= CHtml::openTag('li', array('class'=>$class));
+	if($user->$attr == '')	{
+		$html .= CHtml::openTag('div', array('class'=>'fileform'));
+		
+			$html .= CHtml::openTag('div', array('class'=>'selectbutton document-add'));
+			$html .= "Обзор";
+			$html .= CHtml::closeTag('div');
+		
+			$html .= $form->fileField($model, $attr, array('class'=>'document-file'));
+		$html .= CHtml::closeTag('div');
+		
+		$html .= CHtml::openTag('p', array('class'=>'info'));
+			$html .= $form->labelEx($model, $attr, array('class'=>''));		
+		$html .= CHtml::closeTag('p');
+		
+		if($popup != '')	{
+			$html .= CHtml::openTag('div', array('class'=>'popup-info'));
+				$html .= $popup;
+			$html .= CHtml::closeTag('div');
+		}
+	}	else	{
+		$html .= CHtml::openTag('div', array('class'=>'fileform'));
+			$class = 'selectbutton'.($user->$attr_checked ? ' document-ok' : ' document-not-checked');
+			$html .= CHtml::openTag('div', array('class'=>$class));
+				$html .= $user->$attr_checked ? 'Проверен' : 'Не проверен';
+			$html .= CHtml::closeTag('div');
+		$html .= CHtml::closeTag('div');
+		
+		$html .= CHtml::openTag('p', array('class'=>'info pos-rel', 'style'=>'z-index:1;'));
+			//$html .= CHtml::link($form->labelEx($model, $attr), array('/user/my/download', 'id'=>Yii::app()->user->id, 'attr'=>$attr), array('class'=>''));
+			$html .= CHtml::link($form->labelEx($model, $attr), Yii::app()->homeUrl.'files/users/'.$user->id.'/docs/'.$user->$attr, array('class'=>''));
+			//$html .= $form->labelEx($model, $attr);	
+		$html .= CHtml::closeTag('p');
+		
+		$html .= CHtml::openTag('div', array('class'=>'document-delete-wr'));
+			$html .= CHtml::link('Удалить х', array('/user/my/documentdelete', 'id'=>$attr), array('class'=>'document-delete-btn btn-red', 'onclick'=>"if(!confirm('Действительно удалить?')) return false;"));
+			/*
+			$html .= CHtml::openTag('button', array('class'=>'document-delete-btn btn-red'));
+				$html .= "Удалить х";
+			$html .= CHtml::closeTag('button');
+			*/
+		$html .= CHtml::closeTag('div');
+		
+	}
+	
+	$html .= CHtml::closeTag('li');
+	return $html;
+	
+	/*
+	<li class="my-docs-files-item <? if($user->file1 != '') echo 'my-docs-files-item-ok'; ?>">
+       <? if($user->file1 == '')	{	?>
+        <div class="fileform">
+            <div class="selectbutton document-add">Обзор</div>
+			<?php echo $form->fileField($model,'file1', array('class'=>'document-file')); ?>            
+        </div>
+		<p class="info"><?php echo $form->labelEx($model,'file1', array('class'=>'')); ?></p>
+		
+		<div class="popup-info">Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.</div>
+		<?	}	else	{	?>
+			<div class="fileform">
+				<div class="selectbutton <?=$user->file1_checked ? 'document-ok' : 'document-not-checked' ?>">Не проверен</div>
+
+			</div>
+			<p class="info"><?php echo $form->labelEx($model,'file1', array('class'=>'')); ?></p>
+			<div class="document-delete-wr">
+				<button class="document-delete-btn btn-red">Удалить х</button>
+			</div>
+			
+		
+		<?	}	?>
+	</li>
+	*/
+	
+}
+
 ?>
 
 
@@ -38,6 +117,7 @@ $this->breadcrumbs=array(
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'documents-form',
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 	// Please note: When you enable ajax validation, make sure the corresponding
 	// controller action is handling ajax validation correctly.
 	// There is a call to performAjaxValidation() commented in generated controller code.
@@ -67,12 +147,15 @@ $this->breadcrumbs=array(
 
 
 <ul class="my-docs-files-list">
+	<?  echo document_item('file1', 'file1_checked', $model, $form, $user, 'Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.'); ?>
+	<?  echo document_item('file2', 'file2_checked', $model, $form, $user); ?>	
+	
+	<?/*
 	<li class="my-docs-files-item <? if($user->file1 != '') echo 'my-docs-files-item-ok'; ?>">
        <? if($user->file1 == '')	{	?>
         <div class="fileform">
             <div class="selectbutton document-add">Обзор</div>
 			<?php echo $form->fileField($model,'file1', array('class'=>'document-file')); ?>            
-            <? /*<input id="upload" type="file" name="upload" /> */?>
         </div>
 		<p class="info"><?php echo $form->labelEx($model,'file1', array('class'=>'')); ?></p>
 		
@@ -90,6 +173,7 @@ $this->breadcrumbs=array(
 		
 		<?	}	?>
 	</li>
+
 	
 	
 	<li class="my-docs-files-item">
@@ -131,6 +215,7 @@ $this->breadcrumbs=array(
 		<p class="info">Свидетельство о постановке на налоговый учет (ИНН)</p>
 		
 	</li>
+	*/?>	
 	
  </ul>
  

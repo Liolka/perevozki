@@ -71,7 +71,7 @@ class SiteController extends Controller
 	public function actionContact()
 	{
 		//echo'<pre>';print_r(Yii::app()->dpsMailer);echo'</pre>';die;
-		
+		/*
 		Yii::app()->dpsMailer->sendByView(
 			//array( 'aldegtyarev@yandex.ru' => 'получатель' ), // определяем кому отправляется письмо
 			array( 'aldegtyarev@yandex.ru'), // определяем кому отправляется письмо
@@ -82,7 +82,7 @@ class SiteController extends Controller
 				//'sFilePath' => '/path/to/attachment.txt',
 			)
 		);
-
+		*/
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{

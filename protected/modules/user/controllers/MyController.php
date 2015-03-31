@@ -132,9 +132,6 @@ class MyController extends Controller
 	
 	public function actionTransportdelete($id)
 	{
-		
-		//print_r($_POST);die;
-		
 		$this->app = Yii::app();
 		
 		$model = Transport::model()->findByPk($id);
@@ -161,7 +158,6 @@ class MyController extends Controller
 	
 	public function actionTransportupdate($id)
 	{
-		
 		$model = Transport::model()->findByPk($id);
 		if($model !== null) {
 			$this->app->session['transport_tmp_foto'] = $model->foto;
@@ -316,13 +312,46 @@ class MyController extends Controller
 		$model = new MyDocuments;
 		
 		$user = $this->loadUser();
-		//$user = User::model()->findByPk(Yii::app()->user->id);
-		//echo'<pre>';print_r($user,0);echo'</pre>';
-		if($user->file1)
-			$model->file1 = $user->file1;
 		
-		if($user->file2)
-			$model->file2 = $user->file2;
+		
+		//$user = User::model()->findByPk(Yii::app()->user->id);
+//		echo'<pre>';print_r($_POST,0);echo'</pre>';
+//		echo'<pre>';print_r($_FILES,0);echo'</pre>';
+//		die;
+		if(isset($_FILES['MyDocuments']))	{
+			foreach($_FILES['MyDocuments']['name'] as $attr=>$name)	{
+//				echo'<pre>';print_r($name,0);echo'</pre>';
+				if($name != '')	{
+					$model->file = CUploadedFile::getInstance($model, $attr);
+					if($model->validate())	{
+						$filename = md5(strtotime('now')).$this->getExtentionFromFileName($model->file->getName());
+						
+						//подготавливаем путь для сохранения файла
+						$file_path = Yii::getPathOfAlias('webroot').'/files/users/'.$this->app->user->id;
+						if(!file_exists($file_path)) mkdir($file_path, 0777, true);
+						$file_path .= '/docs';
+						if(!file_exists($file_path)) mkdir($file_path, 0777, true);
+						$file_path .= '/';
+						
+						$path = $file_path.$filename;
+						$model->file->saveAs($path);
+						$user->$attr = $filename;
+						$user->save(false);
+						
+						$this->app->user->setFlash('success', "Файл успешно загружен");
+						$this->redirect(array("documents"));
+					}
+				}
+			}
+			
+		}	else	{
+			if($user->file1)
+				$model->file1 = $user->file1;
+
+			if($user->file2)
+				$model->file2 = $user->file2;
+			
+		}
 		
 		
 				
@@ -331,6 +360,46 @@ class MyController extends Controller
 	    	'model'=>$model,
 	    ));
 	}
+	
+	//удаление документа
+	//в id передается имя атрибута, в котором франится файл.
+	public function actionDocumentdelete($id)
+	{
+		$this->app = Yii::app();
+		//echo'<pre>';print_r($id,0);echo'</pre>';
+		$user = $this->loadUser();
+		if($id)	{
+			$checked_attr = $id.'_checked';
+			$file_path = Yii::getPathOfAlias('webroot').'/files/users/'.$this->app->user->id.'/docs/'.$user->$id;
+			if(file_exists($file_path)) unlink($file_path);
+			$user->$id = '';
+			$user->$checked_attr = 0;
+			$user->save(false);
+			$this->app->user->setFlash('success', "Файл успешно удален");
+		}
+		$this->redirect(array("documents"));
+	}
+	
+	/*
+	public function actionDownload($id)
+	{
+		$user = User::model()->findByPk($id);
+		$attr = $_GET['attr'];
+		//echo'<pre>';print_r($user,0);echo'</pre>';
+		if($user->$attr != '')	{
+			$file_path = Yii::getPathOfAlias('webroot').'/files/users/'.$id.'/docs/'.$user->$attr;
+			echo'<pre>';print_r($file_path,0);echo'</pre>';
+			
+//			header("Content-Type: application/force-download");
+//			header("Content-Type: application/octet-stream");
+//			header("Content-Type: application/download");
+//			header("Content-Disposition: attachment; filename=" . $user->$attr);
+//			header("Content-Transfer-Encoding: binary ");  
+//
+//			readfile($file_path);			
+		}
+	}
+	*/
 
 	public function actionInfo()
 	{
@@ -490,4 +559,13 @@ class MyController extends Controller
 		}
 		return $this->_model;
 	}
+	
+	//получение расширения имени файла
+	public function getExtentionFromFileName($filename)
+	{
+		//разбиваем имя загружаемого файла на части чтобы получить его расширение
+		$file_name_arr = explode('.', strtolower($filename));
+		return '.'.$file_name_arr[(count($file_name_arr)-1)];
+	}
+	
 }
