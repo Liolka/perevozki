@@ -4,13 +4,15 @@ $this->breadcrumbs=array(
 	'Информация о компании, контакты',
 );
 
+$this->pageTitle = "Информация о компании, контакты";
+
 ?>
  
 
 <h1>Информация о компании, контакты</h1>
-<div class="my-contact-info-container">
-	<div class="my-contact-info-container-wr">
-		<p class="my-contact-info-header">Контактная информация</p>
+<div class="my-contact-info-container blue-border-1 pos-rel">
+	<div class="my-contact-info-container-wr p-20">
+		<p class="narrow-bold-18 mb-25">Контактная информация</p>
 		<ul class="my-contact-info-list">
 			<li>
 				<? if($user_company->phone1 != '')	{	?>
@@ -35,13 +37,13 @@ $this->breadcrumbs=array(
 			<li><p class="skype"><?=$user_company->skype?></p></li>
 			<li><p class="website"><?=$user_company->site?></p></li>
 		</ul>
-		<a href="<?=$this->createUrl('/user/my/infoedit')?>" class="btn-blue-33 btn-w250">Редактировать</a>
+		<a href="<?=$this->createUrl('/user/my/infoedit')?>" class="btn-blue-33 btn-w250 pos-abs">Редактировать</a>
 	</div>
-	<div class="my-contact-info-company">
-		<div class="my-contact-info-container-wr">
-			<p class="my-contact-info-header">Контактная информация</p>
-			<div class="my-contact-info-company-container clearfix">
-				<ul class="my-contact-info-company-list">
+	<div class="my-contact-info-company bg_f4fbfe">
+		<div class="my-contact-info-container-wr p-20">
+			<p class="narrow-bold-18 mb-25">Информация о компании</p>
+			<div class="my-contact-info-company-container row mb-35">
+				<ul class="my-contact-info-company-list col-lg-5 col-md-5">
 					<li>
 						<p>Тип компании:</p>
 						<p><?=$user_company->type ? '<span>'.$user_company->type.'</span>' : 'Не указано' ?></p>
@@ -60,7 +62,7 @@ $this->breadcrumbs=array(
 					</li>
 				</ul>
 
-				<ul class="my-contact-info-company-list">
+				<ul class="my-contact-info-company-list col-lg-7 col-md-7">
 					<li>
 						<p></p>
 						<p></p>
@@ -81,7 +83,7 @@ $this->breadcrumbs=array(
 			</div>
 			
 			<? if($user_company->description != '')	{	?>
-				<p class="my-contact-info-header">Дополнительно</p>
+				<p class="narrow-bold-18 mb-25">Дополнительно</p>
 				<p class="my-contact-info-descr"><?=$user_company->description?></p>
 			<?	}	?>
 

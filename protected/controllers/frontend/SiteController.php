@@ -73,7 +73,8 @@ class SiteController extends Controller
 		//echo'<pre>';print_r(Yii::app()->dpsMailer);echo'</pre>';die;
 		
 		Yii::app()->dpsMailer->sendByView(
-			array( 'aldegtyarev@yandex.ru' => 'получатель' ), // определяем кому отправляется письмо
+			//array( 'aldegtyarev@yandex.ru' => 'получатель' ), // определяем кому отправляется письмо
+			array( 'aldegtyarev@yandex.ru'), // определяем кому отправляется письмо
 			'emailTpl', // view шаблона письма
 			array(
 				'sUsername' => 'Участник',

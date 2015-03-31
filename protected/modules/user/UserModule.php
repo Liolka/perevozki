@@ -221,11 +221,31 @@ class UserModule extends CWebModule
 	 * Send mail method
 	 */
 	public static function sendMail($email,$subject,$message) {
+	    $message = wordwrap($message, 70);
+	    $message = str_replace("\n.", "\n..", $message);
+		
+		
+		Yii::app()->dpsMailer->sendByView(
+			//array( $email => 'получатель' ), // определяем кому отправляется письмо
+			array($email), // определяем кому отправляется письмо
+			//'emailTpl', // view шаблона письма
+			'emailTplModuleUser', // view шаблона письма
+			array(
+				'message' => $message,
+				'subject' => $subject,
+				
+				//'sLogoPicPath' => '/path/to/logo.gif',
+				//'sFilePath' => '/path/to/attachment.txt',
+			)
+		);
+		
+		/*
     	$adminEmail = Yii::app()->params['adminEmail'];
 	    $headers = "MIME-Version: 1.0\r\nFrom: $adminEmail\r\nReply-To: $adminEmail\r\nContent-Type: text/html; charset=utf-8";
 	    $message = wordwrap($message, 70);
 	    $message = str_replace("\n.", "\n..", $message);
 	    return mail($email,'=?UTF-8?B?'.base64_encode($subject).'?=',$message,$headers);
+		*/
 	}
 	
 	/**

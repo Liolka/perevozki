@@ -71,7 +71,8 @@ class User extends CActiveRecord
             array('create_at', 'default', 'value' => date('Y-m-d H:i:s'), 'setOnEmpty' => true, 'on' => 'insert'),
             array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
 			array('username, email, superuser, status', 'required'),
-			array('superuser, status, reviews_count', 'numerical', 'integerOnly'=>true),
+			array('superuser, status, reviews_count, file1_checked, file2_checked', 'numerical', 'integerOnly'=>true),
+			array('file1, file2', 'length', 'max'=>64),
 			array('rating', 'numerical'),
 			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, user_type, user_status', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
@@ -129,6 +130,10 @@ class User extends CActiveRecord
 			'current_password' => 'Текущий пароль',
 			'new_password' => 'Новый пароль',
 			'new_password_repeat' => 'Повторите новый пароль',
+			'file1' => 'Пример договора',
+			'file2' => 'Свидетельство о постановке на налоговый учет (ИНН)',
+			'file1_checked' => 'Проверен',
+			'file2_checked' => 'Проверен',
 		);
 	}
 	
@@ -148,7 +153,7 @@ class User extends CActiveRecord
                 'condition'=>'superuser=1',
             ),
             'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, user_type, user_status',
+            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, user_type, user_status, file1, file1_checked, file2, file2_checked',
             ),
         );
     }
@@ -157,7 +162,7 @@ class User extends CActiveRecord
     {
         return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
             'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.user_type, user.user_status',
+            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.user_type, user.user_status, user.file1, user.file1_checked, user.file2, user.file2_checked',
         ));
     }
 	

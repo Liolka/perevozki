@@ -245,26 +245,18 @@
 	
 	
 	
-	
-	.my-contact-info-company-container {
-		ul {
-			margin: 0 0 36px 0;
-		}
-	}
-	
+		
 	.my-contact-info-company-list {
 		
-		&:last-of-type {
-			padding-right: 0;
-		}
 		
 		p {
 			border-bottom: none;
+			line-height: inherit;
 		}
 		
-		input[type="text"] {
-			widows: 198px;
-		}
+//		input[type="text"] {
+//			width: 198px;
+//		}
 		
 		.wide {
 			width: 515px;

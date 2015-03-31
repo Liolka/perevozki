@@ -147,7 +147,6 @@ $(document).ready(function () {
 		
 	});
     
-    //$('#step2Container').on('change', '.step2-category-item-checkbox', function () {
     $('#Bids_have_account').change(function () {
 		console.log($(this).is(':checked'));
 		

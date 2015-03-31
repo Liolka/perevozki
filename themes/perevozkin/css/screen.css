@@ -1044,7 +1044,7 @@ textarea, .btn-red-33,
   font-size: 17px;
 }
 
-.breadcrumbs, .narrow-regular-18, .radnom-reviews .header a, .my-contact-info-header, .my-contact-info-list p, .step1-category-item .span-wr1, .step-subheader, .kak-rabotaet-sait-tbl .bold, .footer .questions, .footer .questions .title {
+.breadcrumbs, .narrow-regular-18, .narrow-bold-18, .radnom-reviews .header a, .my-contact-info-list p, .step1-category-item .span-wr1, .step-subheader, .kak-rabotaet-sait-tbl .bold, .footer .questions, .footer .questions .title {
   font-size: 18px;
 }
 
@@ -1188,7 +1188,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 
 .fLeft, .sideLeft, .sideRight, .column2l, .column2r, #RegistrationForm_user_status input,
 #RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .my-rating-info > div, .change-email-block,
-.change-password-block, .my-top-menu-item, .my-contact-info-company-list, .my-docs-files-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .deal-set-transport, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
+.change-password-block, .my-top-menu-item, .my-docs-files-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .deal-set-transport, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
   float: left;
 }
 
@@ -1239,14 +1239,14 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
   display: none;
 }
 
-.rating-stars, .bids-sorting-block-list .active, .pos-rel, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .my-rating-stars, .my-rating-container .my-rating, .my-contact-info-container, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
+.rating-stars, .bids-sorting-block-list .active, .pos-rel, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .my-rating-stars, .my-rating-container .my-rating, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
 .bids-filter-dates .dates, .bid-detail-price, .bid-detail-deals-col6, .deal-transport-item, .kak-rabotaet-sait-tbl .row1 .cell4, .kak-rabotaet-sait-tbl .row2 td, .kak-rabotaet-sait-tbl .row3 td, .kak-rabotaet-sait-tbl .row4 td {
   position: relative;
 }
 
 .rating-stars .stars-empty, .rating-stars .stars-full-blue,
 .rating-stars .stars-full-green,
-.rating-stars .stars-full, .bids-sorting-block-list .active:before, .pos-abs, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-contact-info-container .btn-w250, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
+.rating-stars .stars-full, .bids-sorting-block-list .active:before, .pos-abs, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
 .delete-loading-unloading-block, .calendar-icon, .bids-filter-categories-uncheck, .reject-deal-btn, .bid-detail-deals-profile-link:after, .bid-detail-deals-col6 .accept-deal-btn, .show-deals-comments, .deal-transport-item .name, .deal-porters-checkbox, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .kak-rabotaet-sait-tbl .row2 .cell1 p, .kak-rabotaet-sait-tbl .row2 .p1,
 .kak-rabotaet-sait-tbl .row2 .p2, .kak-rabotaet-sait-tbl .row3 .bold, .kak-rabotaet-sait-tbl .row4 .p1,
 .kak-rabotaet-sait-tbl .row4 .p2, .kak-rabotaet-sait-tbl .row4 .cell1 p, .created-by a {
@@ -1325,7 +1325,7 @@ h1, .narrow_bold_24, .map-block .info span, .modal-title, .select-user-type-lbl,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66, .narrow-bold-23, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .my-contact-info-header, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
+.btn-green-66, .narrow-bold-18, .narrow-bold-23, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
@@ -1913,8 +1913,16 @@ button.close:hover {
   margin-bottom: 20px;
 }
 
+.mb-25 {
+  margin-bottom: 25px;
+}
+
 .mb-30 {
   margin-bottom: 30px;
+}
+
+.mb-35 {
+  margin-bottom: 35px;
 }
 
 .mb-40 {
@@ -1979,6 +1987,14 @@ button.close:hover {
 
 .pb-10 {
   padding-bottom: 10px;
+}
+
+.pb-15 {
+  padding-bottom: 15px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
 }
 
 .pl-30 {
@@ -2557,17 +2573,9 @@ button.close:hover {
 .my-contact-info-company-edit .contacts .website:before {
   top: -1px;
 }
-.my-contact-info-company-edit .my-contact-info-company-container ul {
-  margin: 0 0 36px 0;
-}
-.my-contact-info-company-edit .my-contact-info-company-list:last-of-type {
-  padding-right: 0;
-}
 .my-contact-info-company-edit .my-contact-info-company-list p {
   border-bottom: none;
-}
-.my-contact-info-company-edit .my-contact-info-company-list input[type="text"] {
-  widows: 198px;
+  line-height: inherit;
 }
 .my-contact-info-company-edit .my-contact-info-company-list .wide {
   width: 515px;
@@ -2691,16 +2699,9 @@ button.close:hover {
   margin-top: 14px;
 }
 
-.my-contact-info-container {
-  border: 1px solid #b2daeb;
-}
 .my-contact-info-container .btn-w250 {
   top: 20px;
   right: 20px;
-}
-
-.my-contact-info-header {
-  margin: 0 0 25px 0;
 }
 
 .my-contact-info-list {
@@ -2723,22 +2724,6 @@ button.close:hover {
   top: 3px;
 }
 
-.my-contact-info-container-wr {
-  padding: 20px;
-}
-
-.my-contact-info-company {
-  background-color: #f4fbfe;
-}
-
-.my-contact-info-company-container {
-  margin: 0 0 35px 0;
-}
-
-.my-contact-info-company-list {
-  min-width: 410px;
-  padding: 0 20px 0 0;
-}
 .my-contact-info-company-list li {
   min-width: 410px;
   height: 32px;

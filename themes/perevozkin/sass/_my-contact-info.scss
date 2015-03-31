@@ -1,21 +1,14 @@
 .my-contact-info-container {
-	border: 1px solid #b2daeb;
+//	border: 1px solid #b2daeb;
 	
-	@extend %pos_rel;
+//	@extend %pos_rel;
 	
 	.btn-w250 {
 		top: 20px;
 		right: 20px;
 		
-		@extend %pos_abs;
+//		@extend %pos_abs;
 	}
-}
-
-.my-contact-info-header {
-	margin: 0 0 25px 0;
-	
-	@extend %font_18;
-	@extend %pt_sans_narrow_bold;
 }
 
 .my-contact-info-list {
@@ -63,23 +56,19 @@
 }
 
 
-.my-contact-info-container-wr {
-	padding: 20px;
-}
+//.my-contact-info-container-wr {
+//	padding: 20px;
+//}
+//
+//.my-contact-info-company {
+//	background-color: #f4fbfe;
+//}
 
-.my-contact-info-company {
-	background-color: #f4fbfe;
-}
-
-.my-contact-info-company-container {
-	margin: 0 0 35px 0;
-}
+//.my-contact-info-company-container {
+////	margin: 0 0 35px 0;
+//}
 
 .my-contact-info-company-list {
-	min-width: 410px;
-	padding: 0 20px 0 0;
-	
-	@extend %fl;
 	
 	li {
 		min-width: 410px;

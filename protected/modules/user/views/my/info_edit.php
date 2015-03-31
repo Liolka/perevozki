@@ -4,11 +4,13 @@ $this->breadcrumbs=array(
 	'Редактировать Информация о компании, контакты',
 );
 
+$this->pageTitle = "Редактировать Информация о компании, контакты";
+
 ?>
 
 <h1>Информация о компании, контакты</h1>
 
-<div class="my-contact-info-company my-contact-info-company-edit">
+<div class="my-contact-info-company-edit bg_f4fbfe blue-border-1">
 	<?php $form=$this->beginWidget('CActiveForm', array(
 		'id'=>'info-company-form',
 		// Please note: When you enable ajax validation, make sure the corresponding
@@ -40,10 +42,9 @@ $this->breadcrumbs=array(
 
 
 	<div class="my-contact-info-container-wr">
-		<div class="my-contact-info-company-container clearfix">
-			<p class="my-contact-info-header">Контактная информация</p>
-			<div class="row">
-				<ul class="phones">
+		<div class="my-contact-info-company-container p-20 mb-35 clearfix">
+			<p class="narrow-bold-18 mb-25">Контактная информация</p>
+				<ul class="phones mb-20">
 					<li class="field-title">Телефонные номера:</li>
 					<li>
 						<?php echo $form->labelEx($user_company,'phone1', array('class'=>'c_2e3c54')); ?>
@@ -66,8 +67,6 @@ $this->breadcrumbs=array(
 						<?php echo $form->error($user_company,'phone4'); ?>
 					</li>
 				</ul>
-			</div>
-			<div class="row">
 				<ul class="contacts">
 					<li class="email">
 						<?php echo $form->labelEx($user_company,'email', array('class'=>'field-title c_2e3c54')); ?>
@@ -85,13 +84,13 @@ $this->breadcrumbs=array(
 						<?php echo $form->error($user_company,'site'); ?>
 					</li>
 				</ul>
-			</div>
 		</div>
 		
-		<div class="my-contact-info-company-container clearfix">
-			<p class="my-contact-info-header">Информация о компании</p>
-			<div class="my-contact-info-company-container clearfix">
-				<ul class="my-contact-info-company-list">
+		<div class="my-contact-info-company-container p-20 mb-35 clearfix">
+			<p class="narrow-bold-18 mb-25">Информация о компании</p>
+			<div class="row">
+
+				<ul class="my-contact-info-company-list col-lg-5 col-md-5">
 					<li>
 						<p><?php echo $form->labelEx($user_company,'type', array('class'=>'field-title c_2e3c54')); ?></p>
 						<p>
@@ -122,7 +121,7 @@ $this->breadcrumbs=array(
 					</li>
 				</ul>
 
-				<ul class="my-contact-info-company-list">
+				<ul class="my-contact-info-company-list col-lg-7 col-md-7">
 					<li>
 						<p><?php echo $form->labelEx($user_company,'main_office', array('class'=>'field-title c_2e3c54')); ?></p>
 						<p>
@@ -149,19 +148,17 @@ $this->breadcrumbs=array(
 			</div>
 		</div>
 		
-		<div class="my-contact-info-company-container clearfix">
-			<p class="my-contact-info-header"><?php echo $form->labelEx($user_company,'description', array('class'=>'field-title c_2e3c54')); ?></p>
+		<div class="my-contact-info-company-container p-20 clearfix">
+			<p class="narrow-bold-18 mb-25"><?php echo $form->labelEx($user_company,'description', array('class'=>'field-title c_2e3c54')); ?></p>
 			<div class="my-contact-info-company-container clearfix">
 				<?php echo $form->textArea($user_company,'description',array('rows'=>6, 'cols'=>50, 'class'=>'width100')); ?>
 			</div>
 		</div>
 		
-		<?php echo CHtml::submitButton('Сохранить', array('class'=>'btn-blue-33', 'name'=>'save')); ?>
-		<?php echo CHtml::submitButton('Отменить', array('class'=>'btn-green-33', 'name'=>'cancel')); ?>
-		<?/*
-		<a href="<?=$this->createUrl('/site/index')?>" class="btn-blue-33">Сохранить</a>
-		<a href="<?=$this->createUrl('/user/my/info')?>" class="btn-green-33">Отменить</a>
-		*/?>
+		<div class="p-20">
+			<?php echo CHtml::submitButton('Сохранить', array('class'=>'btn-blue-33', 'name'=>'save')); ?>
+			<?php echo CHtml::submitButton('Отменить', array('class'=>'btn-green-33', 'name'=>'cancel')); ?>
+		</div>
 	</div>
 	
 <?php $this->endWidget(); ?>

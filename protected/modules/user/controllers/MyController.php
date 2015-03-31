@@ -311,14 +311,24 @@ class MyController extends Controller
 
 	public function actionDocuments()
 	{
-		$model = $this->loadUser();
+		$this->app = Yii::app();
 		
-		$app = Yii::app();
+		$model = new MyDocuments;
+		
+		$user = $this->loadUser();
+		//$user = User::model()->findByPk(Yii::app()->user->id);
+		//echo'<pre>';print_r($user,0);echo'</pre>';
+		if($user->file1)
+			$model->file1 = $user->file1;
+		
+		if($user->file2)
+			$model->file2 = $user->file2;
+		
+		
 				
 	    $this->render('documents', array(
-	    	'app'=>$app,
+	    	'user'=>$user,
 	    	'model'=>$model,
-			'profile'=>$model->profile,
 	    ));
 	}
 
@@ -332,11 +342,7 @@ class MyController extends Controller
 			$user_company = new UsersCompanies();
 		}
 		
-		
-		
-				
 	    $this->render('info', array(
-	    
 	    	'user'=>$user,
 	    	'user_company'=>$user_company,
 		

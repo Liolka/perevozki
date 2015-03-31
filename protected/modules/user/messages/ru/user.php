@@ -14,7 +14,7 @@ return array(
 	"This user's name already exists." => 'Пользователь с таким именем уже существует.',
 	"This user's email address already exists." => 'Пользователь с таким электронным адресом уже существует.',
 	'You registered from {site_name}' => 'Вы зарегистрировались на сайте {site_name}',
-	'Please activate you account go to {activation_url}' => 'Для активации аккаунта пожалуйста перейдите по следующей ссылке {activation_url}',
+	'Please activate you account go to {activation_url}' => 'Для активации аккаунта пожалуйста перейдите по следующей ссылке:<br /> <a href="{activation_url}">{activation_url}</a>',
 	'You account is not activated.' => 'Ваш аккаунт не активирован.',
 	'You account is blocked.' => 'Ваш аккаунт заблокирован.',
 	'Password is incorrect.' => 'Неверный пароль.',
@@ -129,5 +129,7 @@ return array(
 	'Search' => 'Искать',
 	'Advanced Search' => 'Расширенный поиск',
 	'You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.'=>'Вы можете использовать операторы сравнения (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b> or <b>=</b>) установив их перед значением.',
+	'You have requested the password recovery site {site_name}. To receive a new password, go to {activation_url}.' => 'Вы запросили восстановление пароля на сайте {site_name}.<br> Для получения нового пароля, перейдите по ссылке<br> <a href="{activation_url}">{activation_url}</a>.',
+	'You have requested the password recovery site {site_name}' => 'Запрос восстановления пароля на сайте {site_name}',
 );
 
