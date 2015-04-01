@@ -46,10 +46,50 @@ class ViewController extends Controller
 	 */
 	public function actionIndex()
 	{
+		$this->app = Yii::app();
 		$model = $this->loadModel();
-		$this->render('view',array(
-			'model'=>$model,
-		));
+		//echo'<pre>';print_r($model,0);echo'</pre>';
+		
+		$data = array(
+			'model'=>$model,			
+		);
+		switch($model->user_type) {
+			case 2:
+				//$model = new Transport;
+
+				$criteria = new CDbCriteria;
+
+				$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+
+				$criteria->order = 'transport_id DESC';		
+
+				$dataProvider = new CActiveDataProvider('Transport', array(
+					'criteria'=>$criteria,
+					'pagination'=>array(
+						'pageSize'=>50,
+						'pageVar' =>'page',
+					),
+				));
+			
+			
+				$data['user_company'] = $model->company;
+				$data['show_edit_btn'] = false;
+				$data['dataProvider'] = $dataProvider;
+			
+				$tmpl = 'view_type2';
+			
+			
+				break;
+			default:
+			case 1:
+				$tmpl = 'view_type1';
+				break;
+			
+		}
+		$this->render($tmpl, $data );
+//		$this->render('view',array(
+//			'model'=>$model,
+//		));
 	}
 
 	/**

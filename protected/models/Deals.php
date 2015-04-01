@@ -169,4 +169,22 @@ class Deals extends CActiveRecord
 		
 		return $result;
 	}
+	
+	//проверяет присутствие транспорта в предложении
+	public function checkTransportInDeals(&$connection, $transport_id)
+	{
+		$sql = "SELECT `id` FROM ".$this->tableName()." WHERE `transport_id` = :transport_id";
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":transport_id", $transport_id, PDO::PARAM_INT);
+		$rows = $command->queryAll();
+		if(count($rows) > 0) {
+			$result = false;
+		}	else	{
+			$result = true;
+		}
+		
+		//echo'<pre>';var_dump($rows);echo'</pre>';die;
+		return $result;
+	}
 }

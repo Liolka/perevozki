@@ -133,24 +133,32 @@ class MyController extends Controller
 	public function actionTransportdelete($id)
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
 		
 		$model = Transport::model()->findByPk($id);
 		
 		if($model === null) {
 			throw new CHttpException(404,'The requested page does not exist.');
 		}	else	{
-			$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
-			
-			if (file_exists($upload_path . 'full_'.$model->foto)) {
-				unlink($upload_path . 'full_'.$model->foto);
+			//$check = ;
+			if(Deals::model()->checkTransportInDeals($connection, $id))	{
+				//$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
+				$upload_path = Yii::getPathOfAlias('webroot').'/files/users/'.$this->app->user->id.'/transport/';
+
+				if (file_exists($upload_path . 'full_'.$model->foto)) {
+					unlink($upload_path . 'full_'.$model->foto);
+				}
+
+				if (file_exists($upload_path . 'thumb_'.$model->foto)) {
+					unlink($upload_path . 'thumb_'.$model->foto);
+				}
+
+				$model->delete();
+				$this->app->user->setFlash('success', "Удалено");
+				
+			}	else	{
+				$this->app->user->setFlash('error', "Данная единица транспорта присутствует в предложениях. В удалении отказано.");
 			}
-			
-			if (file_exists($upload_path . 'thumb_'.$model->foto)) {
-				unlink($upload_path . 'thumb_'.$model->foto);
-			}
-			
-			$model->delete();
-			$this->app->user->setFlash('success', "Удалено");
 		}
 
 		$this->redirect(array('/user/my/transport'));
@@ -200,7 +208,14 @@ class MyController extends Controller
 		$file_strip = str_replace(" ","_",$filename); //Strip out spaces in filename
 		//$upload_path = '/path/to/uploads/'; //Set upload path
 		//$upload_path = '/home/gfclubne/public_html/perevozki/images/transport/'; //Set upload path
-		$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
+		//$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
+		
+		$upload_path = Yii::getPathOfAlias('webroot').'/files/users/'.$this->app->user->id;
+		if(!file_exists($upload_path)) mkdir($upload_path, 0777, true);
+		$upload_path .= '/transport';
+		if(!file_exists($upload_path)) mkdir($upload_path, 0777, true);
+		$upload_path .= '/';
+		
 		
 		$json_arr = array();
 
@@ -261,10 +276,12 @@ class MyController extends Controller
 				$Image->save($upload_path . DIRECTORY_SEPARATOR . 'thumb_'.$filename_.$ext);
 
 				$this->app->session['transport_tmp_foto'] = $filename_.$ext;
-
+				
+				$transport_imageLive = $this->app->homeUrl.'files/users/'.$this->app->user->id.'/transport/';
 
 				$json_arr['res'] = 'ok';
-				$json_arr['msg'] = $this->app->params->transport_imageLive.'thumb_'.$filename_.$ext;
+				//$json_arr['msg'] = $this->app->params->transport_imageLive.'thumb_'.$filename_.$ext;
+				$json_arr['msg'] = $transport_imageLive.'thumb_'.$filename_.$ext;
 				$json_arr['foto'] = $filename_.$ext;
 				//echo '<div class="success">'. $file_strip .' uploaded successfully</div>'; // It worked.
 			} else {
@@ -414,6 +431,7 @@ class MyController extends Controller
 	    $this->render('info', array(
 	    	'user'=>$user,
 	    	'user_company'=>$user_company,
+	    	'show_edit_btn'=>true,
 		
 	    ));
 	}

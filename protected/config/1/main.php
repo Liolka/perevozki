@@ -149,6 +149,15 @@ return array(
 				*/
 			),
 		),
+		
+		'image' => array (
+			'class'=>'application.extensions.image.CImageComponent',
+			// GD or ImageMagick
+			'driver'=>'GD',
+			// ImageMagick setup path
+			'params'=>array('directory'=>'/opt/local/bin'),
+		),
+		
 
 	
 		'clientScript'=>array(
@@ -231,6 +240,17 @@ return array(
 						'js/jquery.ajax.upload.js',
 					),
 					'depends' => array('jquery'),
+				),
+				
+				'flexcroll' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/flexcroll.js',
+					),
+					'css' => array(
+						'css/flexcrollstyles.css',
+						'css/tutorsty.css',
+					),
 				),
 				
 				

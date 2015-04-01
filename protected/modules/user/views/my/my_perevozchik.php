@@ -105,38 +105,6 @@ $this->menu=array(
 	</div>
 	
 	<div class="sidebar sideRight">
-		<div class="my-rating-container">
-			<div class="my-rating">
-				Рейтинг
-				<div class="my-rating-stars"><span class="my-rating-stars-empty"></span><span class="my-rating-stars-full" style="width:78%;"></span></div>
-			</div>
-			<div class="my-rating-info clearfix">
-				<div class="my-rating-info-block1">Уровень надежнсти <span>91%</span></div>
-				<div class="my-rating-info-block2">Реализовано перевозок <span>768</span></div>
-			</div>
-			<div class="my-rating-age"><span>2 года 4 месяца 13 дней</span> на сайте</div>
-		</div>
-		
-		
-		<div class="my-rewiews">
-			<p class="my-rewiews-head">Отзывы заказчиков</p>
-			<table class="my-rewiews-table">
-				<tr>
-					<td class="head">За месяц</td>
-					<td class="head">За полгода</td>
-					<td class="head">За все время</td>
-				</tr>
-				<tr>
-					<td class="good">31</td>
-					<td class="good">115</td>
-					<td class="good">10 601</td>
-				</tr>
-				<tr>
-					<td class="bad">2</td>
-					<td class="bad">6</td>
-					<td class="bad">40</td>
-				</tr>
-			</table>
-		</div>
+		<? include (dirname(dirname(__FILE__))."/common/perevozchik-rating-reviews.php")?>
 	</div>
 </div>
