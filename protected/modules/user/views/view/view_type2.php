@@ -148,40 +148,13 @@ $cs->registerScript('loading', "
 		<li class="col2 fLeft c_757575 font-12">Информация о грузе</li>
 		<li class="col3 fLeft c_757575 font-12 text_c">Дата</li>
 		<li class="col4 fLeft c_757575 font-12">Перевозчик</li>
-		<li class="col5 fLeft c_757575 font-12 text_c"><span class="db review-perevoz-ttl">Отзыв перевозчика</span></li>
+		<li class="col5 fLeft c_757575 font-12 text_c"><p class="review-perevoz-ttl pos-rel"><span class="bold c_2e3c54 otziv-lbl">Отзыв перевозчика<span class="notice bold c_fcb60e font-20 pos-abs db">*</span></span></p></li>
 		<li class="col6 fLeft c_757575 font-12">Заказчик</li>
 		<li class="col7 fLeft c_757575 font-12">Отзыв заказчика</li>
 	</ul>
-<?/*
-	<ul class="requests1-list-items">
-		<li class="blue-border-1 p-20 mb-10 bg_f4fbfe_h clearfix">
-			<div class="col1 fLeft font-12 text_c">9876544</div>
-			<div class="col2 fLeft font-12"><a href="/">Личные вещи, Коробки, Холодильник</a></div>
-			<div class="col3 fLeft font-13 text_c c_aab1ba">11.06.2015</div>
-			<div class="col4 fLeft font-12"><a href="#" class="profile-link">Вася Man</a></div>
-			<div class="col5 fLeft"> <div class="rating-stars"><span class="stars-empty"></span><span class="stars-full" style="width:78%;"></span></div> </div>
-			<div class="col6 fLeft font-12"><a href="#" class="profile-link">Иван Игнатенко</a></div>
-			<div class="col7 fLeft font-12 border-box requests1-list-item-review requests1-list-item-review-good"><span>Невероятные умницы и молодцы...</span></div>
-		</li>
-		<li class="blue-border-1 p-20 mb-10 bg_f4fbfe_h clearfix">
-			<div class="col1 fLeft font-12 text_c">9876544</div>
-			<div class="col2 fLeft font-12"><a href="/">Личные вещи, Коробки, Холодильник</a></div>
-			<div class="col3 fLeft font-13 text_c c_aab1ba">11.06.2015</div>
-			<div class="col4 fLeft font-12"><a href="#" class="profile-link">Вася Man</a></div>
-			<div class="col5 fLeft"> <div class="rating-stars"><span class="stars-empty"></span><span class="stars-full" style="width:78%;"></span></div> </div>
-			<div class="col6 fLeft font-12"><a href="#" class="profile-link">Иван Игнатенко</a></div>
-			<div class="col7 fLeft font-12 border-box requests1-list-item-review requests1-list-item-review-bad"><span>Невероятные умницы и молодцы...</span></div>
-		</li>
-		<li class="blue-border-1 p-20 mb-10 bg_f4fbfe_h clearfix">
-			<div class="col1 fLeft font-12 text_c">9876544</div>
-			<div class="col2 fLeft font-12"><a href="/">Личные вещи, Коробки, Холодильник</a></div>
-			<div class="col3 fLeft font-13 text_c c_aab1ba">11.06.2015</div>
-			<div class="col4 fLeft font-12"><a href="#" class="profile-link">Вася Man</a></div>
-			<div class="col5 fLeft"> <div class="rating-stars"><span class="stars-empty"></span><span class="stars-full" style="width:78%;"></span></div> </div>
-			<div class="col6 fLeft font-12"><a href="#" class="profile-link">Иван Игнатенко</a></div>
-			<div class="col7 fLeft font-12 border-box requests1-list-item-review requests1-list-item-review-good"><span>Невероятные умницы и молодцы...</span></div>
-		</li>
-	</ul>
-*/?>	
-	<?php $this->renderPartial('_reviews_list', array('dataProvider'=>$lastBidsUser)); ?>	
+	
+	<?php $this->renderPartial('_reviews_list', array('dataProvider'=>$lastBidsUser)); ?>
+	
+	<p class="blue-border-1 mt-20 p-20"><span class="notice bold c_fcb60e font-20">*</span> <span class="italic otziv-lbl">Отзыв перевозчика</span> - это оценка удовлетворенности от сотрудничества, выставленная перевозчиком грузовладельцу.</p>
+	
 </div>

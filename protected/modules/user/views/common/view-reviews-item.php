@@ -28,5 +28,5 @@
 		<span><?=$data->review_text?></span>
 	</div>
 <?	}	else	{	?>
-	<div class="col7 fLeft font-12 border-box requests1-list-item-review c_c3c8cd">Заказчик пока не оставил отзыв</div>
+	<div class="col7 fLeft font-12 border-box c_c3c8cd">Заказчик пока не оставил отзыв</div>
 <?	}	?>

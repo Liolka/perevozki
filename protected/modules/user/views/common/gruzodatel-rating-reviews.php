@@ -24,26 +24,22 @@ function getElapsedTime($datetime)
 	if(count($elapsed_time))	{
 		$res = implode(' ', $elapsed_time);
 	}	else	{
-		$res = '';
+		$res = "0".' '.Yii::t('app', 'день|дня|дней', 0);;
 	}
 	return $res;
 }
 ?>
 		
-<div class="rating-container rating-container-p">
-	<div class="rating mb-15 bold font-20 c_fff pos-rel">
-		Рейтинг
-		<div class="rating-stars-xl pos-abs rating-stars-p"><span class="rating-stars-empty"></span><span class="rating-stars-full" style="width:<?=$model->rating?>%;"></span></div>
+<div class="rating-container rating-container-g pos-rel">
+	<div class="rating">
+		<p class="mb-10"><span class="font-17  c_fff rating-ttl-g">Средняя оценка</span><span class="notice bold c_fcb60e font-20">*</span></p>
+		<div class="rating-stars-xl pos-rel"><span class="rating-stars-empty"></span><span class="rating-stars-full" style="width:<?=$model->rating?>%;"></span></div>
 	</div>
-	<div class="rating-info clearfix">
-		<? if($model->reliability != 0)	{	?>
-			<div class="rating-info-block1">Уровень надёжности <span><?=$model->reliability?>%</span></div>
-		<?	}	?>
-		
-		<? if($model->done_carriage != 0)	{	?>		
-			<div class="rating-info-block2">Реализовано перевозок <span><?=$model->done_carriage?></span></div>
-		<?	}	?>
+	<? if($model->done_carriage != 0)	{	?>	
+	<div class="rating-info rating-info-block2-g pos-abs c_fff text_c">
+			Завершено перевозок <span class="db pt-5 bold font-22"><?=$model->done_carriage?></span>
 	</div>
+	<?	}	?>
 	<? /* <div class="my-rating-age"><span>2 года 4 месяца 13 дней</span> на сайте</div> */?>
 	<div class="rating-age"><span><?=getElapsedTime($model->create_at)?></span> на сайте</div>
 </div>

@@ -1,6 +1,6 @@
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view_reviews',
+	'itemView'=>'_view_reviews_item',
 	'ajaxUpdate'=>false,
 	'template'=>"{items}",
 	'itemsCssClass' => 'blue-border-1 p-20 mb-10 bg_f4fbfe_h clearfix',

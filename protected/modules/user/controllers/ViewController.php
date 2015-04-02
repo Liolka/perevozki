@@ -53,20 +53,40 @@ class ViewController extends Controller
 		//echo'<pre>';print_r($model,0);echo'</pre>';
 		$user_id = $this->app->request->getParam('id', 0);
 		
+		$user_company = $model->company;
+		//echo'<pre>';var_dump($user_company,0);echo'</pre>';
+		if($user_company === null) {
+			
+			$user_company = new UsersCompanies;
+			/*
+			$user_company->phone1 = '';
+			$user_company->phone2 = '';
+			$user_company->phone3 = '';
+			$user_company->phone4 = '';
+			$user_company->email = '';
+			$user_company->skype = '';
+			$user_company->site = '';
+			$user_company->type = '';
+			$user_company->year = '';
+			$user_company->count_auto = '';
+			$user_company->count_staff = '';
+			$user_company->terminals = '';
+			*/
+		} 
+			
+		
+		//echo'<pre>';var_dump($user_company,0);echo'</pre>';
+		//die;
 		$data = array(
-			'model'=>$model,			
+			'model'=>$model,
+			'user_company'=>$user_company,
+			'show_edit_btn'=>false,
 		);
 		switch($model->user_type) {
 			case 2:
-				//$model = new Transport;
-
-			
-			
 				$dataProvider = $this->getTansportUser($user_id);
 				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model);
 			
-				$data['user_company'] = $model->company;
-				$data['show_edit_btn'] = false;
 				$data['dataProvider'] = $dataProvider;
 				$data['lastBidsUser'] = $lastBidsUser;
 			

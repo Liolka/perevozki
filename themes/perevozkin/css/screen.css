@@ -1073,6 +1073,10 @@ label.error, .errorSummary {
   color: #de5151;
 }
 
+.c_fcb60e {
+  color: #fcb60e;
+}
+
 .bid-detail-date-quickly-val {
   color: #ffa100;
 }
@@ -1116,7 +1120,7 @@ label.error, .errorSummary {
 .btn-green-66, .btn-blue-66:hover,
 .btn-green-66:hover, .btn-blue1,
 .btn-red, .btn-blue1:hover,
-.btn-red:hover, .c_fff, .statistic-block li, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .my-rating-container .my-rating, .my-rating-info > div, .my-rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .my-docs-files-item .popup-info, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2, .bids-filter .checkbox-lbl, .bids-filter .lbl-block, .bids-filter-block .dates-txt, .bids-filter-title, .deals-form-transport-list-item:focus, .deals-form-transport-list-item:hover, .deal-btn .ico:focus, .deal-btn .ico:hover, .kak-rabotaet-sait-tbl .row1 .cell4 .bold {
+.btn-red:hover, .c_fff, .statistic-block li, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .rating-info > div, .rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .my-docs-files-item .popup-info, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2, .bids-filter .checkbox-lbl, .bids-filter .lbl-block, .bids-filter-block .dates-txt, .bids-filter-title, .deals-form-transport-list-item:focus, .deals-form-transport-list-item:hover, .deal-btn .ico:focus, .deal-btn .ico:hover, .kak-rabotaet-sait-tbl .row1 .cell4 .bold {
   color: #fff;
 }
 
@@ -1139,11 +1143,11 @@ input[type="password"],
 textarea, .btn-red-33,
 .btn-grey-33,
 .btn-blue-33,
-.btn-green-33, .my-menu-url, .my-last-requests-title a, .my-rating-age, .my-rewiews-head, .my-rewiews-table .good, .my-rewiews-table .bad, .my-top-menu-item a, .my-contact-info-company-list p, .my-contact-info-descr, .step-container .step-title span, .bid-detail-date-quickly-val {
+.btn-green-33, .my-menu-url, .my-last-requests-title a, .rating-age, .my-rewiews-head, .my-rewiews-table .good, .my-rewiews-table .bad, .my-top-menu-item a, .my-contact-info-company-list p, .my-contact-info-descr, .step-container .step-title span, .bid-detail-date-quickly-val {
   font-size: 14px;
 }
 
-.narrow-regular-16, .bid-detail-date {
+.narrow-regular-16, .font-16, .bid-detail-date {
   font-size: 16px;
 }
 
@@ -1160,11 +1164,11 @@ h3, .add-transport p, .my-transport-name {
 }
 
 .btn-blue-52,
-.btn-green-52, .narrow-regular-20, .font-20, .stages-block .title, .my-rating-container .my-rating, .step-final-btn, .header-row2 .questions .title {
+.btn-green-52, .narrow-regular-20, .font-20, .stages-block .title, .step-final-btn, .header-row2 .questions .title {
   font-size: 20px;
 }
 
-.my-rating-info > div > span {
+.font-22, .rating-info > div > span {
   font-size: 22px;
 }
 
@@ -1207,7 +1211,7 @@ button.close, .my-last-requests-title span, .my-last-requests-title a, .bids-fil
 
 h1, h2, h3, b,
 strong,
-.bold, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bids-sorting-block-list .active, .my-menu-url, .my-username, .my-last-requests-title, .my-rating-container .my-rating, .my-rating-info > div > span, .my-rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
+.bold, .lbl-block, .narrow_bold_24, .errorSummary p, .modal-content label, .bids-sorting-block-list .active, .my-menu-url, .my-username, .my-last-requests-title, .rating-info > div > span, .rating-age span, .my-rewiews-head, .my-rewiews-table .good, .my-contact-info-company-edit .phones li, .my-contact-info-company-edit .contacts li, .change-email-block label,
 .change-password-block label, .change-email-block .current-email,
 .change-password-block .current-email, .my-top-menu-item a, .my-contact-info-list .phone, .my-contact-info-company-list p span, .add-transport-btn, .add-transport p, .my-transport-name, .my-requests-sort-block .active a, .step-subheader, .bids-filter-title, .bid-detail-date, .bid-detail-price-wr, .bid-detail-cargo-listitem-cargo-name {
   font-weight: bold;
@@ -1294,7 +1298,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 }
 
 .fLeft, .sideLeft, .sideRight, .column2l, .column2r, #RegistrationForm_user_status input,
-#RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .my-rating-info > div, .change-email-block,
+#RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .rating-info > div, .change-email-block,
 .change-password-block, .my-top-menu-item, .my-docs-files-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .deal-set-transport, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
   float: left;
 }
@@ -1309,7 +1313,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 
 .lbl-block, .map-block .info span, .rating-stars .stars-empty, .rating-stars .stars-full-blue,
 .rating-stars .stars-full-green,
-.rating-stars .stars-full, .modal-content label, .db, .statistic-block li span, .benefits-block li span, .my-menu-url, .my-menu-descr, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-info > div > span, .change-email-block label,
+.rating-stars .stars-full, .modal-content label, .db, .statistic-block li span, .benefits-block li span, .my-menu-url, .my-menu-descr, .rating-stars-empty, .rating-stars-full, .rating-info > div > span, .change-email-block label,
 .change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .bid-detail-deals-row:hover .show-deals-comments, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer-cell-last .logout a {
   display: block;
 }
@@ -1346,7 +1350,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
   display: none;
 }
 
-.rating-stars, .bids-sorting-block-list .active, .pos-rel, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .my-rating-stars, .my-rating-container .my-rating, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
+.rating-stars, .bids-sorting-block-list .active, .pos-rel, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .my-docs-files-item, .my-transport-list-item, .my-requests-sort-block, .step-container, .step1-category-item, .upload-foto-block, .add-loading-unloading-block, .date-unknown-block, .bids-filter-categories-btns,
 .bids-filter-dates .dates, .bid-detail-price, .bid-detail-deals-col6, .deal-transport-item, .kak-rabotaet-sait-tbl .row1 .cell4, .kak-rabotaet-sait-tbl .row2 td, .kak-rabotaet-sait-tbl .row3 td, .kak-rabotaet-sait-tbl .row4 td {
   position: relative;
 }
@@ -1364,7 +1368,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 .cat-ico-s-7:before,
 .cat-ico-s-4:before,
 .cat-ico-s-3:before,
-.cat-ico-s-2:before, .pos-abs, .radnom-reviews-item-text .double-arrow-right, .my-rating-stars-empty, .my-rating-stars-full, .my-rating-container .my-rating .my-rating-stars, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
+.cat-ico-s-2:before, .pos-abs, .radnom-reviews-item-text .double-arrow-right, .rating-stars-empty, .rating-stars-full, .my-top-menu-item.active:after, .my-top-menu-item:hover:after, .my-docs-files-item .popup-info, .document-delete-wr, .document-delete-btn, .my-transport-edit, .my-transport-edit .my-transport-delete-btn, .my-transport-edit .my-transport-upload-btn, .my-requests-sort-block:after, .my-requests-sort-block:before, .step-container .num-step, .step1-category-item .span-wr1, .upload-foto-btn, .delete-add-cargo-block,
 .delete-loading-unloading-block, .calendar-icon, .bids-filter-categories-uncheck, .reject-deal-btn, .bid-detail-deals-profile-link:after, .bid-detail-deals-col6 .accept-deal-btn, .show-deals-comments, .deal-transport-item .name, .deal-porters-checkbox, .kak-rabotaet-sait-tbl .row1 .cell4 .bold, .kak-rabotaet-sait-tbl .row2 .cell1 p, .kak-rabotaet-sait-tbl .row2 .p1,
 .kak-rabotaet-sait-tbl .row2 .p2, .kak-rabotaet-sait-tbl .row3 .bold, .kak-rabotaet-sait-tbl .row4 .p1,
 .kak-rabotaet-sait-tbl .row4 .p2, .kak-rabotaet-sait-tbl .row4 .cell1 p, .created-by a {
@@ -2164,6 +2168,10 @@ button.close:hover {
   padding: 10px 0;
 }
 
+.pt-5 {
+  padding-top: 5px;
+}
+
 .pt-10 {
   padding-top: 10px;
 }
@@ -2674,12 +2682,16 @@ button.close:hover {
   margin: 0 0 55px 0;
 }
 
-.my-rating-stars {
+.rating-ttl-g {
+  border-bottom: 1px dotted #fff;
+}
+
+.rating-stars-xl {
   width: 134px;
   height: 24px;
 }
 
-.my-rating-stars-empty {
+.rating-stars-empty {
   top: 0;
   left: 0;
   width: 100%;
@@ -2688,7 +2700,7 @@ button.close:hover {
   z-index: 1;
 }
 
-.my-rating-stars-full {
+.rating-stars-full {
   top: 0;
   left: 0;
   width: 100%;
@@ -2698,27 +2710,38 @@ button.close:hover {
   width: 70%;
 }
 
-.my-rating-container {
-  height: 126px;
+.rating-container {
   padding: 22px;
   background: url(../images/rating-bg.jpg) no-repeat top center;
 }
-.my-rating-container .my-rating {
-  margin: 0 0 15px 0;
+
+.rating-container-g {
+  height: 90px;
 }
-.my-rating-container .my-rating .my-rating-stars {
+
+.rating-container-p {
+  height: 126px;
+}
+
+.rating-stars-p {
   top: 0;
   right: 5px;
 }
 
-.my-rating-info > div {
+.rating-info > div {
   width: 90px;
 }
-.my-rating-info > div > span {
+.rating-info > div > span {
   padding: 5px 0 0 0;
 }
 
-.my-rating-age {
+.rating-info-block2-g {
+  top: 22px;
+  right: 22px;
+  width: 80px;
+}
+
+.rating-age {
   margin: 12px 0 0 0;
 }
 
@@ -2951,6 +2974,10 @@ button.close:hover {
 .my-contact-info-descr {
   width: 850px;
   line-height: 18px;
+}
+
+.my-contact-info-company-list .contact-info-wide {
+  width: 850px;
 }
 
 .my-docs-files-item {
@@ -3206,7 +3233,7 @@ button.close:hover {
 }
 
 .profile-requests-block .col1 {
-  width: 8%;
+  width: 6%;
 }
 .profile-requests-block .col2 {
   width: 20%;
@@ -3218,7 +3245,7 @@ button.close:hover {
   width: 15%;
 }
 .profile-requests-block .col5 {
-  width: 10%;
+  width: 12%;
 }
 .profile-requests-block .col6 {
   width: 15%;
@@ -3229,6 +3256,15 @@ button.close:hover {
 
 .review-perevoz-ttl {
   width: 77px;
+  line-height: 15px;
+}
+.review-perevoz-ttl .notice {
+  right: 0;
+  top: -3px;
+}
+
+.otziv-lbl {
+  border-bottom: 1px dotted #2e3c54;
 }
 
 .step-container {

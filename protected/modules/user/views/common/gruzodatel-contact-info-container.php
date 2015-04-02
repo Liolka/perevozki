@@ -81,8 +81,6 @@
 				<p class="narrow-bold-18 mb-25">Дополнительно</p>
 				<p class="my-contact-info-descr"><?=$user_company->description?></p>
 			<?	}	?>
-
-
 		</div>
 	</div>
 </div>

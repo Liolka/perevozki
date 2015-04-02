@@ -30,14 +30,18 @@
 	}
 }
 
-.my-rating-stars {
+.rating-ttl-g {
+	border-bottom: 1px dotted #fff;
+}
+
+.rating-stars-xl {
 	width: 134px;
 	height: 24px;
 	
-	@extend %pos_rel;
+//	@extend %pos_rel;
 }
 
-.my-rating-stars-empty {
+.rating-stars-empty {
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -50,7 +54,7 @@
 	
 }
 
-.my-rating-stars-full {
+.rating-stars-full {
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -65,31 +69,39 @@
 }
 
 
-.my-rating-container {
-	height: 126px;
+.rating-container {
 	padding: 22px;
 	background: url(../images/rating-bg.jpg) no-repeat top center;
 	
-	.my-rating {
-		margin: 0 0 15px 0;
-		
-		@extend %bold;
-		@extend %font_20;
-		@extend %c_fff;
-		@extend %pos_rel;
-		
-		.my-rating-stars {
-			top: 0;
-			right: 5px;
-
-			@extend %pos_abs;
-		}	
-		
-	}
+//	.rating {
+//		margin: 0 0 15px 0;
+//		
+//		@extend %bold;
+//		@extend %font_20;
+//		@extend %c_fff;
+//		@extend %pos_rel;
+//		
+//		
+//	}
 	
 }
 
-.my-rating-info {
+.rating-container-g {
+	height: 90px;
+}
+
+.rating-container-p {
+	height: 126px;
+}
+
+.rating-stars-p {
+	top: 0;
+	right: 5px;
+
+}	
+
+
+.rating-info {
 	& > div {
 		width: 90px;
 		
@@ -106,11 +118,13 @@
 	}
 }
 
-.my-rating-info-block1 {
-
+.rating-info-block2-g {
+	top: 22px;
+	right: 22px;
+	width: 80px;
 }
 
-.my-rating-age {
+.rating-age {
 	margin: 12px 0 0 0;
 	
 	@extend %c_fff;

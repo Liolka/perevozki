@@ -50,8 +50,10 @@
 .font-11 { @extend %font_11; }
 .font-12 { @extend %font_12; }
 .font-13 { @extend %font_13; }
+.font-16 { @extend %font_16; }
 .font-17 { @extend %font_17; }
 .font-20 { @extend %font_20; } 
+.font-22 { @extend %font_22; } 
 .font-24 { @extend %font_24; } 
 
 .c_1e91da { @extend %c_1e91da; }
@@ -63,6 +65,7 @@
 .c_aab1ba { @extend %c_aab1ba; }
 .c_c3c8cd { @extend %c_c3c8cd; }
 .c_cbe0eb { @extend %c_cbe0eb; }
+.c_fcb60e { @extend %c_fcb60e; }
 .c_fff { @extend %c_fff; }
 
 a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
@@ -116,6 +119,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 
 .p-10-0 { padding: 10px 0; }
 
+.pt-5 { padding-top: 5px; }
 .pt-10 { padding-top: 10px; }
 
 .pb-5 { padding-bottom: 5px; }

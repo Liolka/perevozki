@@ -117,7 +117,7 @@
 
 .profile-requests-block {
 	.col1 {
-		width: 8%;
+		width: 6%;
 	}
 	.col2 {
 		width: 20%;
@@ -129,7 +129,7 @@
 		width: 15%;
 	}
 	.col5 {
-		width: 10%;
+		width: 12%;
 	}
 	.col6 {
 		width: 15%;
@@ -141,4 +141,14 @@
 
 .review-perevoz-ttl {
 	width: 77px;
+	line-height: 15px;
+	
+	.notice {
+		right: 0;
+		top: -3px;
+	}
+}
+
+.otziv-lbl {
+	border-bottom: 1px dotted #2e3c54;
 }
