@@ -840,12 +840,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-position: 0 -670px;
 }
 
-.map-block .btn-zakazhu, .map-block .btn-perevezu, .profile-link, .stages-block .stage1,
+.map-block .btn-zakazhu, .map-block .btn-perevezu, .profile-link, .for_sprite, .stages-block .stage1,
 .stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .requests1-list-item-review, .radnom-reviews-item-text, .my-menu-item, .my-contact-info-company-edit .phones .field-title, .my-contact-info-company-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .bid-detail-route-block .route-town, .bid-detail-route-block .route-item .route-item-arrow, .bid-detail-date-quickly, .bid-detail-price:before, .bid-detail-respond-btn, .bid-detail-cargo-listitem, .bid-detail-cargo-listitem-porters, .bid-detail-deals-col6 .accept-deal-btn, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile, .created-by a {
   position: relative;
 }
-.map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .profile-link:before, .stages-block .stage1:before,
+.map-block .btn-zakazhu:before, .map-block .btn-perevezu:before, .profile-link:before, .for_sprite:before, .stages-block .stage1:before,
 .stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .requests1-list-item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .my-contact-info-company-edit .phones .field-title:before, .my-contact-info-company-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .bid-detail-route-block .route-town:before, .bid-detail-route-block .route-item .route-item-arrow:before, .bid-detail-date-quickly:before, .bid-detail-price:before, .bid-detail-respond-btn:before, .bid-detail-cargo-listitem:before, .bid-detail-cargo-listitem-porters:before, .bid-detail-deals-col6 .accept-deal-btn:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before, .created-by a:before {
   content: ' ';
@@ -946,7 +946,7 @@ h1 span, .breadcrumbs, .my-last-requests-title span, .header-row2 .questions .ti
   color: #96a5b8;
 }
 
-.requests1-list-item-date {
+.c_aab1ba, .requests1-list-item-date {
   color: #aab1ba;
 }
 
@@ -1766,6 +1766,15 @@ button.close:hover {
   background-color: #f4fbfe;
 }
 
+.hscrollerbar {
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJlYmZmZSIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzI2OGFmMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2ebffe), color-stop(100%, #268af0));
+  background-image: -moz-linear-gradient(#2ebffe, #268af0);
+  background-image: -webkit-linear-gradient(#2ebffe, #268af0);
+  background-image: linear-gradient(#2ebffe, #268af0);
+}
+
 .btn-red-33,
 .btn-grey-33,
 .btn-blue-33,
@@ -2041,8 +2050,17 @@ button.close:hover {
   background-color: #de5151;
 }
 
+.bg_f4fbfe_h:hover,
 .bg_f4fbfe {
   background-color: #f4fbfe;
+}
+
+.bg_fff {
+  background-color: #fff;
+}
+
+.ov-hidden {
+  overflow: hidden;
 }
 
 .stages-block {
@@ -2372,7 +2390,7 @@ button.close:hover {
 
 .requests1-list-item-review-good:before {
   left: 0;
-  top: 0;
+  top: -7px;
 }
 
 .requests1-list-item-review-bad:before {
@@ -2746,7 +2764,10 @@ button.close:hover {
   display: table-cell;
   border-bottom: 1px solid #b2daeb;
   line-height: 32px;
-  white-space: nowrap;
+}
+.my-contact-info-company-list .sep {
+  border: none;
+  width: 40px;
 }
 
 .my-contact-info-descr {
@@ -2931,6 +2952,13 @@ button.close:hover {
   padding: 0;
 }
 
+.flexcroll-transport-list {
+  min-height: 270px;
+}
+.flexcroll-transport-list li {
+  width: 405px;
+}
+
 .my-requests-sort-block {
   border-bottom: 1px solid #b2daeb;
 }
@@ -2997,6 +3025,32 @@ button.close:hover {
 }
 .my-requests-block .requests1-list-item-review {
   width: 250px;
+}
+
+.profile-requests-block .col1 {
+  width: 8%;
+}
+.profile-requests-block .col2 {
+  width: 20%;
+}
+.profile-requests-block .col3 {
+  width: 8%;
+}
+.profile-requests-block .col4 {
+  width: 15%;
+}
+.profile-requests-block .col5 {
+  width: 10%;
+}
+.profile-requests-block .col6 {
+  width: 15%;
+}
+.profile-requests-block .col7 {
+  width: 24%;
+}
+
+.review-perevoz-ttl {
+  width: 77px;
 }
 
 .step-container {

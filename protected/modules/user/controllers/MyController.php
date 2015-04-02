@@ -19,6 +19,10 @@ class MyController extends Controller
 
 	public function actionMy()
 	{
+		$this->app = Yii::app();
+		
+		$this->checkIsLoggedUser();
+
 		$model = $this->loadUser();
 		
 		$app = Yii::app();
@@ -50,6 +54,10 @@ class MyController extends Controller
 
 	public function actionRequests()
 	{
+		$this->app = Yii::app();
+		
+		$this->checkIsLoggedUser();
+		
 		$model = $this->loadUser();
 		
 		$app = Yii::app();
@@ -61,24 +69,11 @@ class MyController extends Controller
 	    ));
 	}
 
-	/*
-	public function actionTransport()
-	{
-		$model = $this->loadUser();
-		
-		$app = Yii::app();
-				
-	    $this->render('transport', array(
-	    	'app'=>$app,
-	    	'model'=>$model,
-			'profile'=>$model->profile,
-	    ));
-	}
-	*/
-
 	public function actionTransport()
 	{
 		$this->app = Yii::app();
+		
+		$this->checkIsLoggedUser();
 		
 		$model = new Transport;
 		
@@ -109,6 +104,10 @@ class MyController extends Controller
 		
 		$this->app = Yii::app();
 		
+		if($this->app->user->isGuest) {
+			throw new CHttpException(500,'Ошибка доступа');
+		}
+		
 		if(isset($_POST['Transport'])) {
 			
 			$model->attributes = $_POST['Transport'];
@@ -133,7 +132,13 @@ class MyController extends Controller
 	public function actionTransportdelete($id)
 	{
 		$this->app = Yii::app();
+		
+		if($this->app->user->isGuest) {
+			throw new CHttpException(500,'Ошибка доступа');
+		}
+		
 		$connection = $this->app->db;
+		
 		
 		$model = Transport::model()->findByPk($id);
 		
@@ -166,12 +171,17 @@ class MyController extends Controller
 	
 	public function actionTransportupdate($id)
 	{
+		$this->app = Yii::app();
+		
+		if($this->app->user->isGuest) {
+			throw new CHttpException(500,'Ошибка доступа');
+		}
+		
 		$model = Transport::model()->findByPk($id);
+		
 		if($model !== null) {
 			$this->app->session['transport_tmp_foto'] = $model->foto;
 		}
-		
-		$this->app = Yii::app();
 		
 		if(isset($_POST['Transport'])) {
 			
@@ -196,6 +206,10 @@ class MyController extends Controller
 	public function actionUploadfoto()
 	{
 		$this->app = Yii::app();
+		
+		if($this->app->user->isGuest) {
+			throw new CHttpException(500,'Ошибка доступа');
+		}
 		
 		$model = new UploadTransportFoto();
 		
@@ -304,6 +318,10 @@ class MyController extends Controller
 	{
 		$this->app = Yii::app();
 		
+		if($this->app->user->isGuest) {
+			throw new CHttpException(500,'Ошибка доступа');
+		}		
+		
 		if(isset($this->app->session['transport_tmp_foto']))	{
 			$upload_path = Yii::getPathOfAlias($this->app->params->transport_imagePath) . DIRECTORY_SEPARATOR;
 			$tmp_name = $this->app->session['transport_tmp_foto'];
@@ -325,6 +343,8 @@ class MyController extends Controller
 	public function actionDocuments()
 	{
 		$this->app = Yii::app();
+		
+		$this->checkIsLoggedUser();
 		
 		$model = new MyDocuments;
 		
@@ -383,7 +403,11 @@ class MyController extends Controller
 	public function actionDocumentdelete($id)
 	{
 		$this->app = Yii::app();
-		//echo'<pre>';print_r($id,0);echo'</pre>';
+		
+		if($this->app->user->isGuest) {
+			throw new CHttpException(500,'Ошибка доступа');
+		}
+
 		$user = $this->loadUser();
 		if($id)	{
 			$checked_attr = $id.'_checked';
@@ -486,6 +510,10 @@ class MyController extends Controller
 	public function actionEdit()
 	{
 		$app = Yii::app();
+		
+		$this->app = Yii::app();
+		$this->checkIsLoggedUser();
+		
 		if ($app->user->id) {
 			$model_ChangePassword = new UserChangePassword;
 			$model_ChangeEmail = new UserChangeEmail;
@@ -494,8 +522,6 @@ class MyController extends Controller
 			if(isset($_POST['cancel']))	{
 				$this->redirect(array('my'));
 			}
-			
-		
 			
 			// ajax validator
 			if(isset($_POST['ajax']) && $_POST['ajax']==='changepassword-form')
@@ -577,6 +603,18 @@ class MyController extends Controller
 		}
 		return $this->_model;
 	}
+	
+	/**
+	* Проверяет, залогинен ли пользователь
+	*/
+	public function checkIsLoggedUser()
+	{
+		if($this->app->user->isGuest) {
+			$this->redirect(Yii::app()->controller->module->loginUrl);
+		}
+	}
+	
+	
 	
 	//получение расширения имени файла
 	public function getExtentionFromFileName($filename)

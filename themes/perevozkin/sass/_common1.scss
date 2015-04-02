@@ -43,6 +43,8 @@
 	}
 }
 
+.for_sprite { @extend %for_sprite; };
+
 .normal { @extens %normal; }
 
 .font-11 { @extend %font_11; }
@@ -58,6 +60,7 @@
 .c_71a72c { @extend %c_71a72c; }
 .c_757575 { @extend %c_757575; }
 .c_8e95a1 { @extend %c_8e95a1; }
+.c_aab1ba { @extend %c_aab1ba; }
 .c_fff { @extend %c_fff; }
 
 .tahoma { font-family: Tahoma, Arial; }
@@ -129,6 +132,12 @@
 .bg_85bf32 {background-color: #85bf32; }
 .bg_daf0fa {background-color: #daf0fa; }
 .bg_de5151 {background-color: #de5151; }
+
+.bg_f4fbfe_h:hover,
 .bg_f4fbfe {background-color: #f4fbfe; }
+
+.bg_fff {background-color: #fff; }
+
+.ov-hidden { overflow: hidden;}
 
 .border-box	{ @extend %border_box; }

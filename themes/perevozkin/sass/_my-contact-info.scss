@@ -81,13 +81,17 @@
 		display: table-cell;
 		border-bottom: 1px solid #b2daeb;
 		line-height: 32px;
-		white-space: nowrap;
 		
 		@extend %font_14;
 		
 		span {
 			@extend %bold;
 		}
+	}
+	
+	.sep {
+		border: none;
+		width: 40px;
 	}
 }
 

@@ -162,3 +162,12 @@
         @extend %font_13;
     }
 }
+
+
+.flexcroll-transport-list  {
+	min-height: 270px;
+	
+	li {
+		width: 405px;
+	}
+}

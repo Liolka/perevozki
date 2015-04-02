@@ -152,7 +152,7 @@
 .requests1-list-item-review-good {
 	&:before {
 		left: 0;
-		top: 0;
+		top: -7px;
 		
 		@extend .ico-rating-good;
 	}

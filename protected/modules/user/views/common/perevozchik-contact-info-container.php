@@ -42,22 +42,37 @@
 		<div class="my-contact-info-container-wr p-20">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="my-contact-info-company-container row mb-35">
-				<ul class="my-contact-info-company-list col-lg-5 col-md-5">
+				<ul class="my-contact-info-company-list col-lg-12 col-md-12">
 					<li>
 						<p>Тип компании:</p>
 						<p><?=$user_company->type ? '<span>'.$user_company->type.'</span>' : 'Не указано' ?></p>
+						<p class="sep"></p>
+						<p></p>
+						<p></p>						
 					</li>
 					<li>
 						<p>Год основания:</p>
 						<p><?=$user_company->year ? '<span>'.$user_company->year.'</span>' : 'Не указано' ?></p>
+						<p class="sep"></p>
+						<p>Головной офис:</p>
+						<p><?=$user_company->main_office ? '<span>'.$user_company->main_office.'</span>' : 'Не указано' ?></p>
+						
 					</li>
 					<li>
 						<p>Кол-во авто:</p>
 						<p><?=$user_company->count_auto ? '<span>'.$user_company->count_auto.'</span>' : 'Не указано' ?></p>
+						<p class="sep"></p>
+						<p>Филиалы:</p>
+						<p><?=$user_company->filials ? '<span>'.$user_company->filials.'</span>' : 'Не указано' ?></p>
+						
 					</li>
 					<li>
 						<p>Количество сотрудников:</p>
 						<p><?=$user_company->count_staff ? '<span>'.$user_company->count_staff.'</span>' : 'Не указано' ?></p>
+						<p class="sep"></p>
+						<p>Склады и терминалы:</p>
+						<p><?=$user_company->terminals ? '<span>'.$user_company->terminals.'</span>' : 'Не указано' ?></p>
+						
 					</li>
 				</ul>
 
