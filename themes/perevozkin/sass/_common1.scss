@@ -61,7 +61,11 @@
 .c_757575 { @extend %c_757575; }
 .c_8e95a1 { @extend %c_8e95a1; }
 .c_aab1ba { @extend %c_aab1ba; }
+.c_c3c8cd { @extend %c_c3c8cd; }
+.c_cbe0eb { @extend %c_cbe0eb; }
 .c_fff { @extend %c_fff; }
+
+a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 
 .tahoma { font-family: Tahoma, Arial; }
 
@@ -122,6 +126,7 @@
 .pl-10 { padding-left: 10px; }
 .pl-20 { padding-left: 20px; }
 .pl-30 { padding-left: 30px; }
+.pl-35 { padding-left: 35px; }
 
 .lh-34 { line-height: 34px; }
 

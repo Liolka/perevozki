@@ -37,13 +37,16 @@ $catn-sprite-dimensions: true;
 @import "catn/*.png"; 
 @include all-catn-sprites;
 
+/* $cts-layout: smart;
+$cts-sprite-dimensions: true;
+@import "cts.png"; 
+@include all-cts-sprites;
+ */
 
 $btns-layout: vertical;
 //$btns-sprite-dimensions: true;
 @import "btns/*.png"; 
 @include all-btns-sprites;
-
-
 
 
 @import "_placeholders";

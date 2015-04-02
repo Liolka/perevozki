@@ -24,6 +24,7 @@ foreach($deals_list as $row) {
 }
 
 //echo'<pre>';print_r($deals_list);echo'</pre>';
+//echo'<pre>';print_r($accepted_deal);echo'</pre>';
 ?>
 
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -270,9 +271,9 @@ foreach($deals_list as $row) {
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
 							<div class="bid-detail-deals-perevozhik">
-								<a href="<?=$this->createUrl('/user/profile', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link">Перевозчик <?php echo $row['username'] ?></a>
+								<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link">Перевозчик <?php echo $row['username'] ?></a>
 								<div class="bid-detail-deals-rating-block mt-5">
-									<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating']*10)?>%;"></span></div>
+									<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating'])?>%;"></span></div>
 									<p class="rewiews-count font-12 c_8e95a1 dib">(<?=$row['reviews_count']?> <?php echo Yii::t('app', 'отзыв|отзыва|отзывов|отзыва', $row['reviews_count']); ?>)</p>
 								</div>
 							</div>
@@ -323,8 +324,8 @@ foreach($deals_list as $row) {
 									</p>
 								<?	}	else	{	?>
 									<? if($this->app->user->id == $model->user_id)	{	?>
-										<a href="<?=$this->createUrl('/bids/acceptdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id']))?>" class="btn-grey-33 accept-deal-btn" title="Принять заявку">Принять</a>
-										<a href="<?=$this->createUrl('/bids/rejectdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id']))?>" class="ico-close-blue reject-deal-btn" title="Отклонить заявку">x</a>
+										<a href="<?=$this->createUrl('/bids/acceptdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id'], 'performer_id'=>$row['user_id']))?>" class="btn-grey-33 accept-deal-btn" title="Принять заявку">Принять</a>
+										<a href="<?=$this->createUrl('/bids/rejectdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id'], 'performer_id'=>$row['user_id']))?>" class="ico-close-blue reject-deal-btn" title="Отклонить заявку">x</a>
 									<?	}	?>
 							<?	}	?>
 							
@@ -332,7 +333,7 @@ foreach($deals_list as $row) {
 						</div>
 					</div>
 
-					<? if($accepted_deal > 0 && $row['id'] == $accepted_deal)	{	?>
+					<? if(($accepted_deal > 0 && $row['id'] == $accepted_deal) || $accepted_deal == 0)	{	?>
 					<div class="bid-detail-deals-row-answer-block-reviews clear hide-block">
 						<? if(count($deal_posts))	{	?>
 							<div class="bid-detail-deals-row-answer-block-reviews-wr">
@@ -360,7 +361,7 @@ foreach($deals_list as $row) {
 						
 						<?	}	?>
 
-						<? if($is_perevozchik)	{	?>
+						<? //if($is_perevozchik)	{	?>
 						<div class="bid-detail-deals-row-answer-block-comment pos-rel bg_daf0fa clearfix">
 							<form action="" method="post">
 								<textarea name="deal-post" id="deal-post" class="width100 mb-20" cols="30" rows="10"></textarea>
@@ -368,7 +369,7 @@ foreach($deals_list as $row) {
 								<?php echo CHtml::submitButton('Написать', array('id'=>'create-deal-post', 'class'=>'btn-green-33 bid-detail-send-comment-btn fRight', 'name'=>'create-deal-post')); ?>
 							</form>
 						</div>
-						<?	}	?>
+						<?	//}	?>
 
 					</div>
 					<?	}	?>

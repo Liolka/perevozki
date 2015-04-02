@@ -152,7 +152,7 @@ $cs->registerScript('loading', "
 		<li class="col6 fLeft c_757575 font-12">Заказчик</li>
 		<li class="col7 fLeft c_757575 font-12">Отзыв заказчика</li>
 	</ul>
-
+<?/*
 	<ul class="requests1-list-items">
 		<li class="blue-border-1 p-20 mb-10 bg_f4fbfe_h clearfix">
 			<div class="col1 fLeft font-12 text_c">9876544</div>
@@ -182,6 +182,6 @@ $cs->registerScript('loading', "
 			<div class="col7 fLeft font-12 border-box requests1-list-item-review requests1-list-item-review-good"><span>Невероятные умницы и молодцы...</span></div>
 		</li>
 	</ul>
-	<a href="#" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Показать еще</a>
-	
+*/?>	
+	<?php $this->renderPartial('_reviews_list', array('dataProvider'=>$lastBidsUser)); ?>	
 </div>

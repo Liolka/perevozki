@@ -165,8 +165,9 @@ class BidsController extends Controller
 	{
 		$this->app = Yii::app();
 		$deal_id = $this->app->request->getParam('deal_id', 0);
+		$performer_id = $this->app->request->getParam('performer_id', 0);
 		
-		$this->updateBid($id, $deal_id, 'accepted', 1, 'Предложение принято.');
+		$this->updateBid($id, $deal_id, 'accepted', 1, $performer_id, 'Предложение принято.');
 	}
 	
 	//отменить принятую заявку
@@ -174,8 +175,9 @@ class BidsController extends Controller
 	{
 		$this->app = Yii::app();
 		$deal_id = $this->app->request->getParam('deal_id', 0);
+		$performer_id = 0;
 		
-		$this->updateBid($id, $deal_id, 'accepted', 0, 'Выбранное предложение отменено.');		
+		$this->updateBid($id, $deal_id, 'accepted', 0, $performer_id, 'Выбранное предложение отменено.');		
 	}
 
 	//отклонить заявку
@@ -183,8 +185,9 @@ class BidsController extends Controller
 	{
 		$this->app = Yii::app();
 		$deal_id = $this->app->request->getParam('deal_id', 0);
+		$performer_id = -1;
 		
-		$this->updateBid($id, $deal_id, 'rejected', 1, 'Предложение отклонено.');	
+		$this->updateBid($id, $deal_id, 'rejected', 1, $performer_id, 'Предложение отклонено.');	
 	}
 
 	//отменить отклонение заявки
@@ -192,8 +195,9 @@ class BidsController extends Controller
 	{
 		$this->app = Yii::app();
 		$deal_id = $this->app->request->getParam('deal_id', 0);
+		$performer_id = -1;
 		
-		$this->updateBid($id, $deal_id, 'rejected', 0, 'Отклоненное предложение восстановлено.');	
+		$this->updateBid($id, $deal_id, 'rejected', 0, $performer_id, 'Отклоненное предложение восстановлено.');	
 	}
 
 	/**
@@ -877,13 +881,25 @@ class BidsController extends Controller
 		}
 	}
 	
-	public function updateBid($bid_id, $deal_id, $field, $value, $message)
+	public function updateBid($bid_id, $deal_id, $field, $value, $performer_id, $message)
 	{
 		if($deal_id == 0)	{
 			throw new CHttpException(500, 'Отсутствует ID предложения');
 		}
 		
-		$bid_model = $this->loadModel($bid_id);
+		if($performer_id != -1)	{
+			$connection = $this->app->db;
+			Bids::model()->updatePerfomer($connection, $bid_id, $performer_id);
+			/*
+			$bid_model = $this->loadModel($bid_id);
+			//echo'<pre>';print_r($bid_model);echo'</pre>';die;
+			$bid_model->performer_id = $performer_id;
+			$bid_model->time_transportation = substr($bid_model->time_transportation, 0, -3);
+			$bid_model->save();
+			*/
+		}
+		
+		
 		$deal_model = Deals::model()->findByPk($deal_id);
 		
 		if($deal_model->bid_id != $bid_id) {

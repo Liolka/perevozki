@@ -47,8 +47,11 @@ class ViewController extends Controller
 	public function actionIndex()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
 		$model = $this->loadModel();
 		//echo'<pre>';print_r($model,0);echo'</pre>';
+		$user_id = $this->app->request->getParam('id', 0);
 		
 		$data = array(
 			'model'=>$model,			
@@ -57,24 +60,15 @@ class ViewController extends Controller
 			case 2:
 				//$model = new Transport;
 
-				$criteria = new CDbCriteria;
-
-				$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
-
-				$criteria->order = 'transport_id DESC';		
-
-				$dataProvider = new CActiveDataProvider('Transport', array(
-					'criteria'=>$criteria,
-					'pagination'=>array(
-						'pageSize'=>50,
-						'pageVar' =>'page',
-					),
-				));
 			
+			
+				$dataProvider = $this->getTansportUser($user_id);
+				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model);
 			
 				$data['user_company'] = $model->company;
 				$data['show_edit_btn'] = false;
 				$data['dataProvider'] = $dataProvider;
+				$data['lastBidsUser'] = $lastBidsUser;
 			
 				$tmpl = 'view_type2';
 			
@@ -124,5 +118,105 @@ class ViewController extends Controller
 				throw new CHttpException(404,'The requested page does not exist.');
 		}
 		return $this->_model;
+	}
+	
+	
+	public function getTansportUser($user_id)
+	{
+		$criteria = new CDbCriteria;
+		$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+		$criteria->order = 'transport_id DESC';
+		$criteria->condition = "user_id = $user_id";
+
+		$dataProvider = new CActiveDataProvider('Transport', array(
+			'criteria'=>$criteria,
+			'pagination'=>array(
+				'pageSize'=>50,
+				'pageVar' =>'page',
+			),
+		));
+		return $dataProvider;
+		
+	}
+	
+	public function getLastBidsUser(&$connection, $user_id, $model)
+	{
+		$criteria = new CDbCriteria;
+
+		$criteria->select = "t.*, u.username";		
+		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+
+
+		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		$criteria->order = 't.bid_id DESC';
+		$criteria->condition = "performer_id = $user_id";
+
+		$dataProvider = new CActiveDataProvider('Bids', array(
+			'criteria'=>$criteria,
+			'pagination'=>array(
+				'pageSize'=>5,
+				'pageVar' =>'page',
+			),
+		));
+		
+		$bid_ids = array();
+		foreach($dataProvider->data as $row) {
+			$bid_ids[] = $row->bid_id;
+		}
+		
+		//echo'<pre>';print_r($bid_ids);echo'</pre>';die;
+		
+		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
+		
+		$performer_reviews = ReviewsPerformers::model()->getPerfomerReviews($connection, $user_id);
+		
+		
+		foreach($dataProvider->data as $row) {			
+			$cargo_name = array();
+			/*
+			$porters = false;
+			
+			$row->total_weight = 0;
+			$row->total_volume = 0;
+			$row->deals_count = isset($deals_count_list[$row->bid_id]) ? $deals_count_list[$row->bid_id] : 0;
+			*/
+
+			foreach($cargoes_info as $cargo) {
+				if($cargo['bid_id'] == $row->bid_id) {
+					$cargo_name[] = $cargo['name'];
+					/*
+
+					if($cargo['porters'] == 1) {
+						$porters = true;
+					}
+					
+					$row->total_weight = $row->total_weight + $cargo['weight'];
+					$row->total_unit = $cargo['unit'];
+					$row->total_volume = $row->total_volume + $cargo['volume'];
+					*/
+				}
+			}
+			
+			if(isset($performer_reviews[$row->bid_id]))	{
+				$row->review_text = $performer_reviews[$row->bid_id]['text'];
+				$row->rating = $performer_reviews[$row->bid_id]['rating'];
+				$row->good = $performer_reviews[$row->bid_id]['good'];
+				$row->bad = $performer_reviews[$row->bid_id]['bad'];
+			}	else	{
+				$row->review_text = '';
+				$row->rating = '';
+				$row->good = '';
+				$row->bad = '';
+			}
+			
+			$row->full_name = implode('. ', $cargo_name);
+			$row->performer_name = $model->username;
+			//$row->need_porters = $porters;
+			
+		}
+		
+		
+		return $dataProvider;
+		
 	}
 }

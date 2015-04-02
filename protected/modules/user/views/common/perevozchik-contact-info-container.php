@@ -75,25 +75,6 @@
 						
 					</li>
 				</ul>
-
-				<ul class="my-contact-info-company-list col-lg-7 col-md-7">
-					<li>
-						<p></p>
-						<p></p>
-					</li>
-					<li>
-						<p>Головной офис:</p>
-						<p><?=$user_company->main_office ? '<span>'.$user_company->main_office.'</span>' : 'Не указано' ?></p>
-					</li>
-					<li>
-						<p>Филиалы:</p>
-						<p><?=$user_company->filials ? '<span>'.$user_company->filials.'</span>' : 'Не указано' ?></p>
-					</li>
-					<li>
-						<p>Склады и терминалы:</p>
-						<p><?=$user_company->terminals ? '<span>'.$user_company->terminals.'</span>' : 'Не указано' ?></p>
-					</li>
-				</ul>
 			</div>
 			
 			<? if($user_company->description != '')	{	?>

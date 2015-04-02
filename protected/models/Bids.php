@@ -43,11 +43,18 @@ class Bids extends CActiveRecord
 	public $username;
 	public $full_name;
 	public $need_porters;
+
 	
 	public $total_weight;
 	public $total_unit;
 	public $total_volume;
 	public $deals_count;
+	
+	public $performer_name;
+	public $review_text;	
+	public $rating;	
+	public $good;	
+	public $bad;	
 	
 	
 	/**
@@ -86,7 +93,7 @@ class Bids extends CActiveRecord
 			array('date_transportation', 'date', 'format' => 'yyyy-MM-dd'),
 			array('time_transportation', 'date', 'format' => 'HH:mm'),
 			
-			array('user_id, category_id, published, date_unknown, price, quickly', 'numerical', 'integerOnly'=>true),
+			array('user_id, category_id, published, date_unknown, price, quickly, performer_id', 'numerical', 'integerOnly'=>true),
 			array('loading_town, loading_address, add_loading_unloading_town_1, add_loading_unloading_address_1, add_loading_unloading_town_2, add_loading_unloading_address_2, add_loading_unloading_town_3, add_loading_unloading_address_3, unloading_town, unloading_address', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -192,5 +199,17 @@ class Bids extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+	
+	//обновляет id перевозчика
+	public function updatePerfomer(&$connection, $bid_id, $performer_id)
+	{
+		$sql = "UPDATE ".$this->tableName()." SET `performer_id` = :performer_id WHERE `bid_id` = :bid_id";
+		//echo'<pre>';print_r($bid_id);echo'</pre>';
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":bid_id", $bid_id, PDO::PARAM_INT);
+		$command->bindParam(":performer_id", $performer_id, PDO::PARAM_INT);
+		$command->execute();
 	}
 }

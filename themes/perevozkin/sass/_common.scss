@@ -697,3 +697,112 @@ button.close {
 //		margin-left: -20px;
 //	}
 }
+
+.cat-ico-s-15,
+.cat-ico-s-14,
+.cat-ico-s-13,
+.cat-ico-s-12,
+.cat-ico-s-11,
+.cat-ico-s-10,
+.cat-ico-s-9,
+.cat-ico-s-8,
+.cat-ico-s-7,
+.cat-ico-s-4,
+.cat-ico-s-3,
+.cat-ico-s-2 {
+	@extend %for_sprite;
+	
+	&:before {
+		@extend %pos_abs;
+		
+		top: 0;
+		left: 0;
+	}
+	
+}
+
+.cat-ico-s-2 {
+	&:before {
+		@extend .ico-cats-2;
+	}
+}
+
+.cat-ico-s-3 {
+	&:before {
+		@extend .ico-cats-3;
+		margin-top: -3px;
+	}
+}
+
+.cat-ico-s-4 {
+	&:before {
+		@extend .ico-cats-4;
+		margin-top: -4px;
+	}
+}
+
+.cat-ico-s-7 {
+	&:before {
+		@extend .ico-cats-7;
+		margin-top: -3px;
+	}
+}
+
+.cat-ico-s-8 {
+	&:before {
+		@extend .ico-cats-8;
+		margin-top: -3px;
+	}
+}
+
+.cat-ico-s-9 {
+	&:before {
+		@extend .ico-cats-9;
+		margin-top: -1px;
+	}
+}
+
+.cat-ico-s-10 {
+	&:before {
+		@extend .ico-cats-10;
+		margin-top: -1px;
+	}
+}
+
+.cat-ico-s-11 {
+	&:before {
+		@extend .ico-cats-11;
+		margin-top: -4px;
+	}
+}
+
+.cat-ico-s-12 {
+	&:before {
+		@extend .ico-cats-12;
+		margin-top: 1px;
+	}
+}
+
+.cat-ico-s-13 {
+	&:before {
+		@extend .ico-cats-13;
+		margin-top: -4px;
+	}
+}
+
+.cat-ico-s-14 {
+	&:before {
+		@extend .ico-cats-14;
+		margin-top: -4px;
+	}
+}
+
+.cat-ico-s-15 {
+	&:before {
+		@extend .ico-cats-15;
+		margin-top: -1px;
+	}
+}
+
+
+
