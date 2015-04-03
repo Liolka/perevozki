@@ -1,28 +1,28 @@
 //страница мои документы
-.my-docs-files-item {
+.doc-files-item {
     width: 220px;
     height: 268px;
     
-    @extend %pos_rel;
-    @extend %fl;
+//    @extend %pos_rel;
+//    @extend %fl;
     
     .info {
         width: 154px;
         margin: 0 auto;
         
-        @extend %text_c;
+//        @extend %text_c;
     }
     
     .popup-info {
         background-color: #dd973d;
-        padding: 10px;
+//        padding: 10px;
         
-        margin-top: 20px;
+//        margin-top: 20px;
         
-        @extend %c_fff;
-        @extend %text_c;
-        @extend %pos_abs;
-        @extend %lh_18;
+//        @extend %c_fff;
+//        @extend %text_c;
+//        @extend %pos_abs;
+//        @extend %lh_18;
         
         &:after {
             content: ' '; 
@@ -37,13 +37,13 @@
     }
 }
 
-.my-docs-notice {
-    border: 1px solid #b2daeb;
+.doc-notice {
+//    border: 1px solid #b2daeb;
     padding: 20px 105px;
-    margin: 0 0 15px 0;
+//    margin: 0 0 15px 0;
     background: url(../images/notice-triangle.png) no-repeat 20px center;
     
-    @extend %lh_18;
+//    @extend %lh_18;
 }
 
 .fileform {
@@ -106,19 +106,24 @@
     top: 0;
     left: 0;
     
-    @extend %pos_abs;
+//    @extend %pos_abs;
     @extend %w_100;
     @extend %h_100;
-    @extend %hide;
+//    @extend %hide;
 }
 
 .document-delete-btn {
     right: -2px;
     top: -2px;
     
-    @extend %pos_abs;
+//    @extend %pos_abs;
 }
 
+
+.doc-files-g-item {
+	top: 60px;
+	right: 0;
+}
 
 
 

@@ -6,7 +6,7 @@ $cs = $this->app->clientScript;
 //$cs->registerScriptFile('/js/chosen.jquery.min.js', CClientScript::POS_END);
 
 $cs->registerScript('loading', "
-	$('.my-docs-files-item-ok').hover(
+	$('.doc-files-item-ok').hover(
         function(){ $(this).children('.document-delete-wr').fadeIn(100)    },
         function(){ $(this).children('.document-delete-wr').fadeOut(100)    }
     );
@@ -32,7 +32,7 @@ $this->breadcrumbs=array(
 function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '')
 {
 	$html = '';
-	$class = 'my-docs-files-item'.($user->$attr ? ' my-docs-files-item-ok' : '');
+	$class = 'doc-files-item fLeft pos-rel'.($user->$attr ? ' doc-files-item-ok' : '');
 	$html .= CHtml::openTag('li', array('class'=>$class));
 	if($user->$attr == '')	{
 		$html .= CHtml::openTag('div', array('class'=>'fileform'));
@@ -44,12 +44,12 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 			$html .= $form->fileField($model, $attr, array('class'=>'document-file'));
 		$html .= CHtml::closeTag('div');
 		
-		$html .= CHtml::openTag('p', array('class'=>'info'));
+		$html .= CHtml::openTag('p', array('class'=>'info text_c'));
 			$html .= $form->labelEx($model, $attr, array('class'=>''));		
 		$html .= CHtml::closeTag('p');
 		
 		if($popup != '')	{
-			$html .= CHtml::openTag('div', array('class'=>'popup-info'));
+			$html .= CHtml::openTag('div', array('class'=>'popup-info p-10 mt-20 c_fff text_c pos_abs lh-18'));
 				$html .= $popup;
 			$html .= CHtml::closeTag('div');
 		}
@@ -61,14 +61,14 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 			$html .= CHtml::closeTag('div');
 		$html .= CHtml::closeTag('div');
 		
-		$html .= CHtml::openTag('p', array('class'=>'info pos-rel', 'style'=>'z-index:1;'));
+		$html .= CHtml::openTag('p', array('class'=>'info pos-rel text_c', 'style'=>'z-index:1;'));
 			//$html .= CHtml::link($form->labelEx($model, $attr), array('/user/my/download', 'id'=>Yii::app()->user->id, 'attr'=>$attr), array('class'=>''));
 			$html .= CHtml::link($form->labelEx($model, $attr), Yii::app()->homeUrl.'files/users/'.$user->id.'/docs/'.$user->$attr, array('class'=>''));
 			//$html .= $form->labelEx($model, $attr);	
 		$html .= CHtml::closeTag('p');
 		
-		$html .= CHtml::openTag('div', array('class'=>'document-delete-wr'));
-			$html .= CHtml::link('Удалить х', array('/user/my/documentdelete', 'id'=>$attr), array('class'=>'document-delete-btn btn-red', 'onclick'=>"if(!confirm('Действительно удалить?')) return false;"));
+		$html .= CHtml::openTag('div', array('class'=>'document-delete-wr pos-abs hide-block'));
+			$html .= CHtml::link('Удалить х', array('/user/my/documentdelete', 'id'=>$attr), array('class'=>'document-delete-btn btn-red pos-abs', 'onclick'=>"if(!confirm('Действительно удалить?')) return false;"));
 			/*
 			$html .= CHtml::openTag('button', array('class'=>'document-delete-btn btn-red'));
 				$html .= "Удалить х";
@@ -82,7 +82,7 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 	return $html;
 	
 	/*
-	<li class="my-docs-files-item <? if($user->file1 != '') echo 'my-docs-files-item-ok'; ?>">
+	<li class="doc-files-item <? if($user->file1 != '') echo 'doc-files-item-ok'; ?>">
        <? if($user->file1 == '')	{	?>
         <div class="fileform">
             <div class="selectbutton document-add">Обзор</div>
@@ -113,7 +113,7 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 
 <h1>Мои документы</h1>
 
-<div class="my-docs-notice">Ваши документы <b>не будут</b> доступны для просмотра и скачивания перевозчикам и грузодателям <b>(Кроме примера договора)</b>. После проверки документа модератором его наличие будет отображено в вашем профиле.</div>
+<div class="doc-notice blue-border-1 mb-15 lh-18">Ваши документы <b>не будут</b> доступны для просмотра и скачивания перевозчикам и грузодателям <b>(Кроме примера договора)</b>. После проверки документа модератором его наличие будет отображено в вашем профиле.</div>
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'documents-form',
@@ -146,77 +146,9 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 <?php echo $form->errorSummary($model); ?>
 
 
-<ul class="my-docs-files-list">
-	<?  echo document_item('file1', 'file1_checked', $model, $form, $user, 'Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.'); ?>
-	<?  echo document_item('file2', 'file2_checked', $model, $form, $user); ?>	
-	
-	<?/*
-	<li class="my-docs-files-item <? if($user->file1 != '') echo 'my-docs-files-item-ok'; ?>">
-       <? if($user->file1 == '')	{	?>
-        <div class="fileform">
-            <div class="selectbutton document-add">Обзор</div>
-			<?php echo $form->fileField($model,'file1', array('class'=>'document-file')); ?>            
-        </div>
-		<p class="info"><?php echo $form->labelEx($model,'file1', array('class'=>'')); ?></p>
-		
-		<div class="popup-info">Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.</div>
-		<?	}	else	{	?>
-			<div class="fileform">
-				<div class="selectbutton <?=$user->file1_checked ? 'document-ok' : 'document-not-checked' ?>">Не проверен</div>
-
-			</div>
-			<p class="info"><?php echo $form->labelEx($model,'file1', array('class'=>'')); ?></p>
-			<div class="document-delete-wr">
-				<button class="document-delete-btn btn-red">Удалить х</button>
-			</div>
-			
-		
-		<?	}	?>
-	</li>
-
-	
-	
-	<li class="my-docs-files-item">
-        <div class="fileform">
-            <div class="selectbutton document-not-checked">Не проверен</div>
-            
-        </div>
-		<p class="info">Свидетельство о постановке на налоговый учет (ИНН)</p>
-		
-	</li>
-	
-	
-	<li class="my-docs-files-item my-docs-files-item-ok">
-        <div class="fileform">
-            <div class="selectbutton document-ok">Проверен</div>
-        </div>
-		<p class="info">Свидетельство о постановке на налоговый учет (ИНН)</p>
-		<div class="document-delete-wr">
-		    <button class="document-delete-btn btn-red">Удалить х</button>
-		</div>
-	</li>
-	
-	<li class="my-docs-files-item my-docs-files-item-ok">
-        <div class="fileform">
-            <div class="selectbutton document-ok">Проверен</div>
-        </div>
-		<p class="info">Свидетельство о постановке на налоговый учет (ИНН)</p>
-		<div class="document-delete-wr">
-		    <button class="document-delete-btn btn-red">Удалить х</button>
-		</div>
-		
-	</li>
-	
-	<li class="my-docs-files-item">
-        <div class="fileform">
-            <div class="selectbutton document-add">Обзор</div>
-            <input id="upload" type="file" name="upload" />
-        </div>
-		<p class="info">Свидетельство о постановке на налоговый учет (ИНН)</p>
-		
-	</li>
-	*/?>	
-	
- </ul>
+<ul class="doc-files-list">
+	<?  echo document_item('file1', 'file1_checked', $model, $form, $add_info, 'Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.'); ?>
+	<?  echo document_item('file2', 'file2_checked', $model, $form, $add_info); ?>		
+</ul>
  
 <?php $this->endWidget(); ?>

@@ -1,4 +1,4 @@
-<div class="my-contact-info-container blue-border-1 pos-rel">
+<div class="contact-info-container blue-border-1 pos-rel">
 	<div class="p-20">
 		<p class="narrow-bold-18 mb-25">Контактная информация</p>
 		<ul class="my-contact-info-list">
@@ -41,45 +41,30 @@
 	<div class="my-contact-info-company bg_f4fbfe">
 		<div class="my-contact-info-container-wr p-20">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
-			<div class="my-contact-info-company-container row mb-35">
-				<ul class="my-contact-info-company-list col-lg-12 col-md-12">
+			<div class="row mb-35">
+				<ul class="contact-info-list col-lg-12 col-md-12">
 					<li>
-						<p>Тип компании:</p>
-						<p><?=$user_company->type ? '<span>'.$user_company->type.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p></p>
-						<p class="contact-info-wide"></p>						
+						<p><?php echo CHtml::encode($user_company->getAttributeLabel('name')); ?>:</p>
+						<p><?=$user_company->name ? '<span>'.$user_company->name.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
-						<p>Год основания:</p>
-						<p><?=$user_company->year ? '<span>'.$user_company->year.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p>Головной офис:</p>
-						<p class="contact-info-wide"><?=$user_company->main_office ? '<span>'.$user_company->main_office.'</span>' : 'Не указано' ?></p>
-						
+						<p><?php echo CHtml::encode($user_company->getAttributeLabel('fio')); ?>:</p>
+						<p><?=$user_company->fio ? '<span>'.$user_company->fio.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
-						<p>Кол-во авто:</p>
-						<p><?=$user_company->count_auto ? '<span>'.$user_company->count_auto.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p>Филиалы:</p>
-						<p class="contact-info-wide"><?=$user_company->filials ? '<span>'.$user_company->filials.'</span>' : 'Не указано' ?></p>
-						
+						<p><?php echo CHtml::encode($user_company->getAttributeLabel('post')); ?>:</p>
+						<p><?=$user_company->post ? '<span>'.$user_company->post.'</span>' : 'Не указано' ?></p>
 					</li>
 					<li>
-						<p>Количество сотрудников:</p>
-						<p><?=$user_company->count_staff ? '<span>'.$user_company->count_staff.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p>Склады и терминалы:</p>
-						<p class="contact-info-wide"><?=$user_company->terminals ? '<span>'.$user_company->terminals.'</span>' : 'Не указано' ?></p>
-						
+						<p><?php echo CHtml::encode($user_company->getAttributeLabel('details')); ?>:</p>
+						<p><?=$user_company->details ? '<span>'.$user_company->details.'</span>' : 'Не указано' ?></p>
 					</li>
 				</ul>
 			</div>
 			
 			<? if($user_company->description != '')	{	?>
-				<p class="narrow-bold-18 mb-25">Дополнительно</p>
-				<p class="my-contact-info-descr"><?=$user_company->description?></p>
+				<p class="narrow-bold-18 mb-25"><?php echo CHtml::encode($user_company->getAttributeLabel('details')); ?></p>
+				<p class="contact-info-descr"><?=$user_company->description?></p>
 			<?	}	?>
 		</div>
 	</div>

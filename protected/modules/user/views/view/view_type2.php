@@ -109,29 +109,30 @@ $cs->registerScript('loading', "
 	<p class="narrow-bold-23 mb-30">Документы перевозчика</p>
 	
 	<ul class="clearfix">
-		<? if($model->file1 != '' && $model->file1_checked == 1)	{	?>
-			<li class="my-docs-files-item my-docs-files-item-ok">
+		<? if($user_company->file1 != '' && $user_company->file1_checked == 1)	{	?>
+			<li class="doc-files-item fLeft pos-rel doc-files-item-ok">
 				<div class="fileform">
 					<div class="selectbutton document-ok">Проверен</div>
 				</div>
-				<p class="info pb-10">
+				<p class="info pos-rel text_c pb-10">
 					<label>Пример договора</label>
 				</p>
-				<p class="info">
-					<a class="" href="http://skorohod.by/files/users/9/docs/bcbc599c434c37696fc8d08a2daf6a63.zip">Скачать</a>
+				<p class="info pos-rel text_c">
+					<a class="" href="<?=$this->app->homeUrl?>files/users/<?=$model->id?>/docs/<?=$user_company->file1?>">Скачать</a>
 				</p>
 			</li>		
 		<?	}	?>
 		
-		<? if($model->file2 != '' && $model->file2_checked == 1)	{	?>
-			<li class="my-docs-files-item my-docs-files-item-ok">
+		<? if($user_company->file2 != '' && $user_company->file2_checked == 1)	{	?>
+			<li class="doc-files-item fLeft pos-rel doc-files-item-ok">
 				<div class="fileform">
 					<div class="selectbutton document-ok">Проверен</div>
 				</div>
-				<p class="info">
+				<p class="info pos-rel text_c">
 					<label>Свидетельство о постановке на налоговый учет (ИНН)</label>
 				</p>
 			</li>		
+		
 		<?	}	?>
 	</ul>
 	
@@ -153,7 +154,7 @@ $cs->registerScript('loading', "
 		<li class="col7 fLeft c_757575 font-12">Отзыв заказчика</li>
 	</ul>
 	
-	<?php $this->renderPartial('_reviews_list', array('dataProvider'=>$lastBidsUser)); ?>
+	<?php $this->renderPartial('_reviews_list_type_2', array('dataProvider'=>$lastBidsUser)); ?>
 	
 	<p class="blue-border-1 mt-20 p-20"><span class="notice bold c_fcb60e font-20">*</span> <span class="italic otziv-lbl">Отзыв перевозчика</span> - это оценка удовлетворенности от сотрудничества, выставленная перевозчиком грузовладельцу.</p>
 	

@@ -2,20 +2,6 @@
 
 $cs = $app->clientScript;
 
-//$cs->registerCssFile('/css/chosen.css', 'screen');
-//$cs->registerScriptFile('/js/chosen.jquery.min.js', CClientScript::POS_END);
-//$cs->registerScriptFile('/js/tabs.js', CClientScript::POS_END);
-/*
-$cs->registerScript('loading', "
-	$('.my-docs-files-item-ok').hover(
-        function(){ $(this).children('.document-delete-wr').fadeIn(100)    },
-        function(){ $(this).children('.document-delete-wr').fadeOut(100)    }
-    );
-	
-");
-*/
-
-
 $cs->registerCoreScript('jquery.ui');    
 //$cs=Yii::app()->getClientScript();
 $cs->registerCssFile($cs->getCoreScriptUrl().'/jui/css/base/jquery-ui.css');

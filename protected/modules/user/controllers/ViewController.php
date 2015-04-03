@@ -53,57 +53,51 @@ class ViewController extends Controller
 		//echo'<pre>';print_r($model,0);echo'</pre>';
 		$user_id = $this->app->request->getParam('id', 0);
 		
-		$user_company = $model->company;
-		//echo'<pre>';var_dump($user_company,0);echo'</pre>';
-		if($user_company === null) {
-			
-			$user_company = new UsersCompanies;
-			/*
-			$user_company->phone1 = '';
-			$user_company->phone2 = '';
-			$user_company->phone3 = '';
-			$user_company->phone4 = '';
-			$user_company->email = '';
-			$user_company->skype = '';
-			$user_company->site = '';
-			$user_company->type = '';
-			$user_company->year = '';
-			$user_company->count_auto = '';
-			$user_company->count_staff = '';
-			$user_company->terminals = '';
-			*/
-		} 
-			
+		
 		
 		//echo'<pre>';var_dump($user_company,0);echo'</pre>';
 		//die;
 		$data = array(
 			'model'=>$model,
-			'user_company'=>$user_company,
+			//'user_company'=>$user_company,
 			'show_edit_btn'=>false,
 		);
 		switch($model->user_type) {
 			case 2:
-				$dataProvider = $this->getTansportUser($user_id);
-				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model);
+				$user_company = $model->perevozchik;
+				if($user_company === null) {
+					$user_company = new UsersPerevozchik;
+				} 
 			
+				$dataProvider = $this->getTansportUser($user_id);
+				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model, 'performer_id');
+				
 				$data['dataProvider'] = $dataProvider;
 				$data['lastBidsUser'] = $lastBidsUser;
+				$data['user_company'] = $user_company;
 			
 				$tmpl = 'view_type2';
 			
 			
 				break;
 			default:
-			case 1:
+			case 1:			
 				$tmpl = 'view_type1';
+			
+				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model, 'user_id');
+			
+				$user_company = $model->gruzodatel;
+				if($user_company === null) {
+					$user_company = new UsersGruzodatel;
+				}
+			
+				$data['user_company'] = $user_company;
+				$data['lastBidsUser'] = $lastBidsUser;
+			
 				break;
 			
 		}
 		$this->render($tmpl, $data );
-//		$this->render('view',array(
-//			'model'=>$model,
-//		));
 	}
 
 	/**
@@ -159,17 +153,19 @@ class ViewController extends Controller
 		
 	}
 	
-	public function getLastBidsUser(&$connection, $user_id, $model)
+	public function getLastBidsUser(&$connection, $user_id, $model, $where_field = 'user_id')
 	{
+		if($where_field == 'performer_id')	{
+			$join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		}	else	{
+			$join = "INNER JOIN {{users}} AS u ON t.`performer_id` = u.`id`";
+		}
 		$criteria = new CDbCriteria;
 
-		$criteria->select = "t.*, u.username";		
-		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
-
-
-		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		$criteria->select = "t.*, u.`username`";		
+		$criteria->join = $join;
 		$criteria->order = 't.bid_id DESC';
-		$criteria->condition = "performer_id = $user_id";
+		$criteria->condition = "`$where_field` = $user_id";
 
 		$dataProvider = new CActiveDataProvider('Bids', array(
 			'criteria'=>$criteria,
@@ -184,14 +180,14 @@ class ViewController extends Controller
 			$bid_ids[] = $row->bid_id;
 		}
 		
-		//echo'<pre>';print_r($bid_ids);echo'</pre>';die;
+		//echo'<pre>';print_r($dataProvider->data);echo'</pre>';die;
 		
 		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
 		
 		$performer_reviews = ReviewsPerformers::model()->getPerfomerReviews($connection, $user_id);
 		
 		
-		foreach($dataProvider->data as $row) {			
+		foreach($dataProvider->data as $row) {
 			$cargo_name = array();
 			/*
 			$porters = false;
@@ -230,7 +226,12 @@ class ViewController extends Controller
 			}
 			
 			$row->full_name = implode('. ', $cargo_name);
-			$row->performer_name = $model->username;
+			if($where_field == 'performer_id')	{
+				$row->performer_name = $model->username;
+			}	else	{
+				$row->performer_name = $row->username;
+				$row->username = $model->username;
+			}
 			//$row->need_porters = $porters;
 			
 		}

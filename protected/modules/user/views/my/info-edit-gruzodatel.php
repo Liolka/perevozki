@@ -10,7 +10,7 @@ $this->pageTitle = "Редактировать Информация о комп�
 
 <h1>Информация о компании, контакты</h1>
 
-<div class="my-contact-info-company-edit bg_f4fbfe blue-border-1">
+<div class="contact-info-edit bg_f4fbfe blue-border-1">
 	<?php $form=$this->beginWidget('CActiveForm', array(
 		'id'=>'info-company-form',
 		// Please note: When you enable ajax validation, make sure the corresponding
@@ -90,61 +90,37 @@ $this->pageTitle = "Редактировать Информация о комп�
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="row">
 
-				<ul class="my-contact-info-company-list col-lg-5 col-md-5">
+				<ul class="contact-info-list col-lg-12 col-md-12">
 					<li>
-						<p><?php echo $form->labelEx($user_company,'type', array('class'=>'field-title c_2e3c54')); ?></p>
+						<p><?php echo $form->labelEx($user_company,'name', array('class'=>'field-title c_2e3c54')); ?></p>
 						<p>
-							<?php echo $form->textField($user_company,'type'); ?>
-							<?php echo $form->error($user_company,'type'); ?>
+							<?php echo $form->textField($user_company,'name'); ?>
+							<?php echo $form->error($user_company,'name'); ?>
 						</p>
 					</li>
 					<li>
-						<p><?php echo $form->labelEx($user_company,'year', array('class'=>'field-title c_2e3c54')); ?></p>
+						<p><?php echo $form->labelEx($user_company,'fio', array('class'=>'field-title c_2e3c54')); ?></p>
 						<p>
-							<?php echo $form->textField($user_company,'year'); ?>
-							<?php echo $form->error($user_company,'year'); ?>
+							<?php echo $form->textField($user_company,'fio'); ?>
+							<?php echo $form->error($user_company,'fio'); ?>
 						</p>
 					</li>
 					<li>
-						<p><?php echo $form->labelEx($user_company,'count_auto', array('class'=>'field-title c_2e3c54')); ?></p>
+						<p><?php echo $form->labelEx($user_company,'post', array('class'=>'field-title c_2e3c54')); ?></p>
 						<p>
-							<?php echo $form->textField($user_company,'count_auto'); ?>
-							<?php echo $form->error($user_company,'count_auto'); ?>
+							<?php echo $form->textField($user_company,'post'); ?>
+							<?php echo $form->error($user_company,'post'); ?>
 						</p>
 					</li>
 					<li>
-						<p><?php echo $form->labelEx($user_company,'count_staff', array('class'=>'field-title c_2e3c54')); ?></p>
+						<p><?php echo $form->labelEx($user_company,'details', array('class'=>'field-title c_2e3c54')); ?></p>
 						<p>
-							<?php echo $form->textField($user_company,'count_staff'); ?>
-							<?php echo $form->error($user_company,'count_staff'); ?>
+							<?php echo $form->textField($user_company,'details'); ?>
+							<?php echo $form->error($user_company,'details'); ?>
 						</p>
 					</li>
 				</ul>
 
-				<ul class="my-contact-info-company-list col-lg-7 col-md-7">
-					<li>
-						<p><?php echo $form->labelEx($user_company,'main_office', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'main_office', array('class'=>'wide')); ?>
-							<?php echo $form->error($user_company,'main_office'); ?>
-						</p>
-					</li>
-					
-					<li>
-						<p><?php echo $form->labelEx($user_company,'filials', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'filials', array('class'=>'wide')); ?>
-							<?php echo $form->error($user_company,'filials'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'terminals', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'terminals', array('class'=>'wide')); ?>
-							<?php echo $form->error($user_company,'terminals'); ?>
-						</p>
-					</li>
-				</ul>
 			</div>
 		</div>
 		

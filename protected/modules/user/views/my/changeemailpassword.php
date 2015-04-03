@@ -24,7 +24,7 @@ $this->breadcrumbs=array(
 <?php endif; ?>
 
 <div class="change-email-block">
-	<div class="my-contact-info-container my-contact-info-company">
+	<div class="contact-info-container my-contact-info-company">
 	<p class="narrow_bold_24">Смена e-maila учетной записи</p>
 
 	
@@ -66,7 +66,7 @@ $this->breadcrumbs=array(
 </div>
 
 <div class="change-password-block">
-	<div class="my-contact-info-container my-contact-info-company">
+	<div class="contact-info-container my-contact-info-company">
 	<p class="narrow_bold_24">Смена пароля</p>
 
 	<?php $form=$this->beginWidget('CActiveForm', array(

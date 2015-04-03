@@ -74,14 +74,14 @@ class MyController extends Controller
 		$this->app = Yii::app();
 		
 		$this->checkIsLoggedUser();
+		$this->checkPerevozchik();
 		
 		$model = new Transport;
 		
 		$criteria = new CDbCriteria;
-		
 		$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
-		
-		$criteria->order = 'transport_id DESC';		
+		$criteria->condition = '`user_id` = '.$this->app->user->id;
+		$criteria->order = 'transport_id DESC';
 		
         $dataProvider = new CActiveDataProvider('Transport', array(
             'criteria'=>$criteria,
@@ -90,8 +90,7 @@ class MyController extends Controller
 				'pageVar' =>'page',
             ),
         ));
-		
-				
+
 	    $this->render('transport', array(
 	    	'model'=>$model,
 			'dataProvider'=>$dataProvider,
@@ -350,10 +349,17 @@ class MyController extends Controller
 		
 		$user = $this->loadUser();
 		
-		
-		//$user = User::model()->findByPk(Yii::app()->user->id);
-//		echo'<pre>';print_r($_POST,0);echo'</pre>';
-//		echo'<pre>';print_r($_FILES,0);echo'</pre>';
+		switch($user->user_type) {
+			case 2:
+				$add_info = $user->perevozchik;
+				break;
+			default:
+			case 1:
+				$add_info = $user->gruzodatel;
+				break;
+			
+		}
+//		echo'<pre>';print_r($add_info,0);echo'</pre>';
 //		die;
 		if(isset($_FILES['MyDocuments']))	{
 			foreach($_FILES['MyDocuments']['name'] as $attr=>$name)	{
@@ -372,8 +378,8 @@ class MyController extends Controller
 						
 						$path = $file_path.$filename;
 						$model->file->saveAs($path);
-						$user->$attr = $filename;
-						$user->save(false);
+						$add_info->$attr = $filename;
+						$add_info->save(false);
 						
 						$this->app->user->setFlash('success', "Файл успешно загружен");
 						$this->redirect(array("documents"));
@@ -382,19 +388,17 @@ class MyController extends Controller
 			}
 			
 		}	else	{
-			if($user->file1)
-				$model->file1 = $user->file1;
+			if($add_info->file1)
+				$model->file1 = $add_info->file1;
 
-			if($user->file2)
-				$model->file2 = $user->file2;
-			
+			if($add_info->file2)
+				$model->file2 = $add_info->file2;
 		}
-		
-		
 				
 	    $this->render('documents', array(
 	    	'user'=>$user,
 	    	'model'=>$model,
+	    	'add_info'=>$add_info,
 	    ));
 	}
 	
@@ -409,55 +413,66 @@ class MyController extends Controller
 		}
 
 		$user = $this->loadUser();
+		$add_info = $user->perevozchik;
+		
 		if($id)	{
 			$checked_attr = $id.'_checked';
-			$file_path = Yii::getPathOfAlias('webroot').'/files/users/'.$this->app->user->id.'/docs/'.$user->$id;
+			$file_path = Yii::getPathOfAlias('webroot').'/files/users/'.$this->app->user->id.'/docs/'.$add_info->$id;
 			if(file_exists($file_path)) unlink($file_path);
-			$user->$id = '';
-			$user->$checked_attr = 0;
-			$user->save(false);
+			$add_info->$id = '';
+			$add_info->$checked_attr = 0;
+			$add_info->save(false);
 			$this->app->user->setFlash('success', "Файл успешно удален");
 		}
 		$this->redirect(array("documents"));
 	}
 	
-	/*
-	public function actionDownload($id)
-	{
-		$user = User::model()->findByPk($id);
-		$attr = $_GET['attr'];
-		//echo'<pre>';print_r($user,0);echo'</pre>';
-		if($user->$attr != '')	{
-			$file_path = Yii::getPathOfAlias('webroot').'/files/users/'.$id.'/docs/'.$user->$attr;
-			echo'<pre>';print_r($file_path,0);echo'</pre>';
-			
-//			header("Content-Type: application/force-download");
-//			header("Content-Type: application/octet-stream");
-//			header("Content-Type: application/download");
-//			header("Content-Disposition: attachment; filename=" . $user->$attr);
-//			header("Content-Transfer-Encoding: binary ");  
-//
-//			readfile($file_path);			
-		}
-	}
-	*/
-
 	public function actionInfo()
 	{
 		$this->app = Yii::app();
 		
 		$user = $this->loadUser();
-		$user_company = $user->company;
-		if($user_company === null) {
-			$user_company = new UsersCompanies();
+		
+		$data = array(
+			'user'=>$user,
+			'show_edit_btn'=>true,
+		);
+		
+		switch($user->user_type) {
+			case 2:
+				$tmpl = 'info-perevozchik';
+			
+				$user_company = $user->perevozchik;
+			
+				if($user_company === null) {
+					$user_company = new UsersPerevozchik();
+				}
+			
+				$data['user_company'] = $user_company;
+				break;
+			default:
+			case 1:
+				$tmpl = 'info-gruzodatel';
+				$add_info = $user->gruzodatel;
+			
+				if($add_info === null) {
+					$add_info = new UsersGruzodatel();
+				}
+				
+				$data['user_company'] = $add_info;
+				break;
+			
 		}
 		
-	    $this->render('info', array(
+		$this->render($tmpl, $data );
+		/*
+	    $this->render('info-perevozchik', array(
 	    	'user'=>$user,
 	    	'user_company'=>$user_company,
 	    	'show_edit_btn'=>true,
 		
 	    ));
+		*/
 	}
 
 	public function actionInfoedit()
@@ -465,36 +480,58 @@ class MyController extends Controller
 		$this->app = Yii::app();
 		
 		$user = $this->loadUser();
-		
-		$user_company = $user->company;
-		if($user_company === null) {
-			$user_company = new UsersCompanies();
+	
+		switch($user->user_type) {
+			case 2:
+				$tmpl = 'info-edit-perevozchik';
+			
+				$user_company = $user->perevozchik;
+			
+				if($user_company === null) {
+					$user_company = new UsersPerevozchik();
+				}
+				break;
+			default:
+			case 1:
+				$tmpl = 'info-edit-gruzodatel';
+				$user_company = $user->gruzodatel;
+			
+				if($user_company === null) {
+					$user_company = new UsersGruzodatel();
+				}
+				break;
 		}
 		
 		
-		if(isset($_POST['UsersCompanies']))	{
-			foreach($_POST['UsersCompanies'] as &$attr)	{
+		
+		if(isset($_POST['UsersPerevozchik']))	{
+			foreach($_POST['UsersPerevozchik'] as &$attr)	{
 				$attr = strip_tags($attr);
 			}
 			
-			//$user_company = new UsersCompanies();
-			$user_company->attributes = $_POST['UsersCompanies'];
+			$user_company->attributes = $_POST['UsersPerevozchik'];
 			if(!$user_company->user_id)	{
 				$user_company->user_id = $this->app->user->id;
 			}
 			if($user_company->save()) {
 				$this->redirect(array("info"));
 			}
+		} elseif(isset($_POST['UsersGruzodatel']))	{
+			foreach($_POST['UsersGruzodatel'] as &$attr)	{
+				$attr = strip_tags($attr);
+			}
 			
+			$user_company->attributes = $_POST['UsersGruzodatel'];
+			if(!$user_company->user_id)	{
+				$user_company->user_id = $this->app->user->id;
+			}
+			if($user_company->save()) {
+				$this->redirect(array("info"));
+			}
 		}	else	{
-			//echo'<pre>';var_dump($model->company);echo'</pre>';die;
-			
 		}
-		
-		
-		
 				
-	    $this->render('info_edit', array(
+	    $this->render($tmpl, array(
 	    	//'app'=>$app,
 	    	'user'=>$user,
 	    	'user_company'=>$user_company,
@@ -612,6 +649,16 @@ class MyController extends Controller
 		if($this->app->user->isGuest) {
 			$this->redirect(Yii::app()->controller->module->loginUrl);
 		}
+	}
+	
+	/**
+	* Проверяет, перевозчик ли пользователь
+	*/
+	public function checkPerevozchik()
+	{
+		if($this->app->user->user_type != 2)	{
+			throw new CHttpException(500, 'Данная страница доступна только перевозчикам.');
+		}		
 	}
 	
 	

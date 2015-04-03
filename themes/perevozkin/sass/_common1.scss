@@ -109,6 +109,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .mt-40 { margin-top: 40px; }
 
 
+.p-10 { padding: 10px; }
 .p-15 { padding: 15px; }
 .p-20 { padding: 20px; }
 .p-25 { padding: 25px; }
@@ -133,6 +134,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .pl-35 { padding-left: 35px; }
 
 .lh-34 { line-height: 34px; }
+.lh-18 { @extend %lh_18; }
 
 .blue-border-1 { border: 1px solid #b2daeb; }
 

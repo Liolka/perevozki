@@ -1,4 +1,4 @@
-<div class="my-contact-info-container blue-border-1 pos-rel">
+<div class="contact-info-container blue-border-1 pos-rel">
 	<div class="p-20">
 		<p class="narrow-bold-18 mb-25">Контактная информация</p>
 		<ul class="my-contact-info-list">
@@ -41,8 +41,8 @@
 	<div class="my-contact-info-company bg_f4fbfe">
 		<div class="my-contact-info-container-wr p-20">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
-			<div class="my-contact-info-company-container row mb-35">
-				<ul class="my-contact-info-company-list col-lg-12 col-md-12">
+			<div class="row mb-35">
+				<ul class="contact-info-list col-lg-12 col-md-12">
 					<li>
 						<p>Тип компании:</p>
 						<p><?=$user_company->type ? '<span>'.$user_company->type.'</span>' : 'Не указано' ?></p>
@@ -79,7 +79,7 @@
 			
 			<? if($user_company->description != '')	{	?>
 				<p class="narrow-bold-18 mb-25">Дополнительно</p>
-				<p class="my-contact-info-descr"><?=$user_company->description?></p>
+				<p class="contact-info-descr"><?=$user_company->description?></p>
 			<?	}	?>
 
 

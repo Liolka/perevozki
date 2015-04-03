@@ -33,7 +33,7 @@ $transport_imageLive = $this->app->homeUrl.'files/users/'.$this->app->user->id.'
 ?>
  
 
-<h1>Мой транспорт <span>(<?=count($dataProvider->data)?> единицы)</span></h1>
+<h1>Мой транспорт <span>(<?=count($dataProvider->data).' '.Yii::t('app', 'единица|единицы|единиц', count($dataProvider->data))?>)</span></h1>
 
 <?php if($this->app->user->hasFlash('success')): ?>
 	<div class="flash-message flash-success"><?php echo $this->app->user->getFlash('success'); ?></div>

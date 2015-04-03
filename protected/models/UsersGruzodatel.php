@@ -1,9 +1,9 @@
 <?php
 
 /**
- * This is the model class for table "{{users_companies}}".
+ * This is the model class for table "{{users_gruzodatel}}".
  *
- * The followings are the available columns in table '{{users_companies}}':
+ * The followings are the available columns in table '{{users_gruzodatel}}':
  * @property integer $id
  * @property integer $user_id
  * @property string $phone1
@@ -12,26 +12,24 @@
  * @property string $phone4
  * @property string $email
  * @property string $skype
- * @property string $site
- * @property string $type
- * @property string $year
- * @property integer $count_auto
- * @property integer $count_staff
- * @property string $main_office
- * @property string $filials
- * @property string $terminals
+ * @property integer $site
+ * @property string $name
+ * @property string $fio
+ * @property string $post
+ * @property string $details
+ * @property string $description
  *
  * The followings are the available model relations:
- * @property Users $id0
+ * @property Users $user
  */
-class UsersCompanies extends CActiveRecord
+class UsersGruzodatel extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{users_companies}}';
+		return '{{users_gruzodatel}}';
 	}
 
 	/**
@@ -43,13 +41,12 @@ class UsersCompanies extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('phone1, phone2, phone3, phone4, email, skype, site, type, year, main_office, filials, terminals', 'length', 'max'=>255),
-			array('count_auto, count_staff', 'length', 'max'=>128),
+			array('user_id, file1_checked, file2_checked', 'numerical', 'integerOnly'=>true),
+			array('phone1, phone2, phone3, phone4, email, skype, site, name, fio, post, details, file1, file2', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>2048),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, phone1, phone2, phone3, phone4, email, skype, site, type, year, count_auto, count_staff, main_office, filials, terminals', 'safe', 'on'=>'search'),
+			array('id, user_id, phone1, phone2, phone3, phone4, email, skype, site, name, fio, post, details, description', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,7 +58,7 @@ class UsersCompanies extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'id0' => array(self::BELONGS_TO, 'Users', 'id'),
+			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
 		);
 	}
 
@@ -80,13 +77,10 @@ class UsersCompanies extends CActiveRecord
 			'email' => 'Email',
 			'skype' => 'Skype',
 			'site' => 'Веб-сайт',
-			'type' => 'Тип компании',
-			'year' => 'Год основания',
-			'count_auto' => 'Кол-во авто',
-			'count_staff' => 'Количество сотрудников',
-			'main_office' => 'Головной офис',
-			'filials' => 'Филиалы',
-			'terminals' => 'Склады и терминалы',
+			'name' => 'Наименование компании',
+			'fio' => 'ФИО контактного лица',
+			'post' => 'Должность контактного лица',
+			'details' => 'Реквизиты',
 			'description' => 'Дополнительно',
 		);
 	}
@@ -117,14 +111,12 @@ class UsersCompanies extends CActiveRecord
 		$criteria->compare('phone4',$this->phone4,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('skype',$this->skype,true);
-		$criteria->compare('site',$this->site,true);
-		$criteria->compare('type',$this->type,true);
-		$criteria->compare('year',$this->year,true);
-		$criteria->compare('count_auto',$this->count_auto);
-		$criteria->compare('count_staff',$this->count_staff);
-		$criteria->compare('main_office',$this->main_office,true);
-		$criteria->compare('filials',$this->filials,true);
-		$criteria->compare('terminals',$this->terminals,true);
+		$criteria->compare('site',$this->site);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('fio',$this->fio,true);
+		$criteria->compare('post',$this->post,true);
+		$criteria->compare('details',$this->details,true);
+		$criteria->compare('description',$this->description,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -135,33 +127,10 @@ class UsersCompanies extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return UsersCompanies the static model class
+	 * @return UsersGruzodatel the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
 	}
-	
-	/*
-    protected function beforeSave()
-    {
-        if(parent::beforeSave())
-        {
-            
-			//$this->purified_text = $this->purify($this->text);
-			//echo'<pre>';print_r($this->attributes);echo'</pre>';//die;			
-			foreach($this->attributes as $attr) {
-				$attr = strip_tags($attr);
-				//echo'<pre>';print_r($attr);echo'</pre>';//die;
-
-			}
-			$this->description = strip_tags($this->description);
-			//die;
-			
-            return true;
-        }
-        else
-            return false;
-    }
-	*/
 }
