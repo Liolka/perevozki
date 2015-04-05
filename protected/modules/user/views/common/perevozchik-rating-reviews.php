@@ -28,6 +28,8 @@ function getElapsedTime($datetime)
 	}
 	return $res;
 }
+
+$NumberFormatter = $this->app->NumberFormatter;
 ?>
 		
 <div class="rating-container rating-container-p">
@@ -41,7 +43,7 @@ function getElapsedTime($datetime)
 		<?	}	?>
 		
 		<? if($model->done_carriage != 0)	{	?>		
-			<div class="rating-info-block2">Реализовано перевозок <span><?=$model->done_carriage?></span></div>
+			<div class="rating-info-block2 fRight">Реализовано перевозок <span><?=$model->done_carriage?></span></div>
 		<?	}	?>
 	</div>
 	<? /* <div class="my-rating-age"><span>2 года 4 месяца 13 дней</span> на сайте</div> */?>
@@ -58,14 +60,14 @@ function getElapsedTime($datetime)
 			<td class="head">За все время</td>
 		</tr>
 		<tr>
-			<td class="good">31</td>
-			<td class="good">115</td>
-			<td class="good">10 601</td>
+			<td class="good"><? echo $NumberFormatter->formatDecimal($reviewsStat['month']['good'])?></td>
+			<td class="good"><? echo $NumberFormatter->formatDecimal($reviewsStat['half-year']['good'])?></td>
+			<td class="good"><? echo $NumberFormatter->formatDecimal($reviewsStat['total']['good'])?></td>
 		</tr>
 		<tr>
-			<td class="bad">2</td>
-			<td class="bad">6</td>
-			<td class="bad">40</td>
+			<td class="bad"><? echo $NumberFormatter->formatDecimal($reviewsStat['month']['bad'])?></td>
+			<td class="bad"><? echo $NumberFormatter->formatDecimal($reviewsStat['half-year']['bad'])?></td>
+			<td class="bad"><? echo $NumberFormatter->formatDecimal($reviewsStat['total']['bad'])?></td>
 		</tr>
 	</table>
 </div>

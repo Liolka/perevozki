@@ -310,3 +310,33 @@
 		@extend %c_1e91da;
 	}
 }
+
+.requests-show-block {
+	border-bottom: 4px solid #425770;
+}
+
+.requests-show-block-item {
+	padding: 10px 40px;
+	
+	a {
+		@extend %underline_n_n;
+		@extend %c_1e91da;
+		
+		border-bottom: 1px dotted #1e90d9;
+		
+		&:hover {
+			border-color: #fff;
+		}
+	}
+	
+	&.active {
+		background-color: #425770;
+		
+		a {
+			@extend %bold;
+			@extend %c_fff;
+			
+			border-color: #425770;
+		}
+	}
+}

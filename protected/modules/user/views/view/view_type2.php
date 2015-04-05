@@ -38,6 +38,8 @@ $cs->registerScript('loading', "
 <h1><?php echo $model->username ?></h1>
 <p class="bid-detail-number narrow-bold-23">Профиль перевозчика</p>
 
+<? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
+
 <div class="clearfix">
 	<div class="content column2r">
 		<? include (dirname(dirname(__FILE__))."/common/perevozchik-contact-info-container.php")?>

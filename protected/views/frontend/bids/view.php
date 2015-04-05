@@ -323,7 +323,7 @@ foreach($deals_list as $row) {
 										<?	}	?>
 									</p>
 								<?	}	else	{	?>
-									<? if($this->app->user->id == $model->user_id)	{	?>
+									<? if($this->app->user->id == $model->user_id && !($accepted_deal > 0 && $row['id'] != $accepted_deal))	{	?>
 										<a href="<?=$this->createUrl('/bids/acceptdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id'], 'performer_id'=>$row['user_id']))?>" class="btn-grey-33 accept-deal-btn" title="Принять заявку">Принять</a>
 										<a href="<?=$this->createUrl('/bids/rejectdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id'], 'performer_id'=>$row['user_id']))?>" class="ico-close-blue reject-deal-btn" title="Отклонить заявку">x</a>
 									<?	}	?>
@@ -361,7 +361,7 @@ foreach($deals_list as $row) {
 						
 						<?	}	?>
 
-						<? //if($is_perevozchik)	{	?>
+						<? if($row['user_id'] == $this->app->user->id || $model->user_id == $this->app->user->id)	{	?>
 						<div class="bid-detail-deals-row-answer-block-comment pos-rel bg_daf0fa clearfix">
 							<form action="" method="post">
 								<textarea name="deal-post" id="deal-post" class="width100 mb-20" cols="30" rows="10"></textarea>
@@ -369,7 +369,7 @@ foreach($deals_list as $row) {
 								<?php echo CHtml::submitButton('Написать', array('id'=>'create-deal-post', 'class'=>'btn-green-33 bid-detail-send-comment-btn fRight', 'name'=>'create-deal-post')); ?>
 							</form>
 						</div>
-						<?	//}	?>
+						<?	}	?>
 
 					</div>
 					<?	}	?>

@@ -20,53 +20,135 @@ class MyController extends Controller
 	public function actionMy()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
 		
 		$this->checkIsLoggedUser();
 
 		$model = $this->loadUser();
 		
-		$app = Yii::app();
 		
+		$data = array(
+			'model'=>$model,
+		);
 		
-		switch($app->user->user_type) {
-			case 1:
-				$template = 'my_grizodatel';
-				break;
+		switch($this->app->user->user_type) {
 			case 2:
 				$template = 'my_perevozchik';
+			
+				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $this->app->user->id);
+			
+				$add_info = $model->perevozchik;
+				$documents_count = 0;
+			
+				if($add_info->file1 != '') {
+					$documents_count++;
+				}
+				
+				if($add_info->file2 != '') {
+					$documents_count++;
+				}
+				$data['documents_count'] = $documents_count;
+				$data['transport_count'] = count(Transport::model()->getUserTransportList($connection, $this->app->user->id));
+			
+				
+			
 				break;
+			
+			case 1:
 			default:
-				$template = 'my_grizodatel';
+				$template = 'my_gruzodatel';
+			
+				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $this->app->user->id, $model, 'user_id');
+				
+				$add_info = $model->gruzodatel;
+				$documents_count = 0;
+				if($add_info->file1 != '') {
+					$documents_count++;
+				}
+				
+				if($add_info->file2 != '') {
+					$documents_count++;
+				}
+				
+				$data['documents_count'] = $documents_count;
+			
+				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
+			
+				$user_company = $model->gruzodatel;
+				if($user_company === null) {
+					$user_company = new UsersGruzodatel;
+				}
+			
+				$data['user_company'] = $user_company;
+				$data['lastBidsUser'] = $lastBidsUser;
+			
+			
 				break;
 		}
 		
-		if($app->user->id == 1) {
+		if($this->app->user->id == 1) {
 			$this->layout='//layouts/column2r';
 			$template = 'my_admin';
 		}
 		
-	    $this->render($template, array(
-	    	'app'=>$app,
-	    	'model'=>$model,
-			'profile'=>$model->profile,
-	    ));
+		
+	    $this->render($template, $data);
 	}
 
 	public function actionRequests()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+
 		
 		$this->checkIsLoggedUser();
 		
 		$model = $this->loadUser();
 		
-		$app = Yii::app();
+		$data = array(
+			'model'=>$model,
+		);
+		
+		
+		switch($this->app->user->user_type) {
+			case 2:
+				$template = 'requests_perevozchik';
+				break;
+			
+			case 1:
+			default:
+				$template = 'requests_gruzodatel';
+			
+				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $this->app->user->id, $model, 'user_id');
 				
-	    $this->render('requests', array(
-	    	'app'=>$app,
-	    	'model'=>$model,
-			'profile'=>$model->profile,
-	    ));
+				$add_info = $model->gruzodatel;
+				$documents_count = 0;
+				if($add_info->file1 != '') {
+					$documents_count++;
+				}
+				
+				if($add_info->file2 != '') {
+					$documents_count++;
+				}
+				
+				$data['documents_count'] = $documents_count;
+			
+				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
+			
+				$user_company = $model->gruzodatel;
+				if($user_company === null) {
+					$user_company = new UsersGruzodatel;
+				}
+			
+				$data['user_company'] = $user_company;
+				$data['lastBidsUser'] = $lastBidsUser;
+			
+			
+				break;
+		}
+
+		
+	    $this->render($template, $data);
 	}
 
 	public function actionTransport()
@@ -616,7 +698,7 @@ class MyController extends Controller
 						$new_password->password = UserModule::encrypting($model->password);
 						$new_password->activkey=UserModule::encrypting(microtime().$model->password);
 						$new_password->save();
-						Yii::app()->user->setFlash('profileMessage',UserModule::t("New password is saved."));
+						Yii::app()->user->setFlash('success',UserModule::t("New password is saved."));
 						$this->redirect(array("profile"));
 					}
 			}

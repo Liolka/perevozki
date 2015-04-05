@@ -43,25 +43,3 @@ function getElapsedTime($datetime)
 	<? /* <div class="my-rating-age"><span>2 года 4 месяца 13 дней</span> на сайте</div> */?>
 	<div class="rating-age"><span><?=getElapsedTime($model->create_at)?></span> на сайте</div>
 </div>
-
-
-<div class="my-rewiews">
-	<p class="my-rewiews-head">Отзывы заказчиков</p>
-	<table class="my-rewiews-table">
-		<tr>
-			<td class="head">За месяц</td>
-			<td class="head">За полгода</td>
-			<td class="head">За все время</td>
-		</tr>
-		<tr>
-			<td class="good">31</td>
-			<td class="good">115</td>
-			<td class="good">10 601</td>
-		</tr>
-		<tr>
-			<td class="bad">2</td>
-			<td class="bad">6</td>
-			<td class="bad">40</td>
-		</tr>
-	</table>
-</div>

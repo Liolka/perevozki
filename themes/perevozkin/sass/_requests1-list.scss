@@ -136,7 +136,7 @@
 }
 
 
-.requests1-list-item-review {
+.item-review {
 	width: 125px;
 	padding: 0 0 0 35px;
 	
@@ -144,12 +144,16 @@
 	@extend %c_2e3c54;
 	@extend %for_sprite;
 	
-	span {
-		border-bottom: 1px dotted #2e3c54;
+	.bb-dotted-1:hover {
+		border-bottom: none;
 	}
 }
 
-.requests1-list-item-review-good {
+.item-review-full {
+	width: 100%;
+}
+
+.item-review-good {
 	&:before {
 		left: 0;
 		top: -7px;
@@ -158,7 +162,7 @@
 	}
 }
 
-.requests1-list-item-review-bad {
+.item-review-bad {
 	&:before {
 		left: 0;
 		top: 0;
@@ -166,7 +170,6 @@
 		@extend .ico-rating-bad;
 	}
 }
-
 
 
 

@@ -1,6 +1,6 @@
 <?php 
 
-$this->pageTitle = $app->user->username . ' - Личный кабинет перевозчика';
+$this->pageTitle = $this->app->user->username . ' - Личный кабинет перевозчика';
 
 /*
 $this->breadcrumbs=array(
@@ -23,14 +23,9 @@ $this->menu=array(
 ?>
 
 <h1>Личный кабинет перевозчика</h1>
-<p class="my-username"><?php echo  $app->user->username; ?></p>
+<p class="my-username"><?php echo  $this->app->user->username; ?></p>
 
-<?php if($app->user->hasFlash('profileMessage')): ?>
-	<div class="success flash-message flash-success">
-		<?php echo $app->user->getFlash('profileMessage'); ?>
-	</div>
-<?php endif; ?>
-
+<? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
 <div class="my-menu">
 	<ul class="my-menu-list clearfix">
@@ -40,11 +35,11 @@ $this->menu=array(
 		</li>
 		<li class="my-menu-item my-menu-item-transport">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/transport')?>">Транпорт</a>
-			<span class="my-menu-descr">54 единиц</span>
+			<span class="my-menu-descr"><?=$transport_count.' '. Yii::t('app', 'единица|единицы|единиц', $transport_count) ?></span>
 		</li>
 		<li class="my-menu-item my-menu-item-documents">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/documents')?>">Мои документы</a>
-			<span class="my-menu-descr">6 штук</span>
+			<span class="my-menu-descr"><?=$documents_count.' '. Yii::t('app', 'единица|единицы|единиц', $documents_count) ?></span>
 		</li>
 		<li class="my-menu-item my-menu-item-info">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Информация о компании, контакты</a>

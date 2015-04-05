@@ -74,7 +74,7 @@
     }
 }
 
-.my-requests-block    {
+/* .my-requests-block    {
     
     .requests1-list-head-info {
         margin-right: 150px;
@@ -111,9 +111,9 @@
     .requests1-list-item-review {
         width: 250px;
     }
-    
-    
 }
+ */
+
 
 .profile-requests-block {
 	.col1 {
@@ -152,3 +152,18 @@
 .otziv-lbl {
 	border-bottom: 1px dotted #2e3c54;
 }
+
+.profile-requests-btns {
+	height: 13px;
+}
+
+.comment-this-btn,
+.rate-this-btn {
+	top: -9px;
+	left: -10px;
+}
+
+.profile-requests-comment-frm {
+	border-top: none;
+}
+

@@ -253,6 +253,26 @@ return array(
 					),
 				),
 				
+				'rating' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.rating.pack.js',
+						'js/jquery.MetaData.js',
+					),
+					'css' => array(
+						'css/jquery.rating.css',
+					),
+					'depends' => array('jquery'),
+				),
+				
+				'simplyCountable' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.simplyCountable.js',
+					),
+					'depends' => array('jquery'),
+				),
+				
 				
 				'template' => array(
 					'baseUrl' => '/',

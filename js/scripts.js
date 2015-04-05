@@ -407,10 +407,17 @@ $(document).ready(function () {
         return false;
     });
 	
-
-
-    
-    
+	$('.review-text-switch-on').on('click', function (e) {
+		e.preventDefault();
+		$(this).parent().parent().parent().children('.profile-requests-comment-frm').slideToggle();
+        return false;
+    });
+	
+	$('.review-text-switch-off').on('click', function (e) {
+		e.preventDefault();
+		$(this).parent().parent().slideToggle();
+        return false;
+    });
     
 });
 

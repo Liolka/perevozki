@@ -53,6 +53,28 @@ class ViewController extends Controller
 		//echo'<pre>';print_r($model,0);echo'</pre>';
 		$user_id = $this->app->request->getParam('id', 0);
 		
+		$review_text = $this->app->request->getParam('review-text', '');
+		$review_value = $this->app->request->getParam('review-value', 0);
+		$bid_id = $this->app->request->getParam('bid-id', 0);
+		$performer_id = $this->app->request->getParam('performer-id', 0);
+		
+		if($review_text != '' && $review_value != 0 && $bid_id != 0 && $performer_id != 0 && $user_id == $this->app->user->id)	{
+			$reviewForm = new ReviewForm;
+			$reviewForm->comment = $review_text;
+			if($reviewForm->validate())	{
+				$reviews_performers = new ReviewsPerformers;
+				$reviews_performers->bid_id = $bid_id;
+				$reviews_performers->performer_id = $performer_id;
+				$reviews_performers->author_id = $this->app->user->id;
+				$reviews_performers->text = $review_text;
+				$reviews_performers->review_value = $review_value;
+				$reviews_performers->save(false);
+				$this->app->user->setFlash('success', "Ваш отзыв успешно размещен.");
+				$this->redirect(array('index','id'=>$user_id));
+			}
+		}
+			
+		
 		
 		
 		//echo'<pre>';var_dump($user_company,0);echo'</pre>';
@@ -70,21 +92,24 @@ class ViewController extends Controller
 				} 
 			
 				$dataProvider = $this->getTansportUser($user_id);
-				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model, 'performer_id');
+				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $user_id, $model, 'performer_id');
 				
 				$data['dataProvider'] = $dataProvider;
 				$data['lastBidsUser'] = $lastBidsUser;
 				$data['user_company'] = $user_company;
+				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $user_id);
 			
 				$tmpl = 'view_type2';
 			
 			
 				break;
 			default:
-			case 1:			
+			case 1:	
 				$tmpl = 'view_type1';
 			
-				$lastBidsUser = $this->getLastBidsUser($connection, $user_id, $model, 'user_id');
+				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $user_id, $model, 'user_id');
+				
+				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
 			
 				$user_company = $model->gruzodatel;
 				if($user_company === null) {
@@ -153,91 +178,4 @@ class ViewController extends Controller
 		
 	}
 	
-	public function getLastBidsUser(&$connection, $user_id, $model, $where_field = 'user_id')
-	{
-		if($where_field == 'performer_id')	{
-			$join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
-		}	else	{
-			$join = "INNER JOIN {{users}} AS u ON t.`performer_id` = u.`id`";
-		}
-		$criteria = new CDbCriteria;
-
-		$criteria->select = "t.*, u.`username`";		
-		$criteria->join = $join;
-		$criteria->order = 't.bid_id DESC';
-		$criteria->condition = "`$where_field` = $user_id";
-
-		$dataProvider = new CActiveDataProvider('Bids', array(
-			'criteria'=>$criteria,
-			'pagination'=>array(
-				'pageSize'=>5,
-				'pageVar' =>'page',
-			),
-		));
-		
-		$bid_ids = array();
-		foreach($dataProvider->data as $row) {
-			$bid_ids[] = $row->bid_id;
-		}
-		
-		//echo'<pre>';print_r($dataProvider->data);echo'</pre>';die;
-		
-		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
-		
-		$performer_reviews = ReviewsPerformers::model()->getPerfomerReviews($connection, $user_id);
-		
-		
-		foreach($dataProvider->data as $row) {
-			$cargo_name = array();
-			/*
-			$porters = false;
-			
-			$row->total_weight = 0;
-			$row->total_volume = 0;
-			$row->deals_count = isset($deals_count_list[$row->bid_id]) ? $deals_count_list[$row->bid_id] : 0;
-			*/
-
-			foreach($cargoes_info as $cargo) {
-				if($cargo['bid_id'] == $row->bid_id) {
-					$cargo_name[] = $cargo['name'];
-					/*
-
-					if($cargo['porters'] == 1) {
-						$porters = true;
-					}
-					
-					$row->total_weight = $row->total_weight + $cargo['weight'];
-					$row->total_unit = $cargo['unit'];
-					$row->total_volume = $row->total_volume + $cargo['volume'];
-					*/
-				}
-			}
-			
-			if(isset($performer_reviews[$row->bid_id]))	{
-				$row->review_text = $performer_reviews[$row->bid_id]['text'];
-				$row->rating = $performer_reviews[$row->bid_id]['rating'];
-				$row->good = $performer_reviews[$row->bid_id]['good'];
-				$row->bad = $performer_reviews[$row->bid_id]['bad'];
-			}	else	{
-				$row->review_text = '';
-				$row->rating = '';
-				$row->good = '';
-				$row->bad = '';
-			}
-			
-			$row->full_name = implode('. ', $cargo_name);
-			if($where_field == 'performer_id')	{
-				$row->performer_name = $model->username;
-			}	else	{
-				$row->performer_name = $row->username;
-				$row->username = $model->username;
-			}
-			//$row->need_porters = $porters;
-			
-		}
-		
-		
-		return $dataProvider;
-		
-	}
 }

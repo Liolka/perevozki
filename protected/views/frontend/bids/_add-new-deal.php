@@ -101,7 +101,7 @@ if($deals->transport_id && count($transport_list)) {
 									<?	}	?>
 								<?	}	else	{	?>
 									<li class="col-md-4 col-lg-4 pt-10 pb-10">
-										<a href="#" class="deals-form-transport-list-item narrow-regular-16 c_fff underline_n_y">Транспорт не добавлен...</a>
+										<span class="narrow-regular-16 c_fff">Транспорт не добавлен...</span>
 									</li>
 								<?	}	?>
 								

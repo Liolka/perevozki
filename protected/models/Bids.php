@@ -52,10 +52,8 @@ class Bids extends CActiveRecord
 	
 	public $performer_name;
 	public $review_text;	
+	public $review_value;	
 	public $rating;	
-	public $good;	
-	public $bad;	
-	
 	
 	/**
 	 * @return string the associated database table name
@@ -71,6 +69,7 @@ class Bids extends CActiveRecord
 			'CTimestampBehavior' => array(
 			'class' => 'zii.behaviors.CTimestampBehavior',
 			'createAttribute' => 'created',
+			'updateAttribute' => 'modified',
 			)
 		);
 	}	
@@ -205,11 +204,74 @@ class Bids extends CActiveRecord
 	public function updatePerfomer(&$connection, $bid_id, $performer_id)
 	{
 		$sql = "UPDATE ".$this->tableName()." SET `performer_id` = :performer_id WHERE `bid_id` = :bid_id";
-		//echo'<pre>';print_r($bid_id);echo'</pre>';
-		//echo'<pre>';print_r($sql);echo'</pre>';
 		$command = $connection->createCommand($sql);
 		$command->bindParam(":bid_id", $bid_id, PDO::PARAM_INT);
 		$command->bindParam(":performer_id", $performer_id, PDO::PARAM_INT);
 		$command->execute();
 	}
+	
+	public function getLastBidsUser(&$connection, $user_id, $model, $where_field = 'user_id')
+	{
+		if($where_field == 'performer_id')	{
+			$join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		}	else	{
+			$join = "INNER JOIN {{users}} AS u ON t.`performer_id` = u.`id`";
+		}
+		$criteria = new CDbCriteria;
+
+		$criteria->select = "t.*, u.`username`";		
+		$criteria->join = $join;
+		$criteria->order = 't.bid_id DESC';
+		$criteria->condition = "`$where_field` = $user_id";
+
+		$dataProvider = new CActiveDataProvider('Bids', array(
+			'criteria'=>$criteria,
+			'pagination'=>array(
+				'pageSize'=>5,
+				'pageVar' =>'page',
+			),
+		));
+		
+		$bid_ids = array();
+		foreach($dataProvider->data as $row) {
+			$bid_ids[] = $row->bid_id;
+		}
+		
+		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
+		
+		$performer_reviews = ReviewsPerformers::model()->getUserReviews($connection, $user_id);
+		
+		foreach($dataProvider->data as $row) {
+			$cargo_name = array();
+
+			foreach($cargoes_info as $cargo) {
+				if($cargo['bid_id'] == $row->bid_id) {
+					$cargo_name[] = $cargo['name'];
+				}
+			}
+			
+			if(isset($performer_reviews[$row->bid_id]))	{
+				$row->review_text = $performer_reviews[$row->bid_id]['text'];
+				$row->review_value = $performer_reviews[$row->bid_id]['review_value'];
+				$row->rating = $performer_reviews[$row->bid_id]['rating'];
+			}	else	{
+				$row->review_text = '';
+				$row->review_value = 0;
+				$row->rating = '';
+			}
+			
+			$row->full_name = implode('. ', $cargo_name);
+			if($where_field == 'performer_id')	{
+				$row->performer_name = $model->username;
+			}	else	{
+				$row->performer_name = $row->username;
+				$row->username = $model->username;
+			}
+		}
+		
+		
+		return $dataProvider;
+		
+	}
+	
 }

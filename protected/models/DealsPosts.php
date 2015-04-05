@@ -29,6 +29,7 @@ class DealsPosts extends CActiveRecord
 			'CTimestampBehavior' => array(
 			'class' => 'zii.behaviors.CTimestampBehavior',
 			'createAttribute' => 'created',
+			'updateAttribute' => 'modified',
 			)
 		);
 	}	

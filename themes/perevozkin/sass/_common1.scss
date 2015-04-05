@@ -146,9 +146,16 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 
 .bg_f4fbfe_h:hover,
 .bg_f4fbfe {background-color: #f4fbfe; }
-
 .bg_fff {background-color: #fff; }
+
+.bb-dotted-1 {
+	border-bottom: 1px dotted #2e3c54;
+}
 
 .ov-hidden { overflow: hidden;}
 
+.hide-text { overflow: hidden;text-indent: 7777px; }
+
 .border-box	{ @extend %border_box; }
+
+.pointer { @extend %pointer; }
