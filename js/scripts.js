@@ -7,7 +7,7 @@ $(document).ready(function () {
 	
     $('#login-btn, #register-btn').click(function () {
         
-        var url = $(this).attr('href'),
+        var url = $(this).attr('href')+"?modal=1",
             modal = $('.modal');
         
         $.get(url, function (data) {

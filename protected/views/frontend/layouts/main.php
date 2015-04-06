@@ -48,7 +48,8 @@
 							
 							array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items'), 'linkOptions'=>array('id'=>'register-btn')),
 							array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-							array('label'=>'Вход', 'url'=>array('/user/loginmodal'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('id'=>'login-btn')),
+							//array('label'=>'Вход', 'url'=>array('/user/loginmodal'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('id'=>'login-btn')),
+							array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('id'=>'login-btn', 'class'=>'login-btn')),
 							
 							
 							array('label'=>'Выход', 'url'=>array('/user/logout'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'logout login-items')),

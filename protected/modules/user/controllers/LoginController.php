@@ -16,6 +16,15 @@ class LoginController extends Controller
 	 */
 	public function actionLogin()
 	{
+		$this->app = Yii::app();
+		
+		$modal = $this->app->request->getParam('modal', 0);
+		if($modal == 1)	{
+			$this->redirect($this->createUrl('/user/loginmodal'));
+		}	else	{
+			
+		}
+		
 		if (Yii::app()->user->isGuest) {
 			$model=new UserLogin;
 			// collect user input data
