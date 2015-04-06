@@ -25,6 +25,7 @@ foreach($deals_list as $row) {
 
 //echo'<pre>';print_r($deals_list);echo'</pre>';
 //echo'<pre>';print_r($accepted_deal);echo'</pre>';
+
 ?>
 
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
@@ -133,12 +134,11 @@ foreach($deals_list as $row) {
 	</div>
 	
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-3">
-		<div class="bid-detail-date <? if( $model->quickly) echo 'bid-detail-date-quickly'?>">
-			<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->created); ?>
-			<?php if( $model->quickly)	{	?>
+		<div class="bid-detail-date <? if(isQuickly($model->date_transportation)) echo 'bid-detail-date-quickly'?>">
+			<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation); ?>
+			<?php if( isQuickly($model->date_transportation))	{	?>
 				<span class="bid-detail-date-quickly-val">Срочно</span>
 			<?	}	?>
-			
 		</div>
 		<div class="bid-detail-price">
 			<span class="bid-detail-price-title">Заказчик предлагает:</span>

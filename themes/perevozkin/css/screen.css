@@ -1299,7 +1299,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 
 .fLeft, .sideLeft, .sideRight, .column2l, .column2r, #RegistrationForm_user_status input,
 #RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .rating-info > div, .change-email-block,
-.change-password-block, .my-top-menu-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .deal-set-transport, .header-row1-menu li, .logo-top, .header-row2 .buttons-block, .footer-cell, .footer-cell-last li {
+.change-password-block, .my-top-menu-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .deal-set-transport, .header-row1-menu li, .logo-top, .footer-cell, .footer-cell-last li {
   float: left;
 }
 
@@ -1690,14 +1690,13 @@ body {
   background: url(../images/map.jpg) no-repeat top center;
 }
 .map-block .info {
-  width: 620px;
+  width: 650px;
   margin: 0 auto 0 auto;
 }
 .map-block .info span {
   padding-bottom: 25px;
 }
 .map-block .btn-zakazhu {
-  margin: 0 30px 0 0;
   padding: 0 25px 0 80px;
 }
 .map-block .btn-zakazhu:before {
@@ -2096,6 +2095,10 @@ button.close:hover {
   font-family: Tahoma, Arial;
 }
 
+.m-0-15 {
+  margin: 0 15px;
+}
+
 .mb-5 {
   margin-bottom: 5px;
 }
@@ -2146,6 +2149,10 @@ button.close:hover {
 
 .mt-40 {
   margin-top: 40px;
+}
+
+.p-0 {
+  padding: 0;
 }
 
 .p-10 {
@@ -4115,6 +4122,9 @@ button.close:hover {
 }
 .header-row2 .buttons-block {
   margin: 8px 0 0 135px;
+}
+.header-row2 .buttons-block-logged {
+  margin-left: 185px;
 }
 .header-row2 .btn-zakazhu {
   margin: 0 5px 0 0;

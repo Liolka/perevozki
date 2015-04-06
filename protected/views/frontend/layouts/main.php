@@ -46,10 +46,10 @@
 							array('label'=>'Помощь грузодателю', 'url'=>array('/pages/view', 'id'=>5), 'itemOptions'=>array('class'=>'gruzodatel')),
 							array('label'=>'Помощь перевозчику', 'url'=>array('/pages/view', 'id'=>6), 'itemOptions'=>array('class'=>'perevozchik')),
 							
-							array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items'), 'linkOptions'=>array('id'=>'register-btn')),
+							array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items'), 'linkOptions'=>array('class'=>'register-btn')),
 							array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
 							//array('label'=>'Вход', 'url'=>array('/user/loginmodal'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('id'=>'login-btn')),
-							array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('id'=>'login-btn', 'class'=>'login-btn')),
+							array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('class'=>'login-btn')),
 							
 							
 							array('label'=>'Выход', 'url'=>array('/user/logout'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'logout login-items')),
@@ -78,16 +78,16 @@
 					<a href="/" class="logo-top"><img src="<?=$this->theme_baseUrl?>/images/logo-top.png" alt="Перевозкин" /></a>
 					
 					<? if($this->app->user->isGuest) {	?>
-						<p class="buttons-block">
+						<p class="buttons-block fLeft">
 							<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-52 btn-zakazhu">Закажу перевозку</a>
 							<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-52 btn-perevezu">Перевезу груз</a>
 						</p>
 					<?	}	elseif($this->app->user->user_type == 1)	{	?>
-						<p class="buttons-block">
+						<p class="buttons-block-logged fLeft">
 							<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-52 btn-zakazhu btn-zakazhu-270">Закажу перевозку</a>
 						</p>
 					<?	}	elseif($this->app->user->user_type == 2)	{	?>
-						<p class="buttons-block">
+						<p class="buttons-block-logged fLeft">
 							<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-52 btn-perevezu btn-perevezu-270">Перевезу груз</a>
 						</p>
 					<?	}	?>
@@ -122,8 +122,15 @@
 		<div class="map-block">
 			<p class="info">
 				<span>Любой груз в любую точку</span>
-				<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-66 btn-zakazhu">Закажу перевозку</a>
-				<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-66 btn-perevezu">Перевезу груз</a>
+				
+				<? if ($this->app->user->isGuest)	{	?>
+					<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-66 btn-zakazhu m-0-15">Закажу перевозку</a>
+					<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-66 btn-perevezu m-0-15">Перевезу груз</a>
+				<? }	elseif ($this->app->user->user_type == 1)	{	?>
+					<a href="<?=$this->createUrl('/bids/create')?>" class="btn-green-66 btn-zakazhu m-0-15">Закажу перевозку</a>
+				<? }	elseif ($this->app->user->user_type == 2)	{	?>
+					<a href="<?=$this->createUrl('/bids/index')?>" class="btn-blue-66 btn-perevezu m-0-15">Перевезу груз</a>
+				<?	}	?>
 			</p>
 		</div>
 
@@ -236,9 +243,9 @@
 		<div class="footer-cell footer-cell-last">
 			<?php $this->widget('zii.widgets.CMenu',array(
 				'items'=>array(
-					array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items')),
+					array('label'=>'Вход', 'url'=>array('/user/login'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'login login-items'), 'linkOptions'=>array('class'=>'login-btn')),					
 					array('label'=>'или', 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'separator login-items')),
-					array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items')),							
+					array('label'=>'Регистрация', 'url'=>array('/user/registration'), 'visible'=>$this->app->user->isGuest, 'itemOptions'=>array('class'=>'reg login-items'), 'linkOptions'=>array('class'=>'register-btn')),							
 
 
 					array('label'=>$this->app->user->name, 'url'=>array('/user/my'), 'visible'=>!$this->app->user->isGuest, 'itemOptions'=>array('class'=>'profile login-items')),

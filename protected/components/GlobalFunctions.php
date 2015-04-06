@@ -24,4 +24,18 @@
 	}	
 */
 
+function isQuickly($date)
+{
+    $datetime1 = new DateTime($date);
+    $datetime2 = new DateTime(date('Y-m-d'));
+    $interval = $datetime2->diff($datetime1);
+	//echo'<pre>';print_r($interval);echo'</pre>';
+	if($interval->days <= 2 || $interval->invert == 1)	{
+		$res = true;
+	}	else	{
+		$res = false;
+	}
+	return $res;
+}
+
 ?>

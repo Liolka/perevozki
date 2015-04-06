@@ -118,8 +118,13 @@ class AdminController extends Controller
 		$this->performAjaxValidation(array($model,$profile));
 		if(isset($_POST['User']))
 		{
-			$model->attributes=$_POST['User'];
-			$profile->attributes=$_POST['Profile'];
+			$model->attributes = $_POST['User'];
+			if(isset($_POST['Profile']))	{
+				$profile->attributes = $_POST['Profile'];
+			}	else	{
+				$profile->attributes = array();
+			}
+			
 			
 			if($model->validate()&&$profile->validate()) {
 				$old_password = User::model()->notsafe()->findByPk($model->id);

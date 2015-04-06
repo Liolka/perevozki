@@ -5,7 +5,7 @@ var cargo_name = '',
 $(document).ready(function () {
 	'use strict';
 	
-    $('#login-btn, #register-btn').click(function () {
+    $('.login-btn, .register-btn').click(function () {
         
         var url = $(this).attr('href')+"?modal=1",
             modal = $('.modal');

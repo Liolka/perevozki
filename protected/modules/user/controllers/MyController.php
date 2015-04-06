@@ -38,6 +38,10 @@ class MyController extends Controller
 				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $this->app->user->id);
 			
 				$add_info = $model->perevozchik;
+				if($add_info === null) {
+					$add_info = new UsersPerevozchik;
+				}
+			
 				$documents_count = 0;
 			
 				if($add_info->file1 != '') {
@@ -61,6 +65,11 @@ class MyController extends Controller
 				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $this->app->user->id, $model, 'user_id');
 				
 				$add_info = $model->gruzodatel;
+				if($add_info === null) {
+					$add_info = new UsersGruzodatel;
+				}
+			
+			
 				$documents_count = 0;
 				if($add_info->file1 != '') {
 					$documents_count++;
@@ -122,6 +131,10 @@ class MyController extends Controller
 				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $this->app->user->id, $model, 'user_id');
 				
 				$add_info = $model->gruzodatel;
+				if($add_info === null) {
+					$add_info = new UsersGruzodatel;
+				}
+			
 				$documents_count = 0;
 				if($add_info->file1 != '') {
 					$documents_count++;
@@ -434,10 +447,20 @@ class MyController extends Controller
 		switch($user->user_type) {
 			case 2:
 				$add_info = $user->perevozchik;
+			
+				if($add_info === null) {
+					$add_info = new UsersPerevozchik;
+				}
+			
 				break;
 			default:
 			case 1:
 				$add_info = $user->gruzodatel;
+			
+				if($add_info === null) {
+					$add_info = new UsersGruzodatel;
+				}
+			
 				break;
 			
 		}

@@ -30,6 +30,8 @@ if($data->total_weight)	{
 if($data->total_volume)	{
 	$cargo_info[] = "Объем ". $data->total_volume."м3";
 }
+
+isQuickly($data->date_transportation);
 ?>
 
 <div class="requests-list-item p-25 mb-10 blue-border-1 clearfix">
@@ -53,12 +55,20 @@ if($data->total_volume)	{
 	</div>
 	<div class="requests-list-item_date fLeft">
 		<span class="requests-list-item_created c_8e95a1 font-13"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation); ?></span>
-		<p class="requests-list-item_suggestions c_8e95a1 font-13"><span class="suggestion-green c_fff dib"><?=$data->deals_count?></span><?php echo Yii::t('app', 'предложение|предложения|предложений|предложения', $data->deals_count); ?></p>
+		<p class="requests-list-item_suggestions c_8e95a1 font-13"><span class="<? if(isQuickly($data->date_transportation)) { echo 'suggestion-orange'; } else { echo 'suggestion-green'; }?> c_fff dib"><?=$data->deals_count?></span><?php echo Yii::t('app', 'предложение|предложения|предложений|предложения', $data->deals_count); ?></p>
 	</div>
 	<div class="requests-list-item_price fRight ">
-	
+	<?/*
 		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 		<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
+	*/?>	
+		<? if ($this->app->user->user_type == 2)	{	?>
+			<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+			<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
+		<?	}	else	{	?>
+			<span class="requests-list-item-price_price db mt-20 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+		<?	}	?>
+		
 	</div>
 
 

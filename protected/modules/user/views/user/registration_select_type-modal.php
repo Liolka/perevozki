@@ -21,11 +21,11 @@
             <div class="form-group">
                <input type="hidden" name="user_type" id="user_type" value="0" />
                 <p class="col-sm-5">
-                    <a href="javascript:void(0)" data-type="1" class="btn-green-52 select-user-type width100">Грузодатель</a>  
+                    <a href="javascript:void(0)" data-type="1" class="btn-green-52 select-user-type width100 p-0">Грузодатель</a>  
                 </p>
                 <p class="col-sm-2 select-user-type-lbl" style="line-height:52px;">или</p>
                 <p class="col-sm-5">                    
-                    <a href="javascript:void(0)" data-type="2" class="btn-blue-52 select-user-type width100">Перевозчик</a>
+                    <a href="javascript:void(0)" data-type="2" class="btn-blue-52 select-user-type width100 p-0">Перевозчик</a>
                 </p>
                 
             </div>

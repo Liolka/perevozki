@@ -48,6 +48,7 @@ class ReviewsPerformers extends CActiveRecord
 			array('bid_id, performer_id, author_id, text, review_value', 'required'),
 			array('bid_id, performer_id, author_id, review_value', 'numerical', 'integerOnly'=>true),
 			array('rating', 'numerical'),
+			array('text', 'length', 'max'=>400, 'min' => 3),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, created, modified, bid_id, performer_id, author_id, text, review_value, rating', 'safe', 'on'=>'search'),
@@ -197,6 +198,14 @@ class ReviewsPerformers extends CActiveRecord
 		$command->bindParam(":performer_id", $performer_id, PDO::PARAM_INT);
 		$command->bindParam(":review_value", $review_value, PDO::PARAM_INT);
 		return $command->queryScalar();
+	}
+	
+	//возвращает произвольные отзывы
+	public function getRandomReviews(&$connection)
+	{
+		$sql = "SELECT `id`,`bid_id`,`text` FROM ".$this->tableName()." ORDER BY RAND() LIMIT 0, 3";
+		$command = $connection->createCommand($sql);
+		return $command->queryAll();
 	}
 	
 	

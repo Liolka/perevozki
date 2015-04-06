@@ -131,8 +131,10 @@
 	
 	.buttons-block {
 		margin: 8px 0 0 135px;
-		
-		@extend %fl;
+	}	
+	
+	.buttons-block-logged {
+		margin-left: 185px;
 	}	
 	
 	.btn-zakazhu {

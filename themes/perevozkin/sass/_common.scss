@@ -350,7 +350,7 @@ body {
 	background: url(../images/map.jpg) no-repeat top center;
 	
 	.info {
-		width: 620px;
+		width: 650px;
 		
 		margin: 0 auto 0 auto;
 		
@@ -366,7 +366,6 @@ body {
 	}
 	
 	.btn-zakazhu {
-		margin: 0 30px 0 0;
 		padding: 0 25px 0 80px;
 		
 		@extend %for_sprite;
