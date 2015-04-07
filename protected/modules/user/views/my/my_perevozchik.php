@@ -31,7 +31,7 @@ $this->menu=array(
 	<ul class="my-menu-list clearfix">
 		<li class="my-menu-item my-menu-item-zayavki">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/requests')?>">Заявки</a>
-			<span class="my-menu-descr">54 единиц</span>
+			<span class="my-menu-descr"><?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?></span>
 		</li>
 		<li class="my-menu-item my-menu-item-transport">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/transport')?>">Транпорт</a>

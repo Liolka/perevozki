@@ -54,7 +54,7 @@ $cs->registerCoreScript('simplyCountable');
 	'htmlOptions' => array('id'=>'requests1-list-items', 'class'=>'requests1-list-items',),
 )); ?>
 
-<a href="#" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Показать еще</a>
+<a href="#" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Смотреть все</a>
 
 
 <?/*

@@ -212,7 +212,7 @@ class Bids extends CActiveRecord
 		$command->execute();
 	}
 	
-	public function getLastBidsUser(&$connection, $user_id, $model, $where_field = 'user_id')
+	public function getBidsUser(&$connection, $user_id, $model, $where_field = 'user_id')
 	{
 		if($where_field == 'performer_id')	{
 			$join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
@@ -233,6 +233,8 @@ class Bids extends CActiveRecord
 				'pageVar' =>'page',
 			),
 		));
+		
+		echo'<pre>';print_r($criteria,0);echo'</pre>';
 		
 		$bid_ids = array();
 		foreach($dataProvider->data as $row) {
@@ -273,6 +275,117 @@ class Bids extends CActiveRecord
 		
 		
 		return $dataProvider;
+		
+	}
+	
+	//возвращает заявки в которых отписывался перевозчик
+	public function getBidsPerevozchik(&$connection, $user_id, $model, $pageSize = 5, $orderBy = "t.`created` DESC", $filter = 'all')
+	{
+		$join = array();
+		$join[] = "INNER JOIN {{deals}} AS d USING(`bid_id`)";
+		$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		
+		$condition = array();
+		$condition[] = "d.`user_id` = $user_id";
+		
+		if($filter == 'actual')	{
+			$actual_date = date('Y-m-d', strtotime("-5 days"));			
+			$condition[] = "((t.`date_transportation` = '0000-00-00' OR t.`date_transportation` >= '$actual_date') AND (t.`date_transportation_to` = '0000-00-00' OR t.`date_transportation_to` >= '$actual_date'))";
+		}
+		
+		$criteria = new CDbCriteria;
+
+		$criteria->select = "t.*, u.`username`";		
+		$criteria->join = implode(' ', $join);
+		$criteria->order = $orderBy;
+		
+		$criteria->condition = implode(' AND ', $condition);
+		
+		//echo'<pre>';print_r($criteria,0);echo'</pre>';//die;
+		//echo'<pre>';print_r($count,0);echo'</pre>';//die;
+		
+
+		$dataProvider = new CActiveDataProvider('Bids', array(
+			'criteria' => $criteria,
+			'pagination' => array(
+				'pageSize' => $pageSize,
+				'pageVar' =>'page',
+			),
+		));
+		
+		
+		
+		$bid_ids = array();
+		foreach($dataProvider->data as $row) {
+			$bid_ids[] = $row->bid_id;
+		}
+		
+		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
+		
+		$performer_reviews = ReviewsPerformers::model()->getUserReviews($connection, $user_id);
+		
+		foreach($dataProvider->data as $row) {
+			$cargo_name = array();
+
+			foreach($cargoes_info as $cargo) {
+				if($cargo['bid_id'] == $row->bid_id) {
+					$cargo_name[] = $cargo['name'];
+				}
+			}
+			
+			if(isset($performer_reviews[$row->bid_id]))	{
+				$row->review_text = $performer_reviews[$row->bid_id]['text'];
+				$row->review_value = $performer_reviews[$row->bid_id]['review_value'];
+				$row->rating = $performer_reviews[$row->bid_id]['rating'];
+			}	else	{
+				$row->review_text = '';
+				$row->review_value = 0;
+				$row->rating = '';
+			}
+			
+			$row->full_name = implode('. ', $cargo_name);
+			
+			$row->performer_name = $row->username;
+			$row->username = $model->username;
+			
+		}
+		
+		return $dataProvider;
+		
+	}
+	
+	public function getTotalBidsPerevozchik(&$connection, $user_id, $filter = 'all')
+	{
+		
+		$sql = "SELECT count(`id`) AS count FROM {{deals}} WHERE `user_id` = :user_id";
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		return $command->queryScalar();
+		
+		
+		/*
+		$join = array();
+		$join[] = "INNER JOIN {{deals}} AS d USING(`bid_id`)";
+		$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		
+		$condition = array();
+		$condition[] = "d.`user_id` = $user_id";
+		
+		if($filter == 'actual')	{
+			$actual_date = date('Y-m-d', strtotime("-5 days"));			
+			$condition[] = "((t.`date_transportation` = '0000-00-00' OR t.`date_transportation` >= '$actual_date') AND (t.`date_transportation_to` = '0000-00-00' OR t.`date_transportation_to` >= '$actual_date'))";
+		}
+		
+		$criteria = new CDbCriteria;
+
+		$criteria->select = "t.bid_id, u.`username`";		
+		$criteria->join = implode(' ', $join);
+		
+		$criteria->condition = implode(' AND ', $condition);
+		
+		return $this->count($criteria);
+		*/
 		
 	}
 	

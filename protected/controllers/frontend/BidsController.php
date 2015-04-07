@@ -642,9 +642,8 @@ class BidsController extends Controller
 		
 		//$rows_pages = Bids::model()->getBids();
 		
-		$this->processPageRequest('page');
-		
-		
+		//$this->processPageRequest('page');
+		processPageRequest('page');
 		
 		$clear_bids_filter = $this->app->request->getParam('clear-bids-filter', 0);
 		if($clear_bids_filter)	{

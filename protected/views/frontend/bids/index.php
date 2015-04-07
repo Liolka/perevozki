@@ -7,6 +7,13 @@ $this->breadcrumbs=array(
 
 $bids_filter_dates_from = $bids_filter_dates_to = '';
 
+$clientScript = $this->app->clientScript;
+
+$this->pageTitle = "Заявки на перевозку грузов";
+$clientScript->registerMetaTag("Заявки на перевозку грузов", 'keywords');
+$clientScript->registerMetaTag("Заявки на перевозку грузов", 'description');
+
+
 
 ?>
 

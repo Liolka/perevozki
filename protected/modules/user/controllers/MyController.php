@@ -51,9 +51,11 @@ class MyController extends Controller
 				if($add_info->file2 != '') {
 					$documents_count++;
 				}
+			
+				
 				$data['documents_count'] = $documents_count;
 				$data['transport_count'] = count(Transport::model()->getUserTransportList($connection, $this->app->user->id));
-			
+				$data['totalBids'] = Bids::model()->getTotalBidsPerevozchik($connection, $this->app->user->id);
 				
 			
 				break;
@@ -62,7 +64,7 @@ class MyController extends Controller
 			default:
 				$template = 'my_gruzodatel';
 			
-				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $this->app->user->id, $model, 'user_id');
+				$lastBidsUser = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id');
 				
 				$add_info = $model->gruzodatel;
 				if($add_info === null) {
@@ -108,7 +110,45 @@ class MyController extends Controller
 	{
 		$this->app = Yii::app();
 		$connection = $this->app->db;
-
+		processPageRequest('page');
+		
+		$order_ = $this->app->request->getParam('order', '');
+		if($order_ != '')	{
+			$this->app->session['myrequests.order'] = $order_;
+			$this->redirect(array('requests'));
+		}
+				
+		if(isset($this->app->session['myrequests.order'])) {
+			$order = $this->app->session['myrequests.order'];
+		}	else	{
+			$order = 'date';
+		}
+		
+		switch($order) {
+			case 'reviews' :
+				$orderBy = "r.`text` DESC";
+				$orderBy = "t.`created` DESC";
+				break;
+			case 'date' :
+			default:
+				$orderBy = "t.`created` DESC";
+				break;
+			
+		}
+		
+		$filter_ = $this->app->request->getParam('filter', '');
+		if($filter_ != '')	{
+			$this->app->session['myrequests.filter'] = $filter_;
+			$this->redirect(array('requests'));
+		}
+		
+		if(isset($this->app->session['myrequests.filter'])) {
+			$filter = $this->app->session['myrequests.filter'];
+		}	else	{
+			$filter = 'actual';
+		}
+		
+		//echo'<pre>';print_r($orderBy,0);echo'</pre>';
 		
 		$this->checkIsLoggedUser();
 		
@@ -116,20 +156,44 @@ class MyController extends Controller
 		
 		$data = array(
 			'model'=>$model,
+			'order'=>$order,
+			'filter'=>$filter,
 		);
 		
 		
 		switch($this->app->user->user_type) {
 			case 2:
-				$template = 'requests_perevozchik';
+			
+				$dataProvider = Bids::model()->getBidsPerevozchik($connection, $this->app->user->id, $model, 5, $orderBy, $filter);
+				$data['dataProvider'] = $dataProvider;
+			
+				if ($this->app->request->isAjaxRequest){
+					$template = '_requests_list_perevozchik_ajax';
+				}	else	{
+					$totalBids = Bids::model()->getTotalBidsPerevozchik($connection, $this->app->user->id);
+
+					$user_company = $model->perevozchik;
+					if($user_company === null) {
+						$user_company = new UsersPerevozchik;
+					} 
+
+					$data['user_company'] = $user_company;
+					
+					$data['totalBids'] = $totalBids;
+					
+					$template = 'requests_perevozchik';
+				}
+			
+				
 				break;
 			
 			case 1:
 			default:
 				$template = 'requests_gruzodatel';
 			
-				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $this->app->user->id, $model, 'user_id');
+				$lastBidsUser = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id');
 				
+				/*
 				$add_info = $model->gruzodatel;
 				if($add_info === null) {
 					$add_info = new UsersGruzodatel;
@@ -145,7 +209,7 @@ class MyController extends Controller
 				}
 				
 				$data['documents_count'] = $documents_count;
-			
+				*/
 				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
 			
 				$user_company = $model->gruzodatel;
@@ -160,8 +224,12 @@ class MyController extends Controller
 				break;
 		}
 
-		
-	    $this->render($template, $data);
+		if ($this->app->request->isAjaxRequest) {
+			$this->renderPartial($template, $data);
+		}	else	{
+			$this->render($template, $data);
+		}
+	    
 	}
 
 	public function actionTransport()

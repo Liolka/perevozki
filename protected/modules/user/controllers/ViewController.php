@@ -92,7 +92,7 @@ class ViewController extends Controller
 				} 
 			
 				$dataProvider = $this->getTansportUser($user_id);
-				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $user_id, $model, 'performer_id');
+				$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'performer_id');
 				
 				$data['dataProvider'] = $dataProvider;
 				$data['lastBidsUser'] = $lastBidsUser;
@@ -107,7 +107,7 @@ class ViewController extends Controller
 			case 1:	
 				$tmpl = 'view_type1';
 			
-				$lastBidsUser = Bids::model()->getLastBidsUser($connection, $user_id, $model, 'user_id');
+				$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'user_id');
 				
 				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
 			

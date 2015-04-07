@@ -44,24 +44,7 @@
 		</div>
 
 		<? if($data->review_text != '')	{	?>
-			<?
-				$maxchar = 50;
-				
-				if(strlen($data->review_text) > $maxchar)	{
-					$words = explode(' ', $data->review_text);
-					foreach ($words as $word)	{
-						if (strlen($review_text_intro . ' ' . $word) < $maxchar)	{
-							$review_text_intro .= ' '.$word; 
-						} else	{
-							$review_text_intro .= '';
-							break;
-						}
-					}
-				}	else	{
-					
-				}
-				
-			?>
+			<?	$review_text_intro = getIntroText(50, $data->review_text); ?>
 			<div class="col7 fLeft font-12 border-box item-review <? if($data->review_value == -1) { echo "item-review-bad"; } else { echo "item-review-good"; } ?>">
 				<? if($review_text_intro != '')	{	?>
 					<span class="lh-18 pointer review-text-switch-on bb-dotted-1"><?=$review_text_intro.'...' ?></span>

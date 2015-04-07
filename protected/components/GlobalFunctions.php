@@ -59,4 +59,11 @@ function getIntroText($maxchar, $text)
 	return $text_intro;
 }
 
+function processPageRequest($param = 'page')
+{
+	if (Yii::app()->request->isAjaxRequest && isset($_POST[$param]))
+		$_GET[$param] = Yii::app()->request->getPost($param);
+}
+
+
 ?>
