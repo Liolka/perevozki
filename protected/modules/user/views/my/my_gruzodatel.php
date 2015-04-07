@@ -36,11 +36,12 @@ $this->menu=array(
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/transport')?>">Транпорт</a>
 			<span class="my-menu-descr">54 единиц</span>
 		</li>
-		*/?>
+		
 		<li class="my-menu-item my-menu-item-documents">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/documents')?>">Мои документы</a>
 			<span class="my-menu-descr"><?=$documents_count.' '. Yii::t('app', 'единица|единицы|единиц', $documents_count) ?></span>
 		</li>
+		*/?>
 		<li class="my-menu-item my-menu-item-info">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Информация, контакты</a>
 			<? /*<span class="my-menu-descr my-menu-descr-small">Тип компании, количество сотрудников, год основания и т.д.</span> */ ?>

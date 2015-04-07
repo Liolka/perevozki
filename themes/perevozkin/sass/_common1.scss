@@ -45,7 +45,7 @@
 
 .for_sprite { @extend %for_sprite; };
 
-.normal { @extens %normal; }
+.normal { @extend %normal; }
 
 .font-11 { @extend %font_11; }
 .font-12 { @extend %font_12; }
@@ -55,6 +55,7 @@
 .font-20 { @extend %font_20; } 
 .font-22 { @extend %font_22; } 
 .font-24 { @extend %font_24; } 
+.font-32 { @extend %font_32; } 
 
 .c_1e91da { @extend %c_1e91da; }
 .c_2e3c54 { @extend %c_2e3c54; }
@@ -110,6 +111,8 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .mt-30 { margin-top: 30px; }
 .mt-40 { margin-top: 40px; }
 
+.ml-5 { margin-left: 5px; }
+
 
 .p-0 { padding: 0; }
 .p-10 { padding: 10px; }
@@ -117,6 +120,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .p-20 { padding: 20px; }
 .p-25 { padding: 25px; }
 
+.p-0-5 { padding: 0 5px; }
 .p-0-10 { padding: 0 10px; }
 .p-0-15 { padding: 0 15px; }
 .p-0-20 { padding: 0 20px; }
@@ -125,12 +129,16 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 
 .pt-5 { padding-top: 5px; }
 .pt-10 { padding-top: 10px; }
+.pt-25 { padding-top: 25px; }
 
 .pb-5 { padding-bottom: 5px; }
 .pb-10 { padding-bottom: 10px; }
 .pb-15 { padding-bottom: 15px; }
 .pb-20 { padding-bottom: 20px; }
 
+.pr-0 { padding-right: 0; }
+
+.pl-0 { padding-left: 0; }
 .pl-10 { padding-left: 10px; }
 .pl-20 { padding-left: 20px; }
 .pl-30 { padding-left: 30px; }

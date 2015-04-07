@@ -54,7 +54,13 @@ isQuickly($data->date_transportation);
 		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->unloading_address; ?></span>
 	</div>
 	<div class="requests-list-item_date fLeft">
-		<span class="requests-list-item_created c_8e95a1 font-13"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation); ?></span>
+		<? 
+			$date = array();
+			if($data->date_transportation != '0000-00-00') $date[] = $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation);
+			if($data->date_transportation != '0000-00-00' && $data->date_transportation_to != '0000-00-00') $date[] = '-';
+			if($data->date_transportation_to != '0000-00-00') $date[] = $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation_to);
+		?>
+		<span class="requests-list-item_created c_8e95a1 font-13"><?php echo implode(' ', $date); ?></span>
 		<p class="requests-list-item_suggestions c_8e95a1 font-13"><span class="<? if(isQuickly($data->date_transportation)) { echo 'suggestion-orange'; } else { echo 'suggestion-green'; }?> c_fff dib"><?=$data->deals_count?></span><?php echo Yii::t('app', 'предложение|предложения|предложений|предложения', $data->deals_count); ?></p>
 	</div>
 	<div class="requests-list-item_price fRight ">
@@ -62,7 +68,9 @@ isQuickly($data->date_transportation);
 		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 		<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
 	*/?>	
-		<? if ($this->app->user->user_type == 2)	{	?>
+		<? if ($this->app->user->isGuest)	{	?>
+			<span class="requests-list-item-price_price db mt-20 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>	
+		<? }	elseif ($this->app->user->user_type == 2)	{	?>
 			<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 			<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
 		<?	}	else	{	?>

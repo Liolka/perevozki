@@ -135,7 +135,28 @@ foreach($deals_list as $row) {
 	
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-3">
 		<div class="bid-detail-date <? if(isQuickly($model->date_transportation)) echo 'bid-detail-date-quickly'?>">
-			<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation); ?>
+			<p class="clearfix" style="margin-left:-5px;margin-right:-5px;">
+				<? if($model->date_transportation != '0000-00-00')	{	?>
+					<span class="db fLeft p-0-5">
+						<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation); ?>
+						<? if($model->time_transportation != '00:00:00')	{	?>
+							<span class="db font-13 normal pt-5"><?php echo $model->time_transportation; ?></span>
+						<?	}	?>
+					</span>
+				<?	}	?>
+				<? if($model->date_transportation != '0000-00-00' && $model->date_transportation_to != '0000-00-00')	{	?>
+					<span class="db fLeft p-0-5">&mdash;</span>
+				<?	}	?>
+				<? if($model->date_transportation_to != '0000-00-00')	{	?>
+					<span class="db fLeft p-0-5">
+						<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation_to); ?>
+						<? if($model->time_transportation_to != '00:00:00')	{	?>
+							<span class="db font-13 normal pt-5"><?php echo $model->time_transportation_to; ?></span>
+						<?	}	?>
+					</span>
+				<?	}	?>
+			</p>
+			
 			<?php if( isQuickly($model->date_transportation))	{	?>
 				<span class="bid-detail-date-quickly-val">Срочно</span>
 			<?	}	?>

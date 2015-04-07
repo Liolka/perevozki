@@ -43,8 +43,8 @@ class UsersPerevozchik extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
-			array('user_id, file1_checked, file2_checked', 'numerical', 'integerOnly'=>true),
-			array('phone1, phone2, phone3, phone4, email, skype, site, type, year, main_office, filials, terminals, file1, file2', 'length', 'max'=>255),
+			array('user_id, file1_checked, file2_checked, file3_checked, file4_checked, file5_checked, file6_checked, file7_checked, file8_checked, file9_checked, file10_checked, file11_checked, file12_checked, file13_checked, file14_checked', 'numerical', 'integerOnly'=>true),
+			array('phone1, phone2, phone3, phone4, email, skype, site, type, year, main_office, filials, terminals, file1, file2, file3, file4, file5, file6, file7, file8, file9, file10, file11, file12, file13, file14', 'length', 'max'=>255),
 			array('count_auto, count_staff', 'length', 'max'=>128),
 			array('description', 'length', 'max'=>2048),
 			// The following rule is used by search().
@@ -88,6 +88,20 @@ class UsersPerevozchik extends CActiveRecord
 			'filials' => 'Филиалы',
 			'terminals' => 'Склады и терминалы',
 			'description' => 'Дополнительно',
+			'file1' => 'Пример договора',
+			'file2' => 'Свидетельство о постановке на налоговый учет (ИНН)',
+			'file3' => 'Свидетельство о регистрации юр. лица',
+			'file4' => 'Свидетельство о регистрации ИП',
+			'file5' => 'Лицензия',
+			'file6' => 'Водительское удостоверение',
+			'file7' => 'ПТС',
+			'file8' => 'Паспорт',
+			'file9' => 'Прописка в паспорте',
+			'file10' => 'Реквизиты',
+			'file11' => 'Устав',
+			'file12' => 'Прайс-лист',
+			'file13' => 'Страховка',
+			'file14' => 'Коммерческое предложение',
 		);
 	}
 

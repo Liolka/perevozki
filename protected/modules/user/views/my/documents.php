@@ -45,7 +45,8 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 		$html .= CHtml::closeTag('div');
 		
 		$html .= CHtml::openTag('p', array('class'=>'info text_c'));
-			$html .= $form->labelEx($model, $attr, array('class'=>''));		
+			//$html .= $form->labelEx($model, $attr, array('class'=>''));		
+			$html .= $form->labelEx($user, $attr, array('class'=>''));		
 		$html .= CHtml::closeTag('p');
 		
 		if($popup != '')	{
@@ -62,9 +63,8 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 		$html .= CHtml::closeTag('div');
 		
 		$html .= CHtml::openTag('p', array('class'=>'info pos-rel text_c', 'style'=>'z-index:1;'));
-			//$html .= CHtml::link($form->labelEx($model, $attr), array('/user/my/download', 'id'=>Yii::app()->user->id, 'attr'=>$attr), array('class'=>''));
-			$html .= CHtml::link($form->labelEx($model, $attr), Yii::app()->homeUrl.'files/users/'.$user->id.'/docs/'.$user->$attr, array('class'=>''));
-			//$html .= $form->labelEx($model, $attr);	
+			//$html .= CHtml::link($form->labelEx($model, $attr), Yii::app()->homeUrl.'files/users/'.$user->id.'/docs/'.$user->$attr, array('class'=>''));
+			$html .= CHtml::link($form->labelEx($user, $attr), Yii::app()->homeUrl.'files/users/'.$user->id.'/docs/'.$user->$attr, array('class'=>''));
 		$html .= CHtml::closeTag('p');
 		
 		$html .= CHtml::openTag('div', array('class'=>'document-delete-wr pos-abs hide-block'));
@@ -145,10 +145,24 @@ function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '
 
 <?php echo $form->errorSummary($model); ?>
 
-
+<?
+//echo $add_info->getAttributeLabel('file1');
+?>
 <ul class="doc-files-list">
 	<?  echo document_item('file1', 'file1_checked', $model, $form, $add_info, 'Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.'); ?>
 	<?  echo document_item('file2', 'file2_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file3', 'file3_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file4', 'file4_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file5', 'file5_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file6', 'file6_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file7', 'file7_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file8', 'file8_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file9', 'file9_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file10', 'file10_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file11', 'file11_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file12', 'file12_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file13', 'file13_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file14', 'file14_checked', $model, $form, $add_info); ?>		
 </ul>
  
 <?php $this->endWidget(); ?>

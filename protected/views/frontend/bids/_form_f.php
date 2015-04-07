@@ -45,8 +45,9 @@ if($('#Bids_have_account').is(':checked')) {
 
 			<div class="row">
 				<div class="col-md-6 col-lg-6">
+					<div class="row form-row"><div class="col-md-12 col-lg-12 step-subheader">Даты, между которыми нужно перевезти груз</div></div>				
 					<div class="row form-row" style="position:relative;">
-						<div class="col-md-4 col-lg-4">
+						<div class="col-md-3 col-lg-3">
 							<?php echo $form->labelEx($model,'date_transportation', array('class'=>'lbl-block')); ?>
 							<?php //echo $form->textField($model,'date_transportation', array('class'=>'width100')); ?>
 							<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
@@ -78,16 +79,59 @@ if($('#Bids_have_account').is(':checked')) {
 							
 							<?php echo $form->error($model,'date_transportation'); ?>						
 						</div>
-						<div class="col-md-4 col-lg-4">
+						<div class="col-md-2 col-lg-2">
 							<?php echo $form->labelEx($model,'time_transportation', array('class'=>'lbl-block')); ?>
-							<?php echo $form->textField($model,'time_transportation'); ?>
+							<?php echo $form->textField($model,'time_transportation', array('class'=>'width100')); ?>
 							<?php echo $form->error($model,'time_transportation'); ?>
 						</div>
+						<div class="col-md-1 col-lg-1 bold p-0 text_c pt-25 font-32">&mdash;</div>
+						
+						<div class="col-md-3 col-lg-3">
+							<?php echo $form->labelEx($model,'date_transportation_to', array('class'=>'lbl-block')); ?>
+							<?php //echo $form->textField($model,'date_transportation', array('class'=>'width100')); ?>
+							<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+									'model'=>$model,
+									'name' => 'Bids[date_transportation_to]',
+									'language' => 'ru',
+									'value' => $model->date_transportation,
+									'options'=>array(
+										'showAnim'=>'fold',
+										'dateFormat'=>'yy-mm-dd',
+										'defaultDate' => '+1w',
+										'changeMonth' => 'true',
+										'changeYear'=>'true',
+										'constrainInput' => 'false',
+										'onSelect' => "js:function( selectedDate ) {
+										jQuery('#lastdate').datepicker('option', 'minDate', selectedDate)
+									}"
+									),
+									'htmlOptions'=>array(
+										  //'style'=>'height:20px;',
+										  'id'=>'date_transportation_to',
+											'class'=>'width100'
+									),
+
+									// DONT FORGET TO ADD TRUE this will create the datepicker return
+									// as string
+								),true);
+							?>
+							
+							<?php echo $form->error($model,'date_transportation'); ?>						
+						</div>
+						<div class="col-md-2 col-lg-2">
+							<?php echo $form->labelEx($model,'time_transportation_to', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textField($model,'time_transportation_to', array('class'=>'width100')); ?>
+							<?php echo $form->error($model,'time_transportation_to'); ?>
+						</div>
+						<?/*
 						<div class="col-md-4 col-lg-4 date-unknown-block">
 							<?php echo $form->checkBox($model,'date_unknown', array('class'=>'checkbox')); ?>
 							<?php echo $form->labelEx($model,'date_unknown', array('class'=>'checkbox-lbl')); ?>						
 							<?php echo $form->error($model,'date_unknown'); ?>
 						</div>
+						*/?>
+						
+						<div class="col-md-12 col-lg-12 font-12 pt-10 c_697f9a">(Вы можете указать только 1 дату или вообще не указывать, если это не важно)</div>
 					</div>
 					<?/*
 					<div class="row form-row">
@@ -101,7 +145,7 @@ if($('#Bids_have_account').is(':checked')) {
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
-							<?php echo $form->labelEx($model,'price', array('class'=>'lbl-block')); ?>
+							<?php echo $form->labelEx($model,'price', array('class'=>'lbl-block step-subheader')); ?>
 							<?php echo $form->textField($model,'price'); ?>  <label class="" for="Bids_price">белорусских рублей</label>
 							<?php echo $form->error($model,'price'); ?>
 						</div>

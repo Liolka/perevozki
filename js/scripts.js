@@ -418,6 +418,26 @@ $(document).ready(function () {
 		$(this).parent().parent().slideToggle();
         return false;
     });
+	
+    $('#next-random-reviews').on('click', function (e) {
+		e.preventDefault();
+		$.ajax({
+			type: 'get',
+			url: '/site/getrandomreviews.html',
+			data: {},
+			dataType: 'html',
+			beforeSend: function () {
+				$("#random-reviews-loading").show();
+			},
+			success: function (msg) {
+				$("#random-reviews-loading").hide();
+				$('#random-reviews-wr').html(msg);
+			}
+		});
+		return false;
+		
+	});
+	
     
 });
 
