@@ -51,13 +51,10 @@ class MyController extends Controller
 				if($add_info->file2 != '') {
 					$documents_count++;
 				}
-			
 				
 				$data['documents_count'] = $documents_count;
 				$data['transport_count'] = count(Transport::model()->getUserTransportList($connection, $this->app->user->id));
 				$data['totalBids'] = Bids::model()->getTotalBidsPerevozchik($connection, $this->app->user->id);
-				
-			
 				break;
 			
 			case 1:
@@ -92,8 +89,6 @@ class MyController extends Controller
 			
 				$data['user_company'] = $user_company;
 				$data['lastBidsUser'] = $lastBidsUser;
-			
-			
 				break;
 		}
 		
@@ -101,7 +96,6 @@ class MyController extends Controller
 			$this->layout='//layouts/column2r';
 			$template = 'my_admin';
 		}
-		
 		
 	    $this->render($template, $data);
 	}
@@ -133,7 +127,6 @@ class MyController extends Controller
 			default:
 				$orderBy = "t.`created` DESC";
 				break;
-			
 		}
 		
 		$filter_ = $this->app->request->getParam('filter', '');
@@ -171,6 +164,7 @@ class MyController extends Controller
 					$template = '_requests_list_perevozchik_ajax';
 				}	else	{
 					$totalBids = Bids::model()->getTotalBidsPerevozchik($connection, $this->app->user->id);
+					$data['totalBids'] = $totalBids;
 
 					$user_company = $model->perevozchik;
 					if($user_company === null) {
@@ -179,48 +173,31 @@ class MyController extends Controller
 
 					$data['user_company'] = $user_company;
 					
-					$data['totalBids'] = $totalBids;
-					
 					$template = 'requests_perevozchik';
 				}
-			
-				
 				break;
 			
 			case 1:
 			default:
-				$template = 'requests_gruzodatel';
+				$dataProvider = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id', 2, $orderBy, $filter);
+				$data['dataProvider'] = $dataProvider;
 			
-				$lastBidsUser = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id');
-				
-				/*
-				$add_info = $model->gruzodatel;
-				if($add_info === null) {
-					$add_info = new UsersGruzodatel;
-				}
-			
-				$documents_count = 0;
-				if($add_info->file1 != '') {
-					$documents_count++;
-				}
-				
-				if($add_info->file2 != '') {
-					$documents_count++;
-				}
-				
-				$data['documents_count'] = $documents_count;
-				*/
 				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
-			
-				$user_company = $model->gruzodatel;
-				if($user_company === null) {
-					$user_company = new UsersGruzodatel;
+				if ($this->app->request->isAjaxRequest)	{
+					$template = '_requests_list_gruzodatel_ajax';
+				}	else	{
+					$totalBids = Bids::model()->getTotalBidsGruzodatel($connection, $this->app->user->id);
+					$data['totalBids'] = $totalBids;
+					
+					$user_company = $model->gruzodatel;
+					if($user_company === null) {
+						$user_company = new UsersGruzodatel;
+					}
+
+					$data['user_company'] = $user_company;
+					
+					$template = 'requests_gruzodatel';
 				}
-			
-				$data['user_company'] = $user_company;
-				$data['lastBidsUser'] = $lastBidsUser;
-			
-			
 				break;
 		}
 

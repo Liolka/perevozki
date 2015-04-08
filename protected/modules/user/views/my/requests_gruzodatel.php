@@ -18,24 +18,21 @@ $this->breadcrumbs=array(
 ?>
 
 
-<h1>Мои заявки <span>(<?=count($lastBidsUser->data).' '. Yii::t('app', 'штука|штуки|штук', count($lastBidsUser->data)) ?>)</span></h1>
+<h1>Мои заявки <span>(<?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?>)</span></h1>
 
 <div class="my-requests-block">
-	<ul class="requests-show-block mb-30 clearfix">
-		<li class="requests-show-block-item fLeft active"><a href="#" class="requests-show-block-link" title="Только текущие">Только текущие</a></li>
-		<li class="requests-show-block-item fLeft"><a href="#" class="requests-show-block-link" title="Все">Все</a></li>
-	</ul>
+ 	
+  	<?php $this->renderPartial('_requests_sorting_filtering', array(
+		'filter'=>$filter,
+		'order'=>$order,
+	)); ?>
 
-	<div class="my-requests-sort-block">
-		<ul class="clearfix">
-			<li>Сортировка:</li>
-			<li class="active sort-block-item sort-block-date"><a href="#">По дате</a><span class="sort-direction">▼</span></li>
-			<li class="sort-block-item sort-block-requests"><a href="#">По наличию отзывов</a></li>
-		</ul>
-	</div>
    
     <div class="profile-requests-block">
-		<?php $this->renderPartial('_requests_list_gruzodatel', array('dataProvider'=>$lastBidsUser)); ?>
+		<?php $this->renderPartial('_requests_list_gruzodatel', array('dataProvider'=>$dataProvider)); ?>
+		<?php $this->renderPartial('_requests_list_pagination_ajax', array('dataProvider'=>$dataProvider)); ?>
+		
+		<? /*<a href="#" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Показать ещё</a> */ ?>
 	</div>
 </div>
 

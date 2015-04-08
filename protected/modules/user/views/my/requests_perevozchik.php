@@ -22,10 +22,14 @@ $this->breadcrumbs=array(
 
 <div class="my-requests-block">
 	
-  	<? include ('_requests_sorting_filtering.php')?>
+  	<?php $this->renderPartial('_requests_sorting_filtering', array(
+		'filter'=>$filter,
+		'order'=>$order,
+	)); ?>
    
     <div class="profile-requests-block">
 		<?php $this->renderPartial('_requests_list_perevozchik', array('dataProvider'=>$dataProvider)); ?>
+		<?php $this->renderPartial('_requests_list_pagination_ajax', array('dataProvider'=>$dataProvider)); ?>
 	</div>
 </div>
 

@@ -213,7 +213,7 @@
 				'items'=>array(
 					array('label'=>'Закажу перевозку', 'url'=>array('/bids/create')),
 					array('label'=>'Помощь грузодателю', 'url'=>array('/pages/view', 'id'=>5)),
-					array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
+					//array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu1')
 			)); ?>
 
@@ -223,7 +223,7 @@
 				'items'=>array(
 					array('label'=>'Перевезу груз', 'url'=>array('/bids/index')),
 					array('label'=>'Помощь перевозчику', 'url'=>array('/pages/view', 'id'=>6)),
-					array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
+					//array('label'=>'Рейтинг перевозчиков', 'url'=>array('site/emptypage')),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu2')
 			)); ?>
 		</div>
@@ -235,7 +235,7 @@
 					array('label'=>'Интернет-магазинам', 'url'=>array('/pages/view', 'id'=>8)),
 					array('label'=>'Система рейтинга', 'url'=>array('/pages/view', 'id'=>9)),
 					array('label'=>'Гарантии', 'url'=>array('/pages/view', 'id'=>3)),
-					array('label'=>'Контакты', 'url'=>array('/pages/view', 'id'=>4)),
+					array('label'=>'Отзывы', 'url'=>array('/pages/view', 'id'=>4)),
 				),'htmlOptions' => array('class'=>'footer-menu', 'id'=>'footer-menu3')
 			)); ?>
 		</div>

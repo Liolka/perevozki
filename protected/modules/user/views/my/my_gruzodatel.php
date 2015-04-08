@@ -56,9 +56,11 @@ $this->menu=array(
 <div class="my-page clearfix">
 	<div class="content column2r">
 		<div class="profile-requests-block">
-			<p class="my-last-requests-title">Мои заявки <span>(5 последних)</span> <a href="/my-last/">Смотреть все</a> </p>
+			<p class="my-last-requests-title">Мои заявки <span>(5 последних)</span> <a href="<?=$this->createUrl('/user/my/requests')?>">Смотреть все</a></p>
 
 			<?php $this->renderPartial('_requests_list_gruzodatel', array('dataProvider'=>$lastBidsUser)); ?>
+			
+			<a href="<?=$this->createUrl('/user/my/requests')?>" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Смотреть все</a>			
 		</div>
 	</div>
 	

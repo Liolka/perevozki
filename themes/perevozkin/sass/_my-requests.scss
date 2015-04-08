@@ -137,6 +137,23 @@
 	.col7 {
 		width: 24%;
 	}
+	
+	.col21 {
+		width: 26%;
+	}
+	
+	.col41 {
+		width: 25%;
+	}
+	
+	.col51 {
+		width: 25%;
+	}
+	
+	.col61 {
+		width: 18%;
+	}
+	
 }
 
 .review-perevoz-ttl {
@@ -159,11 +176,28 @@
 
 .comment-this-btn,
 .rate-this-btn {
-	top: -9px;
-	left: -10px;
+	top: 50%;
+	margin-top: -12px;
+	right: 0; 
 }
 
 .profile-requests-comment-frm {
 	border-top: none;
 }
 
+.perevozchik-cell {
+	border-left: 1px solid #e0f1f9;
+	border-right: 1px solid #e0f1f9;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.gruzodatel-cell {
+	border-right: 1px solid #e0f1f9;
+}
+
+.perevozchik-cell,
+.gruzodatel-cell {
+	padding-left: 10px;
+	padding-right: 10px;
+}

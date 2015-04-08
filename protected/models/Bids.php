@@ -88,11 +88,12 @@ class Bids extends CActiveRecord
 			array('login_email, bid_email', 'email'),
 			array('login_password', 'length', 'max'=>128, 'min' => 4),
 			array('bid_phone, bid_name', 'length', 'max'=>128),
+			array('user_review, performer_review', 'length', 'max'=>400, 'min' => 10),
 			//array('date_transportation, time_transportation', 'length', 'max'=>255),
 			array('date_transportation, date_transportation_to', 'date', 'format' => 'yyyy-MM-dd'),
 			array('time_transportation, time_transportation_to', 'date', 'format' => 'HH:mm'),
 			
-			array('user_id, category_id, published, date_unknown, price, quickly, performer_id', 'numerical', 'integerOnly'=>true),
+			array('user_id, category_id, published, date_unknown, price, quickly, performer_id, user_rating, performer_rating', 'numerical', 'integerOnly'=>true),
 			array('loading_town, loading_address, add_loading_unloading_town_1, add_loading_unloading_address_1, add_loading_unloading_town_2, add_loading_unloading_address_2, add_loading_unloading_town_3, add_loading_unloading_address_3, unloading_town, unloading_address', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -146,6 +147,10 @@ class Bids extends CActiveRecord
 			'login_email' => 'E-mail',
 			'login_password' => 'Пароль',
 			'quickly' => 'Срочно',
+			'user_rating' => 'Оценка заказчика',
+			'user_review' => 'Отзыв заказчика',
+			'performer_rating' => 'Оценка перевозчика',
+			'performer_review' => 'Отзыв перевозчика',
 		);
 	}
 
@@ -212,29 +217,30 @@ class Bids extends CActiveRecord
 		$command->execute();
 	}
 	
-	public function getBidsUser(&$connection, $user_id, $model, $where_field = 'user_id')
+	public function getBidsUser(&$connection, $user_id, $model, $where_field = 'user_id', $pageSize = 5, $orderBy = "t.`created` DESC", $filter = 'all')
 	{
+		$join = array();
 		if($where_field == 'performer_id')	{
-			$join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+			$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
 		}	else	{
-			$join = "INNER JOIN {{users}} AS u ON t.`performer_id` = u.`id`";
+			$join[] = "INNER JOIN {{users}} AS u ON t.`performer_id` = u.`id`";
 		}
 		$criteria = new CDbCriteria;
 
 		$criteria->select = "t.*, u.`username`";		
-		$criteria->join = $join;
+		$criteria->join = implode(' ', $join);
 		$criteria->order = 't.bid_id DESC';
 		$criteria->condition = "`$where_field` = $user_id";
 
 		$dataProvider = new CActiveDataProvider('Bids', array(
 			'criteria'=>$criteria,
 			'pagination'=>array(
-				'pageSize'=>5,
+				'pageSize'=>$pageSize,
 				'pageVar' =>'page',
 			),
 		));
 		
-		echo'<pre>';print_r($criteria,0);echo'</pre>';
+		//echo'<pre>';print_r($criteria,0);echo'</pre>';
 		
 		$bid_ids = array();
 		foreach($dataProvider->data as $row) {
@@ -302,9 +308,6 @@ class Bids extends CActiveRecord
 		$criteria->condition = implode(' AND ', $condition);
 		
 		//echo'<pre>';print_r($criteria,0);echo'</pre>';//die;
-		//echo'<pre>';print_r($count,0);echo'</pre>';//die;
-		
-
 		$dataProvider = new CActiveDataProvider('Bids', array(
 			'criteria' => $criteria,
 			'pagination' => array(
@@ -322,7 +325,7 @@ class Bids extends CActiveRecord
 		
 		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
 		
-		$performer_reviews = ReviewsPerformers::model()->getUserReviews($connection, $user_id);
+		//$performer_reviews = ReviewsPerformers::model()->getUserReviews($connection, $user_id);
 		
 		foreach($dataProvider->data as $row) {
 			$cargo_name = array();
@@ -333,6 +336,7 @@ class Bids extends CActiveRecord
 				}
 			}
 			
+			/*
 			if(isset($performer_reviews[$row->bid_id]))	{
 				$row->review_text = $performer_reviews[$row->bid_id]['text'];
 				$row->review_value = $performer_reviews[$row->bid_id]['review_value'];
@@ -342,6 +346,7 @@ class Bids extends CActiveRecord
 				$row->review_value = 0;
 				$row->rating = '';
 			}
+			*/
 			
 			$row->full_name = implode('. ', $cargo_name);
 			
@@ -387,6 +392,16 @@ class Bids extends CActiveRecord
 		return $this->count($criteria);
 		*/
 		
+	}
+	
+	public function getTotalBidsGruzodatel(&$connection, $user_id)
+	{
+		
+		$sql = "SELECT count(`bid_id`) AS count FROM ".$this->tableName()." WHERE `user_id` = :user_id";
+		//echo'<pre>';print_r($sql);echo'</pre>';
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		return $command->queryScalar();
 	}
 	
 }
