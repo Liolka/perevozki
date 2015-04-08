@@ -1041,7 +1041,7 @@ h1 span, .breadcrumbs, .my-last-requests-title span, .header-row2 .questions .ti
   color: #8e95a1;
 }
 
-.header-row2 .questions {
+.c_96a5b8, .header-row2 .questions {
   color: #96a5b8;
 }
 
@@ -1960,14 +1960,15 @@ button.close:hover {
   margin-top: 19px;
 }
 
+/*
 .review-value-good img {
-  top: 2px;
-}
+	top: 2px;
 
+}
 .review-value-bad img {
-  top: 14px;
+	top: 14px;
 }
-
+*/
 .btn-red-33,
 .btn-grey-33,
 .btn-blue-33,
@@ -2271,6 +2272,10 @@ button.close:hover {
   border: 1px solid #b2daeb;
 }
 
+.blue-border-top-1 {
+  border-top: 1px solid #b2daeb;
+}
+
 .bg_425770 {
   background-color: #425770;
 }
@@ -2289,6 +2294,10 @@ button.close:hover {
 
 .bg_de5151 {
   background-color: #de5151;
+}
+
+.bg_f3fbff {
+  background-color: #f3fbff;
 }
 
 .bg_f4fbfe_h:hover,
@@ -2313,6 +2322,14 @@ button.close:hover {
 }
 
 .bb-dotted-2-h:hover {
+  border-bottom: none;
+}
+
+.bb-dotted-3, .bb-dotted-3-h {
+  border-bottom: 1px dotted #96a5b8;
+}
+
+.bb-dotted-3-h:hover {
   border-bottom: none;
 }
 
@@ -3402,7 +3419,7 @@ button.close:hover {
   right: 0;
 }
 
-.profile-requests-comment-frm {
+.requests-full-review {
   border-top: none;
 }
 
@@ -3421,6 +3438,13 @@ button.close:hover {
 .gruzodatel-cell {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.requests-review-frm-rating {
+  margin-top: 8px;
+}
+.requests-review-frm-rating > span {
+  margin-top: 2px;
 }
 
 .step-container {

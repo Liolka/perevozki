@@ -181,7 +181,7 @@
 	right: 0; 
 }
 
-.profile-requests-comment-frm {
+.requests-full-review {
 	border-top: none;
 }
 
@@ -200,4 +200,12 @@
 .gruzodatel-cell {
 	padding-left: 10px;
 	padding-right: 10px;
+}
+
+.requests-review-frm-rating {
+	margin-top: 8px;
+	
+	&>span {
+		margin-top: 2px;
+	}
 }

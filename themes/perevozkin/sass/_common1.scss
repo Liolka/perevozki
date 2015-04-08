@@ -63,6 +63,7 @@
 .c_71a72c { @extend %c_71a72c; }
 .c_757575 { @extend %c_757575; }
 .c_8e95a1 { @extend %c_8e95a1; }
+.c_96a5b8 { @extend %c_96a5b8; }
 .c_aab1ba { @extend %c_aab1ba; }
 .c_c3c8cd { @extend %c_c3c8cd; }
 .c_cbe0eb { @extend %c_cbe0eb; }
@@ -152,6 +153,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .lh-18 { @extend %lh_18; }
 
 .blue-border-1 { border: 1px solid #b2daeb; }
+.blue-border-top-1 { border-top: 1px solid #b2daeb; }
 
 .bg_425770 {background-color: #425770; }
 .bg_697f9a {background-color: #697f9a; }
@@ -159,14 +161,20 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .bg_daf0fa {background-color: #daf0fa; }
 .bg_de5151 {background-color: #de5151; }
 
+.bg_f3fbff {background-color: #f3fbff; }
 .bg_f4fbfe_h:hover,
 .bg_f4fbfe {background-color: #f4fbfe; }
+
 .bg_fff {background-color: #fff; }
 
 .bb-dotted-1 { border-bottom: 1px dotted #2e3c54; }
 .bb-dotted-1-h { @extend .bb-dotted-1; &:hover { border-bottom: none; } }
+
 .bb-dotted-2 { border-bottom: 1px dotted #71a72c; }
 .bb-dotted-2-h { @extend .bb-dotted-2; &:hover { border-bottom: none; } }
+
+.bb-dotted-3 { border-bottom: 1px dotted #96a5b8; }
+.bb-dotted-3-h { @extend .bb-dotted-3; &:hover { border-bottom: none; } }
 
 .ov-hidden { overflow: hidden;}
 

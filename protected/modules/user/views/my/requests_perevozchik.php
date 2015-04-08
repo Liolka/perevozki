@@ -17,6 +17,8 @@ $this->breadcrumbs=array(
 
 ?>
 
+<? include (dirname(dirname(__FILE__))."/common/rating-init.php")?>
+
 
 <h1>Заявки в которых вы отписывались <span>(<?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?>)</span></h1>
 
