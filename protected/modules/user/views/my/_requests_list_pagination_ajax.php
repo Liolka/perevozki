@@ -52,6 +52,15 @@
                             // если достигли максимальной страницы, то прячем кнопку
                             if (page >= pageCount)
                                 $('#showMore').hide();
+							
+							$('.auto-submit-star').rating({
+								callback: function(value, link){
+									if(value != undefined) {
+										$(this).parent().parent().parent().parent().find('.rating-value').val(value);
+									}
+								}
+							});
+							
                         }
                     });
                 }

@@ -4,5 +4,5 @@
 	'ajaxUpdate'=>false,
 	'template'=>"{items}",
 	'itemsCssClass' => 'mb-10',
-	'htmlOptions' => array('id'=>'requests1-list-items', 'class'=>'requests1-list-items',),
+	'htmlOptions' => array('id'=>'ajax-list', 'class'=>'ajax-list'),
 )); ?>

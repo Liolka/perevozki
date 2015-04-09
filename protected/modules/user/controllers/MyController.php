@@ -31,11 +31,16 @@ class MyController extends Controller
 			'model'=>$model,
 		);
 		
+		$filter = 'actual';
+		$orderBy = "t.`created` DESC";		
+		
 		switch($this->app->user->user_type) {
 			case 2:
 				$template = 'my_perevozchik';
 			
 				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $this->app->user->id);
+			
+				$lastBidsUser = Bids::model()->getBidsPerevozchik($connection, $this->app->user->id, $model, 5, $orderBy, $filter);
 			
 				$add_info = $model->perevozchik;
 				if($add_info === null) {
@@ -54,6 +59,7 @@ class MyController extends Controller
 				
 				$data['documents_count'] = $documents_count;
 				$data['transport_count'] = count(Transport::model()->getUserTransportList($connection, $this->app->user->id));
+				$data['lastBidsUser'] = $lastBidsUser;
 				$data['totalBids'] = Bids::model()->getTotalBidsPerevozchik($connection, $this->app->user->id);
 				break;
 			
@@ -61,7 +67,8 @@ class MyController extends Controller
 			default:
 				$template = 'my_gruzodatel';
 			
-				$lastBidsUser = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id');
+				//$lastBidsUser = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id');
+				$lastBidsUser = Bids::model()->getBidsGruzodatel($connection, $this->app->user->id, $model, 'user_id', 5, $orderBy, $filter);
 				
 				$add_info = $model->gruzodatel;
 				if($add_info === null) {
@@ -89,6 +96,7 @@ class MyController extends Controller
 			
 				$data['user_company'] = $user_company;
 				$data['lastBidsUser'] = $lastBidsUser;
+				$data['totalBids'] = Bids::model()->getTotalBidsGruzodatel($connection, $this->app->user->id);
 				break;
 		}
 		
@@ -120,8 +128,8 @@ class MyController extends Controller
 		
 		switch($order) {
 			case 'reviews' :
-				$orderBy = "r.`text` DESC";
-				$orderBy = "t.`created` DESC";
+				$orderBy = "review DESC, t.`created` DESC";
+				//$orderBy = "t.`created` DESC";
 				break;
 			case 'date' :
 			default:
@@ -153,10 +161,8 @@ class MyController extends Controller
 			'filter'=>$filter,
 		);
 		
-		
 		switch($this->app->user->user_type) {
 			case 2:
-			
 				$dataProvider = Bids::model()->getBidsPerevozchik($connection, $this->app->user->id, $model, 5, $orderBy, $filter);
 				$data['dataProvider'] = $dataProvider;
 			
@@ -179,7 +185,7 @@ class MyController extends Controller
 			
 			case 1:
 			default:
-				$dataProvider = Bids::model()->getBidsUser($connection, $this->app->user->id, $model, 'user_id', 2, $orderBy, $filter);
+				$dataProvider = Bids::model()->getBidsGruzodatel($connection, $this->app->user->id, $model, 'user_id', 5, $orderBy, $filter);
 				$data['dataProvider'] = $dataProvider;
 			
 				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';

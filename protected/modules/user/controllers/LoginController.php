@@ -21,8 +21,6 @@ class LoginController extends Controller
 		$modal = $this->app->request->getParam('modal', 0);
 		if($modal == 1)	{
 			$this->redirect($this->createUrl('/user/loginmodal'));
-		}	else	{
-			
 		}
 		
 		if (Yii::app()->user->isGuest) {

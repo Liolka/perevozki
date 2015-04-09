@@ -11,15 +11,9 @@
 */?>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
-	'itemView'=>'_view_requests_gruzodatel',
+	'itemView'=>'_view_requests_gruzodatel_my',
 	'ajaxUpdate'=>false,
-	'template'=>"{items}\n{pager}",
-	'pager'=>array(
-		'htmlOptions'=>array(
-			'class'=>'paginator'
-		)
-	),	
-	//'itemsCssClass' => 'blue-border-1 p-20 mb-10 bg_f4fbfe_h pos-rel clearfix',
-	'itemsCssClass' => 'mb-10',
+	'template'=>"{items}",
+	'itemsCssClass' => 'mb-10 mt-20',
 	'htmlOptions' => array('id'=>'listView', 'class'=>'requests1-list-items',),
 )); ?>

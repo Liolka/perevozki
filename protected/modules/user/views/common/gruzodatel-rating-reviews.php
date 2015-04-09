@@ -33,7 +33,7 @@ function getElapsedTime($datetime)
 <div class="rating-container rating-container-g pos-rel">
 	<div class="rating">
 		<p class="mb-10"><span class="font-17  c_fff rating-ttl-g">Средняя оценка</span><span class="notice bold c_fcb60e font-20">*</span></p>
-		<div class="rating-stars-xl pos-rel"><span class="rating-stars-empty"></span><span class="rating-stars-full" style="width:<?=$model->rating?>%;"></span></div>
+		<div class="rating-stars-xl pos-rel"><span class="rating-stars-empty"></span><span class="rating-stars-full" style="width:<?=($model->rating * 10) ?>%;"></span></div>
 	</div>
 	<? if($model->done_carriage != 0)	{	?>	
 	<div class="rating-info rating-info-block2-g pos-abs c_fff text_c">

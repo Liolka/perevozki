@@ -3,13 +3,15 @@
 class ReviewForm extends CFormModel
 {
 	public $comment;
-	public $mark;
+	public $rating;
 	
 	
 	public function rules()
 	{
 		return array(
-			array('mark', 'numerical', 'integerOnly'=>true),
+			array('comment', 'required', 'message'=>'Напишите отзыв'),
+			array('rating', 'required', 'message'=>'Поставьте оценку вашему отзыву'),
+			array('rating', 'numerical', 'integerOnly'=>true),
 			array('comment', 'length', 'max'=>400, 'min' => 3),
 		);
 	}
@@ -17,7 +19,7 @@ class ReviewForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'mark' => "mark",
+			'rating' => "rating",
 			'comment' => "comment",
 		);
 	}

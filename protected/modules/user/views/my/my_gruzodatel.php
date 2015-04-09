@@ -2,21 +2,7 @@
 
 $this->pageTitle = $this->app->user->username . ' - Личный кабинет грузодателя';
 
-/*
-$this->breadcrumbs=array(
-	UserModule::t("Profile"),
-);
-$this->menu=array(
-	((UserModule::isAdmin())
-		?array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin'))
-		:array()),
-    array('label'=>UserModule::t('List User'), 'url'=>array('/user')),
-    array('label'=>UserModule::t('Edit'), 'url'=>array('edit')),
-    array('label'=>UserModule::t('Change password'), 'url'=>array('changepassword')),
-    array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
-);
-*/
-//echo $app->user->user_type;
+include (dirname(dirname(__FILE__))."/common/rating-init.php");
 ?>
 
 <h1>Личный кабинет грузодателя</h1>
@@ -29,7 +15,7 @@ $this->menu=array(
 		
 		<li class="my-menu-item my-menu-item-zayavki">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/requests')?>">Заявки</a>
-			<span class="my-menu-descr"><?=count($lastBidsUser->data).' '. Yii::t('app', 'штука|штуки|штук', count($lastBidsUser->data)) ?></span>
+			<span class="my-menu-descr"><?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?></span>
 		</li>
 		<?/*
 		<li class="my-menu-item my-menu-item-transport">
@@ -58,7 +44,7 @@ $this->menu=array(
 		<div class="profile-requests-block">
 			<p class="my-last-requests-title">Мои заявки <span>(5 последних)</span> <a href="<?=$this->createUrl('/user/my/requests')?>">Смотреть все</a></p>
 
-			<?php $this->renderPartial('_requests_list_gruzodatel', array('dataProvider'=>$lastBidsUser)); ?>
+			<?php $this->renderPartial('_requests_list_gruzodatel_my', array('dataProvider'=>$lastBidsUser)); ?>
 			
 			<a href="<?=$this->createUrl('/user/my/requests')?>" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Смотреть все</a>			
 		</div>

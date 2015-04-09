@@ -23,6 +23,8 @@ foreach($deals_list as $row) {
 	}
 }
 
+$show_deal_frm = true;
+
 //echo'<pre>';print_r($deals_list);echo'</pre>';
 //echo'<pre>';print_r($accepted_deal);echo'</pre>';
 
@@ -259,6 +261,10 @@ foreach($deals_list as $row) {
 
 			<? foreach($deals_list as $row) {	?>
 				<?
+				if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
+					$show_deal_frm = false;
+				}
+	
 				$deal_posts = array();
 				foreach($deals_posts_list as $post)	{
 					if($post['deal_id'] == $row['id'])	{
@@ -403,7 +409,7 @@ foreach($deals_list as $row) {
 
 	
 	<? 
-		if($is_perevozchik)	{
+		if($is_perevozchik && $show_deal_frm)	{
 			$this->renderPartial('_add-new-deal', array(
 				'deals'=>$deals,
 				'transport_list'=>$transport_list,

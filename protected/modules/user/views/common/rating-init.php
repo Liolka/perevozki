@@ -1,44 +1,59 @@
 <?
 $cs = $this->app->getClientScript();
+//$cs1 = $this->app->getClientScript();
+if(!$this->app->user->isGuest)	{
+	if($this->app->user->user_type == 1) {
+		$cs->registerCoreScript('rating-g');
+	}	else	{
+		$cs->registerCoreScript('rating-b');
+	}
+}	else	{
+	$cs->registerCoreScript('rating-g');
+}
+//$cs->registerCoreScript('rating');
+$cs->registerCoreScript('simplyCountable');
+
 
 $cs->registerScript('rating-init', "
 	$('.auto-submit-star').rating({
 		callback: function(value, link){
 			if(value != undefined) {
-				$.ajax({
-					type: 'post',
-					url: '/bids/step2form',
-					data: {rating_data : value},
-					dataType: 'html',
-					beforeSend: function () {
-					},
-					success: function (msg) {
-						//$('#step2Container').html(msg);
-						//$('#step2Container .checkbox').styler();
-					}
-				});
-			
-				console.log(value);
-			} else {
+				$(this).parent().parent().parent().parent().find('.rating-value').val(value);
 			}
-			
 		}
 	});
 	
-	$('.rate-this-btn').on('click', function(e){
-		e.preventDefault();
-		$(this).hide();
-		$(this).parent().children('.stars-wr').show();
+	$('#listView').on('click', '.show-full-review', function () {
+		$(this).parent().parent().parent().parent().find('.requests-full-review').slideToggle();
 	});
 	
-	$('.comment-this-btn').on('click', function(e){
-		e.preventDefault();
-		$(this).parent().parent().parent().parent().find('.profile-requests-comment-frm').slideToggle();
+	$('#listView').on('click', '.requests-full-review-hide', function () {
+		$(this).parent().parent().parent().find('.requests-full-review').slideToggle();
+	});
+	
+	$('#listView').on('click', '.rating-cancel', function () {
+		$(this).parent().parent().parent().parent().find('.rating-value').val('');
+	});
+	
+	$('#listView').on('click', '.btn-send-review', function () {
+        var form = $(this).closest('form'),
+            err_wrap = $('.error');
+        
+		err_wrap.hide();
+		
+        $.post(
+            form.attr('action'),
+            form.serialize(),
+            function (data) {
+                if (data == 'ok') {
+                    window.location.reload();
+                } else {
+                    err_wrap.html(data);
+					err_wrap.show();
+                }
+            }
+        );
+        return false;
 	});
 ");
-
-//$cs1 = $this->app->getClientScript();
-$cs->registerCoreScript('rating');
-$cs->registerCoreScript('simplyCountable');
-
 ?>

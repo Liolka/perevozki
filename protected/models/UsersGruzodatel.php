@@ -41,8 +41,8 @@ class UsersGruzodatel extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
-			array('user_id, file1_checked, file2_checked', 'numerical', 'integerOnly'=>true),
-			array('phone1, phone2, phone3, phone4, email, skype, site, name, fio, post, details, file1, file2', 'length', 'max'=>255),
+			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('phone1, phone2, phone3, phone4, email, skype, site, name, fio, post, details', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>2048),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

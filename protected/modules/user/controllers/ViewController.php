@@ -52,7 +52,7 @@ class ViewController extends Controller
 		$model = $this->loadModel();
 		//echo'<pre>';print_r($model,0);echo'</pre>';
 		$user_id = $this->app->request->getParam('id', 0);
-		
+		/*
 		$review_text = $this->app->request->getParam('review-text', '');
 		$review_value = $this->app->request->getParam('review-value', 0);
 		$bid_id = $this->app->request->getParam('bid-id', 0);
@@ -73,9 +73,10 @@ class ViewController extends Controller
 				$this->redirect(array('index','id'=>$user_id));
 			}
 		}
-			
+		*/	
 		
-		
+		$filter = 'actual';
+		$orderBy = "t.`created` DESC";
 		
 		//echo'<pre>';var_dump($user_company,0);echo'</pre>';
 		//die;
@@ -92,7 +93,8 @@ class ViewController extends Controller
 				} 
 			
 				$dataProvider = $this->getTansportUser($user_id);
-				$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'performer_id');
+				//$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'performer_id');
+				$lastBidsUser = Bids::model()->getBidsPerevozchik($connection, $user_id, $model, 5, $orderBy, $filter);
 				
 				$data['dataProvider'] = $dataProvider;
 				$data['lastBidsUser'] = $lastBidsUser;
@@ -100,14 +102,14 @@ class ViewController extends Controller
 				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $user_id);
 			
 				$tmpl = 'view_type2';
-			
-			
 				break;
+			
 			default:
 			case 1:	
 				$tmpl = 'view_type1';
 			
-				$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'user_id');
+				//$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'user_id');
+				$lastBidsUser = Bids::model()->getBidsGruzodatel($connection, $user_id, $model, 'user_id', 5, $orderBy, $filter);
 				
 				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
 			

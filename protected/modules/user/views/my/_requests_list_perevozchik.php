@@ -1,3 +1,4 @@
+<?/*
 <ul class="requests1-list-head clearfix p-20">
 	<li class="col1 fLeft c_757575 font-12 text_c">№</li>
 	<li class="col2 fLeft c_757575 font-12">Информация о грузе</li>
@@ -7,7 +8,7 @@
 	<li class="col6 fLeft c_757575 font-12">Заказчик</li>
 	<li class="col7 fLeft c_757575 font-12">Отзыв заказчика</li>
 </ul>
-
+*/?>
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view_requests_perevozchik',

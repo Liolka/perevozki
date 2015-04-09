@@ -1,22 +1,15 @@
 <?php
-/*
-$cs = $this->app->clientScript;
-
-$cs->registerCoreScript('jquery.ui');    
-//$cs=Yii::app()->getClientScript();
-$cs->registerCssFile($cs->getCoreScriptUrl().'/jui/css/base/jquery-ui.css');
-$cs->registerCssFile($this->app->theme->baseUrl.'/css/tabs.css');
-$cs->registerScript('#my-requests-tab',"jQuery('#my-requests-tab').tabs({'collapsible':true});");
-*/
 
 $this->breadcrumbs=array(
 	$this->app->user->username => array('/user/my'),
-	'Заявки в которых вы отписывались',
+	'Мои заявки',
 );
-
 
 ?>
 
+<? include (dirname(dirname(__FILE__))."/common/rating-init.php")?>
+
+<? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
 <h1>Мои заявки <span>(<?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?>)</span></h1>
 
@@ -28,7 +21,7 @@ $this->breadcrumbs=array(
 	)); ?>
 
    
-    <div class="profile-requests-block">
+    <div class="profile-requests-block  mt-40">
 		<?php $this->renderPartial('_requests_list_gruzodatel', array('dataProvider'=>$dataProvider)); ?>
 		<?php $this->renderPartial('_requests_list_pagination_ajax', array('dataProvider'=>$dataProvider)); ?>
 		

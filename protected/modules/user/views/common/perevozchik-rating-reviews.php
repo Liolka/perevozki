@@ -35,7 +35,7 @@ $NumberFormatter = $this->app->NumberFormatter;
 <div class="rating-container rating-container-p">
 	<div class="rating mb-15 bold font-20 c_fff pos-rel">
 		Рейтинг
-		<div class="rating-stars-xl pos-abs rating-stars-p"><span class="rating-stars-empty"></span><span class="rating-stars-full" style="width:<?=$model->rating?>%;"></span></div>
+		<div class="rating-stars-xl pos-abs rating-stars-p"><span class="rating-stars-empty"></span><span class="rating-stars-full" style="width:<?=($model->rating * 10)?>%;"></span></div>
 	</div>
 	<div class="rating-info clearfix">
 		<? if($model->reliability != 0)	{	?>

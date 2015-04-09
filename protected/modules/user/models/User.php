@@ -233,4 +233,25 @@ class User extends CActiveRecord
     public function setLastvisit($value) {
         $this->lastvisit_at=date('Y-m-d H:i:s',$value);
     }
+	
+    public function getUserNames(&$connection, $user_ids = array())
+	{
+		if(count($user_ids)) {
+			$sql = "SELECT `id`, `username` FROM {{users}} WHERE `id` IN (".implode(',', $user_ids).")";
+			//echo'<pre>';print_r($sql);echo'</pre>';
+			$command = $connection->createCommand($sql);
+			$rows = $command->queryAll(); 
+			//echo'1231231231213<pre>';print_r($rows);echo'</pre>';
+			$res = prepareArray($rows, 'id', 'username');
+			//$res = $rows;
+			
+		}	else	{
+			$res = array();
+		}
+		
+		return $res;
+    }
+	
+	
+	
 }

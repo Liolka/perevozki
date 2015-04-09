@@ -143,5 +143,67 @@ class SiteController extends Controller
 		$this->renderPartial('reviews_list',array('rows'=>$rows));
 	}
 	
+	//аякс запрос на добавление отзыва
+	public function actionAddnewreview()
+	{
+		$this->app = Yii::app();
+		
+		$u_id = $this->app->request->getParam('u-id', '');
+		
+		if($u_id == $this->app->user->id)	{
+			$review_text = $this->app->request->getParam('review-text', '');
+			$rating_value = $this->app->request->getParam('rating-value', '');
+			$bid_id = $this->app->request->getParam('bid-id', 0);
+			$field = $this->app->request->getParam('fld', '');
+
+			$form = new ReviewForm;
+			$form->rating = $rating_value;
+			$form->comment = strip_tags($review_text);			
+			if($form->validate())	{
+				$review = $field.'_review';
+				$rating = $field.'_rating';
+				$model = Bids::model()->findByPk($bid_id);
+				if($model->$rating == 0 && $model->$review == '')	{
+					$model->$rating = $form->rating;
+					$model->$review = $form->comment;
+					$model->save(false);
+					
+					if($field == 'user')	{
+						$user_id = 'performer_id';
+					}	else	{
+						$user_id = 'user_id';
+					}
+					
+					$user_model = User::model()->findByPk($model->$user_id);
+					if($user_model != null)	{
+						
+						if($user_model->rating == 0 )	{
+							$user_model->rating = $form->rating;
+						}	else	{
+							$user_model->rating = ($user_model->rating + $form->rating) / 2;
+						}
+						
+						$user_model->save(false);
+						
+					}
+					
+					$this->app->user->setFlash('success', 'Ваш отзыв успешно размещён.');
+					echo 'ok';
+				}	else	{
+					echo 'Ошибка';
+				}
+
+			}	else	{
+				$err = array();
+				foreach($form->errors as $msg)	{
+					$err[] = $msg[0];
+				}
+				echo implode(' ', $err);
+			}
+		}	else	{
+			throw new CHttpException(500, 'Ошибка доступа');
+		}
+	}
+	
 	
 }

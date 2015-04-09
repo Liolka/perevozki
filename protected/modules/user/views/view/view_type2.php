@@ -32,7 +32,7 @@ $cs->registerScript('loading', "
 	
 ");
 
-
+include (dirname(dirname(__FILE__))."/common/rating-init.php");
 
 ?>
 <h1><?php echo $model->username ?></h1>
@@ -96,6 +96,7 @@ $cs->registerScript('loading', "
 							<a href="<?=$this->createUrl('/user/my/transportupdate', array('id'=>$row->transport_id))?>" class="my-transport-edit-btn btn-blue1">Редактировать</a>
 							<a href="<?=$this->createUrl('/user/my/transportdelete', array('id'=>$row->transport_id))?>" class="my-transport-delete-btn btn-red" onclick="if(!confirm('Действительно удалить?')) return false;">Удалить х</a>
 						</div>
+						<? /*<a href="#" class="my-transport-upload-btn btn-blue1">Загрузить фото</a> */ ?>
 					</div>
 				</li>
 				<? $counter++ ?>
@@ -145,6 +146,8 @@ $cs->registerScript('loading', "
 		Перевозки
 		<a href="#" class="pl-10 narrow-regular-18">Смотреть все</a>
 	</p>
+	
+	<?/*
 	<ul class="requests1-list-head clearfix p-20">
 		<li class="col1 fLeft c_757575 font-12 text_c">№</li>
 		<li class="col2 fLeft c_757575 font-12">Информация о грузе</li>
@@ -154,9 +157,10 @@ $cs->registerScript('loading', "
 		<li class="col6 fLeft c_757575 font-12">Заказчик</li>
 		<li class="col7 fLeft c_757575 font-12">Отзыв заказчика</li>
 	</ul>
+	*/?>
 	
 	<?php $this->renderPartial('_reviews_list_type_2', array('dataProvider'=>$lastBidsUser)); ?>
 	
-	<p class="blue-border-1 mt-20 p-20"><span class="notice bold c_fcb60e font-20">*</span> <span class="italic otziv-lbl">Отзыв перевозчика</span> - это оценка удовлетворенности от сотрудничества, выставленная перевозчиком грузовладельцу.</p>
+	<? /* <p class="blue-border-1 mt-20 p-20"><span class="notice bold c_fcb60e font-20">*</span> <span class="italic otziv-lbl">Отзыв перевозчика</span> - это оценка удовлетворенности от сотрудничества, выставленная перевозчиком грузовладельцу.</p> */ ?>
 	
 </div>
