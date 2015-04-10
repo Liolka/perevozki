@@ -161,15 +161,13 @@
 		
 		<div class="middle">
 			<div class="width-wrap">
-				<?php if(isset($this->breadcrumbs)):?>
-					<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-						'links'=>$this->breadcrumbs,
-					)); ?><!-- breadcrumbs -->
-				<?php endif?>
-			
-			
 				<?php //$this->widget('application.components.SearchAutoWidget'); ?>
-				<div class="central clearfix"><?php echo $content; ?></div>
+				<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>
+					<div class="central central-main-page clearfix"><?php echo $content; ?></div>
+				<?	}	else	{	?>
+					<div class="central clearfix"><?php echo $content; ?></div>
+				<?	}	?>
+				
 			</div>
 			
 			<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>			

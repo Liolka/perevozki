@@ -592,6 +592,7 @@ class MyController extends Controller
 		$data = array(
 			'user'=>$user,
 			'show_edit_btn'=>true,
+			'user_status' => $this->app->user->user_status,
 		);
 		
 		switch($user->user_type) {

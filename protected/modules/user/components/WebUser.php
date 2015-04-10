@@ -43,6 +43,7 @@ class WebUser extends CWebUser
                                                 'create_at'=>$user->create_at,
                                                 'lastvisit_at'=>$user->lastvisit_at,
                                                 'user_type'=>$user->user_type,
+                                                'user_status'=>$user->user_status,
                                            ),$user->profile->getAttributes());
         foreach ($userAttributes as $attrName=>$attrValue) {
             $this->setState($attrName,$attrValue);

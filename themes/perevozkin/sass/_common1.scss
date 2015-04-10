@@ -30,6 +30,11 @@
 	@extend %font_23;
 }
 
+.narrow-bold-24 {
+	@extend %pt_sans_narrow_bold;
+	@extend %font_24;
+}
+
 .profile-link {
 	@extend %c_1e91da;
 	@extend %font_12;
@@ -67,6 +72,8 @@
 .c_aab1ba { @extend %c_aab1ba; }
 .c_c3c8cd { @extend %c_c3c8cd; }
 .c_cbe0eb { @extend %c_cbe0eb; }
+.c_d0daea { @extend %c_d0daea; }
+.c_eb4c4c { @extend %c_eb4c4c; }
 .c_fcb60e { @extend %c_fcb60e; }
 .c_fff { @extend %c_fff; }
 
@@ -175,6 +182,8 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 
 .bb-dotted-3 { border-bottom: 1px dotted #96a5b8; }
 .bb-dotted-3-h { @extend .bb-dotted-3; &:hover { border-bottom: none; } }
+
+.br-none { border-right: none; }
 
 .ov-hidden { overflow: hidden;}
 

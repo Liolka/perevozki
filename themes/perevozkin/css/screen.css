@@ -929,7 +929,7 @@ $cts-sprite-dimensions: true;
 .cat-ico-s-4,
 .cat-ico-s-3,
 .cat-ico-s-2, .profile-link, .for_sprite, .stages-block .stage1,
-.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .item-review, .radnom-reviews-item-text, .my-menu-item, .contact-info-edit .phones .field-title, .contact-info-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .bid-detail-route-block .route-town, .bid-detail-route-block .route-item .route-item-arrow, .bid-detail-date-quickly, .bid-detail-price:before, .bid-detail-respond-btn, .bid-detail-cargo-listitem, .bid-detail-cargo-listitem-porters, .bid-detail-deals-col6 .accept-deal-btn, .header-row1-menu .gruzodatel,
+.stages-block .stage2, .benefits-block li, .requests-list-head .addr, .requests-list-item_number, .requests-list-item-info_gruzchiki, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .item-review, .radnom-reviews-item-text, .contact-info-edit .phones .field-title, .contact-info-edit .contacts li, .my-top-menu-item, .my-contact-info-list p, .my-transport-comment, .step1-category-item, .calendar-icon, .bid-detail-route-block .route-town, .bid-detail-route-block .route-item .route-item-arrow, .bid-detail-date-quickly, .bid-detail-price:before, .bid-detail-respond-btn, .bid-detail-cargo-listitem, .bid-detail-cargo-listitem-porters, .bid-detail-deals-col6 .accept-deal-btn, .header-row1-menu .gruzodatel,
 .header-row1-menu .perevozchik, .header-row1-menu .login, .header-row1-menu .logout a, .header-row1-menu .profile, .header-row2 .btn-zakazhu, .header-row2 .btn-perevezu, .footer-cell-last .login, .footer-cell-last .logout a, .footer-cell-last .profile, .created-by a {
   position: relative;
 }
@@ -945,7 +945,7 @@ $cts-sprite-dimensions: true;
 .cat-ico-s-4:before,
 .cat-ico-s-3:before,
 .cat-ico-s-2:before, .profile-link:before, .for_sprite:before, .stages-block .stage1:before,
-.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .item-review:before, .radnom-reviews-item-text:before, .my-menu-item:before, .contact-info-edit .phones .field-title:before, .contact-info-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .bid-detail-route-block .route-town:before, .bid-detail-route-block .route-item .route-item-arrow:before, .bid-detail-date-quickly:before, .bid-detail-price:before, .bid-detail-respond-btn:before, .bid-detail-cargo-listitem:before, .bid-detail-cargo-listitem-porters:before, .bid-detail-deals-col6 .accept-deal-btn:before, .header-row1-menu .gruzodatel:before,
+.stages-block .stage2:before, .benefits-block li:before, .requests-list-head .addr:before, .requests-list-item_number:before, .requests-list-item-info_gruzchiki:before, .requests1-list-item-perevozchik a:before, .requests1-list-item-zakazchik a:before, .item-review:before, .radnom-reviews-item-text:before, .contact-info-edit .phones .field-title:before, .contact-info-edit .contacts li:before, .my-top-menu-item:before, .my-contact-info-list p:before, .my-transport-comment:before, .step1-category-item:before, .calendar-icon:before, .bid-detail-route-block .route-town:before, .bid-detail-route-block .route-item .route-item-arrow:before, .bid-detail-date-quickly:before, .bid-detail-price:before, .bid-detail-respond-btn:before, .bid-detail-cargo-listitem:before, .bid-detail-cargo-listitem-porters:before, .bid-detail-deals-col6 .accept-deal-btn:before, .header-row1-menu .gruzodatel:before,
 .header-row1-menu .perevozchik:before, .header-row1-menu .login:before, .header-row1-menu .logout a:before, .header-row1-menu .profile:before, .header-row2 .btn-zakazhu:before, .header-row2 .btn-perevezu:before, .footer-cell-last .login:before, .footer-cell-last .logout a:before, .footer-cell-last .profile:before, .created-by a:before {
   content: ' ';
   position: absolute;
@@ -1065,7 +1065,11 @@ h1 span, .breadcrumbs, .my-last-requests-title span, .header-row2 .questions .ti
   color: #ccd3d7;
 }
 
-.my-rewiews-table .bad {
+.c_d0daea {
+  color: #d0daea;
+}
+
+.c_eb4c4c, .my-rewiews-table .bad {
   color: #eb4c4c;
 }
 
@@ -1120,7 +1124,7 @@ label.error, .errorSummary {
 .btn-green-66, .btn-blue-66:hover,
 .btn-green-66:hover, .btn-blue1,
 .btn-red, .btn-blue1:hover,
-.btn-red:hover, .c_fff, .statistic-block li, .requests-show-block-item.active a, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .my-menu-descr, .rating-info > div, .rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2, .bids-filter .checkbox-lbl, .bids-filter .lbl-block, .bids-filter-block .dates-txt, .bids-filter-title, .deals-form-transport-list-item:focus, .deals-form-transport-list-item:hover, .deal-btn .ico:focus, .deal-btn .ico:hover, .kak-rabotaet-sait-tbl .row1 .cell4 .bold {
+.btn-red:hover, .c_fff, .statistic-block li, .requests-show-block-item.active a, .my-menu-url, .my-menu-url:visited, .my-menu-url:hover, .rating-info > div, .rating-age, .my-top-menu-item a, .my-top-menu-item a:visited, .my-top-menu-item a:hover, .add-transport-btn, .add-transport-btn:hover, .step-container .num-step, .step1-category-item.active .span-wr2, .step1-category-item.active:hover .span-wr2, .bids-filter .checkbox-lbl, .bids-filter .lbl-block, .bids-filter-block .dates-txt, .bids-filter-title, .deals-form-transport-list-item:focus, .deals-form-transport-list-item:hover, .deal-btn .ico:focus, .deal-btn .ico:hover, .kak-rabotaet-sait-tbl .row1 .cell4 .bold {
   color: #fff;
 }
 
@@ -1128,7 +1132,7 @@ label.error, .errorSummary {
   font-size: 11px;
 }
 
-.errorMessage, .profile-link, .font-12, .stages-block .descr, .benefits-block li, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .item-review, .my-menu-descr, .my-rewiews-table .head, .my-transport-comment, .bids-filter .checkbox-lbl, .bids-filter-clear-wr, .bids-filter-categories-uncheck, .header-row1-menu a, .footer-cell a, .footer-cell-last span,
+.errorMessage, .profile-link, .font-12, .stages-block .descr, .benefits-block li, .requests1-list-head-item, .requests1-list-item-numb, .requests1-list-item-info a, .requests1-list-item-perevozchik a, .requests1-list-item-zakazchik a, .item-review, .my-rewiews-table .head, .my-transport-comment, .bids-filter .checkbox-lbl, .bids-filter-clear-wr, .bids-filter-categories-uncheck, .header-row1-menu a, .footer-cell a, .footer-cell-last span,
 .footer-cell-last a {
   font-size: 12px;
 }
@@ -1177,7 +1181,7 @@ h3, .add-transport p, .my-transport-name {
 }
 
 .narrow_bold_24, .select-user-type-lbl, .btn-blue-66,
-.btn-green-66, .narrow-regular-24, .font-24, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .show-deals-comments, .deal-transport-item .ico, .header-row2 .questions {
+.btn-green-66, .narrow-regular-24, .narrow-bold-24, .font-24, .last-requests .header, .radnom-reviews .header, .my-username, .my-last-requests-title, .bid-detail-price-wr, .show-deals-comments, .deal-transport-item .ico, .header-row2 .questions {
   font-size: 24px;
 }
 
@@ -1302,7 +1306,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 }
 
 .fLeft, .sideLeft, .sideRight, .column2l, .column2r, #RegistrationForm_user_status input,
-#RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests1-list-head-item, .requests1-list-item > div, .my-menu-item, .rating-info > div, .change-email-block,
+#RegistrationForm_user_status label, .stages-block ul, .stages-block li, .statistic-block ul, .statistic-block li, .benefits-block ul, .benefits-block li, .requests1-list-head-item, .requests1-list-item > div, .rating-info > div, .change-email-block,
 .change-password-block, .my-top-menu-item, .my-transport-list-item, .add-transport-btn, .my-transport-image, .my-transport-info-wr, .my-requests-sort-block li, .deal-set-transport, .header-row1-menu li, .logo-top, .footer-cell, .footer-cell-last li {
   float: left;
 }
@@ -1317,7 +1321,7 @@ a:hover, .checkbox-lbl:hover, .underline_y_n:hover {
 
 .lbl-block, .map-block .info span, .rating-stars .stars-empty, .rating-stars .stars-full-blue,
 .rating-stars .stars-full-green,
-.rating-stars .stars-full, .modal-content label, .db, .statistic-block li span, .benefits-block li span, .my-menu-url, .my-menu-descr, .rating-stars-empty, .rating-stars-full, .rating-info > div > span, .change-email-block label,
+.rating-stars .stars-full, .modal-content label, .db, .statistic-block li span, .benefits-block li span, .my-menu-url, .rating-stars-empty, .rating-stars-full, .rating-info > div > span, .change-email-block label,
 .change-password-block label, .my-top-menu-item a, .add-transport-btn, .my-transport-image, .step-container .step-title span, .step1-category-item, .upload-foto-tmb, .calendar-icon, .bids-filter-categories-uncheck, .bid-detail-date-quickly-val, .bid-detail-price-wr, .bid-detail-deals-row:hover .show-deals-comments, .header-row1-menu .logout a, .logo-top, .footer .questions .title, .footer-cell-last .logout a {
   display: block;
 }
@@ -1451,7 +1455,7 @@ h1, .narrow_bold_24, .map-block .info span, .modal-title, .select-user-type-lbl,
 .btn-blue-33,
 .btn-green-33, .btn-blue-52,
 .btn-green-52, .btn-blue-66,
-.btn-green-66, .narrow-bold-18, .narrow-bold-23, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
+.btn-green-66, .narrow-bold-18, .narrow-bold-23, .narrow-bold-24, .stages-block .title, .statistic-block li span, .my-username, .my-last-requests-title, .step-container .num-step, .step-container .step-title, .step1-category-item .span-wr1, .header-row2 .questions .title, .header-row2 .questions .phone-numb, .footer .questions {
   font-family: 'ptsans-narrow-bold', sans-serif;
 }
 
@@ -1661,6 +1665,10 @@ body {
 }
 
 .central {
+  padding: 25px 0 55px 0;
+}
+
+.central-main-page {
   padding: 55px 0;
 }
 
@@ -1748,7 +1756,16 @@ body {
 }
 
 .breadcrumbs {
-  margin: 45px 0 20px 0;
+  margin: 10px 0 10px 0;
+}
+.breadcrumbs a {
+  padding: 0 5px;
+}
+.breadcrumbs a:first-of-type {
+  padding-left: 0;
+}
+.breadcrumbs span {
+  padding-left: 5px;
 }
 
 .errorMessage {
@@ -2333,6 +2350,10 @@ button.close:hover {
   border-bottom: none;
 }
 
+.br-none {
+  border-right: none;
+}
+
 .ov-hidden {
   overflow: hidden;
 }
@@ -2701,6 +2722,10 @@ button.close:hover {
   top: 0;
 }
 
+.show-full-review {
+  right: 0;
+}
+
 .last-requests .header {
   margin-bottom: 40px;
 }
@@ -2724,21 +2749,17 @@ button.close:hover {
   margin-left: 7px;
 }
 
-.my-menu {
-  background-color: #697f9a;
-}
-
 .my-menu-item {
-  height: 130px;
-  width: 149px;
-  border-right: 1px solid #425770;
+  height: 90px;
+  border-right: 1px solid #5c7390;
   padding-right: 20px;
 }
 .my-menu-item:hover {
   background-color: #425770;
   border-color: #425770;
 }
-.my-menu-item:last-of-type {
+
+.my-menu-item-br-none {
   border-right: none;
 }
 
@@ -2788,7 +2809,11 @@ button.close:hover {
 }
 
 .my-menu-url {
-  margin: 21px 0 9px 0;
+  margin: 30px 0 9px 0;
+}
+
+.my-menu-item-info .my-menu-url {
+  margin-top: 36px;
 }
 
 .my-page {
@@ -3704,7 +3729,7 @@ button.close:hover {
 }
 
 .bid-detail-number {
-  margin: -40px 0 40px 0;
+  margin: -35px 0 40px 0;
 }
 
 .bid-detail-route-block .route-town {
@@ -4156,9 +4181,13 @@ button.close:hover {
 }
 
 /* ╨и╨░╨┐╨║╨░ ╤Б╨░╨╣╤В╨░ */
+.header-row1,
+.header-row2 {
+  border-bottom: 1px solid #bbdceb;
+}
+
 .header-row1 {
   background-color: #f3fbff;
-  border-bottom: 1px solid #bbdceb;
   padding: 10px 0 15px 0;
 }
 
@@ -4176,14 +4205,14 @@ button.close:hover {
   margin-top: -9px;
 }
 .header-row1-menu .gruzodatel {
-  border-left: 1px solid #53aae2;
+  border-left: 1px solid #bbdceb;
   padding-left: 70px;
 }
 .header-row1-menu .gruzodatel:before {
   left: 48px;
 }
 .header-row1-menu .perevozchik {
-  border-right: 1px solid #53aae2;
+  border-right: 1px solid #bbdceb;
   padding-right: 70px;
 }
 .header-row1-menu .perevozchik:before {

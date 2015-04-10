@@ -8,7 +8,6 @@ $this->pageTitle = "Информация о компании, контакты";
 
 ?>
  
-
 <h1>Информация о компании, контакты</h1>
 
-<? include (dirname(dirname(__FILE__))."/common/perevozchik-contact-info-container.php")?>
+<? include (dirname(dirname(__FILE__))."/common/perevozchik-contact-info-container.php"); ?>

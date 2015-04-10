@@ -1,7 +1,12 @@
 /* Шапка сайта */
+
+.header-row1,
+.header-row2 {
+	border-bottom: 1px solid #bbdceb;
+}
+
 .header-row1 {
 	background-color: #f3fbff;
-	border-bottom: 1px solid #bbdceb;
 	padding: 10px 0 15px 0;
 }
 
@@ -37,7 +42,7 @@
 	}	
 	
 	.gruzodatel {
-		border-left: 1px solid #53aae2;		
+		border-left: 1px solid #bbdceb;		
 		padding-left: 70px;
 		
 		&:before {
@@ -46,7 +51,7 @@
 	}
 	
 	.perevozchik {
-		border-right: 1px solid #53aae2;		
+		border-right: 1px solid #bbdceb;		
 		padding-right: 70px;
 		
 		&:before {

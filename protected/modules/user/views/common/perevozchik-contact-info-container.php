@@ -18,8 +18,6 @@
 				<? if($user_company->phone4 != '')	{	?>
 					<p class="phone"><?=$user_company->phone4?></p>
 				<?	}	?>
-				
-
 			</li>
 			
 			<? if($user_company->email != '')	{	?>
@@ -38,51 +36,34 @@
 			<a href="<?=$this->createUrl('/user/my/infoedit')?>" class="btn-blue-33 btn-w250 pos-abs">Редактировать</a>
 		<?	}	?>
 	</div>
+	
 	<div class="my-contact-info-company bg_f4fbfe">
 		<div class="my-contact-info-container-wr p-20">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="row mb-35">
-				<ul class="contact-info-list col-lg-12 col-md-12">
-					<li>
-						<p>Тип компании:</p>
-						<p><?=$user_company->type ? '<span>'.$user_company->type.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p></p>
-						<p class="contact-info-wide"></p>						
-					</li>
-					<li>
-						<p>Год основания:</p>
-						<p><?=$user_company->year ? '<span>'.$user_company->year.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p>Головной офис:</p>
-						<p class="contact-info-wide"><?=$user_company->main_office ? '<span>'.$user_company->main_office.'</span>' : 'Не указано' ?></p>
-						
-					</li>
-					<li>
-						<p>Кол-во авто:</p>
-						<p><?=$user_company->count_auto ? '<span>'.$user_company->count_auto.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p>Филиалы:</p>
-						<p class="contact-info-wide"><?=$user_company->filials ? '<span>'.$user_company->filials.'</span>' : 'Не указано' ?></p>
-						
-					</li>
-					<li>
-						<p>Количество сотрудников:</p>
-						<p><?=$user_company->count_staff ? '<span>'.$user_company->count_staff.'</span>' : 'Не указано' ?></p>
-						<p class="sep"></p>
-						<p>Склады и терминалы:</p>
-						<p class="contact-info-wide"><?=$user_company->terminals ? '<span>'.$user_company->terminals.'</span>' : 'Не указано' ?></p>
-						
-					</li>
-				</ul>
+				<?
+				switch($user_status)	{
+					case 1: 
+					$tmpl = "perevozchik-contact-info-container-ur.php";
+					break;
+
+					case 2: 
+					default: 
+					$tmpl = "perevozchik-contact-info-container-fiz.php";
+					break;
+				}
+
+				include ($tmpl);	
+				?>
 			</div>
 			
 			<? if($user_company->description != '')	{	?>
-				<p class="narrow-bold-18 mb-25">Дополнительно</p>
+				<p class="narrow-bold-18 mb-25"><? echo $user_company->getAttributeLabel('description');?></p>
 				<p class="contact-info-descr"><?=$user_company->description?></p>
 			<?	}	?>
 
 
 		</div>
 	</div>
+	
 </div>

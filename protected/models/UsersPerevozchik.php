@@ -44,12 +44,13 @@ class UsersPerevozchik extends CActiveRecord
 		return array(
 			array('user_id', 'required'),
 			array('user_id, file1_checked, file2_checked, file3_checked, file4_checked, file5_checked, file6_checked, file7_checked, file8_checked, file9_checked, file10_checked, file11_checked, file12_checked, file13_checked, file14_checked', 'numerical', 'integerOnly'=>true),
-			array('phone1, phone2, phone3, phone4, email, skype, site, type, year, main_office, filials, terminals, file1, file2, file3, file4, file5, file6, file7, file8, file9, file10, file11, file12, file13, file14', 'length', 'max'=>255),
-			array('count_auto, count_staff', 'length', 'max'=>128),
+			array('phone1, phone2, phone3, phone4, email, skype, site, 
+			company_name, unp, main_office, filials, fio, birthday, country, town, experience,
+			file1, file2, file3, file4, file5, file6, file7, file8, file9, file10, file11, file12, file13, file14', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>2048),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, phone1, phone2, phone3, phone4, email, skype, site, type, year, count_auto, count_staff, main_office, filials, terminals', 'safe', 'on'=>'search'),
+			array('id, user_id, phone1, phone2, phone3, phone4, email, skype, site', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,15 +79,19 @@ class UsersPerevozchik extends CActiveRecord
 			'phone3' => '3)',
 			'phone4' => '4)',
 			'email' => 'Email',
-			'skype' => 'Skype',
+			'skype' => 'Skype',			
 			'site' => 'Веб-сайт',
-			'type' => 'Тип компании',
-			'year' => 'Год основания',
-			'count_auto' => 'Кол-во авто',
-			'count_staff' => 'Количество сотрудников',
+			
+			'company_name' => 'Название предприятия',
+			'unp' => 'УНП/ИНН',
 			'main_office' => 'Головной офис',
-			'filials' => 'Филиалы',
-			'terminals' => 'Склады и терминалы',
+			'filials' => 'Филиалы',	
+			
+			'fio' => 'ФИО',
+			'birthday' => 'Дата рождения',
+			'country' => 'Страна',
+			'town' => 'Город',
+			'experience' => 'Стаж',
 			'description' => 'Дополнительно',
 			'file1' => 'Пример договора',
 			'file2' => 'Свидетельство о постановке на налоговый учет (ИНН)',

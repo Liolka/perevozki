@@ -5,6 +5,14 @@ $images_live_url = Yii::app()->params->images_live_url;
 
 ?>
 <?php $this->beginContent('//layouts/main'); ?>
+
+<?php if(isset($this->breadcrumbs)):?>
+	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+		'links'=>$this->breadcrumbs,
+		'separator'=>'&mdash;',
+	)); ?><!-- breadcrumbs -->
+<?php endif?>
+
 <div class="sidebar sideLeft">
 	<?php $this->widget('application.components.ShopCategoriesWidget'); ?>
 	<?

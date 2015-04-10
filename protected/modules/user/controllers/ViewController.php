@@ -84,6 +84,7 @@ class ViewController extends Controller
 			'model'=>$model,
 			//'user_company'=>$user_company,
 			'show_edit_btn'=>false,
+			'user_status' => $model->user_status,
 		);
 		switch($model->user_type) {
 			case 2:

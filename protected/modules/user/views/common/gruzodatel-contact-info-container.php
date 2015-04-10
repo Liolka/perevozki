@@ -42,28 +42,24 @@
 		<div class="my-contact-info-container-wr p-20">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="row mb-35">
-				<ul class="contact-info-list col-lg-12 col-md-12">
-					<li>
-						<p><?php echo CHtml::encode($user_company->getAttributeLabel('name')); ?>:</p>
-						<p><?=$user_company->name ? '<span>'.$user_company->name.'</span>' : 'Не указано' ?></p>
-					</li>
-					<li>
-						<p><?php echo CHtml::encode($user_company->getAttributeLabel('fio')); ?>:</p>
-						<p><?=$user_company->fio ? '<span>'.$user_company->fio.'</span>' : 'Не указано' ?></p>
-					</li>
-					<li>
-						<p><?php echo CHtml::encode($user_company->getAttributeLabel('post')); ?>:</p>
-						<p><?=$user_company->post ? '<span>'.$user_company->post.'</span>' : 'Не указано' ?></p>
-					</li>
-					<li>
-						<p><?php echo CHtml::encode($user_company->getAttributeLabel('details')); ?>:</p>
-						<p><?=$user_company->details ? '<span>'.$user_company->details.'</span>' : 'Не указано' ?></p>
-					</li>
-				</ul>
+				<?
+				switch($user_status)	{
+					case 1: 
+					$tmpl = "gruzodatel-contact-info-container-ur.php";
+					break;
+
+					case 2: 
+					default: 
+					$tmpl = "gruzodatel-contact-info-container-fiz.php";
+					break;
+				}
+
+				include ($tmpl);	
+				?>			
 			</div>
 			
 			<? if($user_company->description != '')	{	?>
-				<p class="narrow-bold-18 mb-25"><?php echo CHtml::encode($user_company->getAttributeLabel('details')); ?></p>
+				<p class="narrow-bold-18 mb-25"><?php echo CHtml::encode($user_company->getAttributeLabel('description')); ?></p>
 				<p class="contact-info-descr"><?=$user_company->description?></p>
 			<?	}	?>
 		</div>

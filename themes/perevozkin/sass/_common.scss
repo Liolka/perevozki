@@ -300,6 +300,10 @@ body {
 }
 
 .central {
+  padding: 25px 0 55px 0;
+}
+
+.central-main-page {
   padding: 55px 0;
 }
 
@@ -446,7 +450,7 @@ body {
 }
 
 .breadcrumbs {
-	margin: 45px 0 20px 0;
+	margin: 10px 0 10px 0;
 	
 	@extend %font_18;
 	@extend %pt_sans_narrow_regular;
@@ -454,6 +458,17 @@ body {
 	
 	a {
 		@extend %c_0a80cb;
+	}
+	
+	a {
+		padding: 0 5px;
+		&:first-of-type {
+			padding-left: 0;
+		}
+	}
+	
+	span {
+		padding-left: 5px;
 	}
 }
 

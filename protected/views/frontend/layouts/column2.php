@@ -1,6 +1,14 @@
 <?php /* @var $this Controller */ ?>
 <?php include('init-variables.php'); ?>
 <?php $this->beginContent('//layouts/main'); ?>
+
+<?php if(isset($this->breadcrumbs)):?>
+	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+		'links'=>$this->breadcrumbs,
+		'separator'=>'&mdash;',
+	)); ?><!-- breadcrumbs -->
+<?php endif?>
+
 <div class="span-19">
 	<div id="content">
 		<?php echo $content; ?>

@@ -5,17 +5,17 @@ $this->pageTitle = $this->app->user->username . ' - Личный кабинет 
 include (dirname(dirname(__FILE__))."/common/rating-init.php");
 ?>
 
-<h1>Личный кабинет грузодателя</h1>
-<p class="my-username"><?php echo  $this->app->user->username; ?></p>
+<h1>Личный кабинет грузодателя <span class="db narrow-bold-24 c_2e3c54"><?php echo  $this->app->user->username; ?></span></h1>
+<? /*<p class="my-username"><?php echo  $this->app->user->username; ?></p> */ ?>
 
 <? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
-<div class="my-menu">
-	<ul class="my-menu-list clearfix">
+<div class="bg_697f9a">
+	<ul class="clearfix">
 		
-		<li class="my-menu-item my-menu-item-zayavki">
+		<li class="fLeft for_sprite my-menu-item my-menu-item-zayavki">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/requests')?>">Заявки</a>
-			<span class="my-menu-descr"><?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?></span>
+			<span class="db font-12 c_d0daea"><?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?></span>
 		</li>
 		<?/*
 		<li class="my-menu-item my-menu-item-transport">
@@ -28,13 +28,13 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 			<span class="my-menu-descr"><?=$documents_count.' '. Yii::t('app', 'единица|единицы|единиц', $documents_count) ?></span>
 		</li>
 		*/?>
-		<li class="my-menu-item my-menu-item-info">
-			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Информация, контакты</a>
+		<li class="fLeft for_sprite my-menu-item my-menu-item-info">
+			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Основные данные</a>
 			<? /*<span class="my-menu-descr my-menu-descr-small">Тип компании, количество сотрудников, год основания и т.д.</span> */ ?>
 		</li>
-		<li class="my-menu-item my-menu-item-profile">
+		<li class="fLeft for_sprite my-menu-item my-menu-item-profile">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/edit')?>">Регистрационные данные</a>
-			<span class="my-menu-descr my-menu-descr-small">Регистрационный email, пароль, регистрационный телефон.</span>
+			<? /*<span class="my-menu-descr my-menu-descr-small">Регистрационный email, пароль, регистрационный телефон.</span>*/ ?>
 		</li>
 	</ul>
 </div>

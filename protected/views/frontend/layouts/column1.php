@@ -5,6 +5,14 @@
 
 <?php $this->beginContent('//layouts/main'); ?>
 
+<?php if(isset($this->breadcrumbs)):?>
+	<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+		'links'=>$this->breadcrumbs,
+		'separator'=>'&mdash;',
+	)); ?><!-- breadcrumbs -->
+<?php endif?>
+
+
 <div class="content column1">
 	<?php echo $content; ?>
 	

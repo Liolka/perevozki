@@ -41,8 +41,8 @@ class UsersGruzodatel extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('phone1, phone2, phone3, phone4, email, skype, site, name, fio, post, details', 'length', 'max'=>255),
+			array('user_id, file1_checked, file2_checked', 'numerical', 'integerOnly'=>true),
+			array('phone1, phone2, phone3, phone4, email, skype, site, company_name, unp, main_office, filials, fio, birthday, country, town, file1, file2', 'length', 'max'=>255),
 			array('description', 'length', 'max'=>2048),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -77,10 +77,14 @@ class UsersGruzodatel extends CActiveRecord
 			'email' => 'Email',
 			'skype' => 'Skype',
 			'site' => 'Веб-сайт',
-			'name' => 'Наименование компании',
-			'fio' => 'ФИО контактного лица',
-			'post' => 'Должность контактного лица',
-			'details' => 'Реквизиты',
+			'company_name' => 'Название предприятия',
+			'unp' => 'УНП/ИНН',
+			'main_office' => 'Головной офис',
+			'filials' => 'Филиалы',
+			'fio' => 'ФИО',
+			'birthday' => 'Дата рождения',
+			'country' => 'Страна',
+			'town' => 'Город',
 			'description' => 'Дополнительно',
 		);
 	}

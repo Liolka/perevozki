@@ -7,7 +7,6 @@ $this->breadcrumbs=array(
 $this->pageTitle = "Информация, контакты";
 
 ?>
- 
 
 <h1>Информация, контакты</h1>
 

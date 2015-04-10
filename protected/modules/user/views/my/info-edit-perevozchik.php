@@ -89,62 +89,21 @@ $this->pageTitle = "Редактировать Информация о комп�
 		<div class="my-contact-info-company-container p-20 mb-35 clearfix">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="row">
+				<?
+				switch($user->user_status)	{
+					case 1: 
+					$tmpl = "info-edit-perevozchik-ur.php";
+					break;
 
-				<ul class="contact-info-list col-lg-5 col-md-5">
-					<li>
-						<p><?php echo $form->labelEx($user_company,'type', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'type'); ?>
-							<?php echo $form->error($user_company,'type'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'year', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'year'); ?>
-							<?php echo $form->error($user_company,'year'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'count_auto', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'count_auto'); ?>
-							<?php echo $form->error($user_company,'count_auto'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'count_staff', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'count_staff'); ?>
-							<?php echo $form->error($user_company,'count_staff'); ?>
-						</p>
-					</li>
-				</ul>
+					case 2: 
+					default: 
+					$tmpl = "info-edit-perevozchik-fiz.php";
+					break;
+				}
 
-				<ul class="contact-info-list col-lg-7 col-md-7">
-					<li>
-						<p><?php echo $form->labelEx($user_company,'main_office', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'main_office', array('class'=>'wide')); ?>
-							<?php echo $form->error($user_company,'main_office'); ?>
-						</p>
-					</li>
-					
-					<li>
-						<p><?php echo $form->labelEx($user_company,'filials', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'filials', array('class'=>'wide')); ?>
-							<?php echo $form->error($user_company,'filials'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'terminals', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'terminals', array('class'=>'wide')); ?>
-							<?php echo $form->error($user_company,'terminals'); ?>
-						</p>
-					</li>
-				</ul>
+				include ($tmpl);	
+				?>
+
 			</div>
 		</div>
 		

@@ -1,32 +1,20 @@
-.my-menu {
-	background-color: #697f9a;	
-}
-
-.my-menu-list {
-	
-}
-//244px
 .my-menu-item {
-	height: 130px;
-	width: 149px;
-	border-right: 1px solid #425770;
+	height: 90px;
+	border-right: 1px solid #5c7390;
 	padding-right: 20px;
-	
-	@extend %fl;
-	@extend %for_sprite;
 	
 	&:hover {
 		background-color: #425770;
 		border-color: #425770;
 	}
 	
-	&:last-of-type {
-		border-right: none;
-	}
-	
-	&:before {
-	}
-	
+//	&:last-of-type {
+//		border-right: none;
+//	}	
+}
+
+.my-menu-item-br-none {
+	border-right: none;
 }
 
 .my-menu-item-zayavki {
@@ -90,7 +78,7 @@
 }
 
 .my-menu-url {
-	margin: 21px 0 9px 0;
+	margin: 30px 0 9px 0;
 	
 	@extend %db;
 	@extend %c_fff;
@@ -103,8 +91,12 @@
 	}
 }
 
-.my-menu-descr {
-	@extend %db;
-	@extend %c_fff;
-	@extend %font_12;
+.my-menu-item-info .my-menu-url {
+	margin-top: 36px;
 }
+
+//.my-menu-descr {
+//	@extend %db;
+//	@extend %c_fff;
+//	@extend %font_12;
+//}

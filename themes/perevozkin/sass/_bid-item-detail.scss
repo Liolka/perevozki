@@ -1,25 +1,14 @@
 .bid-detail-number {
-	margin: -40px 0 40px 0; 
-	
-//	@extend %font_23;
-//	@extend %pt_sans_narrow_bold;
+	margin: -35px 0 40px 0; 
 }
 
 
 .bid-detail-route-block {
-//	margin-bottom: 30px;
-	
-	li {
-//		@extend %fl;
-	}
-	
 	.route-town {
 		padding-left: 20px;
 		margin-left: 20px;
-//		margin-bottom: 5px;
 		
 		@extend %for_sprite;
-//		@extend %bold;
 		
 		&:before {
 			left: -20px;
