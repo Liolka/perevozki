@@ -51,7 +51,8 @@ class Deals extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('price, transport_id', 'required'),
+			array('price', 'required'),
+			array('transport_id', 'required', 'message' => 'Укажите транспорт'),
 			array('bid_id, user_id, transport_id, price, porters, accepted, rejected', 'numerical', 'integerOnly'=>true),
 			array('comment', 'length', 'max'=>255),
 			array('deal_date', 'date', 'format' => 'yyyy-MM-dd'),

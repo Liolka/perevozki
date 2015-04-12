@@ -1,10 +1,11 @@
+
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'cargo-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 <?php echo $form->errorSummary($model); ?>
 
-	<div class="step-container">
+	<div id="cargo1" class="step-container">
 		<div class="container ">
 		
 			<?php echo $form->hiddenField($model,'category_id'); ?>
@@ -57,10 +58,14 @@
 						</div>
 						
 						
-						<div class="col-md-5 col-lg-5 upload-foto-block">
-							<img src="/images/new-bid-foto.jpg" alt="" class="upload-foto-tmb">
-							<a href="#" class="btn-grey-33 upload-foto-btn">Загрузить фото</a>
-							
+						<div class="col-md-5 col-lg-5 upload-foto-block pos-rel">
+							<div id="cargo-foto1" class="form-cargo-foto" style="background-image: url('/images/new-bid-foto.jpg')"> </div>
+							<div id="loading1" class="hide-block pos-abs upload-foto-block-loading"><img src="/images/loading.gif" alt="Loading" /></div>
+							<div id="errormes1" class="font-12 mt-5 pos-abs upload-foto-block-errormes c_eb4c4c cargo1-err"></div>
+							<a href="#" class="btn-grey-33 upload-foto-btn" data-cargo="1">Загрузить фото</a>
+							<input type="file" name="userfile" id="userfile1" class="userfile" style="display:none;" />
+							<input type="hidden" name="cargo-num" id="cargo-num" value="" />
+							<?php echo $form->hiddenField($model,'foto1'); ?>
 						</div>
 					</div>
 					
@@ -108,7 +113,7 @@
 		</div>
 	</div>
 	
-	<div class="step-container add-cargo-step-container hide-block">
+	<div id="cargo2" class="step-container add-cargo-step-container hide-block">
 		<a href="#" class="delete-add-cargo-block btn-red">Удалить х</a>
 		<div class="container">
 			
@@ -165,10 +170,12 @@
 						</div>
 						
 						
-						<div class="col-md-5 col-lg-5 upload-foto-block">
-							<img src="/images/new-bid-foto.jpg" alt="" class="upload-foto-tmb">
-							<a href="#" class="btn-grey-33 upload-foto-btn">Загрузить фото</a>
-							
+						<div class="col-md-5 col-lg-5 upload-foto-block pos-rel">
+							<div id="cargo-foto2" class="form-cargo-foto" style="background-image: url('/images/new-bid-foto.jpg')"> </div>
+							<div id="loading2" class="hide-block pos-abs upload-foto-block-loading"><img src="/images/loading.gif" alt="Loading" /></div>
+							<div id="errormes2" class="font-12 mt-5 pos-abs upload-foto-block-errormes c_eb4c4c cargo2-err"></div>
+							<a href="#" class="btn-grey-33 upload-foto-btn" data-cargo="2">Загрузить фото</a>
+							<?php echo $form->hiddenField($model,'foto2'); ?>
 						</div>
 					</div>
 					
@@ -216,7 +223,7 @@
 		</div>
 	</div>
 	
-	<div class="step-container add-cargo-step-container hide-block">
+	<div id="cargo3" class="step-container add-cargo-step-container hide-block">
 		<a href="#" class="delete-add-cargo-block btn-red">Удалить х</a>
 		<div class="container">
 			
@@ -273,10 +280,12 @@
 						</div>
 						
 						
-						<div class="col-md-5 col-lg-5 upload-foto-block">
-							<img src="/images/new-bid-foto.jpg" alt="" class="upload-foto-tmb">
-							<a href="#" class="btn-grey-33 upload-foto-btn">Загрузить фото</a>
-							
+						<div class="col-md-5 col-lg-5 upload-foto-block pos-rel">
+							<div id="cargo-foto3" class="form-cargo-foto" style="background-image: url('/images/new-bid-foto.jpg')"> </div>
+							<div id="loading3" class="hide-block pos-abs upload-foto-block-loading"><img src="/images/loading.gif" alt="Loading" /></div>
+							<div id="errormes3" class="font-12 mt-5 pos-abs upload-foto-block-errormes c_eb4c4c cargo3-err"></div>
+							<a href="#" class="btn-grey-33 upload-foto-btn" data-cargo="3">Загрузить фото</a>
+							<?php echo $form->hiddenField($model,'foto3'); ?>
 						</div>
 					</div>
 					
@@ -323,7 +332,7 @@
 		</div>
 	</div>
 	
-	<div class="step-container add-cargo-step-container hide-block">
+	<div id="cargo4" class="step-container add-cargo-step-container hide-block">
 		<a href="#" class="delete-add-cargo-block btn-red">Удалить х</a>
 		<div class="container">
 			
@@ -380,10 +389,12 @@
 						</div>
 						
 						
-						<div class="col-md-5 col-lg-5 upload-foto-block">
-							<img src="/images/new-bid-foto.jpg" alt="" class="upload-foto-tmb">
-							<a href="#" class="btn-grey-33 upload-foto-btn">Загрузить фото</a>
-							
+						<div class="col-md-5 col-lg-5 upload-foto-block pos-rel">
+							<div id="cargo-foto4" class="form-cargo-foto" style="background-image: url('/images/new-bid-foto.jpg')"> </div>
+							<div id="loading4" class="hide-block pos-abs upload-foto-block-loading"><img src="/images/loading.gif" alt="Loading" /></div>
+							<div id="errormes4" class="font-12 mt-5 pos-abs upload-foto-block-errormes c_eb4c4c cargo4-err"></div>
+							<a href="#" class="btn-grey-33 upload-foto-btn" data-cargo="4">Загрузить фото</a>
+							<?php echo $form->hiddenField($model,'foto4'); ?>
 						</div>
 					</div>
 					

@@ -53,6 +53,9 @@ class LastRequestsWidget extends CWidget {
 					$row->total_unit = $cargo['unit'];
 					$row->total_volume = $row->total_volume + $cargo['volume'];
 					
+					if($cargo['foto'] != '')	{
+						$row->bid_foto = $cargo['foto'];
+					}					
 				}
 			}
 			

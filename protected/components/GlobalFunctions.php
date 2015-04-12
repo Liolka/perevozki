@@ -65,5 +65,54 @@ function processPageRequest($param = 'page')
 		$_GET[$param] = Yii::app()->request->getPost($param);
 }
 
+/**
+ * Переводим TIMESTAMP в формат вида: 5 дн. назад
+ * или 1 мин. назад и тп.
+ *
+ * @param unknown_type $date_time
+ * @return unknown
+ */
+
+function getTimeAgo($date_time)
+{
+	$timeAgo = time() - strtotime($date_time);
+	$timePer = array(
+		'day' 	=> array(3600 * 24, 'дн.'),
+		'hour' 	=> array(3600, ''),
+		'min' 	=> array(60, 'мин.'),
+		'sek' 	=> array(1, 'сек.'),
+		);
+	
+	foreach ($timePer as $type =>  $tp) {
+		$tpn = floor($timeAgo / $tp[0]);
+		if ($tpn){
+
+			switch ($type) {
+				case 'hour':
+					if (in_array($tpn, array(1, 21))){
+						$tp[1] = 'час';
+					}elseif (in_array($tpn, array(2, 3, 4, 22, 23)) ) {
+						$tp[1] = 'часa';
+					}else {
+						$tp[1] = 'часов';
+					}
+					break;
+			}
+			return $tpn.' '.$tp[1].' назад';
+		}
+	}
+}	
+
+function prepareArray($rows, $keyFld)
+{
+	$res = array();
+	if(count($rows))	{
+		foreach($rows as $row)	{
+			$res[$row[$keyFld]]	= $row;
+		}
+	}
+	
+	return $res;
+}
 
 ?>

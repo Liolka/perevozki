@@ -4,6 +4,11 @@
 /* @var $form CActiveForm */
 ?>
 
+<?
+$cs = $this->app->clientScript;
+$cs->registerCoreScript('ajax-upload');
+
+?>
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(

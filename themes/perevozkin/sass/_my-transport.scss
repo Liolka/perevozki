@@ -68,15 +68,21 @@
     
 }
 
-.my-transport-image {
+.transport-image-url,
+.transport-image {
     width: 106px;
-	height: 106px;
+	height: 106px;	
+}
+.transport-image {
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
     
-    @extend %db;
     @extend %fl;   
+}
+
+.transport-image-url {
+	z-index: 500;
 }
 
 .my-transport-info-wr {
@@ -170,4 +176,36 @@
 	li {
 		width: 405px;
 	}
+}
+
+.toggle-view-transport {
+	top: 0;
+	right: 0;
+	
+}
+
+.toggle-view-transport-item-active,
+.toggle-view-transport-item {
+	padding: 10px 25px;
+	border-left: 1px solid #b2daeb;
+}
+
+.toggle-view-transport-item {
+	background: #fff;
+	border-bottom: 1px solid #b2daeb;
+}
+
+.toggle-view-transport-item-active {
+	a {
+		@extend %bold;
+		@extend %c_2e3c54;
+		
+		border-bottom: none;
+	}
+}
+
+.profile-transport-list-item {
+	.my-transport-info-wr {
+		width: 225px;
+	}	
 }

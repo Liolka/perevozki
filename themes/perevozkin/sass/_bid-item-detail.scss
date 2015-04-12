@@ -44,6 +44,10 @@
 	
 }
 
+.bid-detail-route-list {
+	width: 1050px;
+}
+
 
 .bid-detail-date {
 	@extend %font_16;
@@ -120,12 +124,18 @@
 	margin-bottom: 45px;
 	
 	
-	@extend %for_sprite;
+	//@extend %for_sprite;
 	
 	&:before {
 		left: 0;
 		top: 0;
 	}
+}
+
+.cargo_foto_detail {
+	@extend .cargo_foto;
+	
+	left: -5px;
 }
 
 .bid-detail-cargo-listitem-cat-2:before {
@@ -158,8 +168,6 @@
 
 .bid-detail-cargo-listitem-comment {
 	margin-left: -45px;
-	
-	@extend %lh_18;
 }
 
 .bid-detail-notice-blue {
@@ -437,4 +445,13 @@
 		}
 		
 	}
+}
+
+.bid-view-rating {
+	margin-top: 2px;
+}
+
+.cancel-bid {
+	right: 0;
+	top: 15px;
 }

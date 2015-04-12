@@ -52,6 +52,19 @@ $(document).ready(function () {
 
         return false;
     });
+	
+    $('.form-login').on('click', '#lostPassword, #loginBtn, #regBtn', function () {
+        var url = $(this).attr('href')+"?modal=1",
+            modal = $('.modal');
+        
+        $.get(url, function (data) {
+            modal.html(data).modal('show');
+        });
+
+        return false;
+    });
+	
+	
     
     $('.modal').on('click', '#restoreButton', function () {
         var form = $(this).closest('form'),
@@ -438,6 +451,36 @@ $(document).ready(function () {
 		
 	});
 	
+	
+	$('#step3Container').on('click', '.upload-foto-btn', function () {
+		var pItems = $('input[name="userfile"]');
+		
+		$("#step3Container #cargo-num").val($(this).data('cargo'));
+		
+		$.ajax({
+			type: 'get',
+			url: '/bids/setcargonum/'+$(this).data('cargo'),
+			dataType: 'html',
+			beforeSend: function () {
+			},
+			success: function (msg) {
+				console.log(msg);
+			}
+		});
+		
+		$(pItems[1]).click();
+		
+        return false;
+    });
+	
+    $('.introtext-toggle').on('click', function (e) {
+		e.preventDefault();
+		$(this).parent().parent().find('.bid-detail-cargo-introtext').toggle();
+		$(this).parent().parent().find('.bid-detail-cargo-fulltext').toggle();
+		return false;
+		
+	});
+	
     
 });
 
@@ -493,6 +536,36 @@ function change_step2_cat(el) {
 				$('#step3Container .checkbox, #step3Container select').styler();
 				$('#Cargoes_name1').val(cargo_name);
 				$('#step-final-btn-wr').show();
+				
+				var upload1 = new AjaxUpload('#userfile1', {
+						action: '/bids/uploadfoto.html?cargo='+$("#step3Container").find("#cargo-num").val(),
+						onSubmit : function(file, extension){
+							$("#loading" + $("#step3Container #cargo-num").val() ).show();
+							if (! (extension && /^(jpg|png|jpeg|gif)$/.test(extension))) {
+								$("#loading" + $("#step3Container #cargo-num").val() ).hide();
+								$("<span class='error'>Неправильный тип файла</span>").appendTo("#step3Container .cargo"+$("#step3Container #cargo-num").val()+"-err");
+								return false;
+							} else {
+								$('.cargo'+$("#step3Container #cargo-num").val()+'-err').hide();
+							}	
+							upload1.setData({'file': file});
+						},
+						onComplete : function(file, response) {
+							$("#loading"+$("#step3Container #cargo-num").val()).hide();
+							$(".success").css("display", "block");
+							var pItems = $(".iframe"),
+								response = $.parseJSON($(pItems[(pItems.length - 1)]).contents().find('body').text());
+							if(response.res == 'ok') {
+								$('#step3Container').find('#cargo-foto'+$("#step3Container #cargo-num").val()).css('background-image', ('url('+response.msg+')'));
+								$('#step3Container').find('#Cargoes_foto'+$("#step3Container #cargo-num").val()).val(response.foto);
+							}
+							if(response.res == 'err') {
+								$("#step3Container .cargo"+$("#step3Container #cargo-num").val()+"-err").html(response.msg);
+								$("#step3Container .cargo"+$("#step3Container #cargo-num").val()+"-err").show();
+							}
+						}
+				});
+				
 			}
 		});
 		

@@ -15,6 +15,10 @@ $this->breadcrumbs=array(
 
 $cs = $this->app->clientScript;
 
+$cs->coreScriptPosition = CClientScript::POS_END;
+$cs->registerCoreScript('fancybox');
+$cs->registerCoreScript('ajax-upload');
+
 $cs->registerScript('loading', "
 	$('.my-transport-list-item').hover(
         function(){ if(!$(this).hasClass('.add-transport-wr')) { $(this).children('.my-transport-edit').fadeIn(100) }    },
@@ -23,8 +27,8 @@ $cs->registerScript('loading', "
 	
 ");
 
-    //$cs1 = $this->app->getClientScript();
-	$cs->registerCoreScript('ajax-upload');
+
+
 
 $counter = 2;
 
@@ -73,6 +77,7 @@ $transport_imageLive = $this->app->homeUrl.'files/users/'.$this->app->user->id.'
 											 
 	//$transport_image = $row->foto ? $this->app->params->transport_imageLive.'thumb_'.$row->foto : '/images/transport-no-foto.jpg';
 	$transport_image = $row->foto ? $transport_imageLive.'thumb_'.$row->foto : '/images/transport-no-foto.jpg';
+	$transport_image_full = $row->foto ? $transport_imageLive.'full_'.$row->foto : '/images/transport-no-foto.jpg';
 
 	?>
     

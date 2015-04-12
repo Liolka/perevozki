@@ -13,7 +13,10 @@ $this->pageTitle = "Заявки на перевозку грузов";
 $clientScript->registerMetaTag("Заявки на перевозку грузов", 'keywords');
 $clientScript->registerMetaTag("Заявки на перевозку грузов", 'description');
 
+$cs = $this->app->clientScript;
+$cs->coreScriptPosition=CClientScript::POS_END;
 
+$cs->registerCoreScript('fancybox');
 
 ?>
 

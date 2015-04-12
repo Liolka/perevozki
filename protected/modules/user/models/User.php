@@ -242,7 +242,7 @@ class User extends CActiveRecord
 			$command = $connection->createCommand($sql);
 			$rows = $command->queryAll(); 
 			//echo'1231231231213<pre>';print_r($rows);echo'</pre>';
-			$res = prepareArray($rows, 'id', 'username');
+			$res = prepareArray($rows, 'id');
 			//$res = $rows;
 			
 		}	else	{
@@ -252,6 +252,14 @@ class User extends CActiveRecord
 		return $res;
     }
 	
+	//возвращает имя пользователя
+	public function getUserName(&$connection, $user_id)
+	{
+		$sql = "SELECT `username`, `rating` FROM ".$this->tableName()." WHERE `id` = :user_id";
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		return $command->queryRow();
+	}
 	
 	
 }

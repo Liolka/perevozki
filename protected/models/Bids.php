@@ -41,6 +41,7 @@ class Bids extends CActiveRecord
 	
 	
 	public $username;
+	public $user_rating;
 	public $full_name;
 	public $need_porters;
 
@@ -49,6 +50,7 @@ class Bids extends CActiveRecord
 	public $total_unit;
 	public $total_volume;
 	public $deals_count;
+	public $bid_foto;
 	
 	public $performer_name;
 	public $review_text;	
@@ -109,7 +111,7 @@ class Bids extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
         return array(
-            'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+            'userInfo' => array(self::BELONGS_TO, 'Users', 'user_id'),
             'category' => array(self::BELONGS_TO, 'Categories', 'category_id'),
             'bidsCargoes' => array(self::HAS_MANY, 'BidsCargoes', 'bid_id'),
         );	}
@@ -323,6 +325,7 @@ class Bids extends CActiveRecord
 		}
 		
 		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
+		//echo'$cargoes_info<pre>';print_r($cargoes_info,0);echo'</pre>';
 		
 		$user_ids = array();
 		foreach($dataProvider->data as $row) {
@@ -351,6 +354,8 @@ class Bids extends CActiveRecord
 			$row->username = $model->username;
 			
 		}
+		
+		//echo'<pre>';print_r($dataProvider,0);echo'</pre>';
 		
 		
 		return $dataProvider;

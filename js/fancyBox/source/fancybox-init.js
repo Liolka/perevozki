@@ -4,6 +4,16 @@ $(document).ready(function () {
     *  Simple image gallery. Uses default settings
     */
 
-    $('.fancybox').fancybox();
+    //$('.fancybox').fancybox();
+	
+	$(".fancybox").fancybox({
+		padding : 0,
+		helpers: {
+			overlay: {
+				locked: false
+			}
+		}
+	});
+
     
 });

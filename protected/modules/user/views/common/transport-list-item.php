@@ -2,7 +2,11 @@
 	<? /*<img src="/images/transport-item.jpg" alt="" class="my-transport-image"> */ ?>
 	<? //echo CHtml::image( $row->foto ? $this->app->params->transport_imageLive.'thumb_'.$row->foto : '/images/transport-no-foto.jpg' , $row->name)?>
 
-	<div class="my-transport-image" style="background-image: url(<?=$transport_image?>)"> </div>
+	<? if($row->foto != '')	{	?>
+		<a href="<?=$transport_image_full?>" class="db transport-image-url pos-rel fLeft fancybox" data-fancybox-group="gallery" title="<?=$row->name?>"><span class="db transport-image" style="background-image: url(<?=$transport_image?>)"></span></a>
+	<?	}	else	{	?>
+		<span class="db transport-image" style="background-image: url(<?=$transport_image?>)"></span>
+	<?	}	?>
 	<div class="my-transport-info-wr">
 		<p class="my-transport-name"><?=$row->name?></p>
 		<p class="my-transport-info odd">

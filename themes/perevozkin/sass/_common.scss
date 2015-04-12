@@ -534,7 +534,15 @@ body {
         width: 100%;
     }
 	*/
+        
+    .hint {
+        padding-top: 5px;
+        @extend %italic;
+    }
     
+
+}
+
     .checkbox-wr {
         label {
             @extend %di;
@@ -546,14 +554,7 @@ body {
             margin-top: -3px;
         }
     }
-    
-    .hint {
-        padding-top: 5px;
-        @extend %italic;
-    }
-    
 
-}
 
 .modal-header {
     border-bottom: none;

@@ -36,9 +36,19 @@ isQuickly($data->date_transportation);
 
 <div class="requests-list-item p-25 mb-10 blue-border-1 clearfix">
 
-	<div class="requests-list-item_number requests-list-item_number-cat-<?php echo $data->category_id; ?> fLeft font-12 c_2e3c54"><?php echo $data->bid_id; ?></div>
+	<? if($data->bid_foto != '')	{	?>
+		<div class="requests-list-item_number fLeft font-12 c_2e3c54 pos-rel">
+			<a href="/files/bids/full_<?=$data->bid_foto?>" class="fancybox" data-fancybox-group="gallery_<?php echo $data->bid_id; ?>" title="<?=$data->full_name?>">
+				<span class="cargo_foto db pos-abs" style="background-image: url('/files/bids/thumb_<?=$data->bid_foto?>')"></span>
+			</a>
+			<?php echo $data->bid_id; ?>
+		</div>
+	<?	}	else	{	?>
+		<div class="requests-list-item_number for_sprite requests-list-item_number-cat-<?php echo $data->category_id; ?> fLeft font-12 c_2e3c54"><?php echo $data->bid_id; ?></div>
+	<?	}	?>
+	
 	<div class="requests-list-item_info fLeft">
-		<a class="requests-list-item-info_url db font-12 c_1e91da pb-5" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
+		<a class="requests-list-item-info_url db font-12 c_1e91da pb-5 lh-18" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
 		<span class="requests-list-item-info_descr db font-12 c_8e95a1"><?=implode(" / ", $cargo_info)?></span>
 		<? if($data->need_porters) { ?>
 			<span class="requests-list-item-info_gruzchiki c_2e3c54 font-12">Нужны грузчики</span>
@@ -47,7 +57,7 @@ isQuickly($data->date_transportation);
 	<div class="requests-list-item_from fLeft pos-rel">
 		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->loading_town; ?></span>
 		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->loading_address; ?></span>
-		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">Добавил <?=$this->getTimeAgo($data->created)?> <a href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1"><?php echo $data->username; ?></a></p>
+		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">Добавил <?=$this->getTimeAgo($data->created)?> <a href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1" target="_blank"><?php echo $data->username; ?></a></p>
 	</div>
 	<div class="requests-list-item_to fLeft">
 		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->unloading_town; ?></span>

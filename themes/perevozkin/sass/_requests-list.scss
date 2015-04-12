@@ -59,11 +59,21 @@
 	}
 }
 
+.cargo_foto {
+	left: -13px;
+	top: 0;
+	width: 45px;
+	height: 45px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .requests-list-item_number {
 	padding: 52px 0 0 0;
 	margin: 0 29px 0 0;
 	
-	@extend %for_sprite;
+//	@extend %for_sprite;
 //	@extend %font_12;
 //	@extend %c_2e3c54;
 	

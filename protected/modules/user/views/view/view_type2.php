@@ -9,32 +9,49 @@ $this->layout='//layouts/column2';
 
 $transport_imageLive = $this->app->homeUrl.'files/users/'.$model->id.'/transport/';
 
-$counter = 1;
-
 $this->app->getClientScript()->registerCoreScript('flexcroll');
 
 $cs = $this->app->clientScript;
+$cs->coreScriptPosition = CClientScript::POS_END;
+$cs->registerCoreScript('fancybox');
 
 $cs->registerScript('loading', "
 
-	var max_height = 0;
+	var max_height = 0
+		enable_sroll = true;
 	
-	$('#flexcroll-transport-list li').each(function(){
+	
+	
+	$('#flexcroll_transport_list').hover(
+		function(){ enable_sroll = false; },
+		function(){ enable_sroll = true; }
+	);
+	
+	
+	$('#flexcroll_transport_list li').each(function(){
 		if($(this).height() > max_height) { 
 			max_height = $(this).height();
 		}
 	});
-	$('#flexcroll-transport-list li').css('height', (max_height+'px'));
-	max_height = max_height + 50;
-	$('#flexcroll-transport-list').css('height', (max_height+'px'));
-	fleXenv.fleXcrollMain('flexcroll-transport-list');
 	
+	$('#flexcroll_transport_list li').css('height', (max_height+'px'));
+	max_height = max_height + 50;
+	$('#flexcroll_transport_list').css('height', (max_height+'px'));
+	
+	fleXenv.fleXcrollMain('flexcroll_transport_list');
+	//flexcroll_transport_list.fleXcroll.setScrollPos(0, 0, false, true);
+	//flexcroll_transport_list.fleXcroll.scrollContent(0, 0);
+	
+	window.onfleXcrollRun=function(){}
 	
 ");
 
 include (dirname(dirname(__FILE__))."/common/rating-init.php");
 
 ?>
+<script>
+</script>
+
 <h1><?php echo $model->username ?></h1>
 <p class="bid-detail-number narrow-bold-23">Профиль перевозчика</p>
 
@@ -53,57 +70,38 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 	</div>
 </div>
 
-<div class="blue-border-1 mt-40 mb-40 bg_f4fbfe p-20 ov-hidden">
+<div class="blue-border-1 mt-40 mb-40 bg_f4fbfe p-20 ov-hidden pos-rel">
 	<p class="narrow-bold-23 mb-30">
 		Транспорт перевозчика
 		<span class="narrow-regular-18 c_71a72c pl-10">(<? echo count($dataProvider->data).' '.Yii::t('app', 'единица|единицы|единиц', count($dataProvider->data))?>)</span>
 	</p>
+	
+	<ul class="toggle-view-transport pos-abs">
+		<li class="toggle-view-transport-item<? if($show_transport == 'scroll') echo '-active';?> fLeft">
+			<a href="<?=$this->createUrl('/user/view/', array('id'=>$model->id))?>?show=scroll" class="underline_n_n bb-dotted-4-h">С прокруткой</a>
+		</li>
+		<li class="toggle-view-transport-item<? if($show_transport == 'all') echo '-active';?> fLeft">
+			<a href="<?=$this->createUrl('/user/view/', array('id'=>$model->id))?>?show=all" class="underline_n_n bb-dotted-4-h">Показать всё</a>
+		</li>
+	</ul>
+	
+<?
+switch($show_transport)	{
+	case 'all':
+		$transport_tmpl = '_transport_list_all';
+	break;
+	case 'scroll':
+	default:
+		$transport_tmpl = '_transport_list_scroll';
+}
+
+$this->renderPartial($transport_tmpl, array(
+	'dataProvider' => $dataProvider,
+	'transport_imageLive' => $transport_imageLive,
+));
+?>
 
 
-	<div id="flexcroll-transport-list" class="flexcroll77 flexcroll-transport-list">
-		<ul class="transport-list transport-list-in-row clearfix pos-rel" style="width:<?=(405 * count($dataProvider->data))?>px">
-			<? foreach($dataProvider->data as $row) { ?>
-
-			<?
-			$unit_arr = array();
-			$value_arr = array();
-			if($row->length != '')	{
-				$unit_arr[] = 'Д';
-				$value_arr[] = $row->length;
-			}
-
-			if($row->width != 0)	{
-				$unit_arr[] = 'Ш';
-				$value_arr[] = $row->width;
-			}
-
-			if($row->height != 0)	{
-				$unit_arr[] = 'В';
-				$value_arr[] = $row->height;
-			}
-
-			//$transport_image = $row->foto ? $this->app->params->transport_imageLive.'thumb_'.$row->foto : '/images/transport-no-foto.jpg';
-			$transport_image = $row->foto ? $transport_imageLive.'thumb_'.$row->foto : '/images/transport-no-foto.jpg';
-
-			?>
-
-				<li class="pofile-transport-list-item fLeft bg_fff <? //if($counter == 4) { echo 'clear'; $counter = 1; } ?>">
-
-					<? include (dirname(dirname(__FILE__))."/common/transport-list-item.php")?>
-
-					<div class="my-transport-edit">
-						<div class="my-transport-edit-top">
-							<a href="<?=$this->createUrl('/user/my/transportupdate', array('id'=>$row->transport_id))?>" class="my-transport-edit-btn btn-blue1">Редактировать</a>
-							<a href="<?=$this->createUrl('/user/my/transportdelete', array('id'=>$row->transport_id))?>" class="my-transport-delete-btn btn-red" onclick="if(!confirm('Действительно удалить?')) return false;">Удалить х</a>
-						</div>
-						<? /*<a href="#" class="my-transport-upload-btn btn-blue1">Загрузить фото</a> */ ?>
-					</div>
-				</li>
-				<? $counter++ ?>
-			<? } ?>
-
-		</ul>
-	</div>
 </div>
 
 
@@ -147,20 +145,5 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 		<a href="#" class="pl-10 narrow-regular-18">Смотреть все</a>
 	</p>
 	
-	<?/*
-	<ul class="requests1-list-head clearfix p-20">
-		<li class="col1 fLeft c_757575 font-12 text_c">№</li>
-		<li class="col2 fLeft c_757575 font-12">Информация о грузе</li>
-		<li class="col3 fLeft c_757575 font-12 text_c">Дата</li>
-		<li class="col4 fLeft c_757575 font-12">Перевозчик</li>
-		<li class="col5 fLeft c_757575 font-12 text_c"><p class="review-perevoz-ttl pos-rel"><span class="bold c_2e3c54 otziv-lbl">Отзыв перевозчика<span class="notice bold c_fcb60e font-20 pos-abs db">*</span></span></p></li>
-		<li class="col6 fLeft c_757575 font-12">Заказчик</li>
-		<li class="col7 fLeft c_757575 font-12">Отзыв заказчика</li>
-	</ul>
-	*/?>
-	
 	<?php $this->renderPartial('_reviews_list_type_2', array('dataProvider'=>$lastBidsUser)); ?>
-	
-	<? /* <p class="blue-border-1 mt-20 p-20"><span class="notice bold c_fcb60e font-20">*</span> <span class="italic otziv-lbl">Отзыв перевозчика</span> - это оценка удовлетворенности от сотрудничества, выставленная перевозчиком грузовладельцу.</p> */ ?>
-	
 </div>

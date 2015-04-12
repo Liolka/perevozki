@@ -15,11 +15,50 @@ $this->breadcrumbs=array(
 
 <?php endif; ?>
 
-<p><?php echo UserModule::t("Please fill out the following form with your login credentials:"); ?></p>
+<div class="blue-border-1 p-20 bg_f4fbfe">
+<? /* <p class="mb-20"><?php echo UserModule::t("Please fill out the following form with your login credentials:"); ?></p> */ ?>
 
-<div class="form">
+<div class="form-login">
 <?php echo CHtml::beginForm(); ?>
+   
 
+            <div class="row mb-20">
+                <p class="col-sm-12 mb-5"><?php echo CHtml::activeLabelEx($model,'username', array('class'=>'bold')); ?></p>
+                <p class="col-sm-12"><?php echo CHtml::activeTextField($model,'username', array('class'=>'width25')) ?></p>
+            </div>
+
+            <div class="row mb-20">
+                <p class="col-sm-12 mb-5"><?php echo CHtml::activeLabelEx($model,'password', array('class'=>'bold')); ?></p>
+                <p class="col-sm-12"><?php echo CHtml::activePasswordField($model,'password', array('class'=>'width25')) ?></p>
+            </div>
+            
+            <div class="row rememberMe mb-20">
+               <p class="col-sm-12 checkbox-wr">
+                <?php echo CHtml::activeCheckBox($model,'rememberMe'); ?>
+                <?php echo CHtml::activeLabelEx($model,'rememberMe', array('class'=>'bold')); ?>
+                </p>
+            </div>            
+
+            <div class="row mb-40">
+                <p class="col-sm-3"><?php echo CHtml::submitButton('Войти', array('class'=>'loginButton btn-grey-33 width100', 'name'=>'loginButton')); ?> </p>
+                <p class="col-sm-7">
+                    <?php echo CHtml::link(UserModule::t("Lost Password?"),Yii::app()->getModule('user')->recoveryUrl, array('id'=>'lostPassword')); ?><br>
+                    <?php echo CHtml::link("Забыли название учетной записи?",Yii::app()->getModule('user')->recoveryUrl, array('id'=>'lostPassword')); ?>
+                </p>
+            </div>
+
+
+            <p class="narrow-bold-24 mb-10">Вы тут впервые?</p>
+            <div class="row">
+            	<p class="col-sm-3">
+            		<?php echo CHtml::link(UserModule::t("Register"),Yii::app()->getModule('user')->registrationUrl, array('class'=>'btn-grey-33 regBtn width100', 'id'=>'regBtn')); ?>
+				</p>
+            </div>
+            
+
+        
+
+<?/*
 	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	
 	<?php echo CHtml::errorSummary($model); ?>
@@ -48,7 +87,7 @@ $this->breadcrumbs=array(
 	<div class="row submit">
 		<?php echo CHtml::submitButton(UserModule::t("Login")); ?>
 	</div>
-	
+*/?>	
 <?php echo CHtml::endForm(); ?>
 </div><!-- form -->
 
@@ -77,3 +116,4 @@ $form = new CForm(array(
     ),
 ), $model);
 ?>
+</div>

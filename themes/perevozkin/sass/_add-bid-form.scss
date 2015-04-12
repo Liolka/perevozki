@@ -325,7 +325,17 @@
 
 
 .upload-foto-block {
-	@extend %pos_rel;
+//	@extend %pos_rel;
+}
+
+.upload-foto-block-loading {
+	left: 77px;
+	bottom: 8px;
+}
+
+.upload-foto-block-errormes {
+	top: 0;
+	right: 0;
 }
 
 .upload-foto-btn {
@@ -334,6 +344,14 @@
 	padding: 0 25px;
 	
 	@extend %pos_abs;
+}
+
+.form-cargo-foto {
+	width: 55px;
+	height: 55px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .upload-foto-tmb {

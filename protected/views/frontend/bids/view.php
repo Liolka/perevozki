@@ -15,6 +15,10 @@ $clientScript->registerMetaTag("Заявка №".$model->bid_id, 'description')
 
 $NumberFormatter = $this->app->NumberFormatter;
 
+$cs = $this->app->clientScript;
+$cs->coreScriptPosition=CClientScript::POS_END;
+$cs->registerCoreScript('fancybox');
+
 $accepted_deal = 0;
 foreach($deals_list as $row) {
 	if($row['accepted'] == 1)	{
@@ -24,9 +28,14 @@ foreach($deals_list as $row) {
 }
 
 $show_deal_frm = true;
+foreach($deals_list as $row) {
+	if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
+		$show_deal_frm = false;
+	}
+}
 
 //echo'<pre>';print_r($deals_list);echo'</pre>';
-//echo'<pre>';print_r($accepted_deal);echo'</pre>';
+//echo'<pre>';print_r($model);echo'</pre>';
 
 ?>
 
@@ -73,10 +82,15 @@ $show_deal_frm = true;
 		//http://www.forum.mista.ru/topic.php?id=510781
 		
     </script>
+<div class="pos-rel">
+	<h1><?php echo $bid_name; ?></h1>
 
-<h1><?php echo $bid_name; ?></h1>
-
-<p class="bid-detail-number narrow-bold-23">Заявка №<?=$model->bid_id;?></p>
+	<p class="bid-detail-number narrow-bold-23">Заявка №<?=$model->bid_id;?></p>
+	
+	<? if(!$this->app->user->isGuest && $this->app->user->id == $model->user_id)	{	?>
+		<a href="#" class="db pos-abs underline_n_n narrow-regular-24 c_96a5b8 bb-dotted-3-h cancel-bid" title="Отменить заявку">Отменить заявку ×</a>
+	<?	}	?>
+</div>
 
 <?php if($this->app->user->hasFlash('success')): ?>
 	<div class="flash-message flash-success">
@@ -86,7 +100,17 @@ $show_deal_frm = true;
 
 
 <div class="bid-detail-route-block mb-30">
-	<ul class="clearfix">
+	<div class="bid-view-created fRight clearfix">
+		<span class="db font-12 c_aab1ba mb-5"><?=getTimeAgo($model->created).' добавил'?></span>
+		<span class="db p-0-20 text_r mb-5"><a class="profile-link c_71a72c" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$model->user_id))?>"><?=$model->username?></a></p></span>
+		<a href="#" class="db ico-question fRight"></a>
+		<div class="m-0-5 rating-stars bid-view-rating fRight">
+			<span class="stars-empty"></span><span class="stars-full" style="width:<?=($model->user_rating * 10)?>%;"></span>
+		</div>
+	</div>
+
+
+	<ul class="bid-detail-route-list clearfix">
 		<li class="route-start fLeft">
 			<p class="route-town counry-by mb-5 bold"><?=$model->loading_town?></p>
 			<p class="route-address"><?=$model->loading_address?></p>			
@@ -126,8 +150,10 @@ $show_deal_frm = true;
 				<p class="route-address"><?=$model->unloading_address?></p>
 			</div>		
 		</li>
-		
 	</ul>
+	
+	
+	
 </div>
 
 <div class="row mb-40">
@@ -142,7 +168,7 @@ $show_deal_frm = true;
 					<span class="db fLeft p-0-5">
 						<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation); ?>
 						<? if($model->time_transportation != '00:00:00')	{	?>
-							<span class="db font-13 normal pt-5"><?php echo $model->time_transportation; ?></span>
+							<span class="db font-14 normal pt-5"><?php echo $model->time_transportation; ?></span>
 						<?	}	?>
 					</span>
 				<?	}	?>
@@ -153,7 +179,7 @@ $show_deal_frm = true;
 					<span class="db fLeft p-0-5">
 						<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation_to); ?>
 						<? if($model->time_transportation_to != '00:00:00')	{	?>
-							<span class="db font-13 normal pt-5"><?php echo $model->time_transportation_to; ?></span>
+							<span class="db font-14 normal pt-5"><?php echo $model->time_transportation_to; ?></span>
 						<?	}	?>
 					</span>
 				<?	}	?>
@@ -167,14 +193,23 @@ $show_deal_frm = true;
 			<span class="bid-detail-price-title">Заказчик предлагает:</span>
 			<span class="bid-detail-price-wr">до <? echo $NumberFormatter->formatDecimal($model->price)?>р.</span>
 		</div>
-		<? if($this->app->user->id == $model->user_id)	{	?>
+		<? if($is_perevozchik && $show_deal_frm)	{	?>
 			<a href="#new-deal" id="bid-detail-respond-btn" class="btn-blue-66 bid-detail-respond-btn">Откликнуться</a>
 		<?	}	?>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-3 bid-detail-cargo-list">
 		<ul>
 		<? foreach($cargoes as $cargo)	{	?>
-			<li class="bid-detail-cargo-listitem bid-detail-cargo-listitem-cat-<?=$model->category_id ?>">
+			<? if($cargo['foto'])	{	?>
+				<li class="bid-detail-cargo-listitem pos-rel">
+					<a href="/files/bids/full_<?=$cargo['foto']?>" class="fancybox" data-fancybox-group="gallery" title="<?=$cargo['name']?>">
+						<span class="cargo_foto_detail db pos-abs" style="background-image: url('/files/bids/thumb_<?=$cargo['foto']?>')"></span>
+					</a>
+					
+			<?	}	else	{	?>
+				<li class="bid-detail-cargo-listitem for_sprite bid-detail-cargo-listitem-cat-<?=$model->category_id ?>">
+			<?	}	?>
+			
 				<div class="bid-detail-cargo-listitem-row">
 					<p class="bid-detail-cargo-listitem-cargo-name"><?=$cargo['name']?></p>
 					<?
@@ -236,7 +271,20 @@ $show_deal_frm = true;
 				<?	}	?>
 				
 				<? if($cargo['comment'] != '')	{	?>
-					<p class="bid-detail-cargo-listitem-comment"><?=$cargo['comment']?></p>
+					<p class="bid-detail-cargo-listitem-comment lh-18 font-12">
+					<?
+						$intro_text = getIntroText(150, $cargo['comment']);
+						if($intro_text != $cargo['comment'])	{
+							$intro_text .= ' <a href="javascript:void(0)" class="introtext-toggle bb-dotted-4-h underline_n_n">Подробнее</a>';
+							$full_text = $cargo['comment'].' <a href="javascript:void(0)" class="introtext-toggle bb-dotted-4-h underline_n_n">Скрыть</a>';
+							?>
+							<span class="bid-detail-cargo-introtext"><?=$intro_text?></span><span class="bid-detail-cargo-fulltext hide-block"><?=$full_text?></span>
+							<?
+						}	else	{
+							echo $cargo['comment'];
+						}
+					?>
+					</p>
 				<?	}	?>
 				
 			</li>
@@ -261,9 +309,6 @@ $show_deal_frm = true;
 
 			<? foreach($deals_list as $row) {	?>
 				<?
-				if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
-					$show_deal_frm = false;
-				}
 	
 				$deal_posts = array();
 				foreach($deals_posts_list as $post)	{
@@ -298,7 +343,7 @@ $show_deal_frm = true;
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
 							<div class="bid-detail-deals-perevozhik">
-								<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link">Перевозчик <?php echo $row['username'] ?></a>
+								<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link" target="_blank">Перевозчик <?php echo $row['username'] ?></a>
 								<div class="bid-detail-deals-rating-block mt-5">
 									<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating'])?>%;"></span></div>
 									<p class="rewiews-count font-12 c_8e95a1 dib">(<?=$row['reviews_count']?> <?php echo Yii::t('app', 'отзыв|отзыва|отзывов|отзыва', $row['reviews_count']); ?>)</p>
@@ -377,7 +422,7 @@ $show_deal_frm = true;
 									<div class="bid-detail-deals-row-answer-block-reviews-row clearfix">
 										<div class="bid-detail-deals-row-answer-block-reviews-cell1 fLeft font-12 c_8e95a1 p-15"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy / HH:mm', $post['created']); ?></div>
 										<div class="bid-detail-deals-row-answer-block-reviews-cell2 fLeft p-15">
-											<p class="font-12 mb-5"><a href="<?=$this->createUrl('/user/profile', array('id'=>$post['user_id']))?>" class="c_1e91da" target="_blank"><?=$post['username']?></a> <span class="c_8e95a1"><?=$user_type_str?></span></p>
+											<p class="font-12 mb-5"><a href="<?=$this->createUrl('/user/view', array('id'=>$post['user_id']))?>" class="c_1e91da" target="_blank"><?=$post['username']?></a> <span class="c_8e95a1"><?=$user_type_str?></span></p>
 											<p class="font-12"><?=$post['text']?></p>
 										</div>
 									</div>

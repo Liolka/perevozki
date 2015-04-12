@@ -90,36 +90,20 @@ $this->pageTitle = "Редактировать Информация о комп�
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="row">
 
-				<ul class="contact-info-list col-lg-12 col-md-12">
-					<li>
-						<p><?php echo $form->labelEx($user_company,'name', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'name'); ?>
-							<?php echo $form->error($user_company,'name'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'fio', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'fio'); ?>
-							<?php echo $form->error($user_company,'fio'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'post', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'post'); ?>
-							<?php echo $form->error($user_company,'post'); ?>
-						</p>
-					</li>
-					<li>
-						<p><?php echo $form->labelEx($user_company,'details', array('class'=>'field-title c_2e3c54')); ?></p>
-						<p>
-							<?php echo $form->textField($user_company,'details'); ?>
-							<?php echo $form->error($user_company,'details'); ?>
-						</p>
-					</li>
-				</ul>
+				<?
+				switch($user->user_status)	{
+					case 1: 
+					$tmpl = "info-edit-gruzodatel-ur.php";
+					break;
+
+					case 2: 
+					default: 
+					$tmpl = "info-edit-gruzodatel-fiz.php";
+					break;
+				}
+
+				include ($tmpl);	
+				?>
 
 			</div>
 		</div>

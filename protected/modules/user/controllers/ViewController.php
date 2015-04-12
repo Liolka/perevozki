@@ -52,6 +52,15 @@ class ViewController extends Controller
 		$model = $this->loadModel();
 		//echo'<pre>';print_r($model,0);echo'</pre>';
 		$user_id = $this->app->request->getParam('id', 0);
+		
+		$show_transport_ = $this->app->request->getParam('show', '');
+		if($show_transport_ != '')	{
+			$this->app->session['userview.show_transport'] = $show_transport_;
+			$this->redirect(array('/user/view', 'id'=>$_GET['id']));			
+		}
+		
+		
+		
 		/*
 		$review_text = $this->app->request->getParam('review-text', '');
 		$review_value = $this->app->request->getParam('review-value', 0);
@@ -102,6 +111,13 @@ class ViewController extends Controller
 				$data['user_company'] = $user_company;
 				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $user_id);
 			
+				if(isset($this->app->session['userview.show_transport'])) {
+					$show_transport = $this->app->session['userview.show_transport'];
+				}	else	{
+					$show_transport = 'scroll';
+				}
+				$data['show_transport'] = $show_transport;
+			
 				$tmpl = 'view_type2';
 				break;
 			
@@ -112,7 +128,7 @@ class ViewController extends Controller
 				//$lastBidsUser = Bids::model()->getBidsUser($connection, $user_id, $model, 'user_id');
 				$lastBidsUser = Bids::model()->getBidsGruzodatel($connection, $user_id, $model, 'user_id', 5, $orderBy, $filter);
 				
-				//echo'<pre>';print_r($lastBidsUser,0);echo'</pre>';
+				//echo'1212<pre>';print_r($lastBidsUser,0);echo'</pre>';die;
 			
 				$user_company = $model->gruzodatel;
 				if($user_company === null) {

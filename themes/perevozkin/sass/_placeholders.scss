@@ -87,6 +87,8 @@
 %underline_n_n {
 	text-decoration: none;
 	
+	&:focus,
+	&:active,
 	&:hover {
 		text-decoration: none;
 	}
