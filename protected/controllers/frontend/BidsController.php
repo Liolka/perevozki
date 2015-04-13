@@ -921,6 +921,7 @@ class BidsController extends Controller
 		$connection = $this->app->db;
 
 		$categories_list_level2 = Categories::model()->getCategoriesLevel2($connection, $category_id);
+		//$categories_list_level2 = Categories::model()->getCategoriesLevel2($connection);
 
 		$this->renderPartial('step2form',array(
 			'categories_list_level2'=>$categories_list_level2,
@@ -941,7 +942,9 @@ class BidsController extends Controller
 		$model->SelectedUnitsList = array();
 		
 		$categories_list_level2 = Categories::model()->getCategoriesLevel2($connection, $category_id);
-		$categories_list = Categories::model()->getDropDownList($categories_list_level2);
+		//$categories_list = Categories::model()->getDropDownList($categories_list_level2);
+		
+		$categories_list = Categories::model()->getDropDownlistItemsOptGroup();
 		
 		//echo'<pre>';print_r($categories_list_level2);echo'</pre>';die;
 		

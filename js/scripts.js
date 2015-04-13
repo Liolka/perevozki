@@ -233,8 +233,19 @@ $(document).ready(function () {
 		return false;
 	});
 	
+	//выбираем из выпадающего списка категорию для дополнительного груза
 	$('#step3Container').on('change', '#Cargoes_category2', function () {
-		$('#Cargoes_name2').val($(this).children(':selected').text())
+		$('#Cargoes_name2').val($(this).children().children(':selected').text())
+	});
+	
+	//выбираем из выпадающего списка категорию для дополнительного груза
+	$('#step3Container').on('change', '#Cargoes_category3', function () {
+		$('#Cargoes_name3').val($(this).children().children(':selected').text())
+	});
+	
+	//выбираем из выпадающего списка категорию для дополнительного груза
+	$('#step3Container').on('change', '#Cargoes_category4', function () {
+		$('#Cargoes_name4').val($(this).children().children(':selected').text())
 	});
 	
 	$('#bids-filter-categories-check').on('click', function (e) {

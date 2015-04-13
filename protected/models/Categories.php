@@ -25,6 +25,7 @@ class Categories extends CActiveRecord
 	public $parentId;
 	public $new_parentId;
 	public $category_image;
+	public $parent_name;
 	
 	public $SelectedCategory;
 
@@ -222,10 +223,32 @@ class Categories extends CActiveRecord
 			$c->name = $separator.$c->name;
 		}
 		
-		$result = CHtml::listData($categories, 'id','name');
-		
+		$result = CHtml::listData($categories, 'id', 'name');
 		//Yii::app()->cache->set('DropDownlistCategories', $result, 300);		
 		
+		return $result;
+	}
+	
+	public function getDropDownlistItemsOptGroup()
+	{
+		$criteria = new CDbCriteria;
+        $criteria->condition = "`level` > 1";
+		$criteria->order = 't.root, t.lft'; // или 't.root, t.lft' для множественных деревьев
+		$categories = $this->findAll($criteria);
+		$level = 0;
+		$parent_name = $categories[0]->name;
+		$parent_id = $categories[0]->id;
+		foreach($categories as $k=>$c){
+			
+			if($c->level == 2)	{
+				$parent_name = $c->name;
+				unset($categories[$k]);
+			}	else	{
+				$c->parent_name = $parent_name;
+			}
+			
+		}
+		$result = CHtml::listData($categories, 'id', 'name', 'parent_name');
 		return $result;
 	}
 	
@@ -267,9 +290,14 @@ class Categories extends CActiveRecord
 	
 	public function getCategoriesLevel2(&$connection, $category_id = 0)
 	{
-		$sql = "SELECT `id`, `name` FROM ".$this->tableName()." WHERE `parent_id` = :parent_id ORDER BY `root`, `lft`";
-		$command = $connection->createCommand($sql);
-		$command->bindParam(":parent_id", $category_id);
+		if($category_id != 0)	{
+			$sql = "SELECT `id`, `name`, `level` FROM ".$this->tableName()." WHERE `parent_id` = :parent_id ORDER BY `root`, `lft`";
+			$command = $connection->createCommand($sql);
+			$command->bindParam(":parent_id", $category_id);			
+		}	else	{
+			$sql = "SELECT `id`, `name`, `level` FROM ".$this->tableName()." WHERE `id` <> 1 ORDER BY `root`, `lft`";
+			$command = $connection->createCommand($sql);			
+		}
 		return $command->queryAll();
 	}
 	
