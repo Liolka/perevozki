@@ -207,7 +207,7 @@ foreach($deals_list as $row) {
 					</a>
 					
 			<?	}	else	{	?>
-				<li class="bid-detail-cargo-listitem for_sprite bid-detail-cargo-listitem-cat-<?=$model->category_id ?>">
+				<li class="bid-detail-cargo-listitem for_sprite requests-list-item_number-cat-<?=$cargo['category_id'] ?>">
 			<?	}	?>
 			
 				<div class="bid-detail-cargo-listitem-row">

@@ -352,10 +352,36 @@ class BidsController extends Controller
 					$create_bid = false;
 					
 				}
+				
+				/*
+				$NewBid_Cargoes	= $this->app->session['NewBid.Cargoes'];
+				$add_categories = array(
+					$NewBid_Cargoes['category2'],
+					$NewBid_Cargoes['category3'],
+					$NewBid_Cargoes['category4'],
+				);
+				$add_categories_info = Categories::model()->getCategoriesFromIds($connection, $add_categories);
+			
+				$cargo_cat_id = $this->getCargoParentId($add_categories_info, $NewBid_Cargoes['category2']);
+			
+				//echo'$NewBid_Cargoes<pre>';print_r($NewBid_Cargoes);echo'</pre>';
+				echo'$add_categories_info<pre>';print_r($add_categories_info);echo'</pre>';
+				echo'$NewBid_Cargoes["category2"]<pre>';print_r($NewBid_Cargoes['category2']);echo'</pre>';
+				echo'$cargo_cat_id<pre>';print_r($cargo_cat_id);echo'</pre>';
+			
+				die;*/
 			
 				if($create_bid) {
 					$NewBid_Cargoes	= $this->app->session['NewBid.Cargoes'];
 					$model->save(false);
+					
+					$add_categories = array(
+						$NewBid_Cargoes['category2'],
+						$NewBid_Cargoes['category3'],
+						$NewBid_Cargoes['category4'],
+					);
+					$add_categories_info = Categories::model()->getCategoriesFromIds($connection, $add_categories);
+					
 					
 					$cargo = new Cargoes;
 					$cargo->name = $NewBid_Cargoes['name1'];
@@ -376,9 +402,12 @@ class BidsController extends Controller
 					if($cargo->validate()) {
 						$cargo->save();
 						$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
+						$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category_id']);
+						/*
 						foreach($NewBid_Cargoes['category1'] as $category_id) {
 							$this->createCargoesCategories($cargo->cargo_id, $category_id);
 						}
+						*/
 						
 					} else {
 						foreach($model_reg->errors as $er) {
@@ -387,6 +416,9 @@ class BidsController extends Controller
 					}
 					
 					unset($this->app->session['bid_tmp_foto_1']);
+					
+					
+					//echo'<pre>';print_r($_POST);echo'</pre>';die;
 					
 					if($msg == '' && $NewBid_Cargoes['name2'] != '') {
 						$cargo = new Cargoes;
@@ -408,7 +440,8 @@ class BidsController extends Controller
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
-							//$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category2']);
+							
+							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category2'], $add_categories_info);
 						} else {
 							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
@@ -438,7 +471,7 @@ class BidsController extends Controller
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
-							//$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category3']);
+							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category3'], $add_categories_info);
 						} else {
 							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
@@ -468,7 +501,7 @@ class BidsController extends Controller
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
-							//$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category4']);
+							$this->createCargoesCategories($cargo->cargo_id, $NewBid_Cargoes['category4'], $add_categories_info);
 						} else {
 							foreach($model_reg->errors as $er) {
 								$msg .= '<li>'.$er[0].'</li>';
@@ -689,14 +722,19 @@ class BidsController extends Controller
 			$filtering = true;
 		}
 		
+		$join = array();
+		$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
 		
-		$criteria = new CDbCriteria;
-		
+		$criteria = new CDbCriteria;		
 		$criteria->select = "t.*, u.username";
-		
-		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
-		
-		
+/*		
+SELECT t.*, u.username FROM `1gsk_bids` `t` 
+INNER JOIN 1gsk_users AS u ON t.`user_id` = u.`id` 
+INNER JOIN 1gsk_bids_cargoes AS bc USING (`bid_id`)
+INNER JOIN 1gsk_cargoes_categories AS cc USING (`cargo_id`)
+WHERE cc.category_id IN (2) 
+ORDER BY t.created DESC LIMIT 20
+*/
 		
 		switch($type_sort) {
 			case 'datepub':
@@ -733,7 +771,10 @@ class BidsController extends Controller
 			}
 			
 			if(count($BidsFilterCategories)) {
-				$condition_arr[] = "t.category_id IN (".implode(', ', $BidsFilterCategories).")";
+				$condition_arr[] = "cc.category_id IN (".implode(', ', $BidsFilterCategories).")";
+				
+				$join[] = "INNER JOIN {{bids_cargoes}} AS bc USING (`bid_id`)";
+				$join[] = "INNER JOIN {{cargoes_categories}} AS cc USING (`cargo_id`)";
 			}
 
 			if(count($condition_arr))	{
@@ -742,7 +783,7 @@ class BidsController extends Controller
 		}
 		
 		
-		
+		$criteria->join = implode(' ', $join);
  
         $dataProvider = new CActiveDataProvider('Bids', array(
             'criteria'=>$criteria,
@@ -1085,12 +1126,23 @@ class BidsController extends Controller
 		$BidsCargoes->save();
 	}
 	
-	public function createCargoesCategories($cargo_id, $category_id)
+	public function createCargoesCategories($cargo_id, $category_id, $add_categories_info = array())
 	{
-		$CargoesCategories = new CargoesCategories;
-		$CargoesCategories->cargo_id = $cargo_id;
-		$CargoesCategories->category_id = $category_id;
-		$CargoesCategories->save();
+		if(count($add_categories_info))	{
+			$cargo_cat_id = $this->getCargoParentId($add_categories_info, $category_id);
+			if($cargo_cat_id != 0)	{
+				$CargoesCategories = new CargoesCategories;
+				$CargoesCategories->cargo_id = $cargo_id;
+				$CargoesCategories->category_id = $cargo_cat_id;
+				$CargoesCategories->save();
+			}
+			
+		}	else	{
+			$CargoesCategories = new CargoesCategories;
+			$CargoesCategories->cargo_id = $cargo_id;
+			$CargoesCategories->category_id = $category_id;
+			$CargoesCategories->save();			
+		}
 	}
 	
 	public function createPassword()
@@ -1129,6 +1181,22 @@ class BidsController extends Controller
     {
         if (Yii::app()->request->isAjaxRequest && isset($_POST[$param]))
             $_GET[$param] = Yii::app()->request->getPost($param);
+    }
+	
+    //возвращает ИД родительской категории
+	protected function getCargoParentId($rows=array(), $id)
+    {
+		$res = 0;
+		if(count($rows))	{
+			foreach($rows as $row)	{
+				if($row['id'] == $id)	{
+					$res = $row['parent_id'];
+					break;
+				}
+			}
+		}
+		
+		return $res;
     }
 	
 	/**

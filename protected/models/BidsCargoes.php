@@ -105,7 +105,16 @@ class BidsCargoes extends CActiveRecord
 	//получает инфу по грузам заявки
 	public function getCargoresBids(&$connection, $bid_id = 0)
 	{
-		$sql = "SELECT `cargo_id`, `name`, `comment`, `weight`, `unit`, `foto`, `porters`,`lift_to_floor`, `lift`, `floor`, `length`, `width`, `height`, `volume` FROM {{cargoes}} AS c INNER JOIN ".$this->tableName()." AS bc USING (`cargo_id`) WHERE bc.`bid_id` = :bid_id";
+		$sql = "SELECT `cargo_id`, bcc.`category_id`, `name`, `comment`, `weight`, `unit`, `foto`, `porters`,`lift_to_floor`, `lift`, `floor`, `length`, `width`, `height`, `volume` FROM {{cargoes}} AS c INNER JOIN ".$this->tableName()." AS bc USING (`cargo_id`) INNER JOIN 1gsk_cargoes_categories AS bcc USING (`cargo_id`) WHERE bc.`bid_id` = :bid_id";
+		
+/*
+SELECT `cargo_id`, bcc.`category_id`, `name`, `comment`, `weight`, `unit`, `foto`, `porters`,`lift_to_floor`, `lift`, `floor`, `length`, `width`, `height`, `volume` 
+FROM 1gsk_cargoes AS c 
+INNER JOIN 1gsk_bids_cargoes AS bc USING (`cargo_id`) 
+INNER JOIN 1gsk_cargoes_categories AS bcc USING (`cargo_id`) 
+
+WHERE bc.`bid_id` = 67
+*/
 		//echo'<pre>';print_r($bid_id);echo'</pre>';
 		//echo'<pre>';print_r($sql);echo'</pre>';
 		$command = $connection->createCommand($sql);

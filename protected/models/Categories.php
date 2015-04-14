@@ -238,15 +238,13 @@ class Categories extends CActiveRecord
 		$level = 0;
 		$parent_name = $categories[0]->name;
 		$parent_id = $categories[0]->id;
-		foreach($categories as $k=>$c){
-			
+		foreach($categories as $k=>$c) {
 			if($c->level == 2)	{
 				$parent_name = $c->name;
 				unset($categories[$k]);
 			}	else	{
 				$c->parent_name = $parent_name;
 			}
-			
 		}
 		$result = CHtml::listData($categories, 'id', 'name', 'parent_name');
 		return $result;
@@ -303,7 +301,7 @@ class Categories extends CActiveRecord
 	
 	public function getCategoriesFromIds(&$connection, $category_ids = array())
 	{
-		$sql = "SELECT `id`, `name` FROM ".$this->tableName()." WHERE `id` IN(".implode(',', $category_ids).") ORDER BY `root`, `lft`";
+		$sql = "SELECT `id`, `parent_id`, `name` FROM ".$this->tableName()." WHERE `id` IN(".implode(',', $category_ids).") ORDER BY `root`, `lft`";
 		$command = $connection->createCommand($sql);
 		return $command->queryAll();
 	}

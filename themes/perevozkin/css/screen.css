@@ -698,7 +698,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 79px;
 }
 
-.catn-sprite, .catn-c10-b, .requests-list-item_number-cat-10:before, .catn-c10-d, .catn-c11-b, .requests-list-item_number-cat-11:before, .catn-c11-d, .catn-c12-b, .requests-list-item_number-cat-12:before, .catn-c12-d, .catn-c13-b, .requests-list-item_number-cat13:before, .catn-c13-d, .catn-c14-b, .requests-list-item_number-cat-14:before, .catn-c14-d, .catn-c15-b, .requests-list-item_number-cat-15:before, .catn-c15-d, .catn-c2-b, .requests-list-item_number-cat-2:before, .bid-detail-cargo-listitem-cat-2:before, .catn-c2-d, .catn-c3-b, .requests-list-item_number-cat-3:before, .catn-c3-d, .catn-c4-b, .requests-list-item_number-cat-4:before, .catn-c4-d, .catn-c7-b, .requests-list-item_number-cat-7:before, .catn-c7-d, .catn-c8-b, .requests-list-item_number-cat-8:before, .catn-c8-d, .catn-c9-b, .requests-list-item_number-cat-9:before, .catn-c9-d {
+.catn-sprite, .catn-c10-b, .requests-list-item_number-cat-10:before, .catn-c10-d, .catn-c11-b, .requests-list-item_number-cat-11:before, .catn-c11-d, .catn-c12-b, .requests-list-item_number-cat-12:before, .catn-c12-d, .catn-c13-b, .requests-list-item_number-cat-13:before, .catn-c13-d, .catn-c14-b, .requests-list-item_number-cat-14:before, .catn-c14-d, .catn-c15-b, .requests-list-item_number-cat-15:before, .catn-c15-d, .catn-c2-b, .requests-list-item_number-cat-2:before, .bid-detail-cargo-listitem-cat-2:before, .catn-c2-d, .catn-c3-b, .requests-list-item_number-cat-3:before, .catn-c3-d, .catn-c4-b, .requests-list-item_number-cat-4:before, .catn-c4-d, .catn-c7-b, .requests-list-item_number-cat-7:before, .catn-c7-d, .catn-c8-b, .requests-list-item_number-cat-8:before, .catn-c8-d, .catn-c9-b, .requests-list-item_number-cat-9:before, .catn-c9-d {
   background-image: url('../images/catn-sfe840d97a0.png');
   background-repeat: no-repeat;
 }
@@ -739,7 +739,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 40px;
 }
 
-.catn-c13-b, .requests-list-item_number-cat13:before {
+.catn-c13-b, .requests-list-item_number-cat-13:before {
   background-position: 0 -769px;
   height: 43px;
   width: 50px;
@@ -2566,7 +2566,7 @@ button.close:hover {
   margin-left: -18px;
 }
 
-.requests-list-item_number-cat13:before {
+.requests-list-item_number-cat-13:before {
   margin-left: -24px;
 }
 
