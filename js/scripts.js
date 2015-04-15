@@ -235,7 +235,24 @@ $(document).ready(function () {
 	
 	//выбираем из выпадающего списка категорию для дополнительного груза
 	$('#step3Container').on('change', '#Cargoes_category2', function () {
-		$('#Cargoes_name2').val($(this).children().children(':selected').text())
+		/*
+		console.log($(this).val());
+		
+		$.ajax({
+			type: 'get',
+			url: '/site/getrandomreviews.html',
+			data: {},
+			dataType: 'html',
+			beforeSend: function () {
+				$("#random-reviews-loading").show();
+			},
+			success: function (msg) {
+				$("#random-reviews-loading").hide();
+				$('#random-reviews-wr').html(msg);
+			}
+		});
+		*/
+		$('#Cargoes_name2').val($(this).children().children(':selected').text());
 	});
 	
 	//выбираем из выпадающего списка категорию для дополнительного груза

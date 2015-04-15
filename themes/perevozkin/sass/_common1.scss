@@ -19,6 +19,16 @@
 	@extend %font_24;
 }
 
+.narrow-regular-28 {
+	@extend %pt_sans_narrow_regular;
+	@extend %font_28;
+}
+
+.narrow-regular-36 {
+	@extend %pt_sans_narrow_regular;
+	@extend %font_36;
+}
+
 
 .narrow-bold-18 {
 	@extend %pt_sans_narrow_bold;
@@ -124,6 +134,10 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .mt-40 { margin-top: 40px; }
 
 .ml-5 { margin-left: 5px; }
+.ml-10 { margin-left: 10px; }
+.ml-15 { margin-left: 15px; }
+.ml-20 { margin-left: 20px; }
+.ml-40 { margin-left: 40px; }
 
 
 .p-0 { padding: 0; }

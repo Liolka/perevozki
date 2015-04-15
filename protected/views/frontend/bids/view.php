@@ -103,7 +103,7 @@ foreach($deals_list as $row) {
 	<div class="bid-view-created fRight clearfix">
 		<span class="db font-12 c_aab1ba mb-5"><?=getTimeAgo($model->created).' добавил'?></span>
 		<span class="db p-0-20 text_r mb-5"><a class="profile-link c_71a72c" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$model->user_id))?>"><?=$model->username?></a></p></span>
-		<a href="#" class="db ico-question fRight"></a>
+		<? /*<a href="#" class="db ico-question fRight"></a>*/ ?>
 		<div class="m-0-5 rating-stars bid-view-rating fRight">
 			<span class="stars-empty"></span><span class="stars-full" style="width:<?=($model->user_rating * 10)?>%;"></span>
 		</div>
@@ -112,41 +112,41 @@ foreach($deals_list as $row) {
 
 	<ul class="bid-detail-route-list clearfix">
 		<li class="route-start fLeft">
-			<p class="route-town counry-by mb-5 bold"><?=$model->loading_town?></p>
+			<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->loading_town?></p>
 			<p class="route-address"><?=$model->loading_address?></p>			
 		</li>
 		<? if($model->add_loading_unloading_town_1 != '')	{	?>
-			<li class="route-item fLeft">
-				<div class="route-item-arrow"></div>
-				<div class="route-item-wr">
-					<p class="route-town counry-by mb-5 bold"><?=$model->add_loading_unloading_town_1?></p>
+			<li class="route-item fLeft ml-40 table-row">
+				<div class="route-item-arrow table-cell"></div>
+				<div class="route-item-wr table-cell for_sprite">
+					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->add_loading_unloading_town_1?></p>
 					<p class="route-address"><?=$model->add_loading_unloading_address_1?></p>
 				</div>
 			</li>
 		<?	}	?>
 		<? if($model->add_loading_unloading_town_2 != '')	{	?>
-			<li class="route-item fLeft">
-				<div class="route-item-arrow"></div>
-				<div class="route-item-wr">
-					<p class="route-town counry-by mb-5 bold"><?=$model->add_loading_unloading_town_2?></p>
+			<li class="route-item fLeft ml-40 table-row">
+				<div class="route-item-arrow table-cell for_sprite"></div>
+				<div class="route-item-wr table-cell">
+					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->add_loading_unloading_town_2?></p>
 					<p class="route-address"><?=$model->add_loading_unloading_address_2?></p>
 				</div>
 			</li>
 		<?	}	?>
 		<? if($model->add_loading_unloading_town_3 != '')	{	?>
-			<li class="route-item fLeft">
-				<div class="route-item-arrow"></div>
-				<div class="route-item-wr">
-					<p class="route-town counry-by mb-5 bold"><?=$model->add_loading_unloading_town_3?></p>
+			<li class="route-item fLeft ml-40 table-row">
+				<div class="route-item-arrow table-cell for_sprite"></div>
+				<div class="route-item-wr table-cell">
+					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->add_loading_unloading_town_3?></p>
 					<p class="route-address"><?=$model->add_loading_unloading_address_3?></p>
 				</div>
 			</li>
 		<?	}	?>
 		
-		<li class="route-item route-end fLeft">
-			<div class="route-item-arrow"></div>
-			<div class="route-item-wr">
-				<p class="route-town counry-by mb-5 bold"><?=$model->unloading_town?></p>
+		<li class="route-item route-end fLeft ml-40 table-row">
+			<div class="route-item-arrow table-cell for_sprite"></div>
+			<div class="route-item-wr table-cell">
+				<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->unloading_town?></p>
 				<p class="route-address"><?=$model->unloading_address?></p>
 			</div>		
 		</li>
@@ -210,8 +210,9 @@ foreach($deals_list as $row) {
 				<li class="bid-detail-cargo-listitem for_sprite requests-list-item_number-cat-<?=$cargo['category_id'] ?>">
 			<?	}	?>
 			
-				<div class="bid-detail-cargo-listitem-row">
-					<p class="bid-detail-cargo-listitem-cargo-name"><?=$cargo['name']?></p>
+				<div class="mb-20">
+					<p class="bold mb-5"><?=$cargo['parent_name']?></p>
+					<p class="mb-5"><?=$cargo['name']?></p>
 					<?
 					$info_arr = array();
 					if($cargo['weight']) {
@@ -343,7 +344,7 @@ foreach($deals_list as $row) {
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
 							<div class="bid-detail-deals-perevozhik">
-								<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link" target="_blank">Перевозчик <?php echo $row['username'] ?></a>
+								<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link pl-20" target="_blank">Перевозчик <?php echo $row['username'] ?></a>
 								<div class="bid-detail-deals-rating-block mt-5">
 									<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating'])?>%;"></span></div>
 									<p class="rewiews-count font-12 c_8e95a1 dib">(<?=$row['reviews_count']?> <?php echo Yii::t('app', 'отзыв|отзыва|отзывов|отзыва', $row['reviews_count']); ?>)</p>

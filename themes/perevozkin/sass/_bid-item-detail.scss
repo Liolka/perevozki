@@ -5,11 +5,6 @@
 
 .bid-detail-route-block {
 	.route-town {
-		padding-left: 20px;
-		margin-left: 20px;
-		
-		@extend %for_sprite;
-		
 		&:before {
 			left: -20px;
 			top: 0;
@@ -18,22 +13,12 @@
 		}
 	}
 	
-	.route-item {
-		margin-left: 40px;
-		
-		@extend %dtr;
-		
-		& > div {
-			@extend %dtc;
-		}
-		
+	.route-item {		
 		.route-item-arrow {
 			min-width: 58px;
 			height: 35px;
 			padding-right: 25px;
-			
-			@extend %for_sprite;
-			
+						
 			&:before {
 				left: 0;
 				top: 20px;
@@ -142,17 +127,6 @@
 	@extend .catn-c2-b;
 }
 
-.bid-detail-cargo-listitem-row {
-	margin-bottom: 20px;
-}
-
-.bid-detail-cargo-listitem-cargo-name {
-	margin-bottom: 5px;
-	
-	@extend %bold;
-}
-
-
 .bid-detail-cargo-listitem-porters {
 	min-height: 40px;
 	
@@ -187,7 +161,6 @@
 }
 
 .bid-detail-deals-profile-link {
-	padding-left: 20px;
 	
 	&:after {
 		content: '';

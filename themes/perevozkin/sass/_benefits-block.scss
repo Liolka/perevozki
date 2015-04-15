@@ -2,19 +2,8 @@
 	overflow: hidden;
 	padding: 50px 0 90px 0;
 	
-	.header {
-		margin: 0 0 40px 0;
-		
-		@extend %pt_sans_narrow_regular;		
-		@extend %font_36;
-		@extend %text_c;
-		@extend %c_697f9a;
-	}
-	
 	ul {
 		left: 50%;
-		@extend %fl;
-		@extend %pos_rel;
 	}
 	
 	li {
@@ -22,29 +11,23 @@
 		margin: 0 80px;
 		padding: 120px 0 0 0;
 		width: 285px;
-		
-		@extend %fl;
-		@extend %pos_rel;		
-		@extend %c_000;		
-		
-		@extend %font_12;
-		@extend %text_c;
-		@extend %for_sprite;
-		
+				
 		&:before {
 			left: 50%;
 			top: 0;
 			margin-left: -45px;
 			@extend .ico-watches-big;
 		}
-		
-		span {
-			padding-bottom: 20px;
-			
-			@extend %pt_sans_narrow_regular;		
-			@extend %font_28;			
-			@extend %db;			
-		}
+	}
+	
+	.benefits-2:before {
+		@extend .ico-coffe-big;
+		margin-left: -50px;
+	}
+	
+	.benefits-3:before {
+		@extend .ico-money-big;
+		margin-left: -48px;
 	}
 	
 }

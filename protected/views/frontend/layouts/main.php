@@ -171,22 +171,22 @@
 			</div>
 			
 			<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>			
-			<div class="statistic-block clearfix">
-				<ul>
-					<li><span>61759 гузов</span> Перевезено</li>
-					<li><span>900 000 тонн</span> Общей массой</li>
-					<li><span>500 000 км</span> Преодолено</li>
-				</ul>
-			</div>
-			
-			<div class="benefits-block clearfix">
-				<p class="header">Преимущества сервиса</p>
-				<ul>
-					<li><span>Мы экономим ваше время</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
-					<li><span>Мы экономим ваши нервы</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
-					<li><span>Мы экономим ваши деньги</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
-				</ul>
-			</div>
+				<div class="statistic-block clearfix">
+					<ul>
+						<li><span>61759 гузов</span> Перевезено</li>
+						<li><span>900 000 тонн</span> Общей массой</li>
+						<li><span>500 000 км</span> Преодолено</li>
+					</ul>
+				</div>
+
+				<div class="benefits-block clearfix">
+					<p class="header narrow-regular-36 text_c mb-40 text_c c_697f9a">Преимущества сервиса</p>
+					<ul class="fLeft pos-rel">
+						<li class="benefits-1 fLeft pos-rel c_000 font_12 text_c for_sprite"><span class="db narrow-regular-28 pb-20">Мы экономим ваше время</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
+						<li class="benefits-2 fLeft pos-rel c_000 font_12 text_c for_sprite"><span class="db narrow-regular-28 pb-20">Мы экономим ваши нервы</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
+						<li class="benefits-3 fLeft pos-rel c_000 font_12 text_c for_sprite"><span class="db narrow-regular-28 pb-20">Мы экономим ваши деньги</span> Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</li>
+					</ul>
+				</div>
 			<?	}	?>
 			
 			
