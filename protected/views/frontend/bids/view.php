@@ -195,6 +195,8 @@ foreach($deals_list as $row) {
 		</div>
 		<? if($is_perevozchik && $show_deal_frm)	{	?>
 			<a href="#new-deal" id="bid-detail-respond-btn" class="btn-blue-66 bid-detail-respond-btn">Откликнуться</a>
+		<?	}	elseif($this->app->user->isGuest)	{	?>
+			<a href="<?=$this->createUrl('/user/login')?>" id="bid-detail-respond-btn" class="login-btn btn-blue-66 bid-detail-respond-btn">Откликнуться</a>
 		<?	}	?>
 	</div>
 	<div class="col-lg-3 col-md-3 col-sm-6 col-xs-3 bid-detail-cargo-list">

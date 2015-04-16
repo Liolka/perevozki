@@ -77,14 +77,15 @@ isQuickly($data->date_transportation);
 	<?/*
 		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 		<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
-	*/?>	
+	*/?>
+		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+		
 		<? if ($this->app->user->isGuest)	{	?>
-			<span class="requests-list-item-price_price db mt-20 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>	
+			<a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->createUrl('/user/login')?>">Откликнуться</a>
 		<? }	elseif ($this->app->user->user_type == 2)	{	?>
-			<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 			<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
 		<?	}	else	{	?>
-			<span class="requests-list-item-price_price db mt-20 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+			<? /* <a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->createUrl('/user/login')?>">Откликнуться</a> */ ?>
 		<?	}	?>
 		
 	</div>

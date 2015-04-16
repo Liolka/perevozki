@@ -66,13 +66,14 @@ if($data->total_volume)	{
 		<p class="requests-list-item_suggestions c_8e95a1 font-13"><span class="<? if(isQuickly($data->date_transportation)) { echo 'suggestion-orange'; } else { echo 'suggestion-green'; }?> c_fff dib"><?=$data->deals_count?></span><?php echo Yii::t('app', 'предложение|предложения|предложений|предложения', $data->deals_count); ?></p>
 	</div>
 	<div class="requests-list-item_price fRight ">
+		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 		<? if ($this->app->user->isGuest)	{	?>
-			<span class="requests-list-item-price_price db mt-20 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+			
+			<a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->controller->createUrl('/user/login')?>">Откликнуться</a>			
 		<? }	elseif ($this->app->user->user_type == 2)	{	?>
-			<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 			<a class="btn-blue-33 db p-0-20" href="<?=$this->controller->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
 		<?	}	else	{	?>
-			<span class="requests-list-item-price_price db mt-20 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+			<? /*<a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->controller->createUrl('/user/login')?>">Откликнуться</a> */ ?>
 		<?	}	?>
 	</div>
 
