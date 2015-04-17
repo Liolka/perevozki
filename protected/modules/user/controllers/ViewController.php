@@ -59,31 +59,6 @@ class ViewController extends Controller
 			$this->redirect(array('/user/view', 'id'=>$_GET['id']));			
 		}
 		
-		
-		
-		/*
-		$review_text = $this->app->request->getParam('review-text', '');
-		$review_value = $this->app->request->getParam('review-value', 0);
-		$bid_id = $this->app->request->getParam('bid-id', 0);
-		$performer_id = $this->app->request->getParam('performer-id', 0);
-		
-		if($review_text != '' && $review_value != 0 && $bid_id != 0 && $performer_id != 0 && $user_id == $this->app->user->id)	{
-			$reviewForm = new ReviewForm;
-			$reviewForm->comment = $review_text;
-			if($reviewForm->validate())	{
-				$reviews_performers = new ReviewsPerformers;
-				$reviews_performers->bid_id = $bid_id;
-				$reviews_performers->performer_id = $performer_id;
-				$reviews_performers->author_id = $this->app->user->id;
-				$reviews_performers->text = $review_text;
-				$reviews_performers->review_value = $review_value;
-				$reviews_performers->save(false);
-				$this->app->user->setFlash('success', "Ваш отзыв успешно размещен.");
-				$this->redirect(array('index','id'=>$user_id));
-			}
-		}
-		*/	
-		
 		$filter = 'actual';
 		$orderBy = "t.`created` DESC";
 		
@@ -109,7 +84,8 @@ class ViewController extends Controller
 				$data['dataProvider'] = $dataProvider;
 				$data['lastBidsUser'] = $lastBidsUser;
 				$data['user_company'] = $user_company;
-				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $user_id);
+				//$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $user_id);
+				$data['reviewsStat'] = Bids::model()->getUserReviewsStatistic($connection, 'performer', $user_id);
 			
 				if(isset($this->app->session['userview.show_transport'])) {
 					$show_transport = $this->app->session['userview.show_transport'];

@@ -181,6 +181,7 @@ class SiteController extends Controller
 							$user_model->rating = $form->rating;
 						}	else	{
 							$user_model->rating = ($user_model->rating + $form->rating) / 2;
+							$user_model->done_carriage++;
 						}
 						
 						$user_model->save(false);

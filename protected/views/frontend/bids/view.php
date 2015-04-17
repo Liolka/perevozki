@@ -29,7 +29,9 @@ foreach($deals_list as $row) {
 
 $show_deal_frm = true;
 foreach($deals_list as $row) {
-	if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
+	//if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
+	if(!$this->app->user->isGuest && ($row['user_id'] == $this->app->user->id || $row['accepted'] == 1) )	{
+
 		$show_deal_frm = false;
 	}
 }

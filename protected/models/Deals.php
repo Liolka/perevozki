@@ -52,7 +52,7 @@ class Deals extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('price', 'required'),
-			array('transport_id', 'required', 'message' => 'Укажите транспорт'),
+			//array('transport_id', 'required', 'message' => 'Укажите транспорт'),
 			array('bid_id, user_id, transport_id, price, porters, accepted, rejected', 'numerical', 'integerOnly'=>true),
 			array('comment', 'length', 'max'=>255),
 			array('deal_date', 'date', 'format' => 'yyyy-MM-dd'),

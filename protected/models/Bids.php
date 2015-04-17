@@ -447,4 +447,46 @@ class Bids extends CActiveRecord
 		return $command->queryScalar();
 	}
 	
+	//получает статистику по отзывам пользователя
+	public function getUserReviewsStatistic(&$connection, $user_type = 'user', $user_id = 0)
+	{
+
+		$dateTo = date('Y-m-d H:i:s');
+		
+		$result = array(
+			'month' => array(
+				'good' => $this->getCountReviewValues($connection, $user_type, $user_id, 'good', date('Y-m-d H:i:s', strtotime("-1 month")), $dateTo),
+				'bad' => $this->getCountReviewValues($connection, $user_type, $user_id, 'bad', date('Y-m-d H:i:s', strtotime("-1 month")), $dateTo),
+			),
+			'half-year' => array(
+				'good' => $this->getCountReviewValues($connection, $user_type, $user_id, 'good', date('Y-m-d H:i:s', strtotime("-6 month")), $dateTo),
+				'bad' => $this->getCountReviewValues($connection, $user_type, $user_id, 'bad', date('Y-m-d H:i:s', strtotime("-6 month")), $dateTo),
+			),
+			'total' => array(
+				'good' => $this->getCountReviewValues($connection, $user_type, $user_id, 'good', date('Y-m-d H:i:s', strtotime("-50 year")), $dateTo),
+				'bad' => $this->getCountReviewValues($connection, $user_type, $user_id, 'bad', date('Y-m-d H:i:s', strtotime("-50 year")), $dateTo),
+			),
+		);
+		
+		//echo'<pre>';print_r($result);echo'</pre>';
+		
+		return $result;
+	}
+	
+	
+	//возвращает кол-во отзывов за промежуток времени
+	public function getCountReviewValues(&$connection, $user_type = 'user', $u_id = 0, $review_good = 'good', $dateFrom, $dateTo)
+	{
+		if($review_good == 'good')	{
+			$rating_state = ' >= 5';
+		}	else	{
+			$rating_state = ' < 5';
+		}
+		$sql = "SELECT count(`bid_id`) FROM ".$this->tableName()." WHERE `".$user_type."_id` = :u_id AND `".$user_type."_rating` $rating_state AND `created` BETWEEN STR_TO_DATE('$dateFrom', '%Y-%m-%d %H:%i:%s') AND STR_TO_DATE('$dateTo', '%Y-%m-%d %H:%i:%s')";
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":u_id", $u_id, PDO::PARAM_INT);
+		return $command->queryScalar();
+	}
+	
+	
 }

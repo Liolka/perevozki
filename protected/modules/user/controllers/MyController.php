@@ -38,7 +38,8 @@ class MyController extends Controller
 			case 2:
 				$template = 'my_perevozchik';
 			
-				$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $this->app->user->id);
+				//$data['reviewsStat'] = ReviewsPerformers::model()->getUserReviewsStatistic($connection, $this->app->user->id);
+				$data['reviewsStat'] = Bids::model()->getUserReviewsStatistic($connection, 'performer', $this->app->user->id);
 			
 				$lastBidsUser = Bids::model()->getBidsPerevozchik($connection, $this->app->user->id, $model, 5, $orderBy, $filter);
 			
