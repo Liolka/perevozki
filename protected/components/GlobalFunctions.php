@@ -115,4 +115,27 @@ function prepareArray($rows, $keyFld)
 	return $res;
 }
 
+
+function sendMail($email, $tmplEmail = 'emailTpl', $data = array()) 
+{
+	
+	Yii::app()->dpsMailer->sendByView(
+		//array( $email => 'получатель' ), // определяем кому отправляется письмо
+		array($email), // определяем кому отправляется письмо
+		//'emailTpl', // view шаблона письма
+		$tmplEmail, // view шаблона письма
+		$data
+		/*
+		array(
+			'message' => $message,
+			'subject' => $subject,
+
+			//'sLogoPicPath' => '/path/to/logo.gif',
+			//'sFilePath' => '/path/to/attachment.txt',
+		)
+		*/
+		
+	);
+}
+
 ?>

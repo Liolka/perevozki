@@ -289,13 +289,6 @@ class Bids extends CActiveRecord
 	public function getBidsGruzodatel(&$connection, $user_id, $model, $where_field = 'user_id', $pageSize = 5, $orderBy = "t.`created` DESC", $filter = 'all')
 	{
 		$join = array();
-		/*
-		if($where_field == 'performer_id')	{
-			$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
-		}	else	{
-			$join[] = "INNER JOIN {{users}} AS u ON t.`performer_id` = u.`id`";
-		}
-		*/
 		
 		$criteria = new CDbCriteria;
 
@@ -304,10 +297,23 @@ class Bids extends CActiveRecord
 		}	else	{
 			$criteria->select = "t.*";
 		}
+		
+		$condition = array(
+			"(`$where_field` = $user_id)",
+		);
+		
+		if($filter != 'all')	{
+			$condition[] = "(`published` = 1)";
+			
+			$actual_date = date('Y-m-d', strtotime("-5 days"));			
+			$condition[] = "((t.`date_transportation` = '0000-00-00' OR t.`date_transportation` >= '$actual_date') AND (t.`date_transportation_to` = '0000-00-00' OR t.`date_transportation_to` >= '$actual_date'))";
+			
+		}
 
 		//$criteria->join = implode(' ', $join);
 		$criteria->order = $orderBy;
 		$criteria->condition = "`$where_field` = $user_id";
+		$criteria->condition = implode(' AND ', $condition);
 
 		$dataProvider = new CActiveDataProvider('Bids', array(
 			'criteria'=>$criteria,
@@ -373,6 +379,7 @@ class Bids extends CActiveRecord
 		$condition[] = "d.`user_id` = $user_id";
 		
 		if($filter == 'actual')	{
+			$condition[] = "(`published` = 1)";
 			$actual_date = date('Y-m-d', strtotime("-5 days"));			
 			$condition[] = "((t.`date_transportation` = '0000-00-00' OR t.`date_transportation` >= '$actual_date') AND (t.`date_transportation_to` = '0000-00-00' OR t.`date_transportation_to` >= '$actual_date'))";
 		}
@@ -488,5 +495,19 @@ class Bids extends CActiveRecord
 		return $command->queryScalar();
 	}
 	
+	//возвращает произвольные отзывы
+	public function getRandomReviews(&$connection)
+	{
+		$sql = "SELECT `bid_id`,`user_review`,`performer_review` FROM ".$this->tableName()." WHERE `user_review` <> '' OR `performer_review` <> '' ORDER BY RAND() LIMIT 0, 3";
+		$command = $connection->createCommand($sql);
+		return $command->queryAll();
+	}
 	
+	public function UnpublishBid(&$connection, $bid_id)
+	{
+		$sql = "UPDATE ".$this->tableName()." SET `published` = 0 WHERE `bid_id` = :bid_id";
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":bid_id", $bid_id, PDO::PARAM_INT);
+		return $command->execute();
+	}
 }

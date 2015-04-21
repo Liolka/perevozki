@@ -139,7 +139,17 @@ class SiteController extends Controller
 	
 	public function actionGetrandomreviews()
 	{
-		$rows = ReviewsPerformers::model()->getRandomReviews(Yii::app()->db);
+		$rows = Bids::model()->getRandomReviews(Yii::app()->db);
+		$fields_arr = array('user_review', 'performer_review');
+		foreach($rows as &$row)	{
+			$rand_field = array_rand($fields_arr, 1);
+			if($fields_arr[$rand_field] == 'user_review')	{
+				$row['text'] = $row['user_review'] ? $row['user_review'] : $row['performer_review'];
+			}	else	{
+				$row['text'] = $row['performer_review'] ? $row['performer_review'] : $row['user_review'];
+			}
+		}
+
 		$this->renderPartial('reviews_list',array('rows'=>$rows));
 	}
 	
@@ -147,6 +157,7 @@ class SiteController extends Controller
 	public function actionAddnewreview()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
 		
 		$u_id = $this->app->request->getParam('u-id', '');
 		
@@ -170,11 +181,22 @@ class SiteController extends Controller
 					
 					if($field == 'user')	{
 						$user_id = 'performer_id';
+						$author_id = 'user_id';
 					}	else	{
 						$user_id = 'user_id';
+						$author_id = 'performer_id';
 					}
 					
 					$user_model = User::model()->findByPk($model->$user_id);
+
+					$cargoes = BidsCargoes::model()->getCargoresBids($connection, $model->bid_id);
+
+					$bid_name_arr = array();
+					foreach($cargoes as $cargo) {
+						$bid_name_arr[] = $cargo['name'];
+					}
+					$bid_name = implode('. ', $bid_name_arr);
+					
 					if($user_model != null)	{
 						
 						if($user_model->rating == 0 )	{
@@ -187,6 +209,13 @@ class SiteController extends Controller
 						$user_model->save(false);
 						
 					}
+					
+					$author_model = User::model()->findByPk($model->$author_id);
+					
+					$this->sendNoticeReview($bid_id, $bid_name, $user_model->username, $user_model->id, $user_model->email, $author_model->username, $author_model->id, $author_model->email);
+					
+					
+					
 					
 					$this->app->user->setFlash('success', 'Ваш отзыв успешно размещён.');
 					echo 'ok';
@@ -205,6 +234,26 @@ class SiteController extends Controller
 			throw new CHttpException(500, 'Ошибка доступа');
 		}
 	}
+	
+	//посылаем сообщение автору предложения
+	public function sendNoticeReview($bid_id, $bid_name, $user_name, $user_id, $user_email, $author_name, $author_id, $author_email)
+	{
+		
+		$data = array(
+			'bid_url' => $this->createAbsoluteUrl('/bids/view', array('id'=>$bid_id)),
+			'bid_name' => $bid_name,
+			'user_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$user_id)),
+			'user_name' => $user_name,
+			'author_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$author_id)),
+			'author_name' => $author_name,
+			'my_url' => $this->createAbsoluteUrl('/user/my'),
+			'subject' =>'Публикация нового отзыва',
+		);		
+		$email = $user_email;
+		$tmpl = 'emailNoticeReview';
+		sendMail($email, $tmpl, $data);
+	}
+	
 	
 	
 }

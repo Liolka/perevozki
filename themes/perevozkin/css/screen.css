@@ -3961,9 +3961,6 @@ button.close:hover {
   background-color: transparent;
 }
 
-.bid-detail-deals-row-wr {
-  border: 1px solid #b2daeb;
-}
 .bid-detail-deals-row-wr > div {
   min-height: 50px;
 }
@@ -3977,12 +3974,6 @@ button.close:hover {
   border-top: none;
   height: auto;
   padding: 0;
-}
-
-.bid-detail-deals-row-answer-block-comment,
-.bid-detail-deals-row-answer-block-reviews-wr,
-.bid-detail-deals-head > p {
-  padding: 15px;
 }
 
 .bid-detail-deals-col1 {
@@ -4039,8 +4030,8 @@ button.close:hover {
   width: 920px;
 }
 
-.bid-detail-deals-row-answer-block-reviews-wr {
-  border-bottom: 1px solid #b2daeb;
+.bid-detail-deals-row-answer-block-comment {
+  border-top: 1px solid #b2daeb;
 }
 
 .bid-detail-send-comment-btn {

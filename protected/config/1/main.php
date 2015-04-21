@@ -147,6 +147,7 @@ return array(
 					'class'=>'CWebLogRoute',
 				),
 				*/
+				
 			),
 		),
 		

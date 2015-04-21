@@ -47,7 +47,6 @@ class BidsController extends Controller
 					'cancelrejecteddeal',
 					'uploadfoto',
 					'setcargonum',
-					'removebid',
 				),
 				'users'=>array('*'),
 			),
@@ -72,7 +71,7 @@ class BidsController extends Controller
 	public function actionView($id)
 	{
 		//throw new CHttpException(500,'Неверные параметры запроса');
-		
+		/*
 		$this->app = Yii::app();
 		$connection = $this->app->db;
 		
@@ -96,7 +95,7 @@ class BidsController extends Controller
 			$deals->user_id = $this->app->user->id;
 			if($deals->validate())	{
 				$deals->save(false);
-				$this->sendNoticeNewDeal($model->user_id, $id, $bid_name, $this->app->user->id, $this->app->user->username );
+				//$this->sendNoticeNewDeal($model->user_id, $id, $bid_name, $this->app->user->id, $this->app->user->username );
 				$this->app->user->setFlash('success', 'Ваше предложение размещено.');
 				$this->redirect(array('bids/view','id'=>$id));
 			}
@@ -109,17 +108,12 @@ class BidsController extends Controller
 			$deal_post->text = $_POST['deal-post'];
 			if($deal_post->validate())	{
 				$deal_post->save();
-				if($deal_post->user_id == $model->user_id)	{
-					//посылаем сообщение автору предложения в заявке
-					$this->sendNoticeNewPostDealAuthor($deal_post->deal_id, $id, $bid_name, $this->app->user->id, $this->app->user->username);
-				}	else	{
-					//посылаем сообщение автору заявки
-					$this->sendNoticeNewPostBidAuthor($model->user_id, $id, $bid_name, $this->app->user->id, $this->app->user->username );
-				}
 				$this->app->user->setFlash('success', 'Ваше сообщение размещено.');
 			}
 			$this->redirect(array('bids/view','id'=>$id));
 		}
+		
+		
 		
 		$user_info = User::model()->getUserName($connection, $model->user_id);
 		$model->username = $user_info['username'];
@@ -131,6 +125,8 @@ class BidsController extends Controller
 		$this->addRouteItem($model->add_loading_unloading_town_2, $model->add_loading_unloading_address_2, $route_arr);
 		$this->addRouteItem($model->add_loading_unloading_town_3, $model->add_loading_unloading_address_3, $route_arr);
 		$this->addRouteItem($model->unloading_town, $model->unloading_address, $route_arr);
+		
+		
 		
 		if(!$this->app->user->isGuest && $this->app->user->user_type == 2)	{
 			$is_perevozchik = true;
@@ -160,7 +156,7 @@ class BidsController extends Controller
 		
 		
 		//echo'<pre>';print_r($transport_list);echo'</pre>';
-		
+		/*
 		$this->render('view',array(
 			'model'=> $model,
 			'cargoes'=> $cargoes,
@@ -172,7 +168,7 @@ class BidsController extends Controller
 			'deals_list'=> $deals_list,
 			'deals_posts_list'=> $deals_posts_list,
 		));
-		
+		*/
 	}
 	
 	//принять заявку
@@ -182,11 +178,7 @@ class BidsController extends Controller
 		$deal_id = $this->app->request->getParam('deal_id', 0);
 		$performer_id = $this->app->request->getParam('performer_id', 0);
 		
-		$bid_name = $this->getBidName($id);
-		$this->sendNoticeAcceptDeal($deal_id, $id, $bid_name, $this->app->user->id, $this->app->user->username);		
-		
 		$this->updateBid($id, $deal_id, 'accepted', 1, $performer_id, 'Предложение принято.');
-		
 	}
 	
 	//отменить принятую заявку
@@ -195,9 +187,6 @@ class BidsController extends Controller
 		$this->app = Yii::app();
 		$deal_id = $this->app->request->getParam('deal_id', 0);
 		$performer_id = 0;
-		
-		$bid_name = $this->getBidName($id);
-		$this->sendNoticeCancelAcceptedDeal($deal_id, $id, $bid_name, $this->app->user->id, $this->app->user->username);
 		
 		$this->updateBid($id, $deal_id, 'accepted', 0, $performer_id, 'Выбранное предложение отменено.');		
 	}
@@ -209,9 +198,6 @@ class BidsController extends Controller
 		$deal_id = $this->app->request->getParam('deal_id', 0);
 		$performer_id = -1;
 		
-		$bid_name = $this->getBidName($id);
-		$this->sendNoticeRejectDeal($deal_id, $id, $bid_name, $this->app->user->id, $this->app->user->username);
-		
 		$this->updateBid($id, $deal_id, 'rejected', 1, $performer_id, 'Предложение отклонено.');	
 	}
 
@@ -222,62 +208,7 @@ class BidsController extends Controller
 		$deal_id = $this->app->request->getParam('deal_id', 0);
 		$performer_id = -1;
 		
-		$bid_name = $this->getBidName($id);
-		$this->sendNoticeCancelRejectedDeal($deal_id, $id, $bid_name, $this->app->user->id, $this->app->user->username);
-		
 		$this->updateBid($id, $deal_id, 'rejected', 0, $performer_id, 'Отклоненное предложение восстановлено.');	
-	}
-	
-	//удалить заявку
-	public function actionRemovebid($id)
-	{
-		$this->app = Yii::app();
-		$connection = $this->app->db;
-		
-		$bid_model = $this->loadModel($id);
-		/*
-		if($this->app->user->isGuest || $bid_model->user_id != $this->app->user->id)
-			throw new CHttpException(500,'Ошибка доступа');*/
-		
-		$count_bids = Deals::model()->getBidDealsCount($connection, array($id));
-		if(count($count_bids))	{
-			//echo'<pre>Только пометить</pre>';
-			Bids::model()->UnpublishBid($connection, $id);
-			$this->app->user->setFlash('success', 'Ваша заявка успешно отменена');
-			$this->redirect(array('/user/my/requests'));
-			
-		}	else	{
-			//echo'<pre>Удалить</pre>';
-			// найти все грузы
-			$bidsCargoes = $bid_model->bidsCargoes;
-			$image_path = Yii::getPathOfAlias('webroot').'/files/bids/';
-			// удалить их изображения
-			foreach($bidsCargoes as $bidcargo)	{
-				$cargo = $bidcargo->cargo;
-				if($cargo->foto != '')	{
-					if (file_exists($image_path . 'full_'.$cargo->foto)) {
-						unlink($image_path . 'full_'.$cargo->foto);
-					}
-					if (file_exists($image_path . 'thumb_'.$cargo->foto)) {
-						unlink($image_path . 'thumb_'.$cargo->foto);
-					}					
-				}
-				$cargo->delete();
-			}
-			$bid_model->delete();
-			$this->app->user->setFlash('success', 'Ваша заявка успешно отменена');
-			$this->redirect(array('/user/my/requests'));
-		}
-		
-		//$bidsCargoes = $bid_model->bidsCargoes;
-		//echo'<pre>';print_r($bidsCargoes[0]->cargo);echo'</pre>';
-		//echo'<pre>';print_r($count_bids);echo'</pre>';
-		
-
-		
-		$this->app->user->setFlash('bidMessageSuccess', $bidMessageSuccess);
-		$this->redirect(array('bids/view','id'=>$id));
-		
 	}
 
 	/**
@@ -693,6 +624,46 @@ class BidsController extends Controller
 	}
 
 	/**
+	 * Updates a particular model.
+	 * If update is successful, the browser will be redirected to the 'view' page.
+	 * @param integer $id the ID of the model to be updated
+	 */
+	/*
+	public function actionUpdate($id)
+	{
+		$model=$this->loadModel($id);
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Bids']))
+		{
+			$model->attributes=$_POST['Bids'];
+			if($model->save())
+				$this->redirect(array('view','id'=>$model->bid_id));
+		}
+
+		$this->render('update',array(
+			'model'=>$model,
+		));
+	}
+	*/
+	/**
+	 * Deletes a particular model.
+	 * If deletion is successful, the browser will be redirected to the 'admin' page.
+	 * @param integer $id the ID of the model to be deleted
+	 */
+	/*
+	public function actionDelete($id)
+	{
+		$this->loadModel($id)->delete();
+
+		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+		if(!isset($_GET['ajax']))
+			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+	}
+	*/
+	/**
 	 * Lists all models.
 	 */
 	public function actionIndex()
@@ -909,6 +880,22 @@ ORDER BY t.created DESC LIMIT 20
         }		
 	}
 
+	/**
+	 * Manages all models.
+	 */
+	/*
+	public function actionAdmin()
+	{
+		$model=new Bids('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Bids']))
+			$model->attributes=$_GET['Bids'];
+
+		$this->render('admin',array(
+			'model'=>$model,
+		));
+	}
+	*/
 
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
@@ -921,7 +908,7 @@ ORDER BY t.created DESC LIMIT 20
 	{
 		$model=Bids::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404,'Запрашиваемая заявка отсутствует.');
+			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
 
@@ -947,6 +934,13 @@ ORDER BY t.created DESC LIMIT 20
 		if($performer_id != -1)	{
 			$connection = $this->app->db;
 			Bids::model()->updatePerfomer($connection, $bid_id, $performer_id);
+			/*
+			$bid_model = $this->loadModel($bid_id);
+			//echo'<pre>';print_r($bid_model);echo'</pre>';die;
+			$bid_model->performer_id = $performer_id;
+			$bid_model->time_transportation = substr($bid_model->time_transportation, 0, -3);
+			$bid_model->save();
+			*/
 		}
 		
 		
@@ -1207,6 +1201,7 @@ ORDER BY t.created DESC LIMIT 20
 				}
 			}
 		}
+		
 		return $res;
     }
 	
@@ -1246,29 +1241,10 @@ ORDER BY t.created DESC LIMIT 20
 		}
 	}
 	
-	
-	//полует название заявки из названий всех грузов
-	public function getBidName($bid_id = 0)
+	/*
+	public function sendNoticeNewDeal($user_id = 0, $bid_id, $bid_name, $dealer_id, $dealer_name);
 	{
-		$this->app = Yii::app();
-		$connection = $this->app->db;
 		
-		$model = $this->loadModel($bid_id);
-		
-		$cargoes = BidsCargoes::model()->getCargoresBids($connection, $model->bid_id);
-		
-		$bid_name_arr = array();
-		foreach($cargoes as $cargo) {
-			$bid_name_arr[] = $cargo['name'];
-		}
-		//echo'$bid_name_arr<pre>';print_r($bid_name_arr);echo'</pre>';die;
-
-		return (implode('. ', $bid_name_arr));
-		
-	}
-	
-	public function sendNoticeNewDeal($user_id = 0, $bid_id, $bid_name, $dealer_id, $dealer_name)
-	{
 		$user_model = User::model()->findByPk($user_id);
 		if($user_model === null)	{
 			throw new CHttpException(500, 'Ошибка загрузки пользователя');
@@ -1280,110 +1256,15 @@ ORDER BY t.created DESC LIMIT 20
 			'user_name' => $user_model->username,
 			'dealer_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$dealer_id)),
 			'dealer_name' => $dealer_name,
-			'subject' => "Новое предложение в Вашей заявке",
 		);
 		
+		$subject = "Новое предложение в Вашей заявке";
 		$email = $user_model->email;
-		sendMail($email, 'emailNoticeNewDeal', $data);
-	}
-	
-	//посылаем сообщение автору заявки
-	public function sendNoticeNewPostBidAuthor($user_id = 0, $bid_id, $bid_name, $dealer_id, $dealer_name)
-	{
-		$user_model = User::model()->findByPk($user_id);
-		if($user_model === null)	{
-			throw new CHttpException(500, 'Ошибка загрузки пользователя');
-		}
+			
+		//$message = "Уважаемый ".$user_model->username.", на размещеную Вами заявку ".$bid_url." было сделано предложение пользователем ";
 		
-		$data = array(
-			'bid_url' => $this->createAbsoluteUrl('/bids/view', array('id'=>$bid_id)),
-			'bid_name' => $bid_name,
-			'user_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$user_model->id)),
-			'user_name' => $user_model->username,
-			'dealer_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$dealer_id)),
-			'dealer_name' => $dealer_name,
-			'subject' => "Новое сообщение в Вашей заявке",
-		);
+		//sendMail($email, $subject, $tmplEmail = 'emailNoticeNewDeal', $data);
 		
-		$email = $user_model->email;
-		sendMail($email, 'emailNoticeNewPostBidAuthor', $data);
 	}
-	
-	//посылаем сообщение автору предложения в заявке
-	public function sendNoticeNewPostDealAuthor($deal_id = 0, $bid_id, $bid_name, $user_id, $user_name)
-	{
-		$deal_model = Deals::model()->findByPk($deal_id);
-		if($deal_model === null)	{
-			throw new CHttpException(500, 'Ошибка загрузки предложения');
-		}
-		
-		$dealer_model = User::model()->findByPk($deal_model->user_id);
-		if($dealer_model === null)	{
-			throw new CHttpException(500, 'Ошибка загрузки пользователя');
-		}
-		
-		$data = array(
-			'bid_url' => $this->createAbsoluteUrl('/bids/view', array('id'=>$bid_id)),
-			'bid_name' => $bid_name,
-			'user_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$user_id)),
-			'user_name' => $user_name,
-			'dealer_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$dealer_model->id)),
-			'dealer_name' => $dealer_model->username,
-			'subject' => "Новое сообщение в Вашем предложении",
-		);
-		
-		$email = $dealer_model->email;
-		sendMail($email, 'emailNoticeNewPostDealAuthor', $data);
-	}
-	
-	//посылаем сообщение автору предложения при утверждении заявки
-	public function sendNoticeAcceptDeal($deal_id = 0, $bid_id, $bid_name, $user_id, $user_name)
-	{
-		$this->sendNoticeDealer($deal_id, $bid_id, $bid_name, $user_id, $user_name, "Ваше предложение принято", 'emailNoticeAcceptDeal');
-	}
-	
-	//посылаем сообщение автору предложения при отмене утвержденой заявки
-	public function sendNoticeCancelAcceptedDeal($deal_id = 0, $bid_id, $bid_name, $user_id, $user_name)
-	{
-		$this->sendNoticeDealer($deal_id, $bid_id, $bid_name, $user_id, $user_name, "Ваше предложение отменено", 'emailNoticeCancelAcceptedDeal');
-	}
-	
-	//посылаем сообщение автору предложения при отклонении заявки
-	public function sendNoticeRejectDeal($deal_id = 0, $bid_id, $bid_name, $user_id, $user_name)
-	{
-		$this->sendNoticeDealer($deal_id, $bid_id, $bid_name, $user_id, $user_name, "Ваше предложение отклонено", 'emailNoticeRejectDeal');
-	}
-	
-	//посылаем сообщение автору предложения при отмене отклоненной заявки
-	public function sendNoticeCancelRejectedDeal($deal_id = 0, $bid_id, $bid_name, $user_id, $user_name)
-	{
-		$this->sendNoticeDealer($deal_id, $bid_id, $bid_name, $user_id, $user_name, "Ваше отклоненное предложение отменено", 'emailNoticeCancelRejectedDeal');
-	}
-	
-	//посылаем сообщение автору предложения
-	public function sendNoticeDealer($deal_id = 0, $bid_id, $bid_name, $user_id, $user_name, $subject, $tmpl)
-	{
-		$deal_model = Deals::model()->findByPk($deal_id);
-		if($deal_model === null)	{
-			throw new CHttpException(500, 'Ошибка загрузки предложения');
-		}
-		
-		$dealer_model = User::model()->findByPk($deal_model->user_id);
-		if($dealer_model === null)	{
-			throw new CHttpException(500, 'Ошибка загрузки пользователя');
-		}
-		
-		$data = array(
-			'bid_url' => $this->createAbsoluteUrl('/bids/view', array('id'=>$bid_id)),
-			'bid_name' => $bid_name,
-			'user_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$user_id)),
-			'user_name' => $user_name,
-			'dealer_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$dealer_model->id)),
-			'dealer_name' => $dealer_model->username,
-			'subject' => $subject,
-		);		
-		$email = $dealer_model->email;
-		sendMail($email, $tmpl, $data);
-	}
-	
+	*/
 }

@@ -186,10 +186,6 @@
 }
 
 .bid-detail-deals-row-wr {
-		border: 1px solid #b2daeb;
-//		border-bottom: 1px solid #b2daeb;
-	
-	
 	& > div {
 		min-height: 50px;
 	}
@@ -207,11 +203,6 @@
 	padding: 0;
 }
 
-.bid-detail-deals-row-answer-block-comment,
-.bid-detail-deals-row-answer-block-reviews-wr,
-.bid-detail-deals-head > p {
-	padding: 15px;
-}
 
 .bid-detail-deals-col1 {
 //	border-left: 1px solid #b2daeb;
@@ -279,8 +270,8 @@
 .bid-detail-deals-row-answer-block-reviews-cell2 {
 	width: 920px;
 }
-.bid-detail-deals-row-answer-block-reviews-wr {
-	border-bottom: 1px solid #b2daeb;
+.bid-detail-deals-row-answer-block-comment {
+	border-top: 1px solid #b2daeb;
 }
 
 .bid-detail-send-comment-btn {

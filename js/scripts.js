@@ -509,6 +509,15 @@ $(document).ready(function () {
 		
 	});
 	
+	$('#listView').on('click', '.show-full-review', function () {
+		$(this).parent().parent().parent().parent().find('.requests-full-review').slideToggle();
+	});
+	
+	$('#listView').on('click', '.requests-full-review-hide', function () {
+		$(this).parent().parent().parent().find('.requests-full-review').slideToggle();
+	});
+	
+	
     
 });
 

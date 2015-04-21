@@ -134,13 +134,51 @@ class AdminController extends Controller
 				}
 				$model->save();
 				$profile->save();
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 			} else $profile->validate();
 		}
+		
+		$user_type_list = array(
+			1 => array('id' => 1, 'name' => 'Грузодатель'),
+			2 => array('id' => 2, 'name' => 'Перевозчик'),
+		);		
+		
+		$user_type_dropdown = CHtml::listData($user_type_list, 'id', 'name');
+		$user_type_selected[$model->user_type] = array('selected' => 'selected');
+
+		$user_status_list = array(
+			1 => array('id' => 1, 'name' => 'Юр. лицо'),
+			2 => array('id' => 2, 'name' => 'Физ. лицо'),
+		);		
+		
+		$user_status_dropdown = CHtml::listData($user_status_list, 'id', 'name');
+		$user_status_selected[$model->user_status] = array('selected' => 'selected');
+		
+		switch($model->user_type) {
+			case 2:
+				$user_info = $model->perevozchik;
+				if($user_info === null) {
+					$user_info = new UsersPerevozchik();
+				}
+				break;
+			
+			default:
+			case 1:
+				$user_info = $model->gruzodatel;
+				if($user_info === null) {
+					$user_info = new UsersGruzodatel();
+				}
+				break;
+		}		
 
 		$this->render('update',array(
 			'model'=>$model,
 			'profile'=>$profile,
+			'user_type_dropdown'=>$user_type_dropdown,
+			'user_type_selected'=>$user_type_selected,
+			'user_status_dropdown'=>$user_status_dropdown,
+			'user_status_selected'=>$user_status_selected,
+			'user_info'=>$user_info,
 		));
 	}
 

@@ -28,13 +28,18 @@ foreach($deals_list as $row) {
 }
 
 $show_deal_frm = true;
-foreach($deals_list as $row) {
-	//if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
-	if(!$this->app->user->isGuest && ($row['user_id'] == $this->app->user->id || $row['accepted'] == 1) )	{
+//if($model->published == 1)	{
+	foreach($deals_list as $row) {
+		//if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
+		if(!$this->app->user->isGuest && ($row['user_id'] == $this->app->user->id || $row['accepted'] == 1) )	{
 
-		$show_deal_frm = false;
+			$show_deal_frm = false;
+		}
 	}
-}
+	
+//}	else	{
+	//$show_deal_frm = false;
+//}
 
 //echo'<pre>';print_r($deals_list);echo'</pre>';
 //echo'<pre>';print_r($model);echo'</pre>';
@@ -89,9 +94,16 @@ foreach($deals_list as $row) {
 
 	<p class="bid-detail-number narrow-bold-23">Заявка №<?=$model->bid_id;?></p>
 	
-	<? if(!$this->app->user->isGuest && $this->app->user->id == $model->user_id)	{	?>
-		<a href="#" class="db pos-abs underline_n_n narrow-regular-24 c_96a5b8 bb-dotted-3-h cancel-bid" title="Отменить заявку">Отменить заявку ×</a>
-	<?	}	?>
+	<? 
+	if(!$this->app->user->isGuest && $this->app->user->id == $model->user_id)	{
+		if($model->published == 1)	{
+			echo CHtml::link('Отменить заявку ×', array('/bids/removebid', 'id'=>$model->bid_id), array('confirm'=>'Вы верены?', 'class'=>'db pos-abs underline_n_n narrow-regular-24 c_96a5b8 bb-dotted-3-h cancel-bid'));
+		}	else	{
+			echo CHtml::link('Отменена', 'javascript:void(0)', array('class'=>'db pos-abs underline_n_n narrow-regular-24 c_96a5b8 bb-dotted-3-h cancel-bid'));
+		}
+		
+	}	
+	?>
 </div>
 
 <?php if($this->app->user->hasFlash('success')): ?>
@@ -304,12 +316,12 @@ foreach($deals_list as $row) {
 
 		<div class="bid-detail-deals">
 			<div class="bid-detail-deals-head clearfix width100">
-				<p class="font-12 c_757575 bid-detail-deals-col1 fLeft"> </p>
-				<p class="font-12 c_757575 bid-detail-deals-col2 fLeft">Ставка</p>
-				<p class="font-12 c_757575 bid-detail-deals-col3 fLeft">Исполнитель</p>
-				<p class="font-12 c_757575 bid-detail-deals-col4 fLeft">Услуги</p>
-				<p class="font-12 c_757575 bid-detail-deals-col5 fLeft">Дата перевозки</p>
-				<p class="font-12 c_757575 bid-detail-deals-col6 fLeft"> </p>
+				<p class="font-12 p-15 c_757575 bid-detail-deals-col1 fLeft"> </p>
+				<p class="font-12 p-15 c_757575 bid-detail-deals-col2 fLeft">Ставка</p>
+				<p class="font-12 p-15 c_757575 bid-detail-deals-col3 fLeft">Исполнитель</p>
+				<p class="font-12 p-15 c_757575 bid-detail-deals-col4 fLeft">Услуги</p>
+				<p class="font-12 p-15 c_757575 bid-detail-deals-col5 fLeft">Дата перевозки</p>
+				<p class="font-12 p-15 c_757575 bid-detail-deals-col6 fLeft"> </p>
 			</div>
 
 			<? foreach($deals_list as $row) {	?>
@@ -324,7 +336,7 @@ foreach($deals_list as $row) {
 				?>
 
 				<div class="bid-detail-deals-row width100 mb-10 <? if($accepted_deal > 0 && $row['id'] != $accepted_deal || $row['rejected'] == 1)	echo ' bid-detail-deals-row-inactive'	?>">
-					<div class="bid-detail-deals-row-wr clearfix">
+					<div class="bid-detail-deals-row-wr blue-border-1 clearfix">
 						<div class="bid-detail-deals-col1 fLeft pos-rel p-15">
 							<? if($accepted_deal > 0 && $row['id'] != $accepted_deal || $row['rejected'] == 1)	{	?>
 								<div class="deals-inactive-cell pos-abs width100"> </div>
@@ -380,16 +392,19 @@ foreach($deals_list as $row) {
 						</div>
 						
 						<div class="bid-detail-deals-col6 fLeft p-15">
-							<? if($accepted_deal > 0 && $row['id'] == $accepted_deal)	{	?>							
-								<p class="btn-green-33 deal-btn text_r pos-rel">
-									
-									<? if($this->app->user->id == $model->user_id)	{	?>
-										<span class="name pos-abs p-0-15 bg_85bf32 text_c">Перевозчик выбран</span>
-										<a href="<?=$this->createUrl('/bids/cancelaccepteddeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id']))?>" class="ico tahoma font-24 normal c_fff underline_n_n" title="Отменить принятую заявку">×</a>
-									<?	}	else	{	?>
-										<span class="name pos-abs width100 p-0-15 bg_85bf32 border-box text_c">Перевозчик выбран</span>
-									<?	}	?>
-								</p>
+							
+								<? if($model->published == 0)	{	?>
+									<span class="btn-red-33">Заявка отменена</span>
+								<? }	elseif($accepted_deal > 0 && $row['id'] == $accepted_deal)	{	?>							
+									<p class="btn-green-33 deal-btn text_r pos-rel">
+
+										<? if($this->app->user->id == $model->user_id)	{	?>
+											<span class="name pos-abs p-0-15 bg_85bf32 text_c">Перевозчик выбран</span>
+											<a href="<?=$this->createUrl('/bids/cancelaccepteddeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id']))?>" class="ico tahoma font-24 normal c_fff underline_n_n" title="Отменить принятую заявку">×</a>
+										<?	}	else	{	?>
+											<span class="name pos-abs width100 p-0-15 bg_85bf32 border-box text_c">Перевозчик выбран</span>
+										<?	}	?>
+									</p>
 								<?	}	elseif($row['rejected'] == 1)	{	?>
 									<p class="btn-red-33 deal-btn text_r pos-rel">
 										<? if($this->app->user->id == $model->user_id)	{	?>
@@ -404,16 +419,16 @@ foreach($deals_list as $row) {
 										<a href="<?=$this->createUrl('/bids/acceptdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id'], 'performer_id'=>$row['user_id']))?>" class="btn-grey-33 accept-deal-btn" title="Принять заявку">Принять</a>
 										<a href="<?=$this->createUrl('/bids/rejectdeal', array('id'=>$model->bid_id, 'deal_id'=>$row['id'], 'performer_id'=>$row['user_id']))?>" class="ico-close-blue reject-deal-btn" title="Отклонить заявку">x</a>
 									<?	}	?>
-							<?	}	?>
+								<?	}	?>
 							
 							
 						</div>
 					</div>
 
-					<? if(($accepted_deal > 0 && $row['id'] == $accepted_deal) || $accepted_deal == 0)	{	?>
+					<? if((($accepted_deal > 0 && $row['id'] == $accepted_deal) || $accepted_deal == 0) && (count($deal_posts) != 0 || $model->published == 1))	{	?>
 					<div class="bid-detail-deals-row-answer-block-reviews clear hide-block">
 						<? if(count($deal_posts))	{	?>
-							<div class="bid-detail-deals-row-answer-block-reviews-wr">
+							<div class="bid-detail-deals-row-answer-block-reviews-wr p-15">
 
 							<? foreach($deal_posts as $post)	{	?>
 								<? if($post['deal_id'] == $row['id'])	{	?>
@@ -438,8 +453,8 @@ foreach($deals_list as $row) {
 						
 						<?	}	?>
 
-						<? if($row['user_id'] == $this->app->user->id || $model->user_id == $this->app->user->id)	{	?>
-						<div class="bid-detail-deals-row-answer-block-comment pos-rel bg_daf0fa clearfix">
+						<? if(($row['user_id'] == $this->app->user->id || $model->user_id == $this->app->user->id) && $model->published == 1)	{	?>
+						<div class="bid-detail-deals-row-answer-block-comment pos-rel bg_daf0fa p-15 clearfix">
 							<form action="" method="post">
 								<textarea name="deal-post" id="deal-post" class="width100 mb-20" cols="30" rows="10"></textarea>
 								<?php echo CHtml::hiddenField('deal-id', $row['id']); ?>
