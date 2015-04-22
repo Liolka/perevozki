@@ -116,6 +116,7 @@ class AdminController extends Controller
 		$model=$this->loadModel();
 		$profile=$model->profile;
 		$this->performAjaxValidation(array($model,$profile));
+		//echo'1212<pre>';print_r($_POST,0);echo'</pre>';die;
 		if(isset($_POST['User']))
 		{
 			$model->attributes = $_POST['User'];
@@ -125,6 +126,13 @@ class AdminController extends Controller
 				$profile->attributes = array();
 			}
 			
+			if(isset($_POST['UsersPerevozchik'])) {
+				$user_info = $model->perevozchik;
+			}
+			
+			if(isset($_POST['UsersGruzodatel'])) {
+				$user_info = $model->gruzodatel;
+			}
 			
 			if($model->validate()&&$profile->validate()) {
 				$old_password = User::model()->notsafe()->findByPk($model->id);

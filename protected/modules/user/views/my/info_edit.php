@@ -47,22 +47,22 @@ $this->pageTitle = "Редактировать Информация о комп�
 				<ul class="phones mb-20">
 					<li class="field-title">Телефонные номера:</li>
 					<li>
-						<?php echo $form->labelEx($user_company,'phone1', array('class'=>'c_2e3c54')); ?>
+						<?php echo $form->labelEx($user_company,'phone11', array('class'=>'c_2e3c54')); ?>
 						<?php echo $form->textField($user_company,'phone1'); ?>
 						<?php echo $form->error($user_company,'phone1'); ?>
 					</li>
 					<li>
-						<?php echo $form->labelEx($user_company,'phone2', array('class'=>'c_2e3c54')); ?>
+						<?php echo $form->labelEx($user_company,'phone22', array('class'=>'c_2e3c54')); ?>
 						<?php echo $form->textField($user_company,'phone2'); ?>
 						<?php echo $form->error($user_company,'phone2'); ?>
 					</li>
 					<li>
-						<?php echo $form->labelEx($user_company,'phone3', array('class'=>'c_2e3c54')); ?>
+						<?php echo $form->labelEx($user_company,'phone33', array('class'=>'c_2e3c54')); ?>
 						<?php echo $form->textField($user_company,'phone3'); ?>
 						<?php echo $form->error($user_company,'phone3'); ?>
 					</li>
 					<li>
-						<?php echo $form->labelEx($user_company,'phone4', array('class'=>'c_2e3c54')); ?>
+						<?php echo $form->labelEx($user_company,'phone44', array('class'=>'c_2e3c54')); ?>
 						<?php echo $form->textField($user_company,'phone4'); ?>
 						<?php echo $form->error($user_company,'phone4'); ?>
 					</li>
