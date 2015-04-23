@@ -1,4 +1,9 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
+error_reporting (E_ALL);
+
+require(dirname(__FILE__).'/protected/components/GlobalFunctions.php');
+
 // путь до фреймворка и нужного нам конфига
 $yii = dirname(__FILE__).'/framework/yii.php';
 $config = dirname(__FILE__).'/protected/config/backend.php';

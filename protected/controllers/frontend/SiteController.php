@@ -7,6 +7,8 @@ class SiteController extends Controller
 	public $theme_baseUrl = '';
 	public $request_baseUrl = '';
 	public $app = null;
+	public $layout='//layouts/column2';
+	
 	/**
 	 * Declares class-based actions.
 	 */

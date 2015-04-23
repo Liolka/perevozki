@@ -316,7 +316,9 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'siteName'=>'Скороход',	// нужно чтобы имя сайта было одинаковым при отправлении писем из админки и общей части.йт
+		
+		'adminEmail'=>'aldegtyarev@yandex.ru',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
 		'images_live_url' => 'http://perevozki/',
 		'transport_imageLive' => '/images/transport/',

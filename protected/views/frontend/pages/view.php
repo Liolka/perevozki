@@ -28,4 +28,6 @@ if ($model->meta_description)
 
 <h1><?php echo $model->name; ?></h1>
 
-<? echo $model->text; ?>
+<div class="page-text">
+	<? echo $model->text; ?>
+</div>

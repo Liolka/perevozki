@@ -828,3 +828,26 @@ button.close {
 	top: 14px;
 }
 */
+
+.page-text {
+	h3 {
+		margin: 20px 0;
+		
+		&:first-of-type {
+			margin-top: 0;
+		}
+	}
+	
+	ul,
+	div,
+	p {
+		@extend %lh_18;
+		padding-bottom: 10px;
+		
+	}
+	
+	li {
+		list-style: disc inside;
+		margin-bottom: 5px;
+	}
+}

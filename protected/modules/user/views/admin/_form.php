@@ -172,20 +172,20 @@ function print_document_item($attr, &$user_info, &$model, &$form)
 			<div class="tab-pane" id="tab3">
 				<div class="row">
 				<?php 
-					echo print_document_item('file1', $user_info, $model, &$form);
-					echo print_document_item('file2', $user_info, $model, &$form);
-					echo print_document_item('file3', $user_info, $model, &$form);
-					echo print_document_item('file4', $user_info, $model, &$form);
-					echo print_document_item('file5', $user_info, $model, &$form);
-					echo print_document_item('file6', $user_info, $model, &$form);
-					echo print_document_item('file7', $user_info, $model, &$form);
-					echo print_document_item('file8', $user_info, $model, &$form);
-					echo print_document_item('file9', $user_info, $model, &$form);
-					echo print_document_item('file10', $user_info, $model, &$form);
-					echo print_document_item('file11', $user_info, $model, &$form);
-					echo print_document_item('file12', $user_info, $model, &$form);
-					echo print_document_item('file13', $user_info, $model, &$form);
-					echo print_document_item('file14', $user_info, $model, &$form);
+					echo print_document_item('file1', $user_info, $model, $form);
+					echo print_document_item('file2', $user_info, $model, $form);
+					echo print_document_item('file3', $user_info, $model, $form);
+					echo print_document_item('file4', $user_info, $model, $form);
+					echo print_document_item('file5', $user_info, $model, $form);
+					echo print_document_item('file6', $user_info, $model, $form);
+					echo print_document_item('file7', $user_info, $model, $form);
+					echo print_document_item('file8', $user_info, $model, $form);
+					echo print_document_item('file9', $user_info, $model, $form);
+					echo print_document_item('file10', $user_info, $model, $form);
+					echo print_document_item('file11', $user_info, $model, $form);
+					echo print_document_item('file12', $user_info, $model, $form);
+					echo print_document_item('file13', $user_info, $model, $form);
+					echo print_document_item('file14', $user_info, $model, $form);
 				?>
 				</div>
 			</div>
@@ -194,7 +194,10 @@ function print_document_item($attr, &$user_info, &$model, &$form)
 	
 
 	<div class="row buttons">
-		<?php echo BsHtml::submitButton($model->isNewRecord ? UserModule::t('Create') : UserModule::t('Save'), array('color' => BsHtml::BUTTON_COLOR_SUCCESS)); ?>
+		<?php echo BsHtml::submitButton($model->isNewRecord ? UserModule::t('Create') : UserModule::t('Save'), array('color' => BsHtml::BUTTON_COLOR_PRIMARY, 'name'=>'save')); ?>
+		<?php echo BsHtml::submitButton('Применить', array('color' => BsHtml::BUTTON_COLOR_SUCCESS, 'name'=>'apply')); ?>
+		<?php echo BsHtml::submitButton('Отмена', array('name'=>'cancel')); ?>		
+		
 	</div>
 
 <?php $this->endWidget(); ?>

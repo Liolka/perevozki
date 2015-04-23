@@ -1,28 +1,4 @@
 <?
-/*
-	function hasCookie($name)
-	{
-		return !empty(Yii::app()->request->cookies[$name]->value);
-	}
-
-	function getCookie($name)
-	{
-		return Yii::app()->request->cookies[$name]->value;
-	}
-
-	
-	function setCookie($name, $value)
-	{
-		$cookie = new CHttpCookie($name,$value);
-		Yii::app()->request->cookies[$name] = $cookie;
-	}
-	
-
-	function removeCookie($name)
-	{
-		unset(Yii::app()->request->cookies[$name]);
-	}	
-*/
 
 function isQuickly($date)
 {
@@ -118,23 +94,12 @@ function prepareArray($rows, $keyFld)
 
 function sendMail($email, $tmplEmail = 'emailTpl', $data = array()) 
 {
+	//echo'$email1121<pre>';print_r($email,0);echo'</pre>';die;
 	
 	Yii::app()->dpsMailer->sendByView(
-		//array( $email => 'получатель' ), // определяем кому отправляется письмо
 		array($email), // определяем кому отправляется письмо
-		//'emailTpl', // view шаблона письма
 		$tmplEmail, // view шаблона письма
 		$data
-		/*
-		array(
-			'message' => $message,
-			'subject' => $subject,
-
-			//'sLogoPicPath' => '/path/to/logo.gif',
-			//'sFilePath' => '/path/to/attachment.txt',
-		)
-		*/
-		
 	);
 }
 

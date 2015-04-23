@@ -256,11 +256,48 @@ class MyController extends Controller
 		
 		if(isset($_POST['Transport'])) {
 			
+			$criteria = new CDbCriteria;
+			$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+			$criteria->condition = '`user_id` = '.$this->app->user->id;
+			$criteria->order = 'transport_id DESC';
+			
+			//получаем кол-во транспорта перед сохранением
+			$dataProvider_old = new CActiveDataProvider('Transport', array(
+				'criteria'=>$criteria,
+				'pagination'=>array(
+					'pageSize'=>50,
+					'pageVar' =>'page',
+				),
+			));
+			$count_old = count($dataProvider_old->data);
+			
+			//echo'<pre>';print_r($count_old,0);echo'</pre>';//die;
 			$model->attributes = $_POST['Transport'];
 			$model->user_id = $this->app->user->id;
 			
 			if($model->validate()) {
 				$model->save(false);
+				//получаем кол-во транспорта после сохранения
+				$dataProvider_new = new CActiveDataProvider('Transport', array(
+					'criteria'=>$criteria,
+					'pagination'=>array(
+						'pageSize'=>50,
+						'pageVar' =>'page',
+					),
+				));
+				$count_new = count($dataProvider_new->data);
+
+				//если необходимо - корректируем показатель надежности
+				if($count_old == 0 && $count_new > 0)	{
+					$user = $this->loadUser();
+					$user->reliability = $user->reliability + 15;
+					$user->save(false);
+				}	elseif($count_old > 0 && $count_new == 0) {
+					$user = $this->loadUser();
+					$user->reliability = $user->reliability - 15;
+					$user->save(false);
+				}
+				
 				unset($this->app->session['transport_tmp_foto']);
 				
 				$this->app->user->setFlash('success', "Добавлено");
@@ -538,6 +575,8 @@ class MyController extends Controller
 						$add_info->$attr = $filename;
 						$add_info->save(false);
 						
+						$this->sendNoticeDocumentModerator($attr, $user, $add_info);
+						
 						$this->app->user->setFlash('success', "Файл успешно загружен");
 						$this->redirect(array("documents"));
 					}
@@ -667,11 +706,52 @@ class MyController extends Controller
 				$attr = strip_tags($attr);
 			}
 			
+			$user_company_prev = $user_company->attributes;
+			$filled_phones_prev = 0;
+			if($user_company_prev['phone1'] != '') $filled_phones_prev++;
+			if($user_company_prev['phone2'] != '') $filled_phones_prev++;
+			if($user_company_prev['phone3'] != '') $filled_phones_prev++;
+			if($user_company_prev['phone4'] != '') $filled_phones_prev++;
+			//echo'<pre>';print_r($user_company_prev,0);echo'</pre>';die;
+			
 			$user_company->attributes = $_POST['UsersPerevozchik'];
 			if(!$user_company->user_id)	{
 				$user_company->user_id = $this->app->user->id;
 			}
 			if($user_company->save()) {
+				
+				$filled_phones = 0;
+				if($user_company->phone1 != '') $filled_phones++;
+				if($user_company->phone2 != '') $filled_phones++;
+				if($user_company->phone3 != '') $filled_phones++;
+				if($user_company->phone4 != '') $filled_phones++;
+				
+				if($filled_phones > 1 && $filled_phones_prev <=1)	{
+					$user->reliability = $user->reliability + 5;
+				}	elseif($filled_phones_prev > 1 && $filled_phones <=1)	{
+					$user->reliability = $user->reliability - 5;
+				}
+				
+				if($user_company_prev['town'] == '' && $user_company->town != '')	{
+					$user->reliability = $user->reliability + 3;
+				}	elseif($user_company_prev['town'] != '' && $user_company->town == '')	{
+					$user->reliability = $user->reliability - 3;
+				}
+				
+				if($user_company_prev['experience'] == '' && $user_company->experience != '')	{
+					$user->reliability = $user->reliability + 4;
+				}	elseif($user_company_prev['experience'] != '' && $user_company->experience == '')	{
+					$user->reliability = $user->reliability - 4;
+				}
+				
+				if($user_company_prev['birthday'] == '' && $user_company->birthday != '')	{
+					$user->reliability = $user->reliability + 3;
+				}	elseif($user_company_prev['birthday'] != '' && $user_company->birthday == '')	{
+					$user->reliability = $user->reliability - 3;
+				}
+				
+				$user->save(false);
+				
 				$this->redirect(array("info"));
 			}
 		} elseif(isset($_POST['UsersGruzodatel']))	{
@@ -828,5 +908,24 @@ class MyController extends Controller
 		$file_name_arr = explode('.', strtolower($filename));
 		return '.'.$file_name_arr[(count($file_name_arr)-1)];
 	}
+	
+	//посылаем сообщение модератору о загрузке документов
+	public function sendNoticeDocumentModerator($attr, $user, $add_info)
+	{
+		$document_name = $add_info->getAttributeLabel($attr);
+		
+		$data = array(
+			'document_name' => $document_name,
+			'user_name' => $user->username,
+			'user_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$user->id)),
+			'subject' => 'Загружен новый документ',
+		);
+		$email = $this->app->params['adminEmail'];
+		$tmpl = 'emailNoticeDocumentModerator';
+		sendMail($email, $tmpl, $data);
+
+	}
+	
+	
 	
 }

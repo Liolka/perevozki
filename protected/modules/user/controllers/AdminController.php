@@ -82,6 +82,10 @@ class AdminController extends Controller
 	 */
 	public function actionCreate()
 	{
+		//если нажали "Отмена" возврат на список компаний
+		if(isset($_POST['cancel']))	
+			$this->redirect(array('admin'));
+				
 		$model=new User;
 		$profile=new Profile;
 		$this->performAjaxValidation(array($model,$profile));
@@ -97,7 +101,11 @@ class AdminController extends Controller
 					$profile->user_id=$model->id;
 					$profile->save();
 				}
-				$this->redirect(array('view','id'=>$model->id));
+				if(isset($_POST['save']))	{
+					$this->redirect(array('admin'));
+				}	else	{
+					$this->redirect(array('update','id'=>$model->id));
+				}
 			} else $profile->validate();
 		}
 
@@ -113,8 +121,13 @@ class AdminController extends Controller
 	 */
 	public function actionUpdate()
 	{
+		//если нажали "Отмена" возврат на список компаний
+		if(isset($_POST['cancel']))	
+			$this->redirect(array('admin'));
+		
 		$model=$this->loadModel();
 		$profile=$model->profile;
+		$allOk = true;
 		$this->performAjaxValidation(array($model,$profile));
 		//echo'1212<pre>';print_r($_POST,0);echo'</pre>';die;
 		if(isset($_POST['User']))
@@ -126,13 +139,6 @@ class AdminController extends Controller
 				$profile->attributes = array();
 			}
 			
-			if(isset($_POST['UsersPerevozchik'])) {
-				$user_info = $model->perevozchik;
-			}
-			
-			if(isset($_POST['UsersGruzodatel'])) {
-				$user_info = $model->gruzodatel;
-			}
 			
 			if($model->validate()&&$profile->validate()) {
 				$old_password = User::model()->notsafe()->findByPk($model->id);
@@ -142,7 +148,66 @@ class AdminController extends Controller
 				}
 				$model->save();
 				$profile->save();
-				$this->redirect(array('admin'));
+				
+				if(isset($_POST['UsersPerevozchik'])) {
+					$user_info = $model->perevozchik;
+					
+					if($user_info->validate())	{
+						$checked_files_arr = array(
+							1 => $user_info->file1_checked,
+							2 => $user_info->file2_checked,
+							3 => $user_info->file3_checked,
+							4 => $user_info->file4_checked,
+							5 => $user_info->file5_checked,
+							6 => $user_info->file6_checked,
+							7 => $user_info->file7_checked,
+							8 => $user_info->file8_checked,
+							9 => $user_info->file9_checked,
+							10 => $user_info->file10_checked,
+							11 => $user_info->file11_checked,
+							12 => $user_info->file12_checked,
+							13 => $user_info->file13_checked,
+							14 => $user_info->file14_checked,
+						);
+
+						$user_info->attributes = $_POST['UsersPerevozchik'];
+						$checked_documents = array();
+						foreach($checked_files_arr as $key=>$file)	{
+							$fld = 'file'.$key.'_checked';
+							if($file == 0 && $user_info->$fld == 1)	{
+								$checked_documents[] = $key;
+							}
+						}
+
+						$user_info->save();
+
+						$this->sendNoticeDocuments($checked_documents, $model, $user_info);
+						//echo'$checked_files_arr<pre>';print_r($checked_files_arr,0);echo'</pre>';//die;
+						//echo'$checked_documents<pre>';print_r($checked_documents,0);echo'</pre>';die;
+					}	else	{
+						$allOk = false;
+					}
+				}
+
+				if(isset($_POST['UsersGruzodatel'])) {
+					$user_info = $model->gruzodatel;
+					
+					$user_info->attributes = $_POST['UsersGruzodatel'];
+					if($user_info->validate())	{
+						$user_info->save();
+					}	else	{
+						$allOk = false;
+					}
+				}
+				
+				if($allOk)	{
+					if(isset($_POST['save']))	{
+						$this->redirect(array('admin'));
+					}	else	{
+						$this->redirect(array('update','id'=>$model->id));
+					}
+				}
+				
 			} else $profile->validate();
 		}
 		
@@ -242,4 +307,23 @@ class AdminController extends Controller
 		return $this->_model;
 	}
 	
+	//посылаем сообщение пользователю, что его документ проверен
+	public function sendNoticeDocuments($checked_documents, $user, $user_info)
+	{
+		$document_names = array();
+		if(count($checked_documents))	{
+			foreach($checked_documents as $doc)	{
+				$document_names[] = $user_info->getAttributeLabel('file'.$doc);
+			}
+
+			$data = array(
+				'document_names' => $document_names,
+				'user_name' => $user->username,
+				'subject' => 'Верификация документов',
+			);		
+			$email = $user->email;
+			$tmpl = 'emailNoticeDocuments';
+			sendMail($email, $tmpl, $data);
+		}
+	}
 }
