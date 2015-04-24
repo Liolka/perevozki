@@ -176,6 +176,10 @@ class SiteController extends Controller
 				$review = $field.'_review';
 				$rating = $field.'_rating';
 				$model = Bids::model()->findByPk($bid_id);
+				
+				$count_reviews_prev = Bids::model()->getCountReviews($connection, 'user', $model->performer_id);
+				//$count_reviews_prev = array(20, 1);
+				
 				if($model->$rating == 0 && $model->$review == '')	{
 					$model->$rating = $form->rating;
 					$model->$review = $form->comment;
@@ -207,17 +211,29 @@ class SiteController extends Controller
 							$user_model->rating = ($user_model->rating + $form->rating) / 2;
 							$user_model->done_carriage++;
 						}
+						if($user_model->done_carriage == 10) 
+							$user->reliability = $user->reliability + 15;
+						
+						$count_reviews = Bids::model()->getCountReviews($connection, 'user', $model->performer_id);
+						//$count_reviews = array(19, 1);
+						
+						if(($count_reviews_prev[0] / $count_reviews_prev[1] < 20) && ($count_reviews[0] / $count_reviews[1] >= 20))	{
+							$user_model->reliability = $user_model->reliability + 20;
+						}	elseif(($count_reviews_prev[0] / $count_reviews_prev[1] >= 20) && ($count_reviews[0] / $count_reviews[1] < 20))	{
+							$user_model->reliability = $user_model->reliability - 20;
+						}
+						//echo'<pre>';print_r($count_reviews_prev,0);echo'</pre>';
+						//echo'<pre>';print_r($count_reviews,0);echo'</pre>';
+						//die;
+						//echo'<pre>';print_r($model->performer_id,0);echo'</pre>';
+						//echo'<pre>';print_r($count_reviews,0);echo'</pre>';die;
 						
 						$user_model->save(false);
-						
 					}
 					
 					$author_model = User::model()->findByPk($model->$author_id);
 					
 					$this->sendNoticeReview($bid_id, $bid_name, $user_model->username, $user_model->id, $user_model->email, $author_model->username, $author_model->id, $author_model->email);
-					
-					
-					
 					
 					$this->app->user->setFlash('success', 'Ваш отзыв успешно размещён.');
 					echo 'ok';

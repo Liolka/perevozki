@@ -732,6 +732,7 @@ class MyController extends Controller
 					$user->reliability = $user->reliability - 5;
 				}
 				
+				//Для частных лиц
 				if($user_company_prev['town'] == '' && $user_company->town != '')	{
 					$user->reliability = $user->reliability + 3;
 				}	elseif($user_company_prev['town'] != '' && $user_company->town == '')	{
@@ -748,6 +749,25 @@ class MyController extends Controller
 					$user->reliability = $user->reliability + 3;
 				}	elseif($user_company_prev['birthday'] != '' && $user_company->birthday == '')	{
 					$user->reliability = $user->reliability - 3;
+				}
+				
+				// Для компаний
+				if($user_company_prev['main_office'] == '' && $user_company->main_office != '')	{
+					$user->reliability = $user->reliability + 3;
+				}	elseif($user_company_prev['main_office'] != '' && $user_company->main_office == '')	{
+					$user->reliability = $user->reliability - 3;
+				}
+				
+				if($user_company_prev['filials'] == '' && $user_company->filials != '')	{
+					$user->reliability = $user->reliability + 3;
+				}	elseif($user_company_prev['filials'] != '' && $user_company->filials == '')	{
+					$user->reliability = $user->reliability - 3;
+				}
+				
+				if($user_company_prev['unp'] == '' && $user_company->unp != '')	{
+					$user->reliability = $user->reliability + 4;
+				}	elseif($user_company_prev['unp'] != '' && $user_company->unp == '')	{
+					$user->reliability = $user->reliability - 4;
 				}
 				
 				$user->save(false);

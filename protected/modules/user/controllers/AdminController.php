@@ -152,25 +152,28 @@ class AdminController extends Controller
 				if(isset($_POST['UsersPerevozchik'])) {
 					$user_info = $model->perevozchik;
 					
+					$user_info_prev = $user_info->attributes;
+					
+					$checked_files_arr = array(
+						1 => $user_info->file1_checked,
+						2 => $user_info->file2_checked,
+						3 => $user_info->file3_checked,
+						4 => $user_info->file4_checked,
+						5 => $user_info->file5_checked,
+						6 => $user_info->file6_checked,
+						7 => $user_info->file7_checked,
+						8 => $user_info->file8_checked,
+						9 => $user_info->file9_checked,
+						10 => $user_info->file10_checked,
+						11 => $user_info->file11_checked,
+						12 => $user_info->file12_checked,
+						13 => $user_info->file13_checked,
+						14 => $user_info->file14_checked,
+					);
+					
+					$user_info->attributes = $_POST['UsersPerevozchik'];
+					
 					if($user_info->validate())	{
-						$checked_files_arr = array(
-							1 => $user_info->file1_checked,
-							2 => $user_info->file2_checked,
-							3 => $user_info->file3_checked,
-							4 => $user_info->file4_checked,
-							5 => $user_info->file5_checked,
-							6 => $user_info->file6_checked,
-							7 => $user_info->file7_checked,
-							8 => $user_info->file8_checked,
-							9 => $user_info->file9_checked,
-							10 => $user_info->file10_checked,
-							11 => $user_info->file11_checked,
-							12 => $user_info->file12_checked,
-							13 => $user_info->file13_checked,
-							14 => $user_info->file14_checked,
-						);
-
-						$user_info->attributes = $_POST['UsersPerevozchik'];
 						$checked_documents = array();
 						foreach($checked_files_arr as $key=>$file)	{
 							$fld = 'file'.$key.'_checked';
@@ -178,7 +181,42 @@ class AdminController extends Controller
 								$checked_documents[] = $key;
 							}
 						}
-
+						
+						
+						//Для ИП и юр. лиц
+						if($user_info_prev->file2_checked == 0 && $user_info->file2_checked == 1)	{
+							$model->reliability = $model->reliability + 17;
+						}	elseif($user_info_prev->file2_checked == 1 && $user_info->file2_checked == 0)	{
+							$model->reliability = $model->reliability - 17;
+						}
+						
+						if($user_info_prev->file3_checked == 0 && $user_info->file3_checked == 1)	{
+							$model->reliability = $model->reliability + 18;
+						}	elseif($user_info_prev->file3_checked == 1 && $user_info->file3_checked == 0)	{
+							$model->reliability = $model->reliability - 18;
+						}
+						
+						//Для физических лиц
+						if($user_info_prev->file6_checked == 0 && $user_info->file6_checked == 1)	{
+							$model->reliability = $model->reliability + 6;
+						}	elseif($user_info_prev->file6_checked == 1 && $user_info->file6_checked == 0)	{
+							$model->reliability = $model->reliability - 6;
+						}
+						
+						if($user_info_prev->file8_checked == 0 && $user_info->file8_checked == 1)	{
+							$model->reliability = $model->reliability + 6;
+						}	elseif($user_info_prev->file8_checked == 1 && $user_info->file8_checked == 0)	{
+							$model->reliability = $model->reliability - 6;
+						}
+						
+						if($user_info_prev->file9_checked == 0 && $user_info->file9_checked == 1)	{
+							$model->reliability = $model->reliability + 6;
+						}	elseif($user_info_prev->file9_checked == 1 && $user_info->file9_checked == 0)	{
+							$model->reliability = $model->reliability - 6;
+						}
+						
+						$model->save();
+						
 						$user_info->save();
 
 						$this->sendNoticeDocuments($checked_documents, $model, $user_info);

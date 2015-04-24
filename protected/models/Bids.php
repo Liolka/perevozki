@@ -510,4 +510,15 @@ class Bids extends CActiveRecord
 		$command->bindParam(":bid_id", $bid_id, PDO::PARAM_INT);
 		return $command->execute();
 	}
+	
+	//возвращает кол-во положительных и отрицательных отзывов по пользователю
+	public function getCountReviews(&$connection, $user_type = 'user', $u_id = 0)
+	{
+		$sql = "SELECT count(`bid_id`) FROM ".$this->tableName()." WHERE `performer_id` = :u_id AND `user_rating` >= 5 UNION SELECT count(`bid_id`) FROM ".$this->tableName()." WHERE `performer_id` = :u_id AND `user_rating` < 5 AND `user_rating` > 0";
+		//echo'<pre>';print_r($sql,0);echo'</pre>';//die;
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":u_id", $u_id, PDO::PARAM_INT);
+		return $command->queryColumn();
+	}
+	
 }
