@@ -55,7 +55,15 @@ if($data->total_volume)	{
 	<div class="requests-list-item_from fLeft pos-rel">
 		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->loading_town; ?></span>
 		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->loading_address; ?></span>
-		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">Добавил <?=$this->getTimeAgo($data->created)?> <a href="<?=$this->controller->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1" target="_blank"><?php echo $data->username; ?></a></p>
+		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">
+			Добавил <?=getTimeAgo($data->created)?> 
+			<a href="<?=$this->controller->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1 pr-5" target="_blank"><?php echo $data->username; ?></a>
+			<? if(isOnline($this->app, $data->last_activity))	{	?>
+				<span class="user-online c_fff bg_33a72c font-10 p-0-5 arial">Online</span>
+			<?	}	else	{	?>
+				<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5 arial">Offline</span>
+			<?	}	?>				
+		</p>
 	</div>
 	<div class="requests-list-item_to fLeft">
 		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->unloading_town; ?></span>

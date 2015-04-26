@@ -42,6 +42,8 @@ class Bids extends CActiveRecord
 	
 	public $username;
 	public $user_rating;
+	public $last_activity;
+	public $performer_last_activity;
 	public $full_name;
 	public $need_porters;
 
@@ -357,11 +359,12 @@ class Bids extends CActiveRecord
 			}
 			
 			$row->performer_name = isset($user_names[$row->performer_id]) ? $user_names[$row->performer_id]['username'] : '';
+			$row->performer_last_activity = isset($user_names[$row->performer_id]) ? $user_names[$row->performer_id]['last_activity'] : '';
 			$row->username = $model->username;
-			
+			$row->last_activity = $model->last_activity;
 		}
 		
-		//echo'<pre>';print_r($dataProvider,0);echo'</pre>';
+		//echo'<pre>';print_r($dataProvider->data,0);echo'</pre>';
 		
 		
 		return $dataProvider;
@@ -387,9 +390,9 @@ class Bids extends CActiveRecord
 		$criteria = new CDbCriteria;
 		
 		if($orderBy == "review DESC, t.`created` DESC")	{
-			$criteria->select = "t.*, (CASE `user_review` WHEN '' THEN '0' ELSE '1' END) AS review, u.`username`";
+			$criteria->select = "t.*, (CASE `user_review` WHEN '' THEN '0' ELSE '1' END) AS review, u.`username`, u.last_activity";
 		}	else	{
-			$criteria->select = "t.*, u.`username`";
+			$criteria->select = "t.*, u.`username`, u.last_activity";
 		}
 				
 		$criteria->join = implode(' ', $join);
@@ -397,7 +400,7 @@ class Bids extends CActiveRecord
 		
 		$criteria->condition = implode(' AND ', $condition);
 		
-//		echo'<pre>';print_r($filter,0);echo'</pre>';//die;
+		//echo'<pre>';print_r($model,0);echo'</pre>';//die;
 //		echo'<pre>';print_r($orderBy,0);echo'</pre>';//die;
 //		echo'<pre>';print_r($criteria,0);echo'</pre>';//die;
 		
@@ -431,6 +434,7 @@ class Bids extends CActiveRecord
 			
 			$row->performer_name = $row->username;
 			$row->username = $model->username;
+			$row->performer_last_activity = $model->last_activity;
 			
 		}
 		return $dataProvider;

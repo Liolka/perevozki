@@ -6,10 +6,12 @@ $this->breadcrumbs=array(
 $this->layout='//layouts/column2';
 
 include (dirname(dirname(__FILE__))."/common/rating-init.php");
+
+//echo'last_activity<pre>';print_r($model,0);echo'</pre>';//die;
 ?>
 
 <h1><?php echo $model->username ?></h1>
-<p class="bid-detail-number narrow-bold-23">Профиль грузодателя</p>
+<p class="bid-detail-number narrow-bold-23 pos-rel">Профиль грузодателя<? include "_user_status.php"; ?></p>
 
 <? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 

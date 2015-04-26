@@ -149,7 +149,7 @@ class Deals extends CActiveRecord
 	
 	public function getBidDeals(&$connection, $bid_id)
 	{
-		$sql = "SELECT d.`id`, d.`bid_id`, d.`user_id`, d.`transport_id`, d.`created`, d.`price`, d.`deal_date`, d.`deal_time`, d.`porters`, d.`comment`, d.`accepted`, d.`rejected`, u.`username`, u.`rating`, u.`reviews_count` FROM ".$this->tableName()." AS d INNER JOIN {{users}} AS u ON d.`user_id` = u.`id` WHERE `bid_id` = :bid_id ORDER BY d.`created` DESC";
+		$sql = "SELECT d.`id`, d.`bid_id`, d.`user_id`, d.`transport_id`, d.`created`, d.`price`, d.`deal_date`, d.`deal_time`, d.`porters`, d.`comment`, d.`accepted`, d.`rejected`, u.`username`, u.`last_activity`, u.`rating`, u.`reviews_count` FROM ".$this->tableName()." AS d INNER JOIN {{users}} AS u ON d.`user_id` = u.`id` WHERE `bid_id` = :bid_id ORDER BY d.`created` DESC";
 		//echo'<pre>';print_r($sql);echo'</pre>';
 		$command = $connection->createCommand($sql);
 		$command->bindParam(":bid_id", $bid_id, PDO::PARAM_INT);

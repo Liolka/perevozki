@@ -601,6 +601,7 @@ button.close {
 .modal-footer {
     border: none;
     background-color: #3f546c;
+	padding: 15px 35px 30px 35px;
     @extend %text_l;
     
     .modal-title {
@@ -850,4 +851,11 @@ button.close {
 		list-style: disc inside;
 		margin-bottom: 5px;
 	}
+}
+
+.user-online,
+.user-ofline {
+	padding-top: 2px;
+	padding-bottom: 2px;
+	top: -4px;
 }

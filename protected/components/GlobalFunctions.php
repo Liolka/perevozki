@@ -103,4 +103,47 @@ function sendMail($email, $tmplEmail = 'emailTpl', $data = array())
 	);
 }
 
+//обновляет время последней активности пользователя
+function UpdateLastActivity(&$app, &$connection)
+{
+	if(!$app->user->isGuest)	{
+		$user_id = $app->user->id;
+		$sql = "UPDATE {{users}} SET `last_activity` = :last_activity WHERE `id` = :user_id";
+		$command = $connection->createCommand($sql);
+		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		$command->bindParam(":last_activity", date('Y-m-d H:i:s', time()), PDO::PARAM_STR);
+		$command->execute();
+	}
+	return true;
+}
+
+//возвращает статус он-лайн
+function isOnline(&$app, $last_activity)
+{
+	$res = false;
+	if($last_activity !== '0000-00-00 00:00:00')	{
+		//$d1 = date('Y-m-d H:i:s', strtotime("-10 minutes"));
+//		$d0 = date('Y-m-d H:i:s');
+//		$d1 = date('Y-m-d H:i:s', strtotime("-".$app->params['LastActivityInterval']." minute"));
+//		echo'$d0<pre>';print_r($d0,0);echo'</pre>';//die;
+//		echo'$d1<pre>';print_r($d1,0);echo'</pre>';//die;
+//		echo'$last_activity<pre>';print_r($last_activity,0);echo'</pre>';//die;
+
+	
+		//$datetime1 = new DateTime(date('Y-m-d H:i:s'));
+		$datetime1 = new DateTime(date('Y-m-d H:i:s'));
+		$datetime2 = new DateTime($last_activity);
+
+		$interval = $datetime2->diff($datetime1);
+//		echo'$datetime1<pre>';print_r($datetime1);echo'</pre>';
+//		echo'$datetime2<pre>';print_r($datetime2);echo'</pre>';
+//		echo'<pre>';print_r($interval);echo'</pre>';
+		if($interval->y == 0 && $interval->m == 0 && $interval->d == 0 && $interval->h == 0 && $interval->i <= $app->params['LastActivityInterval'] )
+			$res = true;
+	}	
+	
+	return $res;
+}
+
+
 ?>

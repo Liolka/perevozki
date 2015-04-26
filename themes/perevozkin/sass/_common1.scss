@@ -46,7 +46,7 @@
 }
 
 .profile-link {
-	@extend %c_1e91da;
+	//@extend %c_1e91da;
 	@extend %font_12;
 	@extend %for_sprite;
 
@@ -62,6 +62,10 @@
 
 .normal { @extend %normal; }
 
+.arial { @extend %arial; }
+
+
+.font-10 { @extend %font_10; }
 .font-11 { @extend %font_11; }
 .font-12 { @extend %font_12; }
 .font-13 { @extend %font_13; }
@@ -72,6 +76,8 @@
 .font-24 { @extend %font_24; } 
 .font-32 { @extend %font_32; } 
 
+.c_0a80cb { @extend %c_0a80cb; }
+.c_1e91da { @extend %c_1e91da; }
 .c_1e91da { @extend %c_1e91da; }
 .c_2e3c54 { @extend %c_2e3c54; }
 .c_697f9a { @extend %c_697f9a; }
@@ -98,6 +104,9 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .dib { @extend %dib; }
 .di { @extend %di; }
 .db { @extend %db; }
+.dt { @extend %dt; }
+.dtr { @extend %dtr; }
+.dtc { @extend %dtc; }
 
 .pos-rel { @extend %pos_rel; }
 .pos-abs { @extend %pos_abs; }
@@ -165,6 +174,8 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .pb-20 { padding-bottom: 20px; }
 
 .pr-0 { padding-right: 0; }
+.pr-5 { padding-right: 5px; }
+.pr-20 { padding-right: 20px; }
 
 .pl-0 { padding-left: 0; }
 .pl-5 { padding-left: 5px; }
@@ -179,15 +190,15 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .blue-border-1 { border: 1px solid #b2daeb; }
 .blue-border-top-1 { border-top: 1px solid #b2daeb; }
 
+.bg_33a72c {background-color: #33a72c; }
 .bg_425770 {background-color: #425770; }
 .bg_697f9a {background-color: #697f9a; }
 .bg_85bf32 {background-color: #85bf32; }
+.bg_abbbcf {background-color: #abbbcf; }
 .bg_daf0fa {background-color: #daf0fa; }
 .bg_de5151 {background-color: #de5151; }
-
 .bg_f3fbff {background-color: #f3fbff; }
-.bg_f4fbfe_h:hover,
-.bg_f4fbfe {background-color: #f4fbfe; }
+.bg_f4fbfe_h:hover,.bg_f4fbfe {background-color: #f4fbfe; }
 
 .bg_fff {background-color: #fff; }
 

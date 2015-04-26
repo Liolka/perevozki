@@ -1,5 +1,5 @@
 	<div class="step-container">
-		<div class="container ">
+		<div class="container pb-20">
 
 			<p class="num-step num-step-green">2</p>
 			<p class="step-title">Выберите одну или несколько подкатегорий</p>

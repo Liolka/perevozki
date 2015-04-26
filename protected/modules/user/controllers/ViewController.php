@@ -49,6 +49,8 @@ class ViewController extends Controller
 		$this->app = Yii::app();
 		$connection = $this->app->db;
 		
+		UpdateLastActivity($this->app, $connection);			
+		
 		$model = $this->loadModel();
 		//echo'<pre>';print_r($model,0);echo'</pre>';
 		$user_id = $this->app->request->getParam('id', 0);

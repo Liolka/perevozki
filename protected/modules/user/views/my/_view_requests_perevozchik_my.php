@@ -3,12 +3,19 @@
 		<div class="col1 fLeft font-12 text_c p-20-0"><?=$data->bid_id?></div>
 
 		<div class="col21 fLeft font-12 border-box p-20-0 pl-35 cat-ico-s-<?=$data->category_id?>">
-			<a class="" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
+			<a class="lh-18" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
 		</div>
 
 		<div class="col41 fLeft font-12 p-20-0 border-box perevozchik-cell" style="width:34%;">
 			<? if($data->performer_id != 0)	{	?>
-				Перевозчик: <a class="profile-link" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->performer_id))?>"><?php echo $data->username; ?></a>
+				<span class="dib profile-link">
+					Перевозчик: <a class="pr-5" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->performer_id))?>"><?php echo $data->username; ?></a>
+					<? if(isOnline($this->app, $data->performer_last_activity))	{	?>
+						<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+					<?	}	else	{	?>
+						<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+					<?	}	?>
+				</span>
 				
 				<? if($data->performer_rating != 0)	{	?>
 					<div class="clearfix mt-10 c_c3c8cd">
@@ -25,7 +32,14 @@
 			
 		</div>
 		<div class="col51 fLeft font-12 p-20-0 border-box gruzodatel-cell" style="width:34%;border-right:none;">
-			Грузодатель: <a class="profile-link c_71a72c" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>"><?php echo $data->performer_name; ?></a>
+			<span class="dib profile-link">
+				Грузодатель: <a class="c_71a72c pr-5" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>"><?php echo $data->performer_name; ?></a>
+				<? if(isOnline($this->app, $data->last_activity))	{	?>
+					<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+				<?	}	else	{	?>
+					<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+				<?	}	?>			
+			</span>
 			
 			<? if($data->user_rating != 0)	{	?>
 				<div class="clearfix mt-10 c_c3c8cd">

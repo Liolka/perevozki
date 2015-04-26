@@ -44,8 +44,19 @@ $show_deal_frm = true;
 //echo'<pre>';print_r($deals_list);echo'</pre>';
 //echo'<pre>';print_r($model);echo'</pre>';
 
-?>
+$routeArray = array();
+if($model->add_loading_unloading_town_1 != '') $routeArray[] = array('town' =>$model->add_loading_unloading_town_1, 'address'=>$model->add_loading_unloading_address_1);
+if($model->add_loading_unloading_town_2 != '') $routeArray[] = array('town' =>$model->add_loading_unloading_town_2, 'address'=>$model->add_loading_unloading_address_2);
+if($model->add_loading_unloading_town_3 != '') $routeArray[] = array('town' =>$model->add_loading_unloading_town_3, 'address'=>$model->add_loading_unloading_address_3);
+$routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unloading_address);
 
+
+//		https://api.vk.com/method/places.getCountries
+//		https://api.vk.com/method/places.getCities?country=3
+//		https://api.vk.com/method/places.getStreetById?sids=282
+//		
+
+?>
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript">
         ymaps.ready(init);
@@ -54,27 +65,28 @@ $show_deal_frm = true;
 			place = "<?=$model->loading_town?>";
 
         function init(){ 
-			//var geocoder = new YMaps.Geocoder(place, {results: 1, boundedBy: map.getBounds()});
-			
             myMap = new ymaps.Map("map", {
                 center: [52.42837651, 31.01077383],
                 zoom: 12,
 				controls: ["zoomControl", "fullscreenControl"]
             }); 
-            /*
-            myPlacemark = new ymaps.Placemark([52.42837651, 31.01077383], {
-                hintContent: 'Гомель!',
-                balloonContent: 'Гомель'
-            });
-			*/
-            
-            //myMap.geoObjects.add(myPlacemark);
-			
-			//ymaps.route(['Гомель, ул.Советская д. 4','Гомель, Кирова 14', 'Минск'],
 			ymaps.route([<?=implode(',', $route_arr)?>],
-						{mapStateAutoApply: true, // автоматически позиционировать карту  
+						{mapStateAutoApply: true,  
 						}).then(
 				function (route) {
+					
+					var way = route.getPaths().get(0),
+						paths = route.getPaths(),
+						paths_count = paths.getLength(),
+						
+						way1 = route.getPaths().get(1),
+						segments = way.getSegments();
+					
+					for (var i = 0; i < paths_count; i++) {
+						$('#route_item_'+i).html('~'+paths.get(i).getHumanLength());
+						console.log(paths.get(i).getHumanLength());
+					}
+						
 					myMap.geoObjects.add(route);
 				},
 				function (error) {
@@ -83,11 +95,6 @@ $show_deal_frm = true;
 			);		
 			
         }
-		
-		//http://javascript.ru/forum/server/29796-vyvod-znacheniya-v-peremennuyu-php-yandeks-karty-api.html
-		
-		//http://www.forum.mista.ru/topic.php?id=510781
-		
     </script>
 <div class="pos-rel">
 	<h1><?php echo $bid_name; ?></h1>
@@ -116,7 +123,16 @@ $show_deal_frm = true;
 <div class="bid-detail-route-block mb-30">
 	<div class="bid-view-created fRight clearfix">
 		<span class="db font-12 c_aab1ba mb-5"><?=getTimeAgo($model->created).' добавил'?></span>
-		<span class="db p-0-20 text_r mb-5"><a class="profile-link c_71a72c" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$model->user_id))?>"><?=$model->username?></a></p></span>
+		<span class="db p-0-20 text_r mb-5">
+			<span class="db profile-link">
+				<a class="c_71a72c pr-5" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$model->user_id))?>"><?=$model->username?></a>
+				<? if(isOnline($this->app, $model->last_activity))	{	?>
+					<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+				<?	}	else	{	?>
+					<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+				<?	}	?>
+			</span>
+		</span>
 		<? /*<a href="#" class="db ico-question fRight"></a>*/ ?>
 		<div class="m-0-5 rating-stars bid-view-rating fRight">
 			<span class="stars-empty"></span><span class="stars-full" style="width:<?=($model->user_rating * 10)?>%;"></span>
@@ -129,45 +145,17 @@ $show_deal_frm = true;
 			<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->loading_town?></p>
 			<p class="route-address"><?=$model->loading_address?></p>			
 		</li>
-		<? if($model->add_loading_unloading_town_1 != '')	{	?>
-			<li class="route-item fLeft ml-40 table-row">
-				<div class="route-item-arrow table-cell"></div>
-				<div class="route-item-wr table-cell for_sprite">
-					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->add_loading_unloading_town_1?></p>
-					<p class="route-address"><?=$model->add_loading_unloading_address_1?></p>
-				</div>
-			</li>
-		<?	}	?>
-		<? if($model->add_loading_unloading_town_2 != '')	{	?>
-			<li class="route-item fLeft ml-40 table-row">
-				<div class="route-item-arrow table-cell for_sprite"></div>
-				<div class="route-item-wr table-cell">
-					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->add_loading_unloading_town_2?></p>
-					<p class="route-address"><?=$model->add_loading_unloading_address_2?></p>
-				</div>
-			</li>
-		<?	}	?>
-		<? if($model->add_loading_unloading_town_3 != '')	{	?>
-			<li class="route-item fLeft ml-40 table-row">
-				<div class="route-item-arrow table-cell for_sprite"></div>
-				<div class="route-item-wr table-cell">
-					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->add_loading_unloading_town_3?></p>
-					<p class="route-address"><?=$model->add_loading_unloading_address_3?></p>
-				</div>
-			</li>
-		<?	}	?>
 		
-		<li class="route-item route-end fLeft ml-40 table-row">
-			<div class="route-item-arrow table-cell for_sprite"></div>
-			<div class="route-item-wr table-cell">
-				<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->unloading_town?></p>
-				<p class="route-address"><?=$model->unloading_address?></p>
-			</div>		
-		</li>
+		<? foreach($routeArray as $k=>$rItem)	{	?>
+			<li class="route-item fLeft ml-40 table-row">
+				<div class="route-item-arrow table-cell for_sprite"><span id="route_item_<?=$k?>" class="font-16"></span></div>
+				<div class="route-item-wr table-cell for_sprite">
+					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$rItem['town']?></p>
+					<p class="route-address"><?=$rItem['address']?></p>
+				</div>
+			</li>
+		<?	}	?>
 	</ul>
-	
-	
-	
 </div>
 
 <div class="row mb-40">
@@ -360,7 +348,14 @@ $show_deal_frm = true;
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
 							<div class="bid-detail-deals-perevozhik">
-								<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="profile-link bid-detail-deals-profile-link pl-20" target="_blank">Перевозчик <?php echo $row['username'] ?></a>
+								<span class="dib profile-link">
+									<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="bid-detail-deals-profile-link pl-20 pr-5" target="_blank">Перевозчик <?php echo $row['username'] ?></a>
+									<? if(isOnline($this->app, $row['last_activity']))	{	?>
+										<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+									<?	}	else	{	?>
+										<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+									<?	}	?>
+								</span>
 								<div class="bid-detail-deals-rating-block mt-5">
 									<div class="rating-stars dib"><span class="stars-empty"></span><span class="stars-full-blue" style="width:<?=($row['rating'])?>%;"></span></div>
 									<p class="rewiews-count font-12 c_8e95a1 dib">(<?=$row['reviews_count']?> <?php echo Yii::t('app', 'отзыв|отзыва|отзывов|отзыва', $row['reviews_count']); ?>)</p>
@@ -442,8 +437,16 @@ $show_deal_frm = true;
 									<div class="bid-detail-deals-row-answer-block-reviews-row clearfix">
 										<div class="bid-detail-deals-row-answer-block-reviews-cell1 fLeft font-12 c_8e95a1 p-15"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy / HH:mm', $post['created']); ?></div>
 										<div class="bid-detail-deals-row-answer-block-reviews-cell2 fLeft p-15">
-											<p class="font-12 mb-5"><a href="<?=$this->createUrl('/user/view', array('id'=>$post['user_id']))?>" class="c_1e91da" target="_blank"><?=$post['username']?></a> <span class="c_8e95a1"><?=$user_type_str?></span></p>
-											<p class="font-12"><?=$post['text']?></p>
+											<p class="font-12 mb-5">
+												<a href="<?=$this->createUrl('/user/view', array('id'=>$post['user_id']))?>" class="c_1e91da" target="_blank"><?=$post['username']?></a> <span class="c_8e95a1 pr-5"><?=$user_type_str?></span>
+											<? if(isOnline($this->app, $post['last_activity']))	{	?>
+												<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+											<?	}	else	{	?>
+												<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+											<?	}	?>
+												
+											</p>
+											<p class="font-12"><?=nl2br($post['text'])?></p>
 										</div>
 									</div>
 

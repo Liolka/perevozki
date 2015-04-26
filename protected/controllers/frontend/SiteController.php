@@ -35,6 +35,11 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);			
+
 		$this->layout = '//layouts/column2r';
 		$this->render('index');
 	}

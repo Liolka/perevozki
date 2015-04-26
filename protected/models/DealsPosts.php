@@ -119,7 +119,7 @@ class DealsPosts extends CActiveRecord
 	public function getDealsPosts(&$connection, $deal_ids = array() )
 	{
 		if(count($deal_ids))	{
-			$sql = "SELECT dp.`id`, dp.`deal_id`, dp.`user_id`, dp.`created`, dp.`text`, u.`username`, u.`user_type` FROM ".$this->tableName()." AS dp INNER JOIN {{users}} AS u ON dp.`user_id` = u.`id` WHERE `deal_id` IN (".implode(',', $deal_ids).") ORDER by `created` DESC";
+			$sql = "SELECT dp.`id`, dp.`deal_id`, dp.`user_id`, dp.`created`, dp.`text`, u.`username`, u.`last_activity`, u.`user_type` FROM ".$this->tableName()." AS dp INNER JOIN {{users}} AS u ON dp.`user_id` = u.`id` WHERE `deal_id` IN (".implode(',', $deal_ids).") ORDER by `created` DESC";
 			//echo'<pre>';print_r($bid_id);echo'</pre>';
 			//echo'<pre>';print_r($sql);echo'</pre>';
 			$command = $connection->createCommand($sql);

@@ -57,7 +57,16 @@ isQuickly($data->date_transportation);
 	<div class="requests-list-item_from fLeft pos-rel">
 		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->loading_town; ?></span>
 		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->loading_address; ?></span>
-		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">Добавил <?=$this->getTimeAgo($data->created)?> <a href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1" target="_blank"><?php echo $data->username; ?></a></p>
+		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">
+			Добавил <?=$this->getTimeAgo($data->created)?> 
+			<a href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1 pr-5" target="_blank"><?php echo $data->username; ?></a>
+			<? if(isOnline($this->app, $data->last_activity))	{	?>
+				<span class="user-online c_fff bg_33a72c font-10 p-0-5 arial">Online</span>
+			<?	}	else	{	?>
+				<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5 arial">Offline</span>
+			<?	}	?>				
+			
+		</p>
 	</div>
 	<div class="requests-list-item_to fLeft">
 		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->unloading_town; ?></span>
@@ -81,9 +90,9 @@ isQuickly($data->date_transportation);
 		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
 		
 		<? if ($this->app->user->isGuest)	{	?>
-			<a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->createUrl('/user/login')?>">Откликнуться</a>
+			<a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->createUrl('/user/login')?>" target="_blank">Откликнуться</a>
 		<? }	elseif ($this->app->user->user_type == 2)	{	?>
-			<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal">Откликнуться</a>
+			<a class="btn-blue-33 db p-0-20" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>#new-deal" target="_blank">Откликнуться</a>
 		<?	}	else	{	?>
 			<? /* <a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->createUrl('/user/login')?>">Откликнуться</a> */ ?>
 		<?	}	?>

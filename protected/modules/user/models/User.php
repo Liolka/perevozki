@@ -69,12 +69,12 @@ class User extends CActiveRecord
 			array('user_type, user_status', 'in', 'range'=>array(1,2)),
 			array('user_status', 'required'),
             array('create_at', 'default', 'value' => date('Y-m-d H:i:s'), 'setOnEmpty' => true, 'on' => 'insert'),
-            array('lastvisit_at', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
+            array('lastvisit_at, last_activity', 'default', 'value' => '0000-00-00 00:00:00', 'setOnEmpty' => true, 'on' => 'insert'),
 			array('username, email, superuser, status', 'required'),
 			array('superuser, status, reviews_count, file1_checked, file2_checked, reliability, done_carriage', 'numerical', 'integerOnly'=>true),
 			array('file1, file2', 'length', 'max'=>64),
 			array('rating', 'numerical'),
-			array('id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, user_type, user_status', 'safe', 'on'=>'search'),
+			array('id, username, password, email, activkey, create_at, lastvisit_at, last_activity, superuser, status, user_type, user_status', 'safe', 'on'=>'search'),
 		):((Yii::app()->user->id==$this->id)?array(
 			array('username, email', 'required'),
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => UserModule::t("Incorrect username (length between 3 and 20 characters).")),
@@ -158,7 +158,7 @@ class User extends CActiveRecord
                 'condition'=>'superuser=1',
             ),
             'notsafe'=>array(
-            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, superuser, status, user_type, user_status, rating, reviews_count, file1, file1_checked, file2, file2_checked, reliability, done_carriage',
+            	'select' => 'id, username, password, email, activkey, create_at, lastvisit_at, last_activity, superuser, status, user_type, user_status, rating, reviews_count, file1, file1_checked, file2, file2_checked, reliability, done_carriage',
             ),
         );
     }
@@ -167,7 +167,7 @@ class User extends CActiveRecord
     {
         return CMap::mergeArray(Yii::app()->getModule('user')->defaultScope,array(
             'alias'=>'user',
-            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.superuser, user.status, user.user_type, user.user_status, user.rating, user.reviews_count, user.file1, user.file1_checked, user.file2, user.file2_checked, user.reliability, user.done_carriage',
+            'select' => 'user.id, user.username, user.email, user.create_at, user.lastvisit_at, user.last_activity, user.superuser, user.status, user.user_type, user.user_status, user.rating, user.reviews_count, user.file1, user.file1_checked, user.file2, user.file2_checked, user.reliability, user.done_carriage',
         ));
     }
 	
@@ -237,7 +237,7 @@ class User extends CActiveRecord
     public function getUserNames(&$connection, $user_ids = array())
 	{
 		if(count($user_ids)) {
-			$sql = "SELECT `id`, `username` FROM {{users}} WHERE `id` IN (".implode(',', $user_ids).")";
+			$sql = "SELECT `id`, `username`, `last_activity` FROM {{users}} WHERE `id` IN (".implode(',', $user_ids).")";
 			//echo'<pre>';print_r($sql);echo'</pre>';
 			$command = $connection->createCommand($sql);
 			$rows = $command->queryAll(); 
@@ -255,7 +255,7 @@ class User extends CActiveRecord
 	//возвращает имя пользователя
 	public function getUserName(&$connection, $user_id)
 	{
-		$sql = "SELECT `username`, `rating` FROM ".$this->tableName()." WHERE `id` = :user_id";
+		$sql = "SELECT `username`, `rating`, `last_activity` FROM ".$this->tableName()." WHERE `id` = :user_id";
 		$command = $connection->createCommand($sql);
 		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
 		return $command->queryRow();

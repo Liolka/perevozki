@@ -1,16 +1,26 @@
 <div class="mb-20">
-	<div class="blue-border-1 bg_f4fbfe_h p-0-20 pos-rel clearfix">
-		<div class="col1 fLeft font-12 text_c p-20-0"><?=$data->bid_id?></div>
+	<div class="blue-border-1 bg_f4fbfe_h pos-rel">
+	<div class="dt width100">
+	<div class="dtr">
+		<div class="col1 dtc font-12 text_c p-20-0"><?=$data->bid_id?></div>
 
-		<div class="col21 fLeft font-12 border-box p-20-0 pl-35 cat-ico-s-<?=$data->category_id?>">
-			<a class="" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
+		<div class="col21<? if($this->app->user->isGuest) echo '-g' ?> dtc font-12 border-box p-20-0 pl-35 cat-ico-s-<?=$data->category_id?>">
+			<a class="lh-18" href="<?=$this->createUrl('/bids/view', array('id'=>$data->bid_id))?>"><?=$data->full_name?></a>
 		</div>
 
 		<? /* <div class="col3 fLeft p-20-0 font-13 text_c c_aab1ba"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation); ?></div> */?>
 
-		<div class="col41 fLeft font-12 p-20-0 border-box perevozchik-cell">
+		<div class="col41<? if($this->app->user->isGuest) echo '-g' ?> dtc font-12 p-20-0 border-box perevozchik-cell">
 			<? if($data->performer_id != 0)	{	?>
-				Перевозчик: <a class="profile-link " target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->performer_id))?>"><?php echo $data->performer_name; ?></a>
+				<span class="dib profile-link">
+					Перевозчик: <a class="pr-5" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->performer_id))?>"><?php echo $data->performer_name; ?></a>
+					<? if(isOnline($this->app, $data->performer_last_activity))	{	?>
+						<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+					<?	}	else	{	?>
+						<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+					<?	}	?>
+				</span>
+				
 				<? if($data->performer_rating != 0)	{	?>
 					<div class="clearfix mt-10 c_c3c8cd">
 						<span class="db fLeft ">оставил оценку:</span>
@@ -25,8 +35,15 @@
 			<?	}	?>
 			
 		</div>
-		<div class="col51 fLeft font-12 p-20-0 border-box gruzodatel-cell">
-			Грузодатель: <a class="profile-link c_71a72c" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>"><?php echo $data->username; ?></a>
+		<div class="col51<? if($this->app->user->isGuest) echo '-g' ?> dtc font-12 p-20-0 border-box gruzodatel-cell">
+			<span class="dib profile-link">
+				Грузодатель: <a class="c_71a72c pr-5" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>"><?php echo $data->username; ?></a>
+				<? if(isOnline($this->app, $data->last_activity))	{	?>
+					<span class="user-online c_fff bg_33a72c font-10 p-0-5">Online</span>
+				<?	}	else	{	?>
+					<span class="user-ofline c_fff bg_abbbcf font-10 p-0-5">Offline</span>
+				<?	}	?>
+			</span>
 			<? if($data->user_rating != 0)	{	?>
 				<div class="clearfix mt-10 c_c3c8cd">
 					<span class="db fLeft ">оставил оценку:</span>
@@ -39,7 +56,9 @@
 			
 		</div>
 		
-		<div class="col61 fLeft border-box p-20-0">
+		<? if(!$this->app->user->isGuest)	{	?>
+		<div class="col61 dtc border-box p-20-0 pr-20">
+		<? //print $data->user_id .'<br>'. $this->app->user->id ?>
 			<div class="profile-requests-btns pos-rel width100">
 				<? if(!$this->app->user->isGuest && $data->performer_id != 0 && $data->user_review == '' && $data->user_id == $this->app->user->id)	{	?>
 					<button class="show-full-review btn-green-33 pos-abs">Оставить отзыв</button>
@@ -47,8 +66,10 @@
 					<span class="comment-this-btn btn-grey-33 pos-abs">Вы оставили отзыв</span>
 				<?	}	?>
 			</div>
-
 		</div>
+		<?	}	?>
+	</div>
+	</div>
 	</div>
 	
 	<? //if(!($this->app->user->isGuest && $data->performer_review == '' && $data->user_review == '') )	{	?>

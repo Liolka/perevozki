@@ -76,6 +76,8 @@ class BidsController extends Controller
 		$this->app = Yii::app();
 		$connection = $this->app->db;
 		
+		UpdateLastActivity($this->app, $connection);
+		
 		$model = $this->loadModel($id);
 		
 		$cargoes = BidsCargoes::model()->getCargoresBids($connection, $model->bid_id);
@@ -123,7 +125,10 @@ class BidsController extends Controller
 		
 		$user_info = User::model()->getUserName($connection, $model->user_id);
 		$model->username = $user_info['username'];
+		$model->last_activity = $user_info['last_activity'];
 		$model->user_rating = $user_info['rating'];
+		
+		isOnline($this->app, $user_info['last_activity']);
 		
 		$route_arr = array();
 		$this->addRouteItem($model->loading_town, $model->loading_address, $route_arr);
@@ -289,6 +294,8 @@ class BidsController extends Controller
 		$model = new Bids;
 		$this->app = Yii::app();
 		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);
 
 		if(isset($_POST['Bids']) && !isset($_POST['ajax'])) {
 				//если пришли данные из последнего шага и без аякс-валидации
@@ -700,6 +707,8 @@ class BidsController extends Controller
 		$this->app = Yii::app();
 		$connection = $this->app->db;
 		
+		UpdateLastActivity($this->app, $connection);
+		
 		$model = new BidsFilter;
 		
 		//$rows_pages = Bids::model()->getBids();
@@ -761,7 +770,7 @@ class BidsController extends Controller
 		$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
 		
 		$criteria = new CDbCriteria;		
-		$criteria->select = "t.*, u.username";
+		$criteria->select = "t.*, u.username, u.last_activity";
 /*		
 SELECT t.*, u.username FROM `1gsk_bids` `t` 
 INNER JOIN 1gsk_users AS u ON t.`user_id` = u.`id` 
@@ -965,8 +974,6 @@ ORDER BY t.created DESC LIMIT 20
 		$this->redirect(array('bids/view','id'=>$bid_id));
 		
 	}
-	
-	
 	
 	public function actionStep2form($category_id)
 	{

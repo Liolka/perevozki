@@ -287,8 +287,6 @@
 
 .change-email-block,
 .change-password-block {
-	@extend %fl;
-	@extend %w_50;
 	
 	.my-contact-info-container {
 		padding: 20px;
@@ -310,10 +308,8 @@
 	}
 	
 	.current-email {
-		padding-bottom: 17px;
+		padding-bottom: 19px;
 		
-		@extend %c_0a80cb;
-		@extend %bold;
 	}
 	
 	.row {

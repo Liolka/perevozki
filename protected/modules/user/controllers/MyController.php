@@ -22,6 +22,8 @@ class MyController extends Controller
 		$this->app = Yii::app();
 		$connection = $this->app->db;
 		
+		UpdateLastActivity($this->app, $connection);			
+		
 		$this->checkIsLoggedUser();
 
 		$model = $this->loadUser();
@@ -113,6 +115,9 @@ class MyController extends Controller
 	{
 		$this->app = Yii::app();
 		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);
+		
 		processPageRequest('page');
 		
 		$order_ = $this->app->request->getParam('order', '');
@@ -166,6 +171,7 @@ class MyController extends Controller
 			case 2:
 				$dataProvider = Bids::model()->getBidsPerevozchik($connection, $this->app->user->id, $model, 5, $orderBy, $filter);
 				$data['dataProvider'] = $dataProvider;
+				//echo'<pre>';print_r($dataProvider->data,0);echo'</pre>';
 			
 				if ($this->app->request->isAjaxRequest){
 					$template = '_requests_list_perevozchik_ajax';
@@ -219,6 +225,10 @@ class MyController extends Controller
 	public function actionTransport()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);			
+
 		
 		$this->checkIsLoggedUser();
 		$this->checkPerevozchik();
@@ -526,6 +536,10 @@ class MyController extends Controller
 	public function actionDocuments()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);			
+
 		
 		$this->checkIsLoggedUser();
 		
@@ -626,6 +640,10 @@ class MyController extends Controller
 	public function actionInfo()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);			
+
 		
 		$user = $this->loadUser();
 		
@@ -675,6 +693,9 @@ class MyController extends Controller
 	public function actionInfoedit()
 	{
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);			
 		
 		$user = $this->loadUser();
 	
@@ -807,6 +828,10 @@ class MyController extends Controller
 		$app = Yii::app();
 		
 		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);			
+
 		$this->checkIsLoggedUser();
 		
 		if ($app->user->id) {

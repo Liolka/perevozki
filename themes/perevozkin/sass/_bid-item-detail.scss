@@ -88,13 +88,13 @@
 }
 
 .bid-detail-respond-btn {
-	padding-left: 90px;
+	padding-left: 75px;
 	
 
 	@extend %for_sprite;
 	
 	&:before {
-		left: 45px;
+		left: 30px;
 		top: 50%;
 		margin-top: -16px;
 		

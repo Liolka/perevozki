@@ -9,7 +9,7 @@ class LastRequestsWidget extends CWidget {
 		
 		$criteria = new CDbCriteria;
 		
-		$criteria->select = "t.*, u.username";
+		$criteria->select = "t.*, u.username, u.last_activity";
 		
 		$criteria->join = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
 		$criteria->order = 't.created DESC';
@@ -75,35 +75,5 @@ class LastRequestsWidget extends CWidget {
 		//$this->render('LastRequestsWidget', array());
 		
     }
-	
-	public function getTimeAgo($date_time)
-	{
-		$timeAgo = time() - strtotime($date_time);
-		$timePer = array(
-			'day' 	=> array(3600 * 24, 'дн.'),
-			'hour' 	=> array(3600, ''),
-			'min' 	=> array(60, 'мин.'),
-			'sek' 	=> array(1, 'сек.'),
-			);
-		foreach ($timePer as $type =>  $tp) {
-			$tpn = floor($timeAgo / $tp[0]);
-			if ($tpn){
-				
-				switch ($type) {
-					case 'hour':
-						if (in_array($tpn, array(1, 21))){
-							$tp[1] = 'час';
-						}elseif (in_array($tpn, array(2, 3, 4, 22, 23)) ) {
-							$tp[1] = 'часa';
-						}else {
-							$tp[1] = 'часов';
-						}
-						break;
-				}
-				return $tpn.' '.$tp[1].' назад';
-			}
-		}
-	}	
-	
 }
 ?>
