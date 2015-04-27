@@ -48,6 +48,6 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 		<a href="<?=$this->createUrl('/user/requests', array('id'=>$model->id))?>" class="pl-10 narrow-regular-18">Смотреть все</a>
 	</p>
 	
-	<?php $this->renderPartial('_reviews_list_type_1', array('dataProvider'=>$lastBidsUser)); ?>
+	<?php $this->renderPartial('_reviews_list_type_1', array('dataProvider'=>$lastBidsUser, 'model'=>$model)); ?>
 </div>
 

@@ -24,6 +24,11 @@
 	@extend %font_28;
 }
 
+.narrow-regular-30 {
+	@extend %pt_sans_narrow_regular;
+	@extend %font_30;
+}
+
 .narrow-regular-36 {
 	@extend %pt_sans_narrow_regular;
 	@extend %font_36;
@@ -62,6 +67,8 @@
 
 .normal { @extend %normal; }
 
+.capitalize { text-transform: capitalize; }
+
 .arial { @extend %arial; }
 
 
@@ -78,11 +85,11 @@
 
 .c_0a80cb { @extend %c_0a80cb; }
 .c_1e91da { @extend %c_1e91da; }
-.c_1e91da { @extend %c_1e91da; }
 .c_2e3c54 { @extend %c_2e3c54; }
 .c_697f9a { @extend %c_697f9a; }
 .c_71a72c { @extend %c_71a72c; }
 .c_757575 { @extend %c_757575; }
+.c_8ec0d6 { @extend %c_8ec0d6; }
 .c_8e95a1 { @extend %c_8e95a1; }
 .c_96a5b8 { @extend %c_96a5b8; &:hover {@extend %c_96a5b8;}}
 .c_aab1ba { @extend %c_aab1ba; }
@@ -154,6 +161,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .p-15 { padding: 15px; }
 .p-20 { padding: 20px; }
 .p-25 { padding: 25px; }
+.p-30 { padding: 30px; }
 
 .p-0-5 { padding: 0 5px; }
 .p-0-10 { padding: 0 10px; }
@@ -202,7 +210,7 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 
 .bg_fff {background-color: #fff; }
 
-.bb-dotted-1 { border-bottom: 1px dotted #2e3c54; }
+.bb-dotted-1 { border-bottom: 1px dotted #1e91da; }
 .bb-dotted-1-h { @extend .bb-dotted-1; &:hover { border-bottom: none; } }
 
 .bb-dotted-2 { border-bottom: 1px dotted #71a72c; }

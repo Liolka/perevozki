@@ -73,10 +73,6 @@
 	padding: 52px 0 0 0;
 	margin: 0 40px 0 0;
 	
-//	@extend %for_sprite;
-//	@extend %font_12;
-//	@extend %c_2e3c54;
-	
 	&:before {
 		top: 0;
 		left: 50%;
@@ -86,79 +82,156 @@
 	}
 }
 
-.requests-list-item_number-cat-2:before {
-	margin-left: -19px;
+.cat-b-2:before {
 	@extend .catn-c2-b;
 }
 
-.requests-list-item_number-cat-3:before {
-	margin-left: -18px;
+.rl-cat-2:before {
+	margin-left: -19px;
+}
+
+.bp-cat-2:before {
+	margin-left: 11px;
+}
+
+.cat-b-3:before {
 	@extend .catn-c3-b;
 }
 
-.requests-list-item_number-cat-4:before {
+.rl-cat-3:before {
 	margin-left: -18px;
+}
+
+.bp-cat-3:before {
+	margin-left: 11px;
+}
+
+.cat-b-4:before {
 	@extend .catn-c4-b;
 }
 
-.requests-list-item_number-cat-7:before {
+.rl-cat-4:before {
 	margin-left: -18px;
+}
+
+.bp-cat-4:before {
+	margin-left: 8px;
+}
+
+.cat-b-7:before {
 	@extend .catn-c7-b;
 }
 
-.requests-list-item_number-cat-8:before {
+.rl-cat-7:before {
 	margin-left: -18px;
+}
+
+.bp-cat-7:before {
+	margin-left: 8px;
+}
+
+.cat-b-8:before {
 	@extend .catn-c8-b;
 }
 
-.requests-list-item_number-cat-9:before {
-	margin-left: -24px;
+.rl-cat-8:before {
+	margin-left: -18px;
+}
+
+.bp-cat-8:before {
+	margin-left: 10px;
+}
+
+.cat-b-9:before {
 	@extend .catn-c9-b;
 }
 
-.requests-list-item_number-cat-10:before {
-	margin-left: -18px; 
+.rl-cat-9:before {
+	margin-left: -24px;
+}
+
+.bp-cat-9:before {
+	margin-left: 2px;
+}
+
+.cat-b-10:before {
 	@extend .catn-c10-b;
 }
 
-.requests-list-item_number-cat-11:before {
-	margin-left: -18px; 
+.rl-cat-10:before {
+	margin-left: -18px;
+}
+
+.bp-cat-10:before {
+	margin-left: 10px;
+}
+
+.cat-b-11:before {
 	@extend .catn-c11-b;
 }
 
-.requests-list-item_number-cat-12:before {
-	margin-left: -18px; 
+.rl-cat-11:before {
+	margin-left: -18px;
+}
+
+.bp-cat-11:before {
+	margin-left: 10px;
+}
+
+.cat-b-12:before {
 	@extend .catn-c12-b;
 }
 
-.requests-list-item_number-cat-13:before {
-	margin-left: -24px; 
+.rl-cat-12:before {
+	margin-left: -18px;
+}
+
+.bp-cat-12:before {
+	margin-left: 10px;
+}
+
+.cat-b-13:before {
 	@extend .catn-c13-b;
 }
 
-.requests-list-item_number-cat-14:before {
-	margin-left: -23px; 
+.rl-cat-13:before {
+	margin-left: -24px;
+}
+
+.bp-cat-13:before {
+	margin-left: 5px;
+}
+
+.cat-b-14:before {
 	@extend .catn-c14-b;
 }
 
-.requests-list-item_number-cat-15:before {
-	margin-left: -18px; 
+.rl-cat-14:before {
+	margin-left: -23px;
+}
+
+.bp-cat-14:before {
+	margin-left: 5px;
+}
+
+.cat-b-15:before {
 	@extend .catn-c15-b;
+}
+
+.rl-cat-15:before {
+	margin-left: -18px;
+}
+
+.bp-cat-15:before {
+	margin-left: 9px;
 }
 
 .requests-list-item_info {
 	margin-right: 50px;
 	width: 151px;
-	
-//	span,
-//	a {
-//		@extend %db;
-//	}
 }
 
 .requests-list-item-info_url {
-//	padding-bottom: 5px;
-	
 	&:visited {
 		@extend %c_1e91da;
 	}
@@ -173,8 +246,6 @@
 	line-height: 19px;
 	padding: 0 0 0 22px;
 	
-//	@extend %c_2e3c54;
-//	@extend %font_12;
 	@extend %for_sprite;
 	
 	&:before {
@@ -194,76 +265,21 @@
 	& > span,
 	a {
 		padding-left: 25px;
-//		@extend %db;
 	}
 }
 
 .requests-list-item_from {
 	height: 66px;
-	
-//	@extend %pos_rel;
 }
-
-//.requests-list-item_town {
-//	padding-bottom: 5px;
-//	
-//	@extend %c_2e3c54;
-//	@extend %font_13;
-//	@extend %bold;
-//}
-
-//.requests-list-item_adress {
-//	@extend %c_8e95a1;
-//	@extend %font_12;	
-//}
 
 .requests-list-item_author {
 	white-space: nowrap;
 	bottom: 0;
 	
-//	@extend %font_11;
-//	@extend %c_8e95a1;
-//	@extend %pos_abs;
-	
 	a {
 		padding-left: 0;
-//		@extend %font_11;
-//		@extend %c_8e95a1;
-//		@extend %di;
-		
 	}
 }
-
-
-
-.requests-list-item_price {
-
-//	
-//	span,
-//	a {
-//		@extend %db;
-//	}
-//	
-//	.btn-blue-33 {
-//		padding: 0 20px;
-//	}
-}
-
-
-
-//.requests-list-item_suggestions,
-//.requests-list-item_date {
-//	@extend %font_13;
-//	@extend %c_8e95a1;
-//}
-
-//.requests-list-item_date {
-//	
-//}
-//
-//.requests-list-item_created {
-//	
-//}
 
 .requests-list-item_suggestions {
 	margin-top: 34px;
@@ -274,9 +290,6 @@
 		margin-right: 3px;
 		
 		@include border-radius(2px);
-		
-//		@extend %c_fff;
-//		@extend %dib;
 	}
 	
 	.suggestion-green {
@@ -288,15 +301,6 @@
 	}
 }
 
-//.requests-list-item-price_price {
-//	margin-bottom: 15px;
-//	
-//	@extend %bold;
-//	@extend %font_17;
-//	@extend %c_2e3c54;
-//}
-
-
 .counry-by {
 	background: url(../images/flags/by.gif) no-repeat left 3px;
 	height: 16px;
@@ -304,15 +308,7 @@
 }
 
 .requests-more-btn {
-//	border: 1px solid #b2daeb;
-	padding: 10px 0 12px 0;  
-//	background-color: #f4fbfe;	
-	
-//	@extend %db;
-//	@extend %text_c;
-//	@extend %c_1e91da;
-//	@extend %font_20;
-//	@extend %pt_sans_narrow_regular;
+	padding: 10px 0 12px 0;
 	
 	&:focus,
 	&:hover,

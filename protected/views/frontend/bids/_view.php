@@ -44,7 +44,7 @@ isQuickly($data->date_transportation);
 			<?php echo $data->bid_id; ?>
 		</div>
 	<?	}	else	{	?>
-		<div class="requests-list-item_number for_sprite requests-list-item_number-cat-<?php echo $data->category_id; ?> fLeft font-12 c_2e3c54"><?php echo $data->bid_id; ?></div>
+		<div class="requests-list-item_number for_sprite cat-b-<?php echo $data->category_id; ?> rl-cat-<?php echo $data->category_id; ?> fLeft font-12 c_2e3c54"><?php echo $data->bid_id; ?></div>
 	<?	}	?>
 	
 	<div class="requests-list-item_info fLeft">

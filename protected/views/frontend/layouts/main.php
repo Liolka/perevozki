@@ -182,9 +182,9 @@
 				<div class="benefits-block clearfix">
 					<p class="header narrow-regular-36 text_c mb-40 text_c c_697f9a">Преимущества сервиса</p>
 					<ul class="fLeft pos-rel">
-						<li class="benefits-1 fLeft pos-rel c_000 font_12 text_c for_sprite"><span class="db narrow-regular-28 pb-20">Мы экономим ваше время</span>Не тратьте свое время на поиск и утомительный обзвон транспортных компаний и частных перевозчиков.<br>Просто разместите запрос! Размещение запроса бесплатно и занимает<br>не более 1-х минут.</li>
-						<li class="benefits-2 fLeft pos-rel c_000 font_12 text_c for_sprite"><span class="db narrow-regular-28 pb-20">Мы экономим ваши нервы</span>Выберите проверенного перевозчика исходя из отзывов предыдущих заказчиков, чтобы не попасть в неприятную ситуацию.</li>
-						<li class="benefits-3 fLeft pos-rel c_000 font_12 text_c for_sprite"><span class="db narrow-regular-28 pb-20">Мы экономим ваши деньги</span>Перевозчики торгуются за ваш заказ в формате аукциона.В результате конечная стоимость перевозки снижается.<br>Экономия до 70%.</li>
+						<li class="benefits-1 fLeft pos-rel c_000 font_12 text_c for_sprite lh-18"><span class="db narrow-regular-28 pb-20">Мы экономим ваше время</span>Не тратьте свое время на поиск и утомительный обзвон транспортных компаний и частных перевозчиков.<br>Просто разместите запрос! Размещение запроса бесплатно и занимает<br>не более 1-х минут.</li>
+						<li class="benefits-2 fLeft pos-rel c_000 font_12 text_c for_sprite lh-18"><span class="db narrow-regular-28 pb-20">Мы экономим ваши нервы</span>Выберите проверенного перевозчика исходя из отзывов предыдущих заказчиков, чтобы не попасть в неприятную ситуацию.</li>
+						<li class="benefits-3 fLeft pos-rel c_000 font_12 text_c for_sprite lh-18"><span class="db narrow-regular-28 pb-20">Мы экономим ваши деньги</span>Перевозчики торгуются за ваш заказ в формате аукциона.В результате конечная стоимость перевозки снижается.<br>Экономия до 70%.</li>
 					</ul>
 				</div>
 			<?	}	?>

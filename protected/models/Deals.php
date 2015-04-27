@@ -159,13 +159,16 @@ class Deals extends CActiveRecord
 	//возвращает кол-во предложений по каждой заявке
 	public function getBidDealsCount(&$connection, $bid_ids)
 	{
-		$sql = "SELECT `bid_id`, count(`id`) AS bids_count FROM ".$this->tableName()." WHERE `bid_id` IN (".implode(', ', $bid_ids).") GROUP BY `bid_id`";
-		//echo'<pre>';print_r($sql);echo'</pre>';
-		$command = $connection->createCommand($sql);
-		$rows = $command->queryAll();
 		$result = array();
-		foreach($rows as $row)	{
-			$result[$row['bid_id']] = $row['bids_count'];
+		if(count($bid_ids))	{
+			$sql = "SELECT `bid_id`, count(`id`) AS bids_count FROM ".$this->tableName()." WHERE `bid_id` IN (".implode(', ', $bid_ids).") GROUP BY `bid_id`";
+			//echo'<pre>';print_r($sql);echo'</pre>';
+			$command = $connection->createCommand($sql);
+			$rows = $command->queryAll();
+			$result = array();
+			foreach($rows as $row)	{
+				$result[$row['bid_id']] = $row['bids_count'];
+			}
 		}
 		
 		return $result;

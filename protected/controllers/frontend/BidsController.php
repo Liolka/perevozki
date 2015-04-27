@@ -596,10 +596,14 @@ class BidsController extends Controller
 					unset($this->app->session['bid_tmp_foto_4']);
 					unset($this->app->session['bid_cargo_num']);
 					
+					$this->app->user->setFlash('success', $bidMessageSuccess);
+					
+					$this->redirect(array('view','id'=>$model->bid_id));
+					/*
 					$form = '_form';
 					$categories_list_level1 = Categories::model()->getCategoriesLevel1($connection);
 
-					$this->app->user->setFlash('bidMessageSuccess', $bidMessageSuccess);
+					
 
 					$data = array(
 						'category_id'=>'0',
@@ -611,6 +615,7 @@ class BidsController extends Controller
 						'categories_list'=>array(),
 
 					);
+					*/
 					
 				} else {
 					

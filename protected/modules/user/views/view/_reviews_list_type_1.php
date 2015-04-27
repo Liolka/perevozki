@@ -17,8 +17,6 @@ $cs->registerScript('loading', "
 						//$('#step2Container .checkbox').styler();
 					}
 				});
-			
-				console.log(value);
 			} else {
 			}
 			
@@ -49,9 +47,8 @@ $cs->registerCoreScript('simplyCountable');
 	'itemView'=>'_view_reviews_item_type_1',
 	'ajaxUpdate'=>false,
 	'template'=>"{items}",
-	//'itemsCssClass' => 'blue-border-1 p-20 mb-10 bg_f4fbfe_h pos-rel clearfix',
 	'itemsCssClass' => 'mb-10',
 	'htmlOptions' => array('id'=>'listView', 'class'=>'requests1-list-items'),
 )); ?>
 
-<a href="#" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Смотреть все</a>
+<a href="<?=$this->createUrl('/user/requests', array('id'=>$model->id))?>" id="showMore" class="requests-more-btn db text_c c_1e91da narrow-regular-20 blue-border-1 bg_f4fbfe">Смотреть все</a>

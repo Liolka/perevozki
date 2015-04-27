@@ -56,6 +56,7 @@ $routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unload
 //		https://api.vk.com/method/places.getStreetById?sids=282
 //		
 
+$added_date = getTimeAgo($model->created);
 ?>
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript">
@@ -122,7 +123,10 @@ $routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unload
 
 <div class="bid-detail-route-block mb-30">
 	<div class="bid-view-created fRight clearfix">
-		<span class="db font-12 c_aab1ba mb-5"><?=getTimeAgo($model->created).' добавил'?></span>
+		<? /*<span class="db font-12 c_aab1ba mb-5"><?=getTimeAgo($model->created).' добавил'?></span> */?>
+		<? if($added_date)	{	?>
+			<span class="db font-12 c_aab1ba mb-5"><?=$added_date.' добавил'?></span>
+		<?	}	?>
 		<span class="db p-0-20 text_r mb-5">
 			<span class="db profile-link">
 				<a class="c_71a72c pr-5" target="_blank" href="<?=$this->createUrl('/user/view', array('id'=>$model->user_id))?>"><?=$model->username?></a>
@@ -142,16 +146,16 @@ $routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unload
 
 	<ul class="bid-detail-route-list clearfix">
 		<li class="route-start fLeft">
-			<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$model->loading_town?></p>
-			<p class="route-address"><?=$model->loading_address?></p>			
+			<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20 capitalize"><?=$model->loading_town?></p>
+			<p class="route-address capitalize"><?=$model->loading_address?></p>			
 		</li>
 		
 		<? foreach($routeArray as $k=>$rItem)	{	?>
 			<li class="route-item fLeft ml-40 table-row">
 				<div class="route-item-arrow table-cell for_sprite"><span id="route_item_<?=$k?>" class="font-16"></span></div>
 				<div class="route-item-wr table-cell for_sprite">
-					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20"><?=$rItem['town']?></p>
-					<p class="route-address"><?=$rItem['address']?></p>
+					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20 capitalize"><?=$rItem['town']?></p>
+					<p class="route-address capitalize"><?=$rItem['address']?></p>
 				</div>
 			</li>
 		<?	}	?>
@@ -192,8 +196,13 @@ $routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unload
 			<?	}	?>
 		</div>
 		<div class="bid-detail-price">
-			<span class="bid-detail-price-title">Заказчик предлагает:</span>
-			<span class="bid-detail-price-wr">до <? echo $NumberFormatter->formatDecimal($model->price)?>р.</span>
+			
+			<? if($model->price > 0) {	?>
+				<span class="bid-detail-price-title">Заказчик предлагает:</span>
+				<span class="db font-24 bold mt-5">до <? echo $NumberFormatter->formatDecimal($model->price)?>р.</span>
+			<?	}	else	{	?>
+				<span class="db pt-10">цена не указана</span>
+			<?	}	?>
 		</div>
 		<? if($is_perevozchik && $show_deal_frm)	{	?>
 			<a href="#new-deal" id="bid-detail-respond-btn" class="btn-blue-66 bid-detail-respond-btn">Откликнуться</a>
@@ -211,7 +220,7 @@ $routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unload
 					</a>
 					
 			<?	}	else	{	?>
-				<li class="bid-detail-cargo-listitem for_sprite requests-list-item_number-cat-<?=$cargo['category_id'] ?>">
+				<li class="bid-detail-cargo-listitem for_sprite cat-b-<?=$cargo['category_id'] ?> bp-cat-<?=$cargo['category_id'] ?>">
 			<?	}	?>
 			
 				<div class="mb-20">
@@ -472,6 +481,8 @@ $routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unload
 				</div>		
 			<?	}	?>
 		</div>	
+	<?	}	else	{	?>
+		<div class="blue-border-1 p-30 mb-40 narrow-regular-30 c_8ec0d6">Предложений от перевозчиков ещё не поступало</div>
 	<?	}	?>
 
 

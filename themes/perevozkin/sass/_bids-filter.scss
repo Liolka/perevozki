@@ -21,6 +21,15 @@
 	.jq-checkbox .jq-checkbox__div {
 		//background-color: #fff;
 	}
+	
+	input[type="text"] {
+		border-color: #516170;
+		
+		&:focus {
+			border-color: #516170;
+			@include box-shadow(0px 0px 0px 0px #516170);
+		}
+	}
 }
 
 .bids-filter-block {
