@@ -10,34 +10,22 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 
 <? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
+<?/*
 <div class="bg_697f9a">
-	<ul class="clearfix">
-		
+	<ul class="clearfix">		
 		<li class="fLeft for_sprite my-menu-item my-menu-item-zayavki">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/requests')?>">Заявки</a>
 			<span class="db font-12 c_d0daea"><?=$totalBids.' '. Yii::t('app', 'штука|штуки|штук', $totalBids) ?></span>
 		</li>
-		<?/*
-		<li class="my-menu-item my-menu-item-transport">
-			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/transport')?>">Транпорт</a>
-			<span class="my-menu-descr">54 единиц</span>
-		</li>
-		
-		<li class="my-menu-item my-menu-item-documents">
-			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/documents')?>">Мои документы</a>
-			<span class="my-menu-descr"><?=$documents_count.' '. Yii::t('app', 'единица|единицы|единиц', $documents_count) ?></span>
-		</li>
-		*/?>
 		<li class="fLeft for_sprite my-menu-item my-menu-item-info">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Основные данные</a>
-			<? /*<span class="my-menu-descr my-menu-descr-small">Тип компании, количество сотрудников, год основания и т.д.</span> */ ?>
 		</li>
 		<li class="fLeft for_sprite my-menu-item my-menu-item-profile">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/edit')?>">Регистрационные данные</a>
-			<? /*<span class="my-menu-descr my-menu-descr-small">Регистрационный email, пароль, регистрационный телефон.</span>*/ ?>
 		</li>
 	</ul>
 </div>
+*/?>
 
 <div class="my-page clearfix">
 	<div class="content column2r">

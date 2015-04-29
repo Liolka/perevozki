@@ -334,6 +334,14 @@ if($('#Bids_have_account').is(':checked')) {
 								<?php echo $form->error($model,'bid_name'); ?>
 							</div>
 						</div>
+						
+						<div class="row form-row">
+							<div class="col-md-12 col-lg-12">
+								<?php echo $form->labelEx($model,'user_status', array('class'=>'lbl-block')); ?>
+								<?php echo $form->radioButtonList($model, 'user_status', $model->user_status_labels, array('separator'=>' ')); ?>
+								<?php echo $form->error($model,'user_status'); ?>
+							</div>
+						</div>
 					</div>
 					
 					<div id="step-login-form" class="hide-block">
@@ -352,6 +360,8 @@ if($('#Bids_have_account').is(':checked')) {
 							</div>
 						</div>
 					</div>
+					
+					
 				
 				</div>
 				<? } ?>

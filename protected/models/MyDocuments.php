@@ -11,7 +11,7 @@ class MyDocuments extends CFormModel
 	public function rules()
 	{
 		return array(
-			array('file', 'file', 'types'=>'ZIP,RAR,DOC,DOCX', 'minSize' => 1024,'maxSize' => 1048576, 'wrongType'=>'Не формат. Только {extensions}', 'tooLarge' => 'Допустимый вес 1Мб'),
+			array('file', 'file', 'types'=>'ZIP,RAR,DOC,DOCX,JPEG,JPG,PNG,TIFF,BMP,PDF', 'minSize' => 1024,'maxSize' => (5*1024*1024), 'wrongType'=>'Не формат. Только {extensions}', 'tooLarge' => 'Допустимый размер 5Мб'),
 		);
 	}
 

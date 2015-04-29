@@ -525,9 +525,6 @@ body {
         @extend %c_697f9a;
     }
     
-    input[type="radio"] {
-        margin-top: 0;
-    }
     /*
     input[type="text"],
     input[type="password"] {
@@ -542,6 +539,13 @@ body {
     
 
 }
+
+#Bids_user_status input[type="radio"],
+.modal-content input[type="radio"] {
+	margin-top: 0;
+}
+
+
 
     .checkbox-wr {
         label {
@@ -621,10 +625,13 @@ button.close {
         @extend %fl;
     }
     
-    label {
-        padding: 0 35px 0 5px;
-    }
 }
+
+#Bids_user_status label,
+#RegistrationForm_user_status label {
+	padding: 0 35px 0 5px;
+}
+
 
 .select-user-type-lbl {
     @extend %pt_sans_narrow_bold;

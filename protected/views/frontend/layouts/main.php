@@ -173,7 +173,7 @@
 			<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>			
 				<div class="statistic-block clearfix">
 					<ul>
-						<li><span>61759 гузов</span> Перевезено</li>
+						<li><span>61759 грузов</span> Перевезено</li>
 						<li><span>900 000 тонн</span> Общей массой</li>
 						<li><span>500 000 км</span> Преодолено</li>
 					</ul>

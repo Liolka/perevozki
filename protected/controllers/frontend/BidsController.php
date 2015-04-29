@@ -367,7 +367,7 @@ class BidsController extends Controller
 								$model_reg->status=User::STATUS_NOACTIVE;
 
 								$model_reg->user_type = 1;
-								$model_reg->user_status = 1;
+								$model_reg->user_status = $model->user_status;
 
 								if ($model_reg->save()) {
 									$profile->user_id=$model_reg->id;

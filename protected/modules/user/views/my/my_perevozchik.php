@@ -10,6 +10,7 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 
 <? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
+<?/*
 <div class="bg_697f9a">
 	<ul class="clearfix">
 		<li class="fLeft for_sprite my-menu-item my-menu-item-zayavki">
@@ -26,15 +27,13 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 		</li>
 		<li class="fLeft for_sprite my-menu-item my-menu-item-info">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/info')?>">Основные данные</a>
-			<? /*<span class="my-menu-descr my-menu-descr-small">Тип компании, количество сотрудников, год основания и т.д.</span> */ ?>
 		</li>
 		<li class="fLeft for_sprite my-menu-item my-menu-item-profile my-menu-item-br-none">
 			<a class="my-menu-url" href="<?=$this->createUrl('/user/my/edit')?>">Регистрационные данные</a>
-			<? /* <span class="my-menu-descr my-menu-descr-small">Регистрационный email, пароль, регистрационный телефон.</span> */ ?>
 		</li>
 	</ul>
 </div>
-
+*/?>
 
 <div class="my-page clearfix">
 	<div class="content column2r">
