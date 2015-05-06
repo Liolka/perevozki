@@ -37,6 +37,7 @@ $cs->registerCoreScript('fancybox');
 				'clientOptions'=>array(
 					'validateOnSubmit'=>true,
 				),
+				'action'=>$this->createUrl('/bids/index'),
 
 			)); ?>
 			

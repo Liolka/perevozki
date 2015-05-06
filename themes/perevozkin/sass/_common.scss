@@ -349,24 +349,13 @@ body {
 }
 
 .map-block {
-	padding-top: 115px;
-	height: 280px;
+	padding-top: 15px;
+	height: 395px;
 	background: url(../images/map.jpg) no-repeat top center;
 	
-	.info {
-		width: 650px;
-		
-		margin: 0 auto 0 auto;
-		
-		@extend %text_c;
-		
-		span {
-			padding-bottom: 25px;
-			@extend %pt_sans_narrow_bold;
-			@extend %font_48;
-			@extend %c_fff;
-			@extend %db;
-		}
+	.info {		
+		@extend %pt_sans_narrow_bold;
+		@extend %font_48;
 	}
 	
 	.btn-zakazhu {

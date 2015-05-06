@@ -48,6 +48,7 @@ class BidsController extends Controller
 					'uploadfoto',
 					'setcargonum',
 					'removebid',
+					'category',
 				),
 				'users'=>array('*'),
 			),
@@ -776,14 +777,6 @@ class BidsController extends Controller
 		
 		$criteria = new CDbCriteria;		
 		$criteria->select = "t.*, u.username, u.last_activity";
-/*		
-SELECT t.*, u.username FROM `1gsk_bids` `t` 
-INNER JOIN 1gsk_users AS u ON t.`user_id` = u.`id` 
-INNER JOIN 1gsk_bids_cargoes AS bc USING (`bid_id`)
-INNER JOIN 1gsk_cargoes_categories AS cc USING (`cargo_id`)
-WHERE cc.category_id IN (2) 
-ORDER BY t.created DESC LIMIT 20
-*/
 		
 		switch($type_sort) {
 			case 'datepub':
@@ -921,6 +914,249 @@ ORDER BY t.created DESC LIMIT 20
                 'type_sort'=>$type_sort,
             ));
         }		
+	}
+	
+	
+	/**
+	 * Lists Category.
+	 */
+	public function actionCategory($id)
+	{
+		//echo'<pre>';print_r($id);echo'</pre>';
+		
+		
+		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);
+		
+		$model = new BidsFilter;
+		
+		//$rows_pages = Bids::model()->getBids();
+		
+		//$this->processPageRequest('page');
+		processPageRequest('page');
+		
+		//$clear_bids_filter = $this->app->request->getParam('clear-bids-filter', 0);
+		
+		//if($clear_bids_filter)	{
+			unset($this->app->session['bidslst.BidsFilter']);
+			unset($this->app->session['bidslst.BidsFilterCategories']);
+			//$this->redirect(array('index'));
+		//}
+		
+		$type_sort = $this->app->request->getParam('type-sort', '');
+		//$type_sort = '';
+		
+		
+		
+		if($type_sort != '')	{
+			$this->app->session['bidslst.type_sort'] = $type_sort;
+			//$this->redirect(array('index'));
+		}	elseif(isset($this->app->session['bidslst.type_sort'])) {
+			$type_sort = $this->app->session['bidslst.type_sort'];
+		}	else	{
+			$type_sort = 'datepub';
+		}
+		
+		//echo'<pre>';print_r($_POST);echo'</pre>';
+		
+		$filtering = false;
+		/*
+		if(isset($_POST['BidsFilter']))	{
+			$model->attributes = $_POST['BidsFilter'];
+			//echo'<pre>';print_r($model->attributes);echo'</pre>';
+			if($model->validate())	{
+				$this->app->session['bidslst.BidsFilter'] = $_POST['BidsFilter'];
+				$filtering = true;
+			}	else	{
+				
+			}
+		}	elseif(isset($this->app->session['bidslst.BidsFilter']))	{
+			$model->attributes = $this->app->session['bidslst.BidsFilter'];
+			$filtering = true;
+
+		}
+		*/
+		
+		$BidsFilterCategories = array($id);
+		
+		/*
+		if(isset($_POST['bids-filter-categories']))	{
+			$this->app->session['bidslst.BidsFilterCategories'] = $_POST['bids-filter-categories'];
+			$BidsFilterCategories = $_POST['bids-filter-categories'];
+			$filtering = true;
+		} elseif(isset($_POST['BidsFilter']) && !isset($_POST['bids-filter-categories']))	{
+			unset($this->app->session['bidslst.BidsFilterCategories']);
+			
+		} elseif(isset($this->app->session['bidslst.BidsFilterCategories']))	{
+			$BidsFilterCategories = $this->app->session['bidslst.BidsFilterCategories'];
+			$filtering = true;
+		}
+		*/
+		$join = array();
+		$join[] = "INNER JOIN {{users}} AS u ON t.`user_id` = u.`id`";
+		
+		$criteria = new CDbCriteria;		
+		$criteria->select = "t.*, u.username, u.last_activity";
+		
+		switch($type_sort) {
+			case 'datepub':
+				$criteria->order = 't.created DESC';
+				break;
+			case 'dateperevoz':
+				$criteria->order = 't.date_transportation DESC';
+				break;
+			default:
+				$criteria->order = 't.bid_id DESC';
+			break;
+		}
+		
+		//echo'<pre>';print_r($criteria->order);echo'</pre>';
+		/*
+		if($filtering === true)	{
+			
+			$condition_arr = array();
+
+			if($model->bids_filter_dates_from != '')	{
+				$condition_arr[] = "t.date_transportation >= '".$model->bids_filter_dates_from."'";
+			}
+
+			if($model->bids_filter_dates_to != '')	{
+				$condition_arr[] = "t.date_transportation <= '".$model->bids_filter_dates_to."'";
+			}
+
+			if($model->town_from != '' && $model->town_to != '')	{
+				$condition_arr[] = "t.loading_town = '".$model->town_from."' AND t.unloading_town = '".$model->town_to."'";
+			}	elseif($model->town_from != '' )	{
+				$condition_arr[] = "t.loading_town = '".$model->town_from."'";
+			}	elseif($model->town_to != '')	{
+				$condition_arr[] = "t.unloading_town = '".$model->town_to."'";
+			}
+			
+			if(count($BidsFilterCategories)) {
+				$condition_arr[] = "cc.category_id IN (".implode(', ', $BidsFilterCategories).")";
+				
+				$join[] = "INNER JOIN {{bids_cargoes}} AS bc USING (`bid_id`)";
+				$join[] = "INNER JOIN {{cargoes_categories}} AS cc USING (`cargo_id`)";
+			}
+
+			if(count($condition_arr))	{
+				$criteria->condition = implode(' AND ', $condition_arr);
+			}
+		}
+		*/
+		
+			if(count($BidsFilterCategories)) {
+				$condition_arr[] = "cc.category_id IN (".implode(', ', $BidsFilterCategories).")";
+				
+				$join[] = "INNER JOIN {{bids_cargoes}} AS bc USING (`bid_id`)";
+				$join[] = "INNER JOIN {{cargoes_categories}} AS cc USING (`cargo_id`)";
+			}
+
+			if(count($condition_arr))	{
+				$criteria->condition = implode(' AND ', $condition_arr);
+			}
+		
+		
+		$criteria->join = implode(' ', $join);
+ 
+        $dataProvider = new CActiveDataProvider('Bids', array(
+            'criteria'=>$criteria,
+            'pagination'=>array(
+                'pageSize'=>20,
+				'pageVar' =>'page',
+            ),
+        ));
+		
+		//echo'<pre>';print_r($dataProvider->data);echo'</pre>';
+		
+		$bid_ids = array();
+		foreach($dataProvider->data as $row) {
+			$bid_ids[] = $row->bid_id;
+		}
+		
+		//echo'<pre>';print_r($bid_ids);echo'</pre>';die;
+		
+		$cargoes_info = Cargoes::model()->getCargoresInfo($connection, $bid_ids);
+		//echo'<pre>';print_r($cargoes_info);echo'</pre>';//die;
+		
+		$categories_list = Categories::model()->getCategoriesLevel1($connection);
+		foreach($categories_list as &$i) {
+			$checked = false;
+			foreach($BidsFilterCategories as $cat) {
+				if($i['id'] == $cat)	{
+					$checked = true;
+					break;
+				}
+			}
+			if($checked === true)	{
+				$i['checked'] = 1;
+			}	else	{
+				$i['checked'] = 0;
+			}
+			
+		}
+		
+		$this->getDealsInfo($dataProvider, $cargoes_info, $connection, $bid_ids);
+		//echo'<pre>';print_r($id);echo'</pre>';die;
+		//echo'<pre>';print_r($cargoes_info);echo'</pre>';
+
+        if ($this->app->request->isAjaxRequest){
+            $this->renderPartial('_loopAjax', array(
+                'dataProvider'=>$dataProvider,
+            ));
+            $this->app->end();
+        } else {
+            $this->render('index', array(
+				'model' => $model,
+				'categories_list' => $categories_list,
+                'dataProvider'=>$dataProvider,
+                'type_sort'=>$type_sort,
+            ));
+        }		
+	}
+	
+	
+	protected function getDealsInfo(&$dataProvider, $cargoes_info, &$connection, $bid_ids)
+	{
+		//получаем инфу по кол-ву предложений по заявкам
+		//echo'<pre>11111';print_r($bid_ids);echo'</pre>';die;
+		$deals_count_list = Deals::model()->getBidDealsCount($connection, $bid_ids);
+		
+		
+		foreach($dataProvider->data as $row) {
+			$cargo_name = array();
+			$porters = false;
+			
+			$row->total_weight = 0;
+			$row->total_volume = 0;
+			$row->deals_count = isset($deals_count_list[$row->bid_id]) ? $deals_count_list[$row->bid_id] : 0;
+			
+
+			foreach($cargoes_info as $cargo) {
+				if($cargo['bid_id'] == $row->bid_id) {
+					$cargo_name[] = $cargo['name'];
+
+					if($cargo['porters'] == 1) {
+						$porters = true;
+					}
+					
+					$row->total_weight = $row->total_weight + $cargo['weight'];
+					$row->total_unit = $cargo['unit'];
+					$row->total_volume = $row->total_volume + $cargo['volume'];
+					
+					if($cargo['foto'] != '')	{
+						$row->bid_foto = $cargo['foto'];
+					}
+				}
+			}
+			
+			$row->full_name = implode('. ', $cargo_name);
+			$row->need_porters = $porters;
+			
+		}
+		
 	}
 
 
