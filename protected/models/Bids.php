@@ -92,7 +92,7 @@ class Bids extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('loading_town, loading_address, unloading_town, unloading_address', 'required'),
+			array('loading_town, loading_address, unloading_town, unloading_address, user_status', 'required'),
 			array('login_email, login_password', 'required', 'on'=>self::SCENARIO_LOGIN_FORM),
 			array('bid_email, bid_phone, bid_name', 'required', 'on'=>self::SCENARIO_REG_FORM),
 			array('login_email, bid_email', 'email'),
@@ -144,16 +144,27 @@ class Bids extends CActiveRecord
 			'time_transportation_to' => 'Время',
 			'date_unknown' => 'Дата неизвестна',
 			'price' => 'Максимальная цена',
+			
+			'loading_country' => 'Страна',
 			'loading_town' => 'Город',
 			'loading_address' => 'Адрес',
+			
+			'add_loading_unloading_country_1' => 'Страна',
 			'add_loading_unloading_town_1' => 'Город',
 			'add_loading_unloading_address_1' => 'Адрес',
-			'add_loading_unloading_town_2' => 'Город',
+						
+			'add_loading_unloading_country_2' => 'Страна',
+			'add_loading_unloading_town_2' => 'Город',			
 			'add_loading_unloading_address_2' => 'Адрес',
+			
+			'add_loading_unloading_country_3' => 'Страна',
 			'add_loading_unloading_town_3' => 'Город',
 			'add_loading_unloading_address_3' => 'Адрес',
+			
+			'unloading_country' => 'Страна',
 			'unloading_town' => 'Город',
 			'unloading_address' => 'Адрес',
+			
 			'bid_email' => 'E-mail',
 			'bid_phone' => 'Телефон',
 			'bid_name' => 'Как вас зовут',

@@ -49,6 +49,7 @@ class BidsController extends Controller
 					'setcargonum',
 					'removebid',
 					'category',
+					'createincat',
 				),
 				'users'=>array('*'),
 			),
@@ -645,7 +646,8 @@ class BidsController extends Controller
 			//$model->category_id = $this->app->request->getParam('Cargoes[category_id]', 1);
 			$model->category_id = $_POST['Cargoes']['category_id'];
 			
-			//echo'<pre>';print_r($_POST);echo'</pre>';die;
+			//$countries = CHtml::listData($this->app->params['countries']);			
+			//echo'<pre>';print_r($countries);echo'</pre>';die;
 			
 			$form = '_form_f';
 			$data = array(
@@ -703,6 +705,30 @@ class BidsController extends Controller
 		
 
 		$this->render('create', $data);
+	}
+	
+	public function actionCreateincat($id)
+	{
+		$model = new Bids;
+		$this->app = Yii::app();
+		$connection = $this->app->db;
+		
+		UpdateLastActivity($this->app, $connection);
+		
+		$categories_list_level1 = Categories::model()->getCategoriesLevel1($connection);
+		$categories_list_level2 = Categories::model()->getCategoriesLevel2($connection, $id);
+		
+		$data = array(
+			'category_id'=>$id,
+			'model'=>$model,
+			'categories_list_level1'=>$categories_list_level1,
+			'categories_list_level2'=>$categories_list_level2,
+			'categories_list'=>array(),
+
+		);
+		//echo'<pre>';print_r($data);echo'</pre>';die;
+		
+		$this->render('create-in-cat', $data);
 	}
 
 	/**

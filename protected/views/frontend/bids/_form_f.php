@@ -157,6 +157,15 @@ if($('#Bids_have_account').is(':checked')) {
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
+							<?php echo $form->labelEx($model,'loading_country', array('class'=>'lbl-block')); ?>
+							<?php //echo CHtml::dropDownList('countries-list', '', $this->app->params['countries']);	?>		
+							<?php echo $form->dropDownList($model, 'loading_country', $this->app->params['countries'], 'class'=>'width100');?>
+							<?php echo $form->error($model,'loading_country'); ?>
+						</div>
+					</div>
+					
+					<div class="row form-row">
+						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'loading_town', array('class'=>'lbl-block')); ?>
 							<?php echo $form->textField($model,'loading_town',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
 							<?php echo $form->error($model,'loading_town'); ?>
@@ -182,6 +191,12 @@ if($('#Bids_have_account').is(':checked')) {
 							</div>
 						
 							<div class="row form-row">
+								<div class="col-md-12 col-lg-12">
+									<?php echo $form->labelEx($model,'add_loading_unloading_country_1', array('class'=>'lbl-block')); ?>
+									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_1', $this->app->params['countries'], 'class'=>'width100');?>
+									<?php echo $form->error($model,'add_loading_unloading_country_1'); ?>
+								</div>
+							
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_town_1', array('class'=>'lbl-block')); ?>
 									<?php echo $form->textField($model,'add_loading_unloading_town_1',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
@@ -212,6 +227,12 @@ if($('#Bids_have_account').is(':checked')) {
 						
 							<div class="row form-row">
 								<div class="col-md-12 col-lg-12">
+									<?php echo $form->labelEx($model,'add_loading_unloading_country_2', array('class'=>'lbl-block')); ?>
+									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_2', $this->app->params['countries'], 'class'=>'width100');?>
+									<?php echo $form->error($model,'add_loading_unloading_country_2'); ?>
+								</div>
+							
+								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_town_2', array('class'=>'lbl-block')); ?>
 									<?php echo $form->textField($model,'add_loading_unloading_town_2',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
 									<?php echo $form->error($model,'add_loading_unloading_town_2'); ?>
@@ -240,6 +261,12 @@ if($('#Bids_have_account').is(':checked')) {
 							</div>
 						
 							<div class="row form-row">
+								<div class="col-md-12 col-lg-12">
+									<?php echo $form->labelEx($model,'add_loading_unloading_country_3', array('class'=>'lbl-block')); ?>
+									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_3', $this->app->params['countries'], 'class'=>'width100');?>
+									<?php echo $form->error($model,'add_loading_unloading_country_3'); ?>
+								</div>
+							
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_town_3', array('class'=>'lbl-block')); ?>
 									<?php echo $form->textField($model,'add_loading_unloading_town_3',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
@@ -272,6 +299,12 @@ if($('#Bids_have_account').is(':checked')) {
 					</div>
 					
 					<div class="row form-row">
+						<div class="col-md-12 col-lg-12">
+							<?php echo $form->labelEx($model,'unloading_country', array('class'=>'lbl-block')); ?>
+							<?php echo $form->dropDownList($model, 'unloading_country', $this->app->params['countries'], 'class'=>'width100');?>
+							<?php echo $form->error($model,'unloading_country'); ?>
+						</div>
+					
 						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'unloading_town', array('class'=>'lbl-block')); ?>
 							<?php echo $form->textField($model,'unloading_town',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
