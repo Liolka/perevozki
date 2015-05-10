@@ -222,6 +222,9 @@ a.c_71a72c, a.c_71a72c:hover, a.c_71a72c:focus { @extend %c_71a72c; }
 .bb-dotted-4 { border-bottom: 1px dotted #1e90d9; }
 .bb-dotted-4-h { @extend .bb-dotted-4; &:hover { border-bottom: none; } }
 
+.bb-dotted-5 { border-bottom: 1px dotted #0a80cb; }
+.bb-dotted-5-h { @extend .bb-dotted-5; &:hover { border-bottom: none; } }
+
 .br-none { border-right: none; }
 
 .ov-hidden { overflow: hidden;}

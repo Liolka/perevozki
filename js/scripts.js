@@ -381,7 +381,7 @@ $(document).ready(function () {
 			beforeSend: function () {
 			},
 			success: function (msg) {
-				console.log(msg);
+				//console.log(msg);
 			}
 		});
 		

@@ -92,11 +92,12 @@ class Bids extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('loading_town, loading_address, unloading_town, unloading_address, user_status', 'required'),
+			array('loading_town, loading_address, unloading_town, unloading_address', 'required'),
 			array('login_email, login_password', 'required', 'on'=>self::SCENARIO_LOGIN_FORM),
-			array('bid_email, bid_phone, bid_name', 'required', 'on'=>self::SCENARIO_REG_FORM),
+			array('bid_email, bid_phone, bid_name, user_status', 'required', 'on'=>self::SCENARIO_REG_FORM),
 			array('login_email, bid_email', 'email'),
 			array('login_password', 'length', 'max'=>128, 'min' => 4),
+			array('loading_country, add_loading_unloading_country_1, add_loading_unloading_country_2, add_loading_unloading_country_3, unloading_country', 'length', 'max'=>3),
 			array('bid_phone, bid_name', 'length', 'max'=>128),
 			array('user_review, performer_review', 'length', 'max'=>400, 'min' => 10),
 			//array('date_transportation, time_transportation', 'length', 'max'=>255),
@@ -167,7 +168,7 @@ class Bids extends CActiveRecord
 			
 			'bid_email' => 'E-mail',
 			'bid_phone' => 'Телефон',
-			'bid_name' => 'Как вас зовут',
+			'bid_name' => 'Логин',
 			'have_account' => 'Я уже зарегистрирован на сайте',
 			'login_email' => 'E-mail',
 			'login_password' => 'Пароль',

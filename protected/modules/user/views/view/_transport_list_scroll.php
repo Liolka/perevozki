@@ -1,7 +1,7 @@
 <?
 $counter = 1;
 ?>
-<div id="flexcroll_transport_list" class="flexcroll77 flexcroll-transport-list">
+<div id="flexcroll_transport_list" class="flexcroll flexcroll-transport-list">
 	<ul class="transport-list transport-list-in-row clearfix pos-rel" style="width:<?=(405 * count($dataProvider->data))?>px">
 		<? foreach($dataProvider->data as $row) { ?>
 

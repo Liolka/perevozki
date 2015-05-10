@@ -53,8 +53,8 @@ if($data->total_volume)	{
 		<?	}	?>
 	</div>
 	<div class="requests-list-item_from fLeft pos-rel">
-		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->loading_town; ?></span>
-		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->loading_address; ?></span>
+		<span class="requests-list-item_town route-town country-<?=$data->loading_country ? $data->loading_country : 'by'?> db mb-5 c_2e3c54 bold capitalize"><?php echo $data->loading_town; ?></span>
+		<span class="requests-list-item_adress db c_8e95a1 font-12 capitalize"><?php echo $data->loading_address; ?></span>
 		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">
 			Добавил <?=getTimeAgo($data->created)?> 
 			<a href="<?=$this->controller->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1 pr-5" target="_blank"><?php echo $data->username; ?></a>
@@ -65,16 +65,16 @@ if($data->total_volume)	{
 			<?	}	?>				
 		</p>
 	</div>
-	<div class="requests-list-item_to fLeft">
-		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->unloading_town; ?></span>
-		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->unloading_address; ?></span>
+	<div class="requests-list-item_to fLeft pos-rel">
+		<span class="requests-list-item_town route-town country-<?=$data->unloading_country ? $data->unloading_country : 'by'?> db pb-5 c_2e3c54 bold capitalize"><?php echo $data->unloading_town; ?></span>
+		<span class="requests-list-item_adress db c_8e95a1 font-12 capitalize"><?php echo $data->unloading_address; ?></span>
 	</div>
 	<div class="requests-list-item_date fLeft">
 		<span class="requests-list-item_created c_8e95a1 font-13"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation); ?></span>
 		<p class="requests-list-item_suggestions c_8e95a1 font-13"><span class="<? if(isQuickly($data->date_transportation)) { echo 'suggestion-orange'; } else { echo 'suggestion-green'; }?> c_fff dib"><?=$data->deals_count?></span><?php echo Yii::t('app', 'предложение|предложения|предложений|предложения', $data->deals_count); ?></p>
 	</div>
 	<div class="requests-list-item_price fRight ">
-		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54">до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.</span>
+		<span class="requests-list-item-price_price db mb-15 bold font-17 c_2e3c54"><? if($data->price != 0) { ?>до <?php echo $this->app->NumberFormatter->formatDecimal($data->price)?> р.<?	}	else	{	echo 'Цена не указана'; } ?></span>
 		<? if ($this->app->user->isGuest)	{	?>
 			
 			<a class="btn-blue-33 db p-0-20 login-btn" href="<?=$this->controller->createUrl('/user/login')?>">Откликнуться</a>			

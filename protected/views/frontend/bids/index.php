@@ -117,11 +117,13 @@ $cs->registerCoreScript('fancybox');
 				<span class="bids-filter-title">Маршрут</span>
 				<p>
 					<?php echo $form->labelEx($model,'town_from', array('class'=>'lbl-block')); ?>
+					<?php // echo $form->dropDownList($model, 'country_from', $countries_list, array('class'=>'width100 mb-5'));?>
 					<?php echo $form->textField($model,'town_from', array('size'=>60,'maxlength'=>128, 'class'=>'width100')); ?>
 				</p>
 				
 				<p>
 					<?php echo $form->labelEx($model,'town_to', array('class'=>'lbl-block')); ?>
+					<?php //echo $form->dropDownList($model, 'country_to', $countries_list, array('class'=>'width100 mb-5'));?>
 					<?php echo $form->textField($model,'town_to', array('size'=>60,'maxlength'=>128, 'class'=>'width100')); ?>
 				</p>
 				

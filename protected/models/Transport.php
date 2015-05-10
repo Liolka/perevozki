@@ -43,8 +43,8 @@ class Transport extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
-			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('name, year', 'required'),
+			array('user_id, year', 'numerical', 'integerOnly'=>true),
 			array('length, width, height, volume', 'numerical'),
 			array('carrying', 'length', 'max'=>10),
 			array('name, body_type, loading_type, comment, foto', 'length', 'max'=>255),
@@ -76,6 +76,7 @@ class Transport extends CActiveRecord
 			'transport_id' => 'Transport',
 			'user_id' => 'User',
 			'name' => 'Название',
+			'year' => 'Год выпуска',
 			'foto' => 'Foto',
 			'carrying' => 'Грузоподъёмность',
 			'length' => 'Д х Ш х В',
@@ -109,6 +110,7 @@ class Transport extends CActiveRecord
 		$criteria->compare('transport_id',$this->transport_id);
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('name',$this->name);
+		$criteria->compare('year',$this->year);
 		$criteria->compare('foto',$this->foto);
 		$criteria->compare('carrying',$this->carrying,true);
 		$criteria->compare('length',$this->length);
@@ -137,7 +139,7 @@ class Transport extends CActiveRecord
 	
 	public function getUserTransportList(&$connection, $user_id)
 	{
-		$sql = "SELECT `transport_id`, `name` FROM ".$this->tableName()." WHERE `user_id` = :user_id";
+		$sql = "SELECT `transport_id`, `name`, `year` FROM ".$this->tableName()." WHERE `user_id` = :user_id";
 		//echo'<pre>';print_r($sql);echo'</pre>';
 		$command = $connection->createCommand($sql);
 		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
@@ -148,7 +150,7 @@ class Transport extends CActiveRecord
 	{
 		$result = array();
 		if(count($transport_ids)) {
-			$sql = "SELECT `transport_id`, `user_id`, `name`, `foto`, `carrying`, `length`, `width`, `height`, `volume`, `body_type`, `loading_type`, `comment` FROM ".$this->tableName()." WHERE `transport_id` IN (".implode(',', $transport_ids).")";
+			$sql = "SELECT `transport_id`, `user_id`, `name`, `year`, `foto`, `carrying`, `length`, `width`, `height`, `volume`, `body_type`, `loading_type`, `comment` FROM ".$this->tableName()." WHERE `transport_id` IN (".implode(',', $transport_ids).")";
 			//echo'<pre>';print_r($sql);echo'</pre>';
 			$command = $connection->createCommand($sql);
 			$rows = $command->queryAll();

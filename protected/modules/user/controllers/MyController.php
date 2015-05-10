@@ -236,7 +236,7 @@ class MyController extends Controller
 		$model = new Transport;
 		
 		$criteria = new CDbCriteria;
-		$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+		$criteria->select = "transport_id, name, year, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
 		$criteria->condition = '`user_id` = '.$this->app->user->id;
 		$criteria->order = 'transport_id DESC';
 		
@@ -267,7 +267,7 @@ class MyController extends Controller
 		if(isset($_POST['Transport'])) {
 			
 			$criteria = new CDbCriteria;
-			$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+			$criteria->select = "transport_id, name, year, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
 			$criteria->condition = '`user_id` = '.$this->app->user->id;
 			$criteria->order = 'transport_id DESC';
 			

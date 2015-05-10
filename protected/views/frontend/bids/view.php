@@ -45,10 +45,10 @@ $show_deal_frm = true;
 //echo'<pre>';print_r($model);echo'</pre>';
 
 $routeArray = array();
-if($model->add_loading_unloading_town_1 != '') $routeArray[] = array('town' =>$model->add_loading_unloading_town_1, 'address'=>$model->add_loading_unloading_address_1);
-if($model->add_loading_unloading_town_2 != '') $routeArray[] = array('town' =>$model->add_loading_unloading_town_2, 'address'=>$model->add_loading_unloading_address_2);
-if($model->add_loading_unloading_town_3 != '') $routeArray[] = array('town' =>$model->add_loading_unloading_town_3, 'address'=>$model->add_loading_unloading_address_3);
-$routeArray[] = array('town' =>$model->unloading_town, 'address'=>$model->unloading_address);
+if($model->add_loading_unloading_town_1 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_1, 'town' =>$model->add_loading_unloading_town_1, 'address'=>$model->add_loading_unloading_address_1);
+if($model->add_loading_unloading_town_2 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_2, 'town' =>$model->add_loading_unloading_town_2, 'address'=>$model->add_loading_unloading_address_2);
+if($model->add_loading_unloading_town_3 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_3, 'town' =>$model->add_loading_unloading_town_3, 'address'=>$model->add_loading_unloading_address_3);
+$routeArray[] = array('country' =>$model->unloading_country, 'town' =>$model->unloading_town, 'address'=>$model->unloading_address);
 
 
 //		https://api.vk.com/method/places.getCountries
@@ -98,7 +98,7 @@ $added_date = getTimeAgo($model->created);
         }
     </script>
 <div class="pos-rel">
-	<h1><?php echo $bid_name; ?></h1>
+	<h1 class="bid-view-hdr"><?php echo $bid_name; ?></h1>
 
 	<p class="bid-detail-number narrow-bold-23">Заявка №<?=$model->bid_id;?></p>
 	
@@ -110,16 +110,14 @@ $added_date = getTimeAgo($model->created);
 			echo CHtml::link('Отменена', 'javascript:void(0)', array('class'=>'db pos-abs underline_n_n narrow-regular-24 c_96a5b8 bb-dotted-3-h cancel-bid'));
 		}
 		
+		if(count($deals_list) == 0)	{
+			echo CHtml::link('Редактировать заявку', array('/bids/updatebid', 'id'=>$model->bid_id), array('class'=>'db pos-abs underline_n_n narrow-regular-24 c_0a80cb bb-dotted-5-h update-bid'));
+		}
 	}	
 	?>
 </div>
 
-<?php if($this->app->user->hasFlash('success')): ?>
-	<div class="flash-message flash-success">
-		<?php echo $this->app->user->getFlash('success'); ?>
-	</div>
-<?php endif; ?>
-
+<? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
 <div class="bid-detail-route-block mb-30">
 	<div class="bid-view-created fRight clearfix">
@@ -146,7 +144,7 @@ $added_date = getTimeAgo($model->created);
 
 	<ul class="bid-detail-route-list clearfix">
 		<li class="route-start fLeft">
-			<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20 capitalize"><?=$model->loading_town?></p>
+			<p class="route-town country-<?=$model->loading_country ? $model->loading_country : 'by'?> mb-5 bold for_sprite pl-20 ml-20 capitalize"><?=$model->loading_town?></p>
 			<p class="route-address capitalize"><?=$model->loading_address?></p>			
 		</li>
 		
@@ -154,7 +152,7 @@ $added_date = getTimeAgo($model->created);
 			<li class="route-item fLeft ml-40 table-row">
 				<div class="route-item-arrow table-cell for_sprite"><span id="route_item_<?=$k?>" class="font-16"></span></div>
 				<div class="route-item-wr table-cell for_sprite">
-					<p class="route-town counry-by mb-5 bold for_sprite pl-20 ml-20 capitalize"><?=$rItem['town']?></p>
+					<p class="route-town country-<?=$rItem['country'] ? $rItem['country'] : 'by'?> mb-5 bold for_sprite pl-20 ml-20 capitalize"><?=$rItem['town']?></p>
 					<p class="route-address capitalize"><?=$rItem['address']?></p>
 				</div>
 			</li>
@@ -174,7 +172,7 @@ $added_date = getTimeAgo($model->created);
 					<span class="db fLeft p-0-5">
 						<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation); ?>
 						<? if($model->time_transportation != '00:00:00')	{	?>
-							<span class="db font-14 normal pt-5"><?php echo $model->time_transportation; ?></span>
+							<span class="db font-14 normal pt-5"><?php echo $this->app->dateFormatter->format('HH:mm', $model->time_transportation); ?></span>
 						<?	}	?>
 					</span>
 				<?	}	?>
@@ -185,7 +183,7 @@ $added_date = getTimeAgo($model->created);
 					<span class="db fLeft p-0-5">
 						<?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $model->date_transportation_to); ?>
 						<? if($model->time_transportation_to != '00:00:00')	{	?>
-							<span class="db font-14 normal pt-5"><?php echo $model->time_transportation_to; ?></span>
+							<span class="db font-14 normal pt-5"><?php echo $this->app->dateFormatter->format('HH:mm', $model->time_transportation_to); ?></span>
 						<?	}	?>
 					</span>
 				<?	}	?>

@@ -2,15 +2,17 @@
 header('Content-Type: text/html; charset=utf-8');
 error_reporting (E_ALL);
 
+// включать дебаг?
+defined('YII_DEBUG') or define('YII_DEBUG', true);
+defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
+
+
 require(dirname(__FILE__).'/protected/components/GlobalFunctions.php');
 
 // путь до фреймворка и нужного нам конфига
 $yii=dirname(__FILE__).'/framework/yii.php';
 $config = dirname(__FILE__).'/protected/config/frontend.php';
  
-// включать дебаг?
-defined('YII_DEBUG') or define('YII_DEBUG', true);
-defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
  
 // подключаем фреймворк
 require_once($yii);

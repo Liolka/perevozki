@@ -55,8 +55,8 @@ isQuickly($data->date_transportation);
 		<?	}	?>
 	</div>
 	<div class="requests-list-item_from fLeft pos-rel">
-		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->loading_town; ?></span>
-		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->loading_address; ?></span>
+		<span class="requests-list-item_town route-town country-<?=$data->loading_country ? $data->loading_country : 'by'?> db mb-5 c_2e3c54 bold capitalize"><?php echo $data->loading_town; ?></span>
+		<span class="requests-list-item_adress db c_8e95a1 font-12 capitalize"><?php echo $data->loading_address; ?></span>
 		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">
 			Добавил <?=$this->getTimeAgo($data->created)?> 
 			<a href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1 pr-5" target="_blank"><?php echo $data->username; ?></a>
@@ -68,9 +68,9 @@ isQuickly($data->date_transportation);
 			
 		</p>
 	</div>
-	<div class="requests-list-item_to fLeft">
-		<span class="requests-list-item_town counry-by db pb-5 c_2e3c54 font-13 bold"><?php echo $data->unloading_town; ?></span>
-		<span class="requests-list-item_adress db c_8e95a1 font-12"><?php echo $data->unloading_address; ?></span>
+	<div class="requests-list-item_to fLeft pos-rel">
+		<span class="requests-list-item_town route-town country-<?=$data->unloading_country ? $data->unloading_country : 'by'?> db mb-5 c_2e3c54 bold capitalize"><?php echo $data->unloading_town; ?></span>
+		<span class="requests-list-item_adress db c_8e95a1 font-12 capitalize"><?php echo $data->unloading_address; ?></span>
 	</div>
 	<div class="requests-list-item_date fLeft">
 		<? 

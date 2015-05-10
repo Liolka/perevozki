@@ -25,6 +25,8 @@
 class Cargoes extends CActiveRecord
 {
 	
+	const SCENARIO_SAVE_CARGO = 'save_cargo';
+	
 	public $DropDownUnitsList;
 	public $SelectedUnitsList;
 	
@@ -36,9 +38,11 @@ class Cargoes extends CActiveRecord
 	public $category_id;
 	
 	public $category1;
+	public $cargo_id1;
 	public $name1;
 	public $comment1;
 	public $unit1;
+	public $selected_unit1;
 	public $porters1;
 	public $lift_to_floor1;
 	public $lift1;
@@ -51,9 +55,11 @@ class Cargoes extends CActiveRecord
 	public $foto1;
 	
 	public $category2;
+	public $cargo_id2;
 	public $name2;
 	public $comment2;
 	public $unit2;
+	public $selected_unit2;
 	public $porters2;
 	public $lift_to_floor2;
 	public $lift2;
@@ -66,9 +72,11 @@ class Cargoes extends CActiveRecord
 	public $foto2;
 	
 	public $category3;
+	public $cargo_id3;
 	public $name3;
 	public $comment3;
 	public $unit3;
+	public $selected_unit3;
 	public $porters3;
 	public $lift_to_floor3;
 	public $lift3;
@@ -81,9 +89,11 @@ class Cargoes extends CActiveRecord
 	public $foto3;
 	
 	public $category4;
+	public $cargo_id4;
 	public $name4;
 	public $comment4;
 	public $unit4;
+	public $selected_unit4;
 	public $porters4;
 	public $lift_to_floor4;
 	public $lift4;
@@ -112,6 +122,7 @@ class Cargoes extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			//array('name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume', 'required'),
+			array('name', 'required', 'on'=>self::SCENARIO_SAVE_CARGO),
 			array(
 				'unit, porters, lift_to_floor, floor, lift,
 				 unit1, porters1, lift_to_floor1, floor1, lift1,

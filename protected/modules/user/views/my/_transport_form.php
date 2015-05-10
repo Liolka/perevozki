@@ -42,6 +42,11 @@ $transport_image = $model->foto ? $this->app->homeUrl.'files/users/'.$this->app-
 					</div>
 					<div class="table">
 						<div class="table-row">
+							<p class="table-cell transport-form-col1"><?php echo $form->labelEx($model,'year', array('class'=>'font-12 normal')); ?></p>
+							<p class="table-cell"><?php echo $form->textField($model,'year',array('size'=>3,'maxlength'=>255, 'class'=>'width100')); ?></p>
+							<p class="table-cell bold"></p>
+						</div>
+						<div class="table-row">
 							<p class="table-cell transport-form-col1"><?php echo $form->labelEx($model,'carrying', array('class'=>'font-12 normal')); ?></p>
 							<p class="table-cell"><?php echo $form->textField($model,'carrying',array('size'=>3,'maxlength'=>255, 'class'=>'width100')); ?></p>
 							<p class="table-cell bold">&nbsp;кг</p>

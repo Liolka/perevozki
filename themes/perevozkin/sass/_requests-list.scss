@@ -297,11 +297,33 @@
 	}
 }
 
-.counry-by {
-	background: url(../images/flags/by.gif) no-repeat left 3px;
+.route-town {
 	height: 16px;
 	line-height: 16px;
+	
+	&:after {
+		content: '';
+		top: 2px;
+		left: 0;
+		@extend %db;
+		@extend %pos_abs;
+	}
 }
+
+.country-by:after {@extend .ico-by;}
+.country-ru:after {@extend .ico-ru;}
+.country-kz:after {@extend .ico-kz;}
+.country-lt:after {@extend .ico-lt;}
+.country-pl:after {@extend .ico-pl;}
+.country-lv:after {@extend .ico-lv;}
+.country-ee:after {@extend .ico-ee;}
+.country-de:after {@extend .ico-de;}
+.country-se:after {@extend .ico-se;}
+.country-fi:after {@extend .ico-fi;}
+.country-no:after {@extend .ico-no;}
+.country-cz:after {@extend .ico-cz;}
+.country-md:after {@extend .ico-md;}
+.country-ua:after {@extend .ico-ua;}
 
 .requests-more-btn {
 	padding: 10px 0 12px 0;

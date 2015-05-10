@@ -160,7 +160,7 @@ class ViewController extends Controller
 	public function getTansportUser($user_id)
 	{
 		$criteria = new CDbCriteria;
-		$criteria->select = "transport_id, name, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
+		$criteria->select = "transport_id, name, year, foto, carrying, length, width, height, volume, body_type, loading_type, comment";
 		$criteria->order = 'transport_id DESC';
 		$criteria->condition = "user_id = $user_id";
 

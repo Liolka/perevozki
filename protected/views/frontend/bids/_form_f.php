@@ -3,12 +3,11 @@
 /* @var $model Bids */
 /* @var $form CActiveForm */
 
-Yii::app()->clientScript->registerScript('form_f', "
+$this->app->clientScript->registerScript('form_f', "
 if($('#Bids_have_account').is(':checked')) {
 	$('#step-reg-form').hide();
 	$('#step-login-form').show();
 }
-
 ");
 
 ?>
@@ -27,7 +26,7 @@ if($('#Bids_have_account').is(':checked')) {
 	),
 	
 )); ?>
-
+	
 	<?php if($this->app->user->hasFlash('bidMessageError')): ?>
 		<div class="error flash-message flash-error">
 			<?php echo $this->app->user->getFlash('bidMessageError'); ?>
@@ -44,7 +43,13 @@ if($('#Bids_have_account').is(':checked')) {
 			<p class="step-title">Пункты погрузки и выгрузки<span>Завершающий этап</span> </p>
 
 			<div class="row">
+			
+
 				<div class="col-md-6 col-lg-6">
+				
+					
+					
+					
 					<div class="row form-row"><div class="col-md-12 col-lg-12 step-subheader">Даты, между которыми нужно перевезти груз</div></div>				
 					<div class="row form-row" style="position:relative;">
 						<div class="col-md-3 col-lg-3">
@@ -79,6 +84,7 @@ if($('#Bids_have_account').is(':checked')) {
 							
 							<?php echo $form->error($model,'date_transportation'); ?>						
 						</div>
+
 						<div class="col-md-2 col-lg-2">
 							<?php echo $form->labelEx($model,'time_transportation', array('class'=>'lbl-block')); ?>
 							<?php echo $form->textField($model,'time_transportation', array('class'=>'width100')); ?>
@@ -123,25 +129,9 @@ if($('#Bids_have_account').is(':checked')) {
 							<?php echo $form->textField($model,'time_transportation_to', array('class'=>'width100')); ?>
 							<?php echo $form->error($model,'time_transportation_to'); ?>
 						</div>
-						<?/*
-						<div class="col-md-4 col-lg-4 date-unknown-block">
-							<?php echo $form->checkBox($model,'date_unknown', array('class'=>'checkbox')); ?>
-							<?php echo $form->labelEx($model,'date_unknown', array('class'=>'checkbox-lbl')); ?>						
-							<?php echo $form->error($model,'date_unknown'); ?>
-						</div>
-						*/?>
-						
+
 						<div class="col-md-12 col-lg-12 font-12 pt-10 c_697f9a">(Вы можете указать только 1 дату или вообще не указывать, если это не важно)</div>
 					</div>
-					<?/*
-					<div class="row form-row">
-						<div class="col-md-12 col-lg-12">
-							<?php echo $form->checkBox($model,'quickly', array('class'=>'checkbox')); ?>
-							<?php echo $form->labelEx($model,'quickly', array('class'=>'checkbox-lbl')); ?>						
-							<?php echo $form->error($model,'quickly'); ?>
-						</div>
-					</div>
-					*/ ?>
 					
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
@@ -154,16 +144,15 @@ if($('#Bids_have_account').is(':checked')) {
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12 step-subheader">Погрузка</div>
 					</div>
-					
+
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'loading_country', array('class'=>'lbl-block')); ?>
-							<?php //echo CHtml::dropDownList('countries-list', '', $this->app->params['countries']);	?>		
-							<?php echo $form->dropDownList($model, 'loading_country', $this->app->params['countries'], 'class'=>'width100');?>
+							<?php echo $form->dropDownList($model, 'loading_country', $this->app->params['countries'], array('class'=>'width100'));?>
 							<?php echo $form->error($model,'loading_country'); ?>
 						</div>
 					</div>
-					
+
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'loading_town', array('class'=>'lbl-block')); ?>
@@ -193,10 +182,12 @@ if($('#Bids_have_account').is(':checked')) {
 							<div class="row form-row">
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_country_1', array('class'=>'lbl-block')); ?>
-									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_1', $this->app->params['countries'], 'class'=>'width100');?>
+									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_1', $this->app->params['countries'], array('class'=>'width100'));?>
 									<?php echo $form->error($model,'add_loading_unloading_country_1'); ?>
-								</div>
+								</div>								
+							</div>
 							
+							<div class="row form-row">							
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_town_1', array('class'=>'lbl-block')); ?>
 									<?php echo $form->textField($model,'add_loading_unloading_town_1',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
@@ -228,10 +219,12 @@ if($('#Bids_have_account').is(':checked')) {
 							<div class="row form-row">
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_country_2', array('class'=>'lbl-block')); ?>
-									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_2', $this->app->params['countries'], 'class'=>'width100');?>
+									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_2', $this->app->params['countries'], array('class'=>'width100'));?>
 									<?php echo $form->error($model,'add_loading_unloading_country_2'); ?>
-								</div>
+								</div>							
+							</div>
 							
+							<div class="row form-row">							
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_town_2', array('class'=>'lbl-block')); ?>
 									<?php echo $form->textField($model,'add_loading_unloading_town_2',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
@@ -263,10 +256,12 @@ if($('#Bids_have_account').is(':checked')) {
 							<div class="row form-row">
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_country_3', array('class'=>'lbl-block')); ?>
-									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_3', $this->app->params['countries'], 'class'=>'width100');?>
+									<?php echo $form->dropDownList($model, 'add_loading_unloading_country_3', $this->app->params['countries'], array('class'=>'width100'));?>
 									<?php echo $form->error($model,'add_loading_unloading_country_3'); ?>
-								</div>
+								</div>							
+							</div>
 							
+							<div class="row form-row">							
 								<div class="col-md-12 col-lg-12">
 									<?php echo $form->labelEx($model,'add_loading_unloading_town_3', array('class'=>'lbl-block')); ?>
 									<?php echo $form->textField($model,'add_loading_unloading_town_3',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
@@ -294,6 +289,10 @@ if($('#Bids_have_account').is(':checked')) {
 					
 					
 					
+					
+	
+				
+
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12 step-subheader">Выгрузка</div>
 					</div>
@@ -301,10 +300,12 @@ if($('#Bids_have_account').is(':checked')) {
 					<div class="row form-row">
 						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'unloading_country', array('class'=>'lbl-block')); ?>
-							<?php echo $form->dropDownList($model, 'unloading_country', $this->app->params['countries'], 'class'=>'width100');?>
+							<?php echo $form->dropDownList($model, 'unloading_country', $this->app->params['countries'], array('class'=>'width100'));?>
 							<?php echo $form->error($model,'unloading_country'); ?>
-						</div>
+						</div>					
+					</div>
 					
+					<div class="row form-row">					
 						<div class="col-md-12 col-lg-12">
 							<?php echo $form->labelEx($model,'unloading_town', array('class'=>'lbl-block')); ?>
 							<?php echo $form->textField($model,'unloading_town',array('size'=>60,'maxlength'=>255, 'class'=>'width100')); ?>
@@ -403,6 +404,7 @@ if($('#Bids_have_account').is(':checked')) {
 
 		</div>
 	</div>
+	
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->

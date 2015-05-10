@@ -252,6 +252,7 @@ return array(
 						'css/flexcrollstyles.css',
 						'css/tutorsty.css',
 					),
+					'depends' => array('jquery'),
 				),
 				
 				'rating' => array(

@@ -15,9 +15,9 @@ $cs = $this->app->clientScript;
 $cs->coreScriptPosition = CClientScript::POS_END;
 $cs->registerCoreScript('fancybox');
 
-$cs->registerScript('loading', "
+$cs->registerScript('transport_list', "
 
-	var max_height = 0
+	var max_height = 0,
 		enable_sroll = true;
 	
 	
@@ -36,13 +36,14 @@ $cs->registerScript('loading', "
 	
 	$('#flexcroll_transport_list li').css('height', (max_height+'px'));
 	max_height = max_height + 50;
+	
 	$('#flexcroll_transport_list').css('height', (max_height+'px'));
 	
-	fleXenv.fleXcrollMain('flexcroll_transport_list');
+	//fleXenv.fleXcrollMain('flexcroll_transport_list');
 	//flexcroll_transport_list.fleXcroll.setScrollPos(0, 0, false, true);
 	//flexcroll_transport_list.fleXcroll.scrollContent(0, 0);
 	
-	window.onfleXcrollRun=function(){}
+	//window.onfleXcrollRun=function(){}
 	
 ");
 

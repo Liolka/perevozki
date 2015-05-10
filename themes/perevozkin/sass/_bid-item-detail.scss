@@ -407,7 +407,20 @@
 	margin-top: 2px;
 }
 
+.update-bid,
 .cancel-bid {
-	right: 0;
 	top: 15px;
 }
+
+.cancel-bid {
+	right: 0;
+}
+
+.update-bid {
+	right: 170px;
+}
+
+.bid-view-hdr {
+	max-width: 860px;
+}
+
