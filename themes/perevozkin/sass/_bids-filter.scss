@@ -30,6 +30,11 @@
 			@include box-shadow(0px 0px 0px 0px #516170);
 		}
 	}
+	
+	input[type="text"].bids-filter-dates-from,
+	input[type="text"].bids-filter-dates-to {
+		border-color: #fff;
+	}	
 }
 
 .bids-filter-block {

@@ -919,18 +919,18 @@ class BidsController extends Controller
 		
 		$clear_bids_filter = $this->app->request->getParam('clear-bids-filter', 0);
 		if($clear_bids_filter)	{
-			unset($this->app->session['bidslst.BidsFilter']);
-			unset($this->app->session['bidslst.BidsFilterCategories']);
+			//unset($this->app->session['bidslst.BidsFilter']);
+			//unset($this->app->session['bidslst.BidsFilterCategories']);
 			$this->redirect(array('index'));
 		}
 		
 		$type_sort = $this->app->request->getParam('type-sort', '');
 		
 		if($type_sort != '')	{
-			$this->app->session['bidslst.type_sort'] = $type_sort;
+			//$this->app->session['bidslst.type_sort'] = $type_sort;
 			//$this->redirect(array('index'));
-		}	elseif(isset($this->app->session['bidslst.type_sort'])) {
-			$type_sort = $this->app->session['bidslst.type_sort'];
+		//}	elseif(isset($this->app->session['bidslst.type_sort'])) {
+			//$type_sort = $this->app->session['bidslst.type_sort'];
 		}	else	{
 			$type_sort = 'datepub';
 		}
@@ -938,11 +938,11 @@ class BidsController extends Controller
 		//echo'<pre>';print_r($_POST);echo'</pre>';
 		
 		$filtering = false;
-		if(isset($_POST['BidsFilter']))	{
-			$model->attributes = $_POST['BidsFilter'];
+		if(isset($_GET['BidsFilter']))	{
+			$model->attributes = $_GET['BidsFilter'];
 			//echo'<pre>';print_r($model->attributes);echo'</pre>';
 			if($model->validate())	{
-				$this->app->session['bidslst.BidsFilter'] = $_POST['BidsFilter'];
+				$this->app->session['bidslst.BidsFilter'] = $_GET['BidsFilter'];
 				$filtering = true;
 			}	else	{
 				
@@ -955,11 +955,11 @@ class BidsController extends Controller
 		
 		$BidsFilterCategories = array();
 		
-		if(isset($_POST['bids-filter-categories']))	{
-			$this->app->session['bidslst.BidsFilterCategories'] = $_POST['bids-filter-categories'];
-			$BidsFilterCategories = $_POST['bids-filter-categories'];
+		if(isset($_GET['bids-filter-categories']))	{
+			$this->app->session['bidslst.BidsFilterCategories'] = $_GET['bids-filter-categories'];
+			$BidsFilterCategories = $_GET['bids-filter-categories'];
 			$filtering = true;
-		} elseif(isset($_POST['BidsFilter']) && !isset($_POST['bids-filter-categories']))	{
+		} elseif(isset($_GET['BidsFilter']) && !isset($_GET['bids-filter-categories']))	{
 			unset($this->app->session['bidslst.BidsFilterCategories']);
 			
 		} elseif(isset($this->app->session['bidslst.BidsFilterCategories']))	{

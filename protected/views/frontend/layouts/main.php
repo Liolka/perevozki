@@ -97,24 +97,7 @@
 						+375 (33) <span class="phone-numb">678-98-11</span>
 					</p>
 				</div>
-			</div>
-			
-			<?
-			/*
-			<div class="header-block width-wrap clearfix">
-				<div class="block1 floatLeft">
-					<?php //$this->widget('application.components.SearchWidget'); ?>
-				</div>
-				<div class="block2 floatRight">
-					<?php //$this->widget('application.components.ContactsWidget'); ?>
-					<?php //$this->widget('application.components.ConsultantWidget'); ?>					
-				</div>
-			
-				<?php //$this->widget('application.components.CurrencyWidget'); ?>
-			
-			</div>
-			*/
-			?>
+			</div>			
 		</div>
 		
 		
@@ -133,15 +116,15 @@
 			<ul>
 				<li class="stage1">
 					<p class="title">Размещаете заявку на перевозку</p>
-					<p class="descr">Опишите груз и уточните маршрут</p>
+					<p class="c_000 font_12 lh-18">Опишите груз и уточните маршрут</p>
 				</li>
 				<li class="stage2">
 					<p class="title">Получаете предложения от перевозчиков</p>
-					<p class="descr">Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</p>
+					<p class="c_000 font_12 lh-18">Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</p>
 				</li>
 				<li class="stage3">
 					<p class="title">Выбираете подходящее предложение</p>
-					<p class="descr">Перевозчик сам свяжется с вами. Оставьте отзыв после выполнения перевозки</p>
+					<p class="c_000 font_12 lh-18">Перевозчик сам свяжется с вами. Оставьте отзыв после выполнения перевозки</p>
 				</li>
 			</ul>
 		</div>
