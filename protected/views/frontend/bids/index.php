@@ -46,7 +46,7 @@ $cs->registerCoreScript('fancybox');
 			<div class="bids-filter-block bids-filter-topbtns">
 				<input type="hidden" name="clear-bids-filter" id="clear-bids-filter" value="0" />
 				<p class="bids-filter-clear-wr"><a href="#" id="bids-filter-clear" class="bids-filter-clear">Сбросить фильтры</a></p>
-				<a href="#" id="bids-filter-filterig" class="btn-blue-33 bids-filter-filterig">Отфильтровать</a>
+				<a href="#" class="bids-filter-filterig btn-blue-33 bids-filter-filterig">Отфильтровать</a>
 			</div>
 			<div class="bids-filter-block bids-filter-dates">
 				<span class="bids-filter-title">Дата перевозки</span>
@@ -118,13 +118,13 @@ $cs->registerCoreScript('fancybox');
 				<p>
 					<?php echo $form->labelEx($model,'town_from', array('class'=>'lbl-block')); ?>
 					<?php // echo $form->dropDownList($model, 'country_from', $countries_list, array('class'=>'width100 mb-5'));?>
-					<?php echo $form->textField($model,'town_from', array('size'=>60,'maxlength'=>128, 'class'=>'width100')); ?>
+					<?php echo $form->textField($model,'town_from', array('size'=>60,'maxlength'=>128, 'class'=>'width100', 'placeholder'=>'Город')); ?>
 				</p>
 				
 				<p>
 					<?php echo $form->labelEx($model,'town_to', array('class'=>'lbl-block')); ?>
 					<?php //echo $form->dropDownList($model, 'country_to', $countries_list, array('class'=>'width100 mb-5'));?>
-					<?php echo $form->textField($model,'town_to', array('size'=>60,'maxlength'=>128, 'class'=>'width100')); ?>
+					<?php echo $form->textField($model,'town_to', array('size'=>60,'maxlength'=>128, 'class'=>'width100', 'placeholder'=>'Город')); ?>
 				</p>
 				
 			</div>
@@ -139,11 +139,15 @@ $cs->registerCoreScript('fancybox');
 				<? foreach($categories_list as $cat) {	?>
 					<li class="bids-filter-categories-list-item">
 						<p class="bids-filter-categories-item">
-							<input type="checkbox" name="bids-filter-categories[]" id="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox bids-filter-categories-item-checkbox" value="<?=$cat['id']?>" <?=$cat['checked']? 'checked="checked"' : '' ?></input><label for="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
+							<input type="checkbox" name="bids-filter-categories[]" id="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox bids-filter-categories-item-checkbox" value="<?=$cat['id']?>" <?=$cat['checked']? 'checked="checked"' : '' ?> /><label for="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
 						</p>
 					</li>
 				<? } ?>
 				</ul>
+			</div>
+			
+			<div class="bids-filter-block bids-filter-botbtns">
+				<a href="#" class="bids-filter-filterig btn-blue-33 bids-filter-filterig">Отфильтровать</a>
 			</div>
 			
 			<?php $this->endWidget(); ?>

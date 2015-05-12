@@ -143,7 +143,9 @@ $this->renderPartial($transport_tmpl, array(
 <div class="profile-requests-block">
 	<p class="narrow-bold-23 mb-30">
 		Перевозки
-		<a href="<?=$this->createUrl('/user/requests', array('id'=>$model->id))?>" class="pl-10 narrow-regular-18">Смотреть все</a>
+		<? if(count($lastBidsUser->data))	{	?>
+			<a href="<?=$this->createUrl('/user/requests', array('id'=>$model->id))?>" class="pl-10 narrow-regular-18">Смотреть все</a>
+		<?	}	?>
 	</p>
 	
 	<?php $this->renderPartial('_reviews_list_type_2', array('dataProvider'=>$lastBidsUser, 'model'=>$model)); ?>

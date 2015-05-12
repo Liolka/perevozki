@@ -42,8 +42,8 @@
 	& > p {
 		margin-top: 10px;
 	}
+	
 	p {
-		
 		@extend %text_l;
 	}
 	
@@ -55,10 +55,15 @@
 }
 
 .bids-filter-topbtns {
-	border-top: none;		
+	border-top: none;
+	
+	p {
+		@extend %text_c;
+		margin-top: 0;
+	}
 }
 
-.bids-filter-categories {
+.bids-filter-botbtns {
 	border-bottom: none;
 }
 

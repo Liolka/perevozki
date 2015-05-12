@@ -33,7 +33,7 @@ if($('#Bids_have_account').is(':checked')) {
 		</div>
 	<?php endif; ?>
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php //echo $form->errorSummary($model); ?>
 	<div class="step-container">
 		<div class="container ">
 			

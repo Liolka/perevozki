@@ -200,20 +200,32 @@ $(document).ready(function () {
 	});
 	
 	$('#bids-filter-categories-check').on('click', function (e) {
-		e.preventDefault();
-		$('#bids-filter-categories input').attr('checked', 'checked');
+		//e.preventDefault();
+		console.log($('#bids-filter-categories input[type="checkbox"]').length);
+		
+		$('#bids-filter-categories input[type="checkbox"]').each(function(){
+			
+		$(this).attr('checked', 'checked').trigger('refresh');
+		//$(this).trigger('refresh');  
+			/*
 		setTimeout(function() {  
-		  $('#bids-filter-categories input').trigger('refresh');  
-		}, 2)
+		  
+		}, 2);
+			*/
+		});
 		return false;
 	});
 
 	$('#bids-filter-categories-uncheck').on('click', function (e) {
-		e.preventDefault();
-		$('#bids-filter-categories input').removeAttr('checked');
-		setTimeout(function() {  
-		  $('#bids-filter-categories input').trigger('refresh');  
-		}, 2)  		
+		//e.preventDefault();
+		$('#bids-filter-categories input[type="checkbox"]').each(function(){
+			$(this).removeAttr('checked').trigger('refresh');
+			//$(this).trigger('refresh');  
+			/*
+				setTimeout(function() {  
+
+			}, 2);*/
+		});
 		return false;
 	});
 
@@ -224,7 +236,7 @@ $(document).ready(function () {
 		return false;
 	});
 
-	$('#bids-filter-filterig').on('click', function (e) {
+	$('.bids-filter-filterig').on('click', function (e) {
 		e.preventDefault();
 		$('#bids-filter-form').submit();
 		return false;

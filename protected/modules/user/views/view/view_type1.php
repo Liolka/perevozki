@@ -45,7 +45,9 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 <div class="profile-requests-block mt-30">
 	<p class="narrow-bold-23 mb-30">
 		Заказы
-		<a href="<?=$this->createUrl('/user/requests', array('id'=>$model->id))?>" class="pl-10 narrow-regular-18">Смотреть все</a>
+		<? if(count($lastBidsUser->data))	{	?>
+			<a href="<?=$this->createUrl('/user/requests', array('id'=>$model->id))?>" class="pl-10 narrow-regular-18">Смотреть все</a>
+		<?	}	?>
 	</p>
 	
 	<?php $this->renderPartial('_reviews_list_type_1', array('dataProvider'=>$lastBidsUser, 'model'=>$model)); ?>
