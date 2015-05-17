@@ -908,6 +908,8 @@ class BidsController extends Controller
 		$this->app = Yii::app();
 		$connection = $this->app->db;
 		
+		$page_info = Pages::model()->findByPk(11);
+		
 		UpdateLastActivity($this->app, $connection);
 		
 		$model = new BidsFilter;
@@ -917,26 +919,43 @@ class BidsController extends Controller
 		//$this->processPageRequest('page');
 		processPageRequest('page');
 		
+		/*
 		$clear_bids_filter = $this->app->request->getParam('clear-bids-filter', 0);
 		if($clear_bids_filter)	{
 			//unset($this->app->session['bidslst.BidsFilter']);
 			//unset($this->app->session['bidslst.BidsFilterCategories']);
 			$this->redirect(array('index'));
 		}
+		*/
 		
 		$type_sort = $this->app->request->getParam('type-sort', '');
 		
 		if($type_sort != '')	{
-			//$this->app->session['bidslst.type_sort'] = $type_sort;
-			//$this->redirect(array('index'));
-		//}	elseif(isset($this->app->session['bidslst.type_sort'])) {
-			//$type_sort = $this->app->session['bidslst.type_sort'];
+			$this->app->session['bidslst.type_sort'] = $type_sort;
+			$this->redirect(array('index'));
+		}	elseif(isset($this->app->session['bidslst.type_sort'])) {
+			$type_sort = $this->app->session['bidslst.type_sort'];
 		}	else	{
 			$type_sort = 'datepub';
 		}
 		
 		//echo'<pre>';print_r($_POST);echo'</pre>';
+		//echo'<pre>';print_r($_GET);echo'</pre>';
+		//date_from=2015-05-04&date_to=&town_from=&town_to=&cat%5B%5D=2&cat%5B%5D=11&cat%5B%5D=13
 		
+		$model->bids_filter_dates_from = $this->app->request->getParam('date_from', '');
+		$model->bids_filter_dates_to = $this->app->request->getParam('date_to', '');
+		
+		$model->town_from = $this->app->request->getParam('town_from', '');
+		$model->town_to = $this->app->request->getParam('town_to', '');
+		
+		$model->town_from = $this->app->request->getParam('town_from', '');
+		$model->town_to = $this->app->request->getParam('town_to', '');
+		if($model->validate())	{
+			$filtering = true;
+		}
+		
+		/*
 		$filtering = false;
 		if(isset($_GET['BidsFilter']))	{
 			$model->attributes = $_GET['BidsFilter'];
@@ -952,9 +971,10 @@ class BidsController extends Controller
 			$filtering = true;
 
 		}
+		*/
 		
 		$BidsFilterCategories = array();
-		
+		/*
 		if(isset($_GET['bids-filter-categories']))	{
 			$this->app->session['bidslst.BidsFilterCategories'] = $_GET['bids-filter-categories'];
 			$BidsFilterCategories = $_GET['bids-filter-categories'];
@@ -964,6 +984,17 @@ class BidsController extends Controller
 			
 		} elseif(isset($this->app->session['bidslst.BidsFilterCategories']))	{
 			$BidsFilterCategories = $this->app->session['bidslst.BidsFilterCategories'];
+			$filtering = true;
+		}
+		*/
+		/*
+		if(isset($_GET['bids-filter-categories']))	{
+			$BidsFilterCategories = $_GET['bids-filter-categories'];
+			$filtering = true;
+		}
+		*/
+		if(isset($_GET['cat']))	{
+			$BidsFilterCategories = $_GET['cat'];
 			$filtering = true;
 		}
 		
@@ -1035,6 +1066,7 @@ class BidsController extends Controller
             'criteria'=>$criteria,
             'pagination'=>array(
                 'pageSize'=>20,
+                //'pageSize'=>5,
 				'pageVar' =>'page',
             ),
         ));
@@ -1119,6 +1151,7 @@ class BidsController extends Controller
 				'categories_list' => $categories_list,
                 'dataProvider'=>$dataProvider,
                 'type_sort'=>$type_sort,
+                'page_info'=>$page_info,
             ));
         }		
 	}

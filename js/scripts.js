@@ -235,12 +235,14 @@ $(document).ready(function () {
 		$('#sort-bids-form').submit();
 		return false;
 	});
-
+	
+	/*
 	$('.bids-filter-filterig').on('click', function (e) {
 		e.preventDefault();
 		$('#bids-filter-form').submit();
 		return false;
 	});
+	*/
 
 	$('#bids-filter-clear').on('click', function (e) {
 		e.preventDefault();

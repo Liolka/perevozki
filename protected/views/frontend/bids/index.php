@@ -9,14 +9,36 @@ $bids_filter_dates_from = $bids_filter_dates_to = '';
 
 $clientScript = $this->app->clientScript;
 
-$this->pageTitle = "Заявки на перевозку грузов";
-$clientScript->registerMetaTag("Заявки на перевозку грузов", 'keywords');
-$clientScript->registerMetaTag("Заявки на перевозку грузов", 'description');
+
+if($page_info !==null && $page_info->meta_title != '')	{
+	$this->pageTitle = $page_info->meta_title;
+}	else	{
+	$this->pageTitle = "Заявки на перевозку грузов";
+}
+
+if($page_info !==null && $page_info->meta_keywords != '')	{
+	$clientScript->registerMetaTag($page_info->meta_keywords, 'keywords');
+}	else	{
+	$clientScript->registerMetaTag("Заявки на перевозку грузов", 'keywords');
+}
+
+if($page_info !==null && $page_info->meta_description != '')	{
+	$clientScript->registerMetaTag($page_info->meta_description, 'description');
+}	else	{
+	$clientScript->registerMetaTag("Заявки на перевозку грузов", 'description');
+}
+
 
 $cs = $this->app->clientScript;
 $cs->coreScriptPosition=CClientScript::POS_END;
 
 $cs->registerCoreScript('fancybox');
+
+$date_from = '';
+$date_to = '';
+
+$town_from = '';
+$town_to = '';
 
 ?>
 
@@ -25,8 +47,128 @@ $cs->registerCoreScript('fancybox');
 <div class="my-page clearfix">
 
 	<div class="sidebar sideLeft">
-		<div class="bids-filter">
+		<div class="bids-filter">		
+			<?php echo Chtml::beginForm($this->createUrl('/bids/index'), 'get', array ('id'=>'bids-filter'))?>
+			
+			
+			
+			
+			
+			<div class="bids-filter-block bids-filter-topbtns">
+				<p class="bids-filter-clear-wr"><a href="<?=$this->createUrl('/bids/index')?>" class="bids-filter-clear">Сбросить фильтры</a></p>
+				<? /*<a href="#" class="bids-filter-filterig btn-blue-33 bids-filter-filterig">Отфильтровать</a> */?>
+				<?php echo CHtml::submitButton('Отфильтровать', array('class'=>'bids-filter-filterig btn-blue-33 bids-filter-filterig', 'name'=>false)); ?>
+			</div>
+			
+			<div class="bids-filter-block bids-filter-dates">
+				<span class="bids-filter-title">Дата перевозки</span>
+				<p class="dates clearfix">
+					
+					<span class="dates-txt">С</span>
+					
+					<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+							'model'=>$model,
+							'name' => 'date_from',
+							'language' => 'ru',
+							'value' => $model->bids_filter_dates_from,
+							'options'=>array(
+								'showAnim'=>'fold',
+								'dateFormat'=>'yy-mm-dd',
+								'defaultDate' => '+1w',
+								'changeMonth' => 'true',
+								'changeYear'=>'true',
+								'constrainInput' => 'false',
+								'onSelect' => "js:function( selectedDate ) {
+								jQuery('#lastdate').datepicker('option', 'minDate', selectedDate)
+							}"
+							),
+							'htmlOptions'=>array(
+								'id'=>'bids-filter-dates-from',
+								'class'=>'bids-filter-dates-from width100',
+							),
+
+							// DONT FORGET TO ADD TRUE this will create the datepicker return
+							// as string
+						),true);
+					?>
+					<span class="calendar-icon calendar-icon1"> </span>
+				</p>
+				<p class="dates clearfix">
+					
+					<span class="dates-txt">По</span>
+					<?php echo $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+							'model'=>$model,
+							'name' => 'date_to',
+							'language' => 'ru',
+							'value' => $model->bids_filter_dates_to,
+							'options'=>array(
+								'showAnim'=>'fold',
+								'dateFormat'=>'yy-mm-dd',
+								'defaultDate' => '+1w',
+								'changeMonth' => 'true',
+								'changeYear'=>'true',
+								'constrainInput' => 'false',
+								'onSelect' => "js:function( selectedDate ) {
+								jQuery('#lastdate').datepicker('option', 'minDate', selectedDate)
+							}"
+							),
+							'htmlOptions'=>array(
+								'id'=>'bids-filter-dates-to',
+								'class'=>'bids-filter-dates-to width100',
+							),
+
+							// DONT FORGET TO ADD TRUE this will create the datepicker return
+							// as string
+						),true);
+					?>
+					<span class="calendar-icon calendar-icon2"> </span>
+				</p>
+				
+			</div>
+			<div class="bids-filter-block bids-filter-towns">
+				<span class="bids-filter-title">Маршрут</span>
+				<p>
+					<?php echo CHtml::label(CHtml::encode($model->getAttributeLabel('town_from')), 'town_from', array ('class'=>'lbl-block')) ?>
+					<?php // echo $form->dropDownList($model, 'country_from', $countries_list, array('class'=>'width100 mb-5'));?>
+					<?php echo CHtml::textField('town_from', $model->town_from, array('size'=>60,'maxlength'=>128, 'class'=>'width100', 'placeholder'=>'Город')); ?>
+				</p>
+				
+				<p>
+					<?php //echo $form->labelEx($model,'town_to', array('class'=>'lbl-block')); ?>
+					<?php echo CHtml::label(CHtml::encode($model->getAttributeLabel('town_to')), 'town_to', array ('class'=>'lbl-block')) ?>
+					<?php //echo $form->dropDownList($model, 'country_to', $countries_list, array('class'=>'width100 mb-5'));?>
+					<?php //echo $form->textField($model,'town_to', array('size'=>60,'maxlength'=>128, 'class'=>'width100', 'placeholder'=>'Город')); ?>
+					<?php echo CHtml::textField('town_to', $model->town_to, array('size'=>60,'maxlength'=>128, 'class'=>'width100', 'placeholder'=>'Город')); ?>
+				</p>
+				
+			</div>
+			<div id="bids-filter-categories" class="bids-filter-block bids-filter-categories">
+				<span class="bids-filter-title">Тип груза</span>
+				<p class="bids-filter-categories-btns">
+					<a href="#" id="bids-filter-categories-check" class="bids-filter-categories-check">Выбрать все категории</a>
+					<a href="#" id="bids-filter-categories-uncheck" class="bids-filter-categories-uncheck">Сбросить</a>
+				</p>
+				
+				<ul>
+				<? foreach($categories_list as $cat) {	?>
+					<li class="bids-filter-categories-list-item">
+						<p class="bids-filter-categories-item">
+							<input type="checkbox" name="cat[]" id="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox bids-filter-categories-item-checkbox" value="<?=$cat['id']?>" <?=$cat['checked']? 'checked="checked"' : '' ?> /><label for="bids-filter-categories-item-<?=$cat['id']?>" class="checkbox-lbl"><?=$cat['name']?></label>
+						</p>
+					</li>
+				<? } ?>
+				</ul>
+			</div>
+			
+			<div class="bids-filter-block bids-filter-botbtns">
+				<?php echo CHtml::submitButton('Отфильтровать', array('class'=>'bids-filter-filterig btn-blue-33 bids-filter-filterig', 'name'=>false)); ?>
+			</div>
+			
+			<?php echo Chtml::endForm()?>
+		</div>
 		
+		<? /*
+		<div class="bids-filter">
 			<?php $form = $this->beginWidget('CActiveForm', array(
 				'id'=>'bids-filter-form',
 				'method'=>'get',
@@ -44,9 +186,10 @@ $cs->registerCoreScript('fancybox');
 			
 			<?php echo $form->errorSummary($model); ?>
 			
+			
 			<div class="bids-filter-block bids-filter-topbtns">
 				<input type="hidden" name="clear-bids-filter" id="clear-bids-filter" value="0" />
-				<p class="bids-filter-clear-wr"><a href="#" id="bids-filter-clear" class="bids-filter-clear">Сбросить фильтры</a></p>
+				<p class="bids-filter-clear-wr"><a href="<?=$this->createUrl('/bids/index')?>" class="bids-filter-clear">Сбросить фильтры</a></p>
 				<a href="#" class="bids-filter-filterig btn-blue-33 bids-filter-filterig">Отфильтровать</a>
 			</div>
 			<div class="bids-filter-block bids-filter-dates">
@@ -153,7 +296,7 @@ $cs->registerCoreScript('fancybox');
 			
 			<?php $this->endWidget(); ?>
 		</div>
-		
+		*/?>
 
 	</div>
 

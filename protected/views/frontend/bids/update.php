@@ -67,6 +67,12 @@ var upload1 = new AjaxUpload('#userfile1', {
 	'id'=>'cargo-form',
 	'enableAjaxValidation'=>false,
 )); ?>
+
+	<div class="form-row clearfix">
+		<?php echo CHtml::link('Назад', $this->createUrl('/bids/view', array('id'=>$bid_model->bid_id)), array ('class'=>'btn-blue-52 fLeft')) ?>		
+		<?php echo CHtml::submitButton('Сохранить', array('class'=>'btn-green-52 fRight', 'name' => 'save')); ?>		
+	</div>
+
 	<? $model = $cargoModel	?>
 	<? //foreach($cargoes as $key=>$model)	{	?>
 	<? for ($key=0; $key<$count_cargoes;$key++)	{	?>
@@ -190,6 +196,8 @@ var upload1 = new AjaxUpload('#userfile1', {
 	
 	
 	<div class="step-container p-20 mb-40">
+		<div class="row clearfix">
+		<div class="col-lg-6">
 		<? $model = $bid_model ?>
 					<div class="row form-row"><div class="col-md-12 col-lg-12 step-subheader">Даты, между которыми нужно перевезти груз</div></div>				
 					<div class="row form-row" style="position:relative;">
@@ -467,9 +475,11 @@ var upload1 = new AjaxUpload('#userfile1', {
 							<?php echo $form->error($model,'unloading_address'); ?>
 						</div>
 					</div>		
+			</div>
+		</div>
 	</div>
 	
-	<div class="form-row clearfix">		
+	<div class="form-row clearfix">
 		<?php echo CHtml::link('Назад', $this->createUrl('/bids/view', array('id'=>$bid_model->bid_id)), array ('class'=>'btn-blue-52 fLeft')) ?>		
 		<?php echo CHtml::submitButton('Сохранить', array('class'=>'btn-green-52 fRight', 'name' => 'save')); ?>		
 	</div>
