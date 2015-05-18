@@ -4,14 +4,179 @@
 	'enableAjaxValidation'=>false,
 )); ?>
 <?php echo $form->errorSummary($model); ?>
+	<?php echo $form->hiddenField($model,'category_id'); ?>	
 
+	<? for ($x=1; $x<=4; $x++)	{	?>
+		<div id="cargo<?=$x?>" class="step-container <? if($x > 1) echo 'add-cargo-step-container hide-block'?>">
+			<? if($x > 1)	{	?>
+				<a href="#" class="delete-add-cargo-block btn-red">Удалить х</a>
+			<?	}	?>
+			
+			<div class="container ">
+				<? if($x == 1)	{	?>
+					<p class="num-step num-step-light-blue">3</p>
+					<p class="step-title">Заполните необходимую информацию<span>Внесите как можно больше информации, чтобы получить больше предложений</span></p>
+				<?	}	?>
+
+				<div class="row">
+					<div class="col-md-5 col-lg-5">
+						<? if($x > 1)	{	?>
+						<div class="row form-row">
+							<div class="col-md-12 col-lg-12">
+								<?php echo $form->dropDownList($model, 'category'.$x, $categories_list, array('data-placeholder'=>'выберите...', 'options' => array(), 'class'=>'width100'));?>
+								<?php echo $form->error($model,'category'.$x); ?>
+							</div>
+						</div>
+						<?	}	?>
+					
+						<div class="row form-row">
+
+							<div class="col-md-2 col-lg-2">
+								<p class="step3-category-ico catn-c<?=$model->category_id?>-b"> </p>
+							</div>
+							<div class="col-md-10 col-lg-10"> 
+								<?php echo $form->labelEx($model,'name', array('class'=>'lbl-block')); ?>
+								<?php echo $form->textField($model,'name'.$x, array('class'=>'width100')); ?>
+								<?php echo $form->error($model,'name'.$x); ?>
+							</div>
+						</div>
+
+						<div class="row form-row">
+							<div class="col-md-12 col-lg-12">
+							<?php echo $form->labelEx($model,'comment', array('class'=>'lbl-block')); ?>
+							<?php echo $form->textArea($model,'comment'.$x,array('rows'=>7, 'cols'=>50, 'class'=>'width100')); ?>
+							<?php echo $form->error($model,'comment'.$x); ?>
+							</div>
+						</div>
+
+					</div>
+					 
+					<div class="col-md-7 col-lg-7" <? if($x > 1) echo 'style="margin-top: 45px;"'?>>
+						<div class="row form-row">
+						
+							<? if($model->category_id != 4)	{	?>
+							<div class="col-md-7 col-lg-7">
+								<div class="row">
+									<div class="col-md-12 col-lg-12"><?php echo $form->labelEx($model,'weight', array('class'=>'lbl-block')); ?></div>
+									<div class="col-md-8 col-lg-8">
+
+											<?php echo $form->textField($model,'weight'.$x, array('size'=>3, 'class'=>'width100')); ?>
+											<?php echo $form->error($model,'weight'.$x); ?>
+
+									</div>
+									<div class="col-md-4 col-lg-4">
+											<?php echo $form->dropDownList($model, 'unit'.$x, $model->DropDownUnitsList, array('data-placeholder'=>'выберите...', 'options' => $model->SelectedUnitsList));?>
+											<?php echo $form->error($model,'unit'.$x); ?>
+
+									</div>
+								</div>
+							</div>
+
+
+							<div class="col-md-5 col-lg-5 upload-foto-block pos-rel">
+								<div id="cargo-foto<?=$x?>" class="form-cargo-foto" style="background-image: url('/images/new-bid-foto.jpg')"> </div>
+								<div id="loading<?=$x?>" class="hide-block pos-abs upload-foto-block-loading"><img src="/images/loading.gif" alt="Loading" /></div>
+								<div id="errormes<?=$x?>" class="font-12 mt-5 pos-abs upload-foto-block-errormes c_eb4c4c cargo<?=$x?>-err"></div>
+								<a href="#" class="btn-grey-33 upload-foto-btn" data-cargo="<?=$x?>">Загрузить фото</a>
+								
+								<? if($x == 1)	{	?>
+									<input type="file" name="userfile" id="userfile1" class="userfile" style="display:none;" />
+								<?	}	?>
+								<input type="hidden" name="cargo-num" id="cargo-num" value="" />
+								<?php echo $form->hiddenField($model,'foto'.$x); ?>
+								
+								
+							</div>
+							
+							<?	}	else	{	?>
+							
+								<? if($x == 1)	{	// необходимо чтобы не было в скрипте ошибки?>
+									<input type="file" name="userfile" id="userfile1" class="userfile" style="display:none;" />
+								<?	}	?>
+							
+							<div class="col-md-6 col-lg-6">
+								<?php echo $form->labelEx($model,'passengers_qty', array('class'=>'lbl-block')); ?>
+								<?php echo $form->textField($model,'passengers_qty'.$x, array('size'=>3, 'class'=>'width100')); ?>
+								<?php echo $form->error($model,'passengers_qty'.$x); ?>
+							</div>
+							
+							<div class="col-md-6 col-lg-6">
+								<?php echo $form->labelEx($model,'time', array('class'=>'lbl-block')); ?>
+								<?php echo $form->textField($model,'time'.$x, array('size'=>3, 'class'=>'width100')); ?>
+								<?php echo $form->error($model,'time'.$x); ?>
+							</div>
+							
+							<?	}	?>
+						</div>
+						<? if($model->category_id != 13 && $model->category_id != 4)	{	?>
+							<? if($model->category_id != 9)	{	?>
+								<div class="row form-row">
+									<div class="col-md-12 col-lg-12"><label class="lbl-block">Грузчики</label></div>
+									<div class="col-md-5 col-lg-5">
+										<?php echo $form->checkBox($model,'porters'.$x, array('class'=>'checkbox')); ?>
+										<?php echo $form->labelEx($model,'porters', array('class'=>'checkbox-lbl')); ?>						
+										<?php echo $form->error($model,'porters'.$x); ?>
+									</div>
+									<div class="col-md-4 col-lg-4">
+										<?php echo $form->checkBox($model,'lift_to_floor'.$x, array('class'=>'checkbox')); ?>
+										<?php echo $form->labelEx($model,'lift_to_floor', array('class'=>'checkbox-lbl')); ?>						
+										<?php echo $form->error($model,'lift_to_floor'.$x); ?>
+									</div>
+									<div class="col-md-3 col-lg-3" style="padding-top:4px;">
+										<?php echo $form->textField($model,'floor'.$x, array('size'=>1)); ?>
+										<?php echo $form->labelEx($model,'floor'); ?>
+										<?php echo $form->error($model,'floor'.$x); ?>
+									</div>
+								</div>
+							<?	}	?>
+							
+							<div class="row form-row">
+								<div class="col-md-10 col-lg-10">
+									<div class="row">
+										<div class="col-lg-3 col-md-3">
+											<label class="lbl-block" for="Cargoes_length<?=$x?>">Длинна</label>
+											<?php echo $form->textField($model,'length'.$x, array('size'=>3)); ?>
+											<span class="dimensions-separator">M x </span>
+										</div>
+										<div class="col-lg-3 col-md-3">
+											<label class="lbl-block" for="Cargoes_width<?=$x?>">Ширина</label>
+											<?php echo $form->textField($model,'width'.$x, array('size'=>3)); ?>
+											<span class="dimensions-separator">M x </span>									
+										</div>
+										<div class="col-lg-3 col-md-3">
+											<label class="lbl-block" for="Cargoes_height<?=$x?>">Высота</label>
+											<?php echo $form->textField($model,'height'.$x, array('size'=>3)); ?>
+											<span class="dimensions-separator">M x </span>
+
+										</div>
+										<div class="col-lg-3 col-md-3">
+											<label class="lbl-block" for="Cargoes_volume<?=$x?>">Объём</label>
+											<?php echo $form->textField($model,'volume'.$x, array('size'=>3)); ?>
+											<span class="dimensions-separator">M<sup>3</sup> </span>									
+										</div>
+									</div>
+								</div>
+								
+								<? if($model->category_id != 9)	{	?>
+									<div class="col-md-2 col-lg-2" style="padding-top:24px;">
+										<?php echo $form->checkBox($model,'lift'.$x, array('class'=>'checkbox')); ?>
+										<?php echo $form->labelEx($model,'lift', array('class'=>'checkbox-lbl')); ?>						
+										<?php echo $form->error($model,'lift'.$x); ?>
+									</div>
+								<?	}	?>
+							</div>
+						<?	}	?>
+					</div>
+				</div>
+
+			</div>
+		</div>	
+	<?	}	?>
+	
+	<?/*
 	<div id="cargo1" class="step-container">
 		<div class="container ">
-		
-			<?php echo $form->hiddenField($model,'category_id'); ?>
-			
 			<p class="num-step num-step-light-blue">3</p>
-			
 			<p class="step-title">Заполните необходимую информацию<span>Внесите как можно больше информации, чтобы получить больше предложений</span></p>
 
 			<div class="row">
@@ -37,8 +202,7 @@
 					</div>
 					
 				</div>
-				<div class="col-md-1 col-lg-1"></div>
-				<div class="col-md-6 col-lg-6">
+				<div class="col-md-7 col-lg-7">
 					<div class="row form-row">
 						<div class="col-md-7 col-lg-7">
 							<div class="row">
@@ -90,15 +254,29 @@
 					</div>
 					<div class="row form-row">
 						<div class="col-md-10 col-lg-10">
-							<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-							<?php echo $form->textField($model,'length1', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'width1', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'height1', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'volume1', array('size'=>3)); ?>
-							<span class="dimensions-separator">M<sup>3</sup> </span>
+							<div class="row">
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_length1">Длинна</label>
+									<?php echo $form->textField($model,'length1', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_width1">Ширина</label>
+									<?php echo $form->textField($model,'width1', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_height1">Высота</label>
+									<?php echo $form->textField($model,'height1', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_volume1">Объём</label>
+									<?php echo $form->textField($model,'volume1', array('size'=>3)); ?>
+									<span class="dimensions-separator">M<sup>3</sup> </span>									
+								</div>
+							</div>
 						</div>
 						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
 							<?php echo $form->checkBox($model,'lift1', array('class'=>'checkbox')); ?>
@@ -116,8 +294,6 @@
 	<div id="cargo2" class="step-container add-cargo-step-container hide-block">
 		<a href="#" class="delete-add-cargo-block btn-red">Удалить х</a>
 		<div class="container">
-			
-		
 			<div class="row">
 				<div class="col-md-5 col-lg-5">
 				
@@ -150,8 +326,7 @@
 					</div>
 					
 				</div>
-				<div class="col-md-1 col-lg-1"></div>
-				<div class="col-md-6 col-lg-6" style="margin-top: 45px;">
+				<div class="col-md-7 col-lg-7" style="margin-top: 45px;">
 					<div class="row form-row">
 						<div class="col-md-7 col-lg-7">
 							<div class="row">
@@ -200,15 +375,29 @@
 					</div>
 					<div class="row form-row">
 						<div class="col-md-10 col-lg-10">
-							<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-							<?php echo $form->textField($model,'length2', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'width2', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'height2', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'volume2', array('size'=>3)); ?>
-							<span class="dimensions-separator">M<sup>3</sup> </span>
+							<div class="row">
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_length2">Длинна</label>
+									<?php echo $form->textField($model,'length2', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_width2">Ширина</label>
+									<?php echo $form->textField($model,'width2', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_height2">Высота</label>
+									<?php echo $form->textField($model,'height2', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_volume2">Объём</label>
+									<?php echo $form->textField($model,'volume2', array('size'=>3)); ?>
+									<span class="dimensions-separator">M<sup>3</sup> </span>									
+								</div>
+							</div>
 						</div>
 						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
 							<?php echo $form->checkBox($model,'lift2', array('class'=>'checkbox')); ?>
@@ -260,8 +449,7 @@
 					</div>
 					
 				</div>
-				<div class="col-md-1 col-lg-1"></div>
-				<div class="col-md-6 col-lg-6" style="margin-top: 45px;">
+				<div class="col-md-7 col-lg-7" style="margin-top: 45px;">
 					<div class="row form-row">
 						<div class="col-md-7 col-lg-7">
 							<div class="row">
@@ -309,15 +497,29 @@
 					</div>
 					<div class="row form-row">
 						<div class="col-md-10 col-lg-10">
-						<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-						<?php echo $form->textField($model,'length3', array('size'=>3)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'width3', array('size'=>3)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'height3', array('size'=>3)); ?>
-						<span class="dimensions-separator">M x </span>
-						<?php echo $form->textField($model,'volume3', array('size'=>3)); ?>
-						<span class="dimensions-separator">M<sup>3</sup> </span>
+							<div class="row">
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_length3">Длинна</label>
+									<?php echo $form->textField($model,'length3', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_width3">Ширина</label>
+									<?php echo $form->textField($model,'width3', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_height3">Высота</label>
+									<?php echo $form->textField($model,'height3', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_volume3">Объём</label>
+									<?php echo $form->textField($model,'volume3', array('size'=>3)); ?>
+									<span class="dimensions-separator">M<sup>3</sup> </span>									
+								</div>
+							</div>
 						</div>
 						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
 							<?php echo $form->checkBox($model,'lift3', array('class'=>'checkbox')); ?>
@@ -369,8 +571,7 @@
 					</div>
 					
 				</div>
-				<div class="col-md-1 col-lg-1"></div>
-				<div class="col-md-6 col-lg-6" style="margin-top: 45px;">
+				<div class="col-md-7 col-lg-7" style="margin-top: 45px;">
 					<div class="row form-row">
 						<div class="col-md-7 col-lg-7">
 							<div class="row">
@@ -419,15 +620,29 @@
 					</div>
 					<div class="row form-row">
 						<div class="col-md-10 col-lg-10">
-							<?php echo $form->labelEx($model,'length', array('class'=>'lbl-block')); ?>
-							<?php echo $form->textField($model,'length4', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'width4', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'height4', array('size'=>3)); ?>
-							<span class="dimensions-separator">M x </span>
-							<?php echo $form->textField($model,'volume4', array('size'=>3)); ?>
-							<span class="dimensions-separator">M<sup>3</sup> </span>
+							<div class="row">
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_length4">Длинна</label>
+									<?php echo $form->textField($model,'length4', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_width4">Ширина</label>
+									<?php echo $form->textField($model,'width4', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_height4">Высота</label>
+									<?php echo $form->textField($model,'height4', array('size'=>3)); ?>
+									<span class="dimensions-separator">M x </span>
+									
+								</div>
+								<div class="col-lg-3 col-md-3">
+									<label class="lbl-block" for="Cargoes_volume4">Объём</label>
+									<?php echo $form->textField($model,'volume4', array('size'=>3)); ?>
+									<span class="dimensions-separator">M<sup>3</sup> </span>									
+								</div>
+							</div>
 						</div>
 						<div class="col-md-2 col-lg-2" style="padding-top:24px;">
 							<?php echo $form->checkBox($model,'lift4', array('class'=>'checkbox')); ?>
@@ -441,7 +656,7 @@
 
 		</div>
 	</div>
-	
+	*/?>
 	<div class="form-row add-loading-unloading-block clearfix" style="padding-bottom: 15px;">
 		<div class="col-md-12 col-lg-12">
 			<a href="#" id="add-cargo-block" class="btn-grey-33">+ Добавить еще груз</a>

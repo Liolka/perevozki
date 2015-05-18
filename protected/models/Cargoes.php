@@ -53,6 +53,8 @@ class Cargoes extends CActiveRecord
 	public $height1;
 	public $volume1;
 	public $foto1;
+	public $passengers_qty1;
+	public $time1;
 	
 	public $category2;
 	public $cargo_id2;
@@ -70,6 +72,8 @@ class Cargoes extends CActiveRecord
 	public $height2;
 	public $volume2;
 	public $foto2;
+	public $passengers_qty2;
+	public $time2;	
 	
 	public $category3;
 	public $cargo_id3;
@@ -87,6 +91,9 @@ class Cargoes extends CActiveRecord
 	public $height3;
 	public $volume3;
 	public $foto3;
+	public $passengers_qty3;
+	public $time3;	
+	
 	
 	public $category4;
 	public $cargo_id4;
@@ -104,6 +111,8 @@ class Cargoes extends CActiveRecord
 	public $height4;
 	public $volume4;
 	public $foto4;
+	public $passengers_qty4;
+	public $time4;	
 	
 	/**
 	 * @return string the associated database table name
@@ -140,11 +149,11 @@ class Cargoes extends CActiveRecord
 				'numerical'
 			),
 			array(
-				'name, foto, 
-				 name1, foto1,
-				 name2, foto2,
-				 name3, foto3,
-				 name4, foto4', 
+				'name, foto, passengers_qty, time,
+				 name1, foto1, passengers_qty1, time1,
+				 name2, foto2, passengers_qty2, time2,
+				 name3, foto3, passengers_qty3, time3,
+				 name4, foto4, passengers_qty4, time4', 
 				'length', 'max'=>255
 			),
 			// The following rule is used by search().
@@ -159,11 +168,11 @@ class Cargoes extends CActiveRecord
 				'safe', 'on'=>'search'),
 			*/
 			array(
-				'cargo_id, name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume, 
-				 cargo_id1, name1, comment1, weight1, unit1, foto1, porters1, lift_to_floo1r, floor1, length1, width1, heigh1t, volume1,
-				 cargo_id2, name2, comment2, weight2, unit2, foto2, porters2, lift_to_floor2, floor2, length2, width2, height2, volume2,
-				 cargo_id3, name3, comment3, weight3, unit3, foto3, porters3, lift_to_floor3, floor3, length3, width3, height3, volume3,
-				 cargo_id4, name4, comment4, weight4, unit4, foto4, porters4, lift_to_floor4, floor4, length4, width4, height4, volume4', 
+				'cargo_id, name, comment, weight, unit, foto, porters, lift_to_floor, floor, length, width, height, volume, passengers_qty, time,
+				 cargo_id1, name1, comment1, weight1, unit1, foto1, porters1, lift_to_floo1r, floor1, length1, width1, heigh1t, volume1, passengers_qty1, time1,
+				 cargo_id2, name2, comment2, weight2, unit2, foto2, porters2, lift_to_floor2, floor2, length2, width2, height2, volume2, passengers_qty2, time2,
+				 cargo_id3, name3, comment3, weight3, unit3, foto3, porters3, lift_to_floor3, floor3, length3, width3, height3, volume3, passengers_qty3, time3,
+				 cargo_id4, name4, comment4, weight4, unit4, foto4, porters4, lift_to_floor4, floor4, length4, width4, height4, volume4, passengers_qty4, time4,', 
 				'safe'),
 		);
 	}
@@ -201,6 +210,9 @@ class Cargoes extends CActiveRecord
 			'width' => 'Width',
 			'height' => 'Height',
 			'volume' => 'Volume',
+			'passengers_qty' => 'Количество пассажиров',
+			'time' => 'На сколько нужна машина',
+			
 		);
 	}
 

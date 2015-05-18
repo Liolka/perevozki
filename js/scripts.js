@@ -126,6 +126,7 @@ $(document).ready(function () {
 			success: function (msg) {
 				$('#step2Container').html(msg);
 				$('#step2Container .checkbox').styler();
+				$('#step3Container').html('');
 			}
 		});
 	});

@@ -636,22 +636,22 @@ class BidsController extends Controller
 					);
 					$add_categories_info = Categories::model()->getCategoriesFromIds($connection, $add_categories);
 					
-					
 					$cargo = new Cargoes;
 					$cargo->name = $NewBid_Cargoes['name1'];
 					$cargo->comment = $NewBid_Cargoes['comment1'];
-					$cargo->weight = $NewBid_Cargoes['weight1'];
-					$cargo->unit = $NewBid_Cargoes['unit1'];
-					$cargo->foto = $NewBid_Cargoes['foto1'];
-					$cargo->porters = $NewBid_Cargoes['porters1'];
-					$cargo->foto = $NewBid_Cargoes['foto1'];
-					$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor1'];
-					$cargo->lift = $NewBid_Cargoes['lift1'];
-					$cargo->floor = $NewBid_Cargoes['floor1'];
-					$cargo->length = $NewBid_Cargoes['length1'];
-					$cargo->width = $NewBid_Cargoes['width1'];
-					$cargo->height = $NewBid_Cargoes['height1'];
-					$cargo->volume = $NewBid_Cargoes['volume1'];
+					$cargo->weight = isset($NewBid_Cargoes['weight1']) ? $NewBid_Cargoes['weight1'] : 0 ;
+					$cargo->unit = isset($NewBid_Cargoes['unit1']) ? $NewBid_Cargoes['unit1'] : 1;
+					$cargo->foto = isset($NewBid_Cargoes['foto1']) ? $NewBid_Cargoes['foto1'] : '';
+					$cargo->porters = isset($NewBid_Cargoes['porters1']) ? $NewBid_Cargoes['porters1'] : 0;
+					$cargo->lift_to_floor = isset($NewBid_Cargoes['lift_to_floor1']) ? $NewBid_Cargoes['lift_to_floor1'] : 0;
+					$cargo->lift = isset($NewBid_Cargoes['lift1']) ? $NewBid_Cargoes['lift1'] : 0;
+					$cargo->floor = isset($NewBid_Cargoes['floor1']) ? $NewBid_Cargoes['floor1'] : 0;
+					$cargo->length = isset($NewBid_Cargoes['length1']) ? $NewBid_Cargoes['length1'] : 0;
+					$cargo->width = isset($NewBid_Cargoes['width1']) ? $NewBid_Cargoes['width1'] : 0;
+					$cargo->height = isset($NewBid_Cargoes['height1']) ? $NewBid_Cargoes['height1'] : 0;
+					$cargo->volume = isset($NewBid_Cargoes['volume1']) ? $NewBid_Cargoes['volume1'] : 0;
+					$cargo->passengers_qty = isset($NewBid_Cargoes['passengers_qty1']) ? $NewBid_Cargoes['passengers_qty1'] : '';
+					$cargo->time = isset($NewBid_Cargoes['time1']) ? $NewBid_Cargoes['time1'] : '';
 					
 					if($cargo->validate()) {
 						$cargo->save();
@@ -678,18 +678,19 @@ class BidsController extends Controller
 						$cargo = new Cargoes;
 						$cargo->name = $NewBid_Cargoes['name2'];
 						$cargo->comment = $NewBid_Cargoes['comment2'];
-						$cargo->weight = $NewBid_Cargoes['weight2'];
-						$cargo->unit = $NewBid_Cargoes['unit2'];
-						$cargo->foto = $NewBid_Cargoes['foto2'];
-						$cargo->porters = $NewBid_Cargoes['porters2'];
-						$cargo->foto = $NewBid_Cargoes['foto2'];
-						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor2'];
-						$cargo->lift = $NewBid_Cargoes['lift2'];
-						$cargo->floor = $NewBid_Cargoes['floor2'];
-						$cargo->length = $NewBid_Cargoes['length2'];
-						$cargo->width = $NewBid_Cargoes['width2'];
-						$cargo->height = $NewBid_Cargoes['height2'];
-						$cargo->volume = $NewBid_Cargoes['volume2'];
+						$cargo->weight = isset($NewBid_Cargoes['weight2']) ? $NewBid_Cargoes['weight2'] : 0 ;
+						$cargo->unit = isset($NewBid_Cargoes['unit2']) ? $NewBid_Cargoes['unit2'] : 1;
+						$cargo->foto = isset($NewBid_Cargoes['foto2']) ? $NewBid_Cargoes['foto2'] : '';
+						$cargo->porters = isset($NewBid_Cargoes['porters2']) ? $NewBid_Cargoes['porters2'] : 0;
+						$cargo->lift_to_floor = isset($NewBid_Cargoes['lift_to_floor2']) ? $NewBid_Cargoes['lift_to_floor2'] : 0;
+						$cargo->lift = isset($NewBid_Cargoes['lift2']) ? $NewBid_Cargoes['lift2'] : 0;
+						$cargo->floor = isset($NewBid_Cargoes['floor2']) ? $NewBid_Cargoes['floor2'] : 0;
+						$cargo->length = isset($NewBid_Cargoes['length2']) ? $NewBid_Cargoes['length2'] : 0;
+						$cargo->width = isset($NewBid_Cargoes['width2']) ? $NewBid_Cargoes['width2'] : 0;
+						$cargo->height = isset($NewBid_Cargoes['height2']) ? $NewBid_Cargoes['height2'] : 0;
+						$cargo->volume = isset($NewBid_Cargoes['volume2']) ? $NewBid_Cargoes['volume2'] : 0;
+						$cargo->passengers_qty = isset($NewBid_Cargoes['passengers_qty2']) ? $NewBid_Cargoes['passengers_qty2'] : '';
+						$cargo->time = isset($NewBid_Cargoes['time2']) ? $NewBid_Cargoes['time2'] : '';
 
 						if($cargo->validate()) {
 							$cargo->save();
@@ -709,19 +710,20 @@ class BidsController extends Controller
 						$cargo = new Cargoes;
 						$cargo->name = $NewBid_Cargoes['name3'];
 						$cargo->comment = $NewBid_Cargoes['comment3'];
-						$cargo->weight = $NewBid_Cargoes['weight3'];
-						$cargo->unit = $NewBid_Cargoes['unit3'];
-						$cargo->foto = $NewBid_Cargoes['foto3'];
-						$cargo->porters = $NewBid_Cargoes['porters3'];
-						$cargo->foto = $NewBid_Cargoes['foto3'];
-						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor3'];
-						$cargo->lift = $NewBid_Cargoes['lift3'];
-						$cargo->floor = $NewBid_Cargoes['floor3'];
-						$cargo->length = $NewBid_Cargoes['length3'];
-						$cargo->width = $NewBid_Cargoes['width3'];
-						$cargo->height = $NewBid_Cargoes['height3'];
-						$cargo->volume = $NewBid_Cargoes['volume3'];
-
+						$cargo->weight = isset($NewBid_Cargoes['weight3']) ? $NewBid_Cargoes['weight3'] : 0 ;
+						$cargo->unit = isset($NewBid_Cargoes['unit3']) ? $NewBid_Cargoes['unit3'] : 1;
+						$cargo->foto = isset($NewBid_Cargoes['foto3']) ? $NewBid_Cargoes['foto3'] : '';
+						$cargo->porters = isset($NewBid_Cargoes['porters3']) ? $NewBid_Cargoes['porters3'] : 0;
+						$cargo->lift_to_floor = isset($NewBid_Cargoes['lift_to_floor3']) ? $NewBid_Cargoes['lift_to_floor3'] : 0;
+						$cargo->lift = isset($NewBid_Cargoes['lift3']) ? $NewBid_Cargoes['lift3'] : 0;
+						$cargo->floor = isset($NewBid_Cargoes['floor3']) ? $NewBid_Cargoes['floor3'] : 0;
+						$cargo->length = isset($NewBid_Cargoes['length3']) ? $NewBid_Cargoes['length3'] : 0;
+						$cargo->width = isset($NewBid_Cargoes['width3']) ? $NewBid_Cargoes['width3'] : 0;
+						$cargo->height = isset($NewBid_Cargoes['height3']) ? $NewBid_Cargoes['height3'] : 0;
+						$cargo->volume = isset($NewBid_Cargoes['volume3']) ? $NewBid_Cargoes['volume3'] : 0;
+						$cargo->passengers_qty = isset($NewBid_Cargoes['passengers_qty3']) ? $NewBid_Cargoes['passengers_qty3'] : '';
+						$cargo->time = isset($NewBid_Cargoes['time3']) ? $NewBid_Cargoes['time3'] : '';
+						
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
@@ -739,19 +741,21 @@ class BidsController extends Controller
 						$cargo = new Cargoes;
 						$cargo->name = $NewBid_Cargoes['name4'];
 						$cargo->comment = $NewBid_Cargoes['comment4'];
-						$cargo->weight = $NewBid_Cargoes['weight4'];
-						$cargo->unit = $NewBid_Cargoes['unit4'];
-						$cargo->foto = $NewBid_Cargoes['foto4'];
-						$cargo->porters = $NewBid_Cargoes['porters4'];
-						$cargo->foto = $NewBid_Cargoes['foto4'];
-						$cargo->lift_to_floor = $NewBid_Cargoes['lift_to_floor4'];
-						$cargo->lift = $NewBid_Cargoes['lift4'];
-						$cargo->floor = $NewBid_Cargoes['floor4'];
-						$cargo->length = $NewBid_Cargoes['length4'];
-						$cargo->width = $NewBid_Cargoes['width4'];
-						$cargo->height = $NewBid_Cargoes['height4'];
-						$cargo->volume = $NewBid_Cargoes['volume4'];
-
+						
+						$cargo->weight = isset($NewBid_Cargoes['weight4']) ? $NewBid_Cargoes['weight4'] : 0 ;
+						$cargo->unit = isset($NewBid_Cargoes['unit4']) ? $NewBid_Cargoes['unit4'] : 1;
+						$cargo->foto = isset($NewBid_Cargoes['foto4']) ? $NewBid_Cargoes['foto4'] : '';						
+						$cargo->porters = isset($NewBid_Cargoes['porters4']) ? $NewBid_Cargoes['porters4'] : 0;
+						$cargo->lift_to_floor = isset($NewBid_Cargoes['lift_to_floor4']) ? $NewBid_Cargoes['lift_to_floor4'] : 0;
+						$cargo->lift = isset($NewBid_Cargoes['lift4']) ? $NewBid_Cargoes['lift4'] : 0;
+						$cargo->floor = isset($NewBid_Cargoes['floor4']) ? $NewBid_Cargoes['floor4'] : 0;
+						$cargo->length = isset($NewBid_Cargoes['length4']) ? $NewBid_Cargoes['length4'] : 0;
+						$cargo->width = isset($NewBid_Cargoes['width4']) ? $NewBid_Cargoes['width4'] : 0;
+						$cargo->height = isset($NewBid_Cargoes['height4']) ? $NewBid_Cargoes['height4'] : 0;
+						$cargo->volume = isset($NewBid_Cargoes['volume4']) ? $NewBid_Cargoes['volume4'] : 0;
+						$cargo->passengers_qty = isset($NewBid_Cargoes['passengers_qty4']) ? $NewBid_Cargoes['passengers_qty4'] : '';
+						$cargo->time = isset($NewBid_Cargoes['time4']) ? $NewBid_Cargoes['time4'] : '';
+						
 						if($cargo->validate()) {
 							$cargo->save();
 							$this->createBidsCargoes($model->bid_id, $cargo->cargo_id);
