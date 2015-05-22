@@ -384,6 +384,12 @@ class BidsController extends Controller
 						$field = 'foto'.($key+1);
 						$cargo_item->foto = $cargoModel->$field;
 						
+						$field = 'passengers_qty'.($key+1);
+						$cargo_item->passengers_qty = $cargoModel->$field;
+						
+						$field = 'time'.($key+1);
+						$cargo_item->time = $cargoModel->$field;
+						
 						if($cargoModel->validate())	{
 							$cargo_item->save();
 							$field = 'bid_tmp_foto_'.($key+1);
@@ -406,8 +412,6 @@ class BidsController extends Controller
 			//echo'<pre>';print_r($cargoModel);echo'</pre>';die;
 			
 		}	else	{
-			
-
 			foreach($bid_model->bidsCargoes as $key => $bidsCargoes)	{
 				$model = $bidsCargoes->cargo;
 				//echo'<pre>';print_r($model->unit);echo'</pre>';die;
@@ -459,6 +463,11 @@ class BidsController extends Controller
 				$field = 'foto'.($key+1);
 				$cargoModel->$field = $model->foto;
 
+				$field = 'passengers_qty'.($key+1);
+				$cargoModel->$field = $model->passengers_qty;
+
+				$field = 'time'.($key+1);
+				$cargoModel->$field = $model->time;
 
 				$field = 'selected_unit'.($key+1);
 				$cargoModel->$field = array($model->unit => array( 'selected' => 'selected' ));

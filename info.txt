@@ -6,6 +6,7 @@ aK2G3Rg8
 Data Base:
 http://trubkin.by/phpMyAdmin/
 http://sovablog.ru/phpMyAdmin/
+http://skorohod.by/phpAdmin/
 База Данных:            neoli357_skoro
 Хост:                   localhost
 Имя Пользователя:       neoli357_skoro

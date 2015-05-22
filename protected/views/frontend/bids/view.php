@@ -28,20 +28,12 @@ foreach($deals_list as $row) {
 }
 
 $show_deal_frm = true;
-//if($model->published == 1)	{
-	foreach($deals_list as $row) {
-		//if(!$this->app->user->isGuest && $row['user_id'] == $this->app->user->id)	{
-		if(!$this->app->user->isGuest && ($row['user_id'] == $this->app->user->id || $row['accepted'] == 1) )	{
 
-			$show_deal_frm = false;
-		}
+foreach($deals_list as $row) {
+	if(!$this->app->user->isGuest && ($row['user_id'] == $this->app->user->id || $row['accepted'] == 1) )	{
+		$show_deal_frm = false;
 	}
-	
-//}	else	{
-	//$show_deal_frm = false;
-//}
-
-//echo'<pre>';print_r($deals_list);echo'</pre>';
+}
 //echo'<pre>';print_r($model);echo'</pre>';
 
 $routeArray = array();
@@ -49,12 +41,6 @@ if($model->add_loading_unloading_town_1 != '') $routeArray[] = array('country' =
 if($model->add_loading_unloading_town_2 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_2, 'town' =>$model->add_loading_unloading_town_2, 'address'=>$model->add_loading_unloading_address_2);
 if($model->add_loading_unloading_town_3 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_3, 'town' =>$model->add_loading_unloading_town_3, 'address'=>$model->add_loading_unloading_address_3);
 $routeArray[] = array('country' =>$model->unloading_country, 'town' =>$model->unloading_town, 'address'=>$model->unloading_address);
-
-
-//		https://api.vk.com/method/places.getCountries
-//		https://api.vk.com/method/places.getCities?country=3
-//		https://api.vk.com/method/places.getStreetById?sids=282
-//		
 
 $added_date = getTimeAgo($model->created);
 ?>
@@ -236,6 +222,15 @@ $added_date = getTimeAgo($model->created);
 						
 					?>
 					<p><?=implode(' / ', $info_arr)?></p>
+					
+					<? if($cargo['passengers_qty'] != '')	{	?>
+						<p class="mb-5">Кол-во пассажиров: <?=$cargo['passengers_qty']?></p>
+					<?	}	?>
+
+					<? if($cargo['time'] != '')	{	?>
+						<p class="mb-5">Машина нужна на: <?=$cargo['time']?></p>
+					<?	}	?>
+					
 				</div>
 				
 				<?
@@ -281,7 +276,7 @@ $added_date = getTimeAgo($model->created);
 					?>
 					<p class="bid-detail-cargo-listitem-row bid-detail-cargo-listitem-porters"><? echo implode('<br>', $value_arr); ?></p>
 				<?	}	?>
-				
+								
 				<? if($cargo['comment'] != '')	{	?>
 					<p class="bid-detail-cargo-listitem-comment lh-18 font-12">
 					<?
@@ -298,7 +293,6 @@ $added_date = getTimeAgo($model->created);
 					?>
 					</p>
 				<?	}	?>
-				
 			</li>
 		<?	}	?>
 		</ul>
