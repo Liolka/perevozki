@@ -277,6 +277,12 @@ class SiteController extends Controller
 		sendMail($email, $tmpl, $data);
 	}
 	
+	public function actionCalculator() {
+		$this->render('calculator',array());
+	}
 	
+	public function actionCalculator1() {
+		$this->render('calculator1',array());
+	}
 	
 }
