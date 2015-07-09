@@ -34,7 +34,7 @@ foreach($deals_list as $row) {
 		$show_deal_frm = false;
 	}
 }
-//echo'<pre>';print_r($model);echo'</pre>';
+//echo'<pre>';print_r($deals_list);echo'</pre>';
 
 $routeArray = array();
 if($model->add_loading_unloading_town_1 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_1, 'town' =>$model->add_loading_unloading_town_1, 'address'=>$model->add_loading_unloading_address_1);
@@ -43,6 +43,8 @@ if($model->add_loading_unloading_town_3 != '') $routeArray[] = array('country' =
 $routeArray[] = array('country' =>$model->unloading_country, 'town' =>$model->unloading_town, 'address'=>$model->unloading_address);
 
 $added_date = getTimeAgo($model->created);
+
+
 ?>
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript">
@@ -382,8 +384,8 @@ $added_date = getTimeAgo($model->created);
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
 						
-							<p class="deal-date font-13 bold mb-5"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $row['deal_date']); ?></p>
-							<p class="deal-time font-13 c_8e95a1"><?php echo $this->app->dateFormatter->format('HH:mm', $row['deal_time']); ?></p>
+							<p class="deal-date font-13 bold mb-5"><?php if($row['deal_date'] != '0000-00-00') echo $this->app->dateFormatter->format('dd.MM.yyyy', $row['deal_date']); ?></p>
+							<p class="deal-time font-13 c_8e95a1"><?php if($row['deal_time'] != '00:00:00') echo $this->app->dateFormatter->format('HH:mm', $row['deal_time']); else echo 'не указана' ?></p>
 
 						</div>
 						

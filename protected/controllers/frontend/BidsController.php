@@ -1042,14 +1042,14 @@ class BidsController extends Controller
 			if($model->bids_filter_dates_to != '')	{
 				$condition_arr[] = "t.date_transportation <= '".$model->bids_filter_dates_to."'";
 			}
-
-			if($model->country_from != 'all' && $model->country_to != 'all')	{
-				$condition_arr[] = "t.loading_country = '".$model->country_from."' AND t.unloading_country = '".$model->country_to."'";
-			}	elseif($model->country_from != 'all' )	{
-				$condition_arr[] = "t.loading_country = '".$model->country_from."'";
-			}	elseif($model->country_to != 'all')	{
-				$condition_arr[] = "t.unloading_country = '".$model->country_to."'";
-			}
+ 
+//			if($model->country_from != 'all' && $model->country_to != 'all')	{
+//				$condition_arr[] = "t.loading_country = '".$model->country_from."' AND t.unloading_country = '".$model->country_to."'";
+//			}	elseif($model->country_from != 'all' )	{
+//				$condition_arr[] = "t.loading_country = '".$model->country_from."'";
+//			}	elseif($model->country_to != 'all')	{
+//				$condition_arr[] = "t.unloading_country = '".$model->country_to."'";
+//			}
 			
 			if($model->town_from != '' && $model->town_to != '')	{
 				$condition_arr[] = "t.loading_town = '".$model->town_from."' AND t.unloading_town = '".$model->town_to."'";
@@ -1461,9 +1461,16 @@ class BidsController extends Controller
 		
 		$this->app->user->setFlash('success', $message);
 		
+		echo'<pre>';print_r($deal_model->deal_time);echo'</pre>';//die;
+		echo'<pre>';print_r($deal_model->deal_date);echo'</pre>';//die;
+		
 		$deal_model->deal_time = substr($deal_model->deal_time, 0, -3);
+		
+		//echo'<pre>';print_r($deal_model->deal_time);echo'</pre>';die;
 		$deal_model->$field = $value;
 		$deal_model->save();
+		
+		echo'<pre>';print_r($deal_model);echo'</pre>';die;
 		
 		$this->redirect(array('bids/view','id'=>$bid_id));
 		
