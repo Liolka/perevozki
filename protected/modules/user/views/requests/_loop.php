@@ -1,5 +1,3 @@
-<div id="listView">
-
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>$itemView,
@@ -14,8 +12,6 @@
 	'htmlOptions' => array('id'=>'listView', 'class'=>'requests1-list-items',),
 )); ?>
 
-
-</div>
 
 
 <?php if ($dataProvider->totalItemCount > $dataProvider->pagination->pageSize)	{	?>

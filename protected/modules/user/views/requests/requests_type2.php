@@ -3,6 +3,10 @@ $this->breadcrumbs=array(
 	$user_model->username => array('/user/view', 'id'=>$user_model->id),
 	'Заявки перевозчика',
 );
+
+$cs = $this->app->getClientScript();
+$cs->registerCoreScript('simplyCountable');
+
 ?>
 
 
@@ -11,6 +15,6 @@ $this->breadcrumbs=array(
 
 <? include(Yii::getPathOfAlias('application')."/views/common/_flash-messages.php"); ?>
 
-<div class="profile-requests-block  mt-40">
+<div class="profile-page-requests-block profile-requests-block mt-40">
 	<?php $this->renderPartial('_loop', array('dataProvider'=>$dataProvider, 'itemView' => $itemView)); ?>
 </div>

@@ -417,12 +417,12 @@ $(document).ready(function () {
 		$(this).parent().parent().parent().parent().parent().parent().find('.requests-full-review').slideToggle();
 	});
 	
+	
 	$('.profile-page-requests-block #listView').on('click', '.show-full-review', function () {
 		$(this).parent().parent().parent().parent().parent().parent().find('.requests-full-review').slideToggle();
 	});
 	
 	$('.profile-requests-block #listView').on('click', '.show-full-review', function () {
-		console.log(12);
 		$(this).parent().parent().parent().parent().find('.requests-full-review').slideToggle();
 	});
 	
