@@ -46,6 +46,7 @@ $NumberFormatter = $this->app->NumberFormatter;
 			<div class="rating-info-block2 fRight">Реализовано перевозок <span><?=$model->done_carriage?></span></div>
 		<?	}	?>
 	</div>
+	<? /* <div class="my-rating-age"><span>2 года 4 месяца 13 дней</span> на сайте</div> */?>
 	<div class="rating-age"><span><?=getElapsedTime($model->create_at)?></span> на сайте</div>
 </div>
 

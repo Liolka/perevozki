@@ -41,20 +41,23 @@
 		<div class="my-contact-info-container-wr p-20">
 			<p class="narrow-bold-18 mb-25">Информация о компании</p>
 			<div class="row mb-35">
-				<?
-				switch($user_status)	{
-					case 1: 
-					$tmpl = "perevozchik-contact-info-container-ur.php";
-					break;
+	
+	
+	<?
+	switch($user_status)	{
+		case 1: 
+		$tmpl = "perevozchik-contact-info-container-ur.php";
+		break;
 
-					case 2: 
-					default: 
-					$tmpl = "perevozchik-contact-info-container-fiz.php";
-					break;
-				}
+		case 2: 
+		default: 
+		$tmpl = "perevozchik-contact-info-container-fiz.php";
+		break;
+	}
 
-				include ($tmpl);	
-				?>
+	include ($tmpl);	
+	?>
+	
 			</div>
 			
 			<? if($user_company->description != '')	{	?>

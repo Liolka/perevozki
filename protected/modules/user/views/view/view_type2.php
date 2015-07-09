@@ -140,7 +140,7 @@ $this->renderPartial($transport_tmpl, array(
 </div>
 
 
-<div class="profile-requests-block">
+<div class="profile-requests-block profile-page-requests-block">
 	<p class="narrow-bold-23 mb-30">
 		Перевозки
 		<? if(count($lastBidsUser->data))	{	?>

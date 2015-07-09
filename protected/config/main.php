@@ -7,11 +7,10 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'perevozki',
-	'sourceLanguage' => 'en_US',
+	'name'=>'Скороход',
+	'sourceLanguage' => 'en',
 	'language' => 'ru',
-	'charset'=>'utf-8',
-	'homeUrl'=>'http://perevozki.gf-club.net',
+	'homeUrl'=>'http://skorohod.by/',
 	
 
 	// preloading 'log' component
@@ -55,7 +54,7 @@ return array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'alexey27',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
-			'ipFilters'=>array('127.0.0.1','::1','93.125.44.40', '178.121.90.33',),
+			'ipFilters'=>array('127.0.0.1','::1','91.149.156.111', '93.125.44.177',),
 		),
 		
 
@@ -92,6 +91,7 @@ return array(
             //'returnLogoutUrl' => array('/user/login'),
             'returnLogoutUrl' => array('/'),
         ),
+		
 	),
 
 	// application components
@@ -122,10 +122,10 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=gfclubne_orisad',
+			'connectionString' => 'mysql:host=localhost;dbname=perevozki',
 			'emulatePrepare' => true,
-			'username' => 'gfclubne_orisad',
-			'password' => 'wkd?S#}nDVFk',
+			'username' => 'perevozki',
+			'password' => 'perevozki',
 			'charset' => 'utf8',
 			'tablePrefix' => '1gsk_',			
 		),
@@ -147,8 +147,10 @@ return array(
 					'class'=>'CWebLogRoute',
 				),
 				*/
+				
 			),
 		),
+		
 		'image' => array (
 			'class'=>'application.extensions.image.CImageComponent',
 			// GD or ImageMagick
@@ -210,15 +212,15 @@ return array(
 					'baseUrl' => '/',
 					'js' => array(
 						'js/bootstrap/bootstrap.min.js',
-						'js/bootstrap/bootstrap-tooltip-init.js',
-						'js/bootstrap/bootstrap-tab.js',
-						'js/bootstrap/bootstrap-tab-init.js',
-						'js/bootstrap/bootstrap-switch.min.js',
+						//'js/bootstrap/bootstrap-tooltip-init.js',
+						//'js/bootstrap/bootstrap-tab.js',
+						//'js/bootstrap/bootstrap-tab-init.js',
+						//'js/bootstrap/bootstrap-switch.min.js',
 					),
 					'css' => array(
 						'css/bootstrap/bootstrap.min.css',
-						'css/bootstrap/bootstrap-theme.min.css',
-						'css/bootstrap/bootstrap-switch.min.css',
+						//'css/bootstrap/bootstrap-theme.min.css',
+						//'css/bootstrap/bootstrap-switch.min.css',
 					),
 					'depends' => array('jquery'),
 				),
@@ -233,7 +235,6 @@ return array(
 						'js/bootstrap/bootstrap-switch.min.js',
 					),
 				),
-				
 				'ajax-upload' => array(
 					'baseUrl' => '/',
 					'js' => array(
@@ -241,6 +242,63 @@ return array(
 					),
 					'depends' => array('jquery'),
 				),
+				
+				'flexcroll' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/flexcroll.js',
+					),
+					'css' => array(
+						'css/flexcrollstyles.css',
+						'css/tutorsty.css',
+					),
+					'depends' => array('jquery'),
+				),
+				
+				'rating' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.rating.pack.js',
+						'js/jquery.MetaData.js',
+					),
+					'css' => array(
+						'css/jquery.rating.css',
+					),
+					'depends' => array('jquery'),
+				),
+				
+				'rating-b' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.rating.pack.js',
+						'js/jquery.MetaData.js',
+					),
+					'css' => array(
+						'css/jquery.rating-b.css',
+					),
+					'depends' => array('jquery'),
+				),
+				
+				'rating-g' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.rating.pack.js',
+						'js/jquery.MetaData.js',
+					),
+					'css' => array(
+						'css/jquery.rating-g.css',
+					),
+					'depends' => array('jquery'),
+				),
+				
+				'simplyCountable' => array(
+					'baseUrl' => '/',
+					'js' => array(
+						'js/jquery.simplyCountable.js',
+					),
+					'depends' => array('jquery'),
+				),
+				
 				
 				'template' => array(
 					'baseUrl' => '/',
@@ -254,23 +312,22 @@ return array(
 		'dpsMailer' => array(
 				'class' => 'ext.dpsmailer.components.dpsMailer',
 				'sViewPath' => './protected/views/email', // путь к шаблонам
-				'aFrom' => array( 'info@perevozki.gf-club.net' => 'Администрация' ), // от кого будут отправляться письма по умолчанию
+				'aFrom' => array( 'suport@skorohod.by' => 'Администрация' ), // от кого будут отправляться письма по умолчанию
 				'aBehaviors' => array(
 					'swift' => array(
 						'class' => 'ext.dpsmailer.behaviors.dpsSwiftMailerBehavior',
 						'sLibPath'=> './protected/extensions/swiftmailer/lib', // путь к папке, c библиотекой swift http://swiftmailer.org/
 						'sTransport' => 'Swift_SmtpTransport',
 						'aOptions' => array(// настройки swift
-							'Host'            => 'vh11.uh.freedom.by',
+							'Host'            => 'mail.skorohod.by',
 							'Port'            => 465,
 							'Encryption'        => 'ssl',
-							'Username'        => 'info@perevozki.gf-club.net',
-							'Password'        => '5nTUTF5(?693',
+							'Username'        => 'suport@skorohod.by',
+							'Password'        => 'fJqjKJ5B',
 						),
 					),
 				),
 		),		
-		
 		
 	),
 
@@ -284,7 +341,9 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
+		'siteName'=>'Скороход',	// нужно чтобы имя сайта было одинаковым при отправлении писем из админки и общей части.йт
+		
+		'adminEmail'=>'aldegtyarev@yandex.ru',
 		'pagination' => array('per_page' => 30, 'products_per_page' => 10),		//параметры для пагинации
 		'images_live_url' => 'http://perevozki/',
 		'transport_imageLive' => '/images/transport/',
@@ -295,6 +354,9 @@ return array(
 			1 => array('id' => 1, 'name' => 'кг'),
 			2 => array('id' => 2, 'name' => 'тонн'),
 		),
+		
+		'LastActivityInterval' => 1,	//интервал в течении которого считать тользователя онлайн
+		
 		'countries' => array(
 			'by'=>'Беларусь',
 			'ru'=>'Россия',
@@ -311,5 +373,6 @@ return array(
 			'cz'=>'Чехия',
 			'md'=>'Молдавия',
 		),		
+		
 	),
 );

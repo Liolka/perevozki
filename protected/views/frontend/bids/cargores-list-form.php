@@ -12,7 +12,7 @@
 
 				<div class="row">
 					<div class="col-md-5 col-lg-5">
-						<? if($key > 1)	{	?>
+						<? if($key > 1 && $cargoes_edit === false)	{	?>
 						<div class="row form-row">
 							<div class="col-md-12 col-lg-12">
 								<?php echo $form->dropDownList($model, 'category'.$key, $categories_list, array('data-placeholder'=>'выберите...', 'options' => array(), 'class'=>'width100'));?>

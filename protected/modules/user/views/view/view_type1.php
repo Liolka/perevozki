@@ -42,7 +42,7 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 	</div>
 </div>
 
-<div class="profile-requests-block mt-30">
+<div class="profile-requests-block profile-page-requests-block mt-30">
 	<p class="narrow-bold-23 mb-30">
 		Заказы
 		<? if(count($lastBidsUser->data))	{	?>

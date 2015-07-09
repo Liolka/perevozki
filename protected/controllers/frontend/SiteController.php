@@ -221,15 +221,18 @@ class SiteController extends Controller
 						
 						$count_reviews = Bids::model()->getCountReviews($connection, 'user', $model->performer_id);
 						//$count_reviews = array(19, 1);
-						
-						if(($count_reviews_prev[0] / $count_reviews_prev[1] < 20) && ($count_reviews[0] / $count_reviews[1] >= 20))	{
-							$user_model->reliability = $user_model->reliability + 20;
-						}	elseif(($count_reviews_prev[0] / $count_reviews_prev[1] >= 20) && ($count_reviews[0] / $count_reviews[1] < 20))	{
-							$user_model->reliability = $user_model->reliability - 20;
-						}
 						//echo'<pre>';print_r($count_reviews_prev,0);echo'</pre>';
 						//echo'<pre>';print_r($count_reviews,0);echo'</pre>';
 						//die;
+						
+						if(count($count_reviews_prev) > 1 && count($count_reviews) > 1)	{
+							if(($count_reviews_prev[0] / $count_reviews_prev[1] < 20) && ($count_reviews[0] / $count_reviews[1] >= 20))	{
+								$user_model->reliability = $user_model->reliability + 20;
+							}	elseif(($count_reviews_prev[0] / $count_reviews_prev[1] >= 20) && ($count_reviews[0] / $count_reviews[1] < 20))	{
+								$user_model->reliability = $user_model->reliability - 20;
+							}
+							
+						}
 						//echo'<pre>';print_r($model->performer_id,0);echo'</pre>';
 						//echo'<pre>';print_r($count_reviews,0);echo'</pre>';die;
 						

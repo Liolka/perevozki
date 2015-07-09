@@ -17,7 +17,7 @@ $cs = $this->app->clientScript;
 
 $cs->coreScriptPosition = CClientScript::POS_END;
 $cs->registerCoreScript('fancybox');
-$cs->registerCoreScript('ajax-upload');
+
 
 $cs->registerScript('loading', "
 	$('.my-transport-list-item').hover(
@@ -27,8 +27,8 @@ $cs->registerScript('loading', "
 	
 ");
 
-
-
+    //$cs1 = $this->app->getClientScript();
+	$cs->registerCoreScript('ajax-upload');
 
 $counter = 2;
 

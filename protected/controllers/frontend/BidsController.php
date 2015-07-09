@@ -1461,16 +1461,9 @@ class BidsController extends Controller
 		
 		$this->app->user->setFlash('success', $message);
 		
-		echo'<pre>';print_r($deal_model->deal_time);echo'</pre>';//die;
-		echo'<pre>';print_r($deal_model->deal_date);echo'</pre>';//die;
-		
 		$deal_model->deal_time = substr($deal_model->deal_time, 0, -3);
-		
-		//echo'<pre>';print_r($deal_model->deal_time);echo'</pre>';die;
 		$deal_model->$field = $value;
-		$deal_model->save();
-		
-		echo'<pre>';print_r($deal_model);echo'</pre>';die;
+		$deal_model->save(false);
 		
 		$this->redirect(array('bids/view','id'=>$bid_id));
 		

@@ -34,10 +34,12 @@ return CMap::mergeArray(
 			
 
 			// mailer
+			/*
 			'mailer' => array (
-				'pathViews' => 'application.views.backend.email',
-				'pathLayouts' => 'application.views.email.backend.layouts'
+				//'pathViews' => 'application.views.backend.email',
+				//'pathLayouts' => 'application.views.email.backend.layouts'
 			),
+			*/
 			
 			'image' => array (
 				'class'=>'application.extensions.image.CImageComponent',

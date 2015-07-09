@@ -34,7 +34,7 @@ foreach($deals_list as $row) {
 		$show_deal_frm = false;
 	}
 }
-//echo'<pre>';print_r($deals_list);echo'</pre>';
+//echo'<pre>';print_r($model);echo'</pre>';
 
 $routeArray = array();
 if($model->add_loading_unloading_town_1 != '') $routeArray[] = array('country' =>$model->add_loading_unloading_country_1, 'town' =>$model->add_loading_unloading_town_1, 'address'=>$model->add_loading_unloading_address_1);
@@ -43,8 +43,6 @@ if($model->add_loading_unloading_town_3 != '') $routeArray[] = array('country' =
 $routeArray[] = array('country' =>$model->unloading_country, 'town' =>$model->unloading_town, 'address'=>$model->unloading_address);
 
 $added_date = getTimeAgo($model->created);
-
-
 ?>
 <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script type="text/javascript">
