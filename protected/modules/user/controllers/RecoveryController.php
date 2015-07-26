@@ -16,6 +16,8 @@ class RecoveryController extends Controller
 	 */
 	public function actionRecovery () {
 		$form = new UserRecoveryForm;
+		$this->app = Yii::app();
+		$modal = $this->app->request->getParam('modal', 0);
 		if (Yii::app()->user->id) {
 		    	$this->redirect(Yii::app()->controller->module->returnUrl);
 		    } else {
@@ -67,7 +69,11 @@ class RecoveryController extends Controller
 			    			$this->refresh();
 			    		}
 			    	}
-		    		$this->renderPartial('recovery-modal',array('form'=>$form));
+					if($modal == 1) {
+						$this->renderPartial('recovery-modal',array('form'=>$form));
+					}	else	{
+						$this->render('recovery',array('form'=>$form));
+					}
 		    	}
 		    }
 	}

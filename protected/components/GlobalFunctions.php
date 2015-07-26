@@ -1,4 +1,4 @@
-<?
+<? 
 
 function isQuickly($date)
 {
@@ -52,12 +52,15 @@ function processPageRequest($param = 'page')
 function getTimeAgo($date_time)
 {
 	$timeAgo = time() - strtotime($date_time);
+	//var_dump	( $timeAgo);
 	$timePer = array(
 		'day' 	=> array(3600 * 24, 'дн.'),
 		'hour' 	=> array(3600, ''),
 		'min' 	=> array(60, 'мин.'),
 		'sek' 	=> array(1, 'сек.'),
 		);
+	
+	if($timeAgo <= 0) return 'сегодня';
 	
 	foreach ($timePer as $type =>  $tp) {
 		$tpn = floor($timeAgo / $tp[0]);
@@ -77,7 +80,7 @@ function getTimeAgo($date_time)
 			return $tpn.' '.$tp[1].' назад';
 		}
 	}
-}	
+}
 
 function prepareArray($rows, $keyFld)
 {
@@ -108,10 +111,10 @@ function UpdateLastActivity(&$app, &$connection)
 {
 	if(!$app->user->isGuest)	{
 		$user_id = $app->user->id;
-		$sql = "UPDATE {{users}} SET `last_activity` = :last_activity WHERE `id` = :user_id";
+		$sql = "UPDATE {{users}} SET `last_activity` = '".date('Y-m-d H:i:s', time())."' WHERE `id` = $user_id";
 		$command = $connection->createCommand($sql);
-		$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
-		$command->bindParam(":last_activity", date('Y-m-d H:i:s', time()), PDO::PARAM_STR);
+		//$command->bindParam(":user_id", $user_id, PDO::PARAM_INT);
+		//$command->bindParam(":last_activity", date('Y-m-d H:i:s', time()), PDO::PARAM_STR);
 		$command->execute();
 	}
 	return true;

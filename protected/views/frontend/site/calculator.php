@@ -1,4 +1,4 @@
-<div class="page_main-column grid-container">
+<div class="page_main-column grid-container"> 
 
 <? /*<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> */?>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>

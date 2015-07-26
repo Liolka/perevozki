@@ -1,4 +1,4 @@
-<?php
+<?php 
 /* @var $this BidsController */
 /* @var $model Bids */
 /* @var $form CActiveForm */

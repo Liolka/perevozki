@@ -152,51 +152,55 @@ class AdminController extends Controller
 				if(isset($_POST['UsersPerevozchik'])) {
 					$user_info = $model->perevozchik;
 					
-					if($user_info->validate())	{
-						$checked_files_arr = array(
-							1 => $user_info->file1_checked,
-							2 => $user_info->file2_checked,
-							3 => $user_info->file3_checked,
-							4 => $user_info->file4_checked,
-							5 => $user_info->file5_checked,
-							6 => $user_info->file6_checked,
-							7 => $user_info->file7_checked,
-							8 => $user_info->file8_checked,
-							9 => $user_info->file9_checked,
-							10 => $user_info->file10_checked,
-							11 => $user_info->file11_checked,
-							12 => $user_info->file12_checked,
-							13 => $user_info->file13_checked,
-							14 => $user_info->file14_checked,
-						);
+					if($user_info !== null)	{
+						if($user_info->validate())	{
+							$checked_files_arr = array(
+								1 => $user_info->file1_checked,
+								2 => $user_info->file2_checked,
+								3 => $user_info->file3_checked,
+								4 => $user_info->file4_checked,
+								5 => $user_info->file5_checked,
+								6 => $user_info->file6_checked,
+								7 => $user_info->file7_checked,
+								8 => $user_info->file8_checked,
+								9 => $user_info->file9_checked,
+								10 => $user_info->file10_checked,
+								11 => $user_info->file11_checked,
+								12 => $user_info->file12_checked,
+								13 => $user_info->file13_checked,
+								14 => $user_info->file14_checked,
+							);
 
-						$user_info->attributes = $_POST['UsersPerevozchik'];
-						$checked_documents = array();
-						foreach($checked_files_arr as $key=>$file)	{
-							$fld = 'file'.$key.'_checked';
-							if($file == 0 && $user_info->$fld == 1)	{
-								$checked_documents[] = $key;
+							$user_info->attributes = $_POST['UsersPerevozchik'];
+							$checked_documents = array();
+							foreach($checked_files_arr as $key=>$file)	{
+								$fld = 'file'.$key.'_checked';
+								if($file == 0 && $user_info->$fld == 1)	{
+									$checked_documents[] = $key;
+								}
 							}
+
+							$user_info->save();
+
+							$this->sendNoticeDocuments($checked_documents, $model, $user_info);
+							//echo'$checked_files_arr<pre>';print_r($checked_files_arr,0);echo'</pre>';//die;
+							//echo'$checked_documents<pre>';print_r($checked_documents,0);echo'</pre>';die;
+						}	else	{
+							$allOk = false;
 						}
-
-						$user_info->save();
-
-						$this->sendNoticeDocuments($checked_documents, $model, $user_info);
-						//echo'$checked_files_arr<pre>';print_r($checked_files_arr,0);echo'</pre>';//die;
-						//echo'$checked_documents<pre>';print_r($checked_documents,0);echo'</pre>';die;
-					}	else	{
-						$allOk = false;
 					}
 				}
-
+				
 				if(isset($_POST['UsersGruzodatel'])) {
 					$user_info = $model->gruzodatel;
-					
-					$user_info->attributes = $_POST['UsersGruzodatel'];
-					if($user_info->validate())	{
-						$user_info->save();
-					}	else	{
-						$allOk = false;
+					if($user_info !== null)	{
+						$user_info->attributes = $_POST['UsersGruzodatel'];
+						if($user_info->validate())	{
+							$user_info->save();
+						}	else	{
+							$allOk = false;
+						}
+						
 					}
 				}
 				

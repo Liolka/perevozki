@@ -29,7 +29,9 @@ class RegistrationController extends Controller
 	 */
 	
 	public function actionRegistration() {
-        
+		$this->app = Yii::app();
+        $modal = $this->app->request->getParam('modal', 0);
+		
 		if(isset($_POST['user_type']) || isset($_POST['RegistrationForm'])) {
 			
             $model = new RegistrationForm;
@@ -44,9 +46,21 @@ class RegistrationController extends Controller
 			}
 			
 		    if (Yii::app()->user->id) {
-		    	$this->redirect(Yii::app()->controller->module->profileUrl);
+		    	//$this->redirect(Yii::app()->controller->module->profileUrl);
+				Yii::app()->user->setFlash('registration', 'Вы уже вошли в систему');
+				
+				if($modal == 1)	{
+					$layout = '/user/already-logged-modal';
+					$this->renderPartial($layout, array());
+				}	else	{
+					$layout = '/user/already-logged';
+					$this->render($layout, array());
+				}
+				
+				
 		    } else {
-                $layout = '/user/registration-modal';
+                
+				
 		    	if(isset($_POST['RegistrationForm'])) {
 					//echo'<pre>';print_r($_POST['RegistrationForm']);echo'</pre>';//die;
 					$model->scenario = RegistrationForm::SCENARIO_REGISTRATION;
@@ -72,6 +86,8 @@ class RegistrationController extends Controller
 							if (Yii::app()->controller->module->sendActivationMail) {
 								$activation_url = $this->createAbsoluteUrl('/user/activation/activation',array("activkey" => $model->activkey, "email" => $model->email));
 								UserModule::sendMail($model->email,UserModule::t("You registered from {site_name}",array('{site_name}'=>Yii::app()->name)),UserModule::t("Please activate you account go to {activation_url}",array('{activation_url}'=>$activation_url)));
+								
+								// http://perevozki/user/activation/activation?activkey=3d478752426596e1f21d73a554a2ad22&email=alexius7772@tut.ru
 							}
 							
 							if ((Yii::app()->controller->module->loginNotActiv||(Yii::app()->controller->module->activeAfterRegister&&Yii::app()->controller->module->sendActivationMail==false))&&Yii::app()->controller->module->autoLogin) {
@@ -107,19 +123,44 @@ class RegistrationController extends Controller
                         break;
                 }
 				
-				
-				
-			    $this->renderPartial($layout, array(
-                    'model'=>$model,
-                    'profile'=>$profile,
-                    'form_title'=>$form_title,
-                ));
+				if($modal == 1)	{
+					$layout = '/user/registration-modal';
+					$this->renderPartial($layout, array(
+						'model'=>$model,
+						'profile'=>$profile,
+						'form_title'=>$form_title,
+					));
+					
+				}	else	{
+					$layout = '/user/registration';
+					$this->render($layout, array(
+						'model'=>$model,
+						'profile'=>$profile,
+						'form_title'=>$form_title,
+					));
+				}
 		    }
+
+		    }	elseif (Yii::app()->user->id) {
+		    	//$this->redirect(Yii::app()->controller->module->profileUrl);
+				Yii::app()->user->setFlash('registration', 'Вы уже вошли в систему');
+				
+				if($modal == 1)	{
+					$layout = '/user/already-logged-modal';
+					$this->renderPartial($layout, array());
+				}	else	{
+					$layout = '/user/already-logged';
+					$this->render($layout, array());
+				}
 			
 		}	else	{
-			$layout = '/user/registration_select_type-modal';
-			$this->renderPartial($layout, array());
-			
+			if($modal == 1)	{
+				$layout = '/user/registration_select_type-modal';
+				$this->renderPartial($layout, array());
+			}	else	{
+				$layout = '/user/registration_select_type';
+				$this->render($layout, array());
+			}
 		}
 	}
 }

@@ -54,6 +54,11 @@ class SiteController extends Controller
 		$this->render('zakazhu');
 	}
 	
+	public function actionContacts()
+	{
+		$this->render('contacts');
+	}
+	
 	public function actionEmptypage()
 	{
 		$this->render('empty-page');
@@ -225,7 +230,7 @@ class SiteController extends Controller
 						//echo'<pre>';print_r($count_reviews,0);echo'</pre>';
 						//die;
 						
-						if(count($count_reviews_prev) > 1 && count($count_reviews) > 1)	{
+						if(count($count_reviews_prev) > 1 && count($count_reviews) > 1 && $count_reviews_prev[1] != 0 && $count_reviews[1] != 0)	{
 							if(($count_reviews_prev[0] / $count_reviews_prev[1] < 20) && ($count_reviews[0] / $count_reviews[1] >= 20))	{
 								$user_model->reliability = $user_model->reliability + 20;
 							}	elseif(($count_reviews_prev[0] / $count_reviews_prev[1] >= 20) && ($count_reviews[0] / $count_reviews[1] < 20))	{
@@ -280,7 +285,7 @@ class SiteController extends Controller
 		sendMail($email, $tmpl, $data);
 	}
 	
-	public function actionCalculator() {
+	public function actionCalculator() {  
 		$this->render('calculator',array());
 	}
 	

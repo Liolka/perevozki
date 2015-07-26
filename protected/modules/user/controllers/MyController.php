@@ -833,7 +833,7 @@ class MyController extends Controller
 		UpdateLastActivity($this->app, $connection);			
 
 		$this->checkIsLoggedUser();
-		
+		//echo'<pre>';print_r($_POST);echo'</pre>';die;
 		if ($app->user->id) {
 			$model_ChangePassword = new UserChangePassword;
 			$model_ChangeEmail = new UserChangeEmail;
@@ -856,6 +856,23 @@ class MyController extends Controller
 				Yii::app()->end();
 			}
 			
+			if(isset($_POST['UserChangeEmail'])) {
+				$model_ChangeEmail->attributes = $_POST['UserChangeEmail'];
+				if($model_ChangeEmail->validate())	{
+					
+					$data = array(
+						'new_email' => $model_ChangeEmail->newEmail,
+						'user_name' => $app->user->username,
+						'user_url' => $this->createAbsoluteUrl('/user/view', array('id'=>$app->user->id)),
+						'subject' => 'Запрос на смену пароля',
+					);
+					$email = $app->user->email;
+					$tmpl = 'emaiChangelNotice';
+					sendMail($email, $tmpl, $data);
+					
+					$this->redirect(array("edit"));
+				}
+			}	
 			if(isset($_POST['UserChangePassword'])) {
 					$model_ChangePassword->attributes=$_POST['UserChangePassword'];
 					if($model_ChangePassword->validate()) {

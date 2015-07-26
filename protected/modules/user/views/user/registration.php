@@ -1,115 +1,79 @@
-<?php $this->pageTitle=Yii::app()->name . ' - '.UserModule::t("Registration");
-$this->breadcrumbs=array(
-	UserModule::t("Registration"),
-);
-?>
 
-<h1><?php echo UserModule::t("Registration"); ?></h1>
+<h1><?php echo $form_title ?></h4>
 
-<?php if(Yii::app()->user->hasFlash('registration')): ?>
-<div class="success">
-<?php echo Yii::app()->user->getFlash('registration'); ?>
-</div>
-<?php else: ?>
+<?php if(Yii::app()->user->hasFlash('registration'))	{	?>
+	<div class="flash-message flash-success"><?php echo Yii::app()->user->getFlash('registration'); ?></div>
+<?php	}	else	{	?>
 
+<div class="blue-border-1 p-20 bg_f4fbfe">
 <div class="form">
 <?php $form=$this->beginWidget('UActiveForm', array(
 	'id'=>'registration-form',
+	
 	//'enableAjaxValidation'=>true,
 	//'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
 	'clientOptions'=>array(
 		'validateOnSubmit'=>true,
 	),
-	'htmlOptions' => array('enctype'=>'multipart/form-data'),
+	'htmlOptions' => array('enctype'=>'multipart/form-data','class'=>'form-horizontal',),
 )); ?>
+            
+            <?php echo $form->errorSummary(array($model,$profile)); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
-	
-	<?php echo $form->errorSummary(array($model,$profile)); ?>
-	
-	<div class="row">
-	<?php echo $form->labelEx($model,'username'); ?>
-	<?php echo $form->textField($model,'username'); ?>
-	<?php echo $form->error($model,'username'); ?>
-	</div>
-	
-	<div class="row">
-	<?php echo $form->labelEx($model,'password'); ?>
-	<?php echo $form->passwordField($model,'password'); ?>
-	<?php echo $form->error($model,'password'); ?>
-	<p class="hint">
-	<?php echo UserModule::t("Minimal password length 4 symbols."); ?>
-	</p>
-	</div>
-	
-	<div class="row">
-	<?php echo $form->labelEx($model,'verifyPassword'); ?>
-	<?php echo $form->passwordField($model,'verifyPassword'); ?>
-	<?php echo $form->error($model,'verifyPassword'); ?>
-	</div>
-	
-	<div class="row">
-	<?php echo $form->labelEx($model,'email'); ?>
-	<?php echo $form->textField($model,'email'); ?>
-	<?php echo $form->error($model,'email'); ?>
-	</div>
-	
-	<div class="row">
-		<?php echo $form->checkBox($model,'accept_rules'); ?>
-		<?php echo $form->labelEx($model,'accept_rules'); ?><a href="#">Соглашение</a>
-		
-		<?php echo $form->error($model,'accept_rules'); ?>
-	</div>
-	
-	<div class="row radiobuttons-list">
-		<?php echo $form->labelEx($model,'user_status'); ?>
-		<?php echo $form->radioButtonList($model, 'user_status', $model->user_status_labels, array('separator'=>' ')); ?>
-		<?php echo $form->error($model,'user_status'); ?>
-	</div>
-	
-<?php 
-		$profileFields=$profile->getFields();
-		if ($profileFields) {
-			foreach($profileFields as $field) {
-			?>
-	<div class="row">
-		<?php echo $form->labelEx($profile,$field->varname); ?>
-		<?php 
-		if ($widgetEdit = $field->widgetEdit($profile)) {
-			echo $widgetEdit;
-		} elseif ($field->range) {
-			echo $form->dropDownList($profile,$field->varname,Profile::range($field->range));
-		} elseif ($field->field_type=="TEXT") {
-			echo$form->textArea($profile,$field->varname,array('rows'=>6, 'cols'=>50));
-		} else {
-			echo $form->textField($profile,$field->varname,array('size'=>60,'maxlength'=>(($field->field_size)?$field->field_size:255)));
-		}
-		 ?>
-		<?php echo $form->error($profile,$field->varname); ?>
-	</div>	
-			<?php
-			}
-		}
-?>
-	<?php if (UserModule::doCaptcha('registration')): ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'verifyCode'); ?>
-		
-		<?php $this->widget('CCaptcha'); ?>
-		<?php echo $form->textField($model,'verifyCode'); ?>
-		<?php echo $form->error($model,'verifyCode'); ?>
-		
-		<p class="hint"><?php echo UserModule::t("Please enter the letters as they are shown in the image above."); ?>
-		<br/><?php echo UserModule::t("Letters are not case-sensitive."); ?></p>
-	</div>
-	<?php endif; ?>
-	
-	<input type="hidden" name="user_type" value="<?=$_POST['user_type']?>" />
-	
-	<div class="row submit">
-		<?php echo CHtml::submitButton(UserModule::t("Register")); ?>
-	</div>		
+            <div class="form-group">
+                <p class="col-sm-12"><?php echo $form->radioButtonList($model, 'user_status', $model->user_status_labels, array('separator'=>' ')); ?></p>
+            </div>
 
+            <div class="form-group">
+                <p class="col-sm-12"><?php echo $form->labelEx($model,'username'); ?></p>
+                <p class="col-sm-12"><?php echo $form->textField($model,'username', array('class'=>'width100')); ?></p>
+            </div>
+
+            <div class="form-group">
+                <p class="col-sm-12"><?php echo $form->labelEx($model,'email'); ?></p>
+                <p class="col-sm-12"><?php echo $form->textField($model,'email', array('class'=>'width100')); ?></p>
+            </div>
+            
+            <div class="form-group passwords-group">
+                <p class="col-sm-6">
+                    <?php echo $form->labelEx($model,'password'); ?>
+                    <?php echo $form->passwordField($model,'password', array('class'=>'width100')); ?>
+                </p>
+                <p class="col-sm-6">
+                    <?php echo $form->labelEx($model,'verifyPassword'); ?>
+                    <?php echo $form->passwordField($model,'verifyPassword', array('class'=>'width100')); ?>
+                </p>
+            </div>
+            
+            <div class="form-group checkbox-wr">
+                <p class="col-sm-12">
+            		<?php echo $form->checkBox($model,'accept_rules'); ?>
+	            	<?php echo $form->labelEx($model,'accept_rules'); ?> <a href="#" target="_blank">Соглашение</a>
+                </p>
+            </div>
+            
+	
+            <div class="form-group">
+               	<input type="hidden" name="user_type" value="<?=$_POST['user_type']?>" />
+               	
+                <p class="col-sm-12"><?php echo CHtml::submitButton( UserModule::t("Register"), array('class'=>'registerButton btn-blue-33', 'name'=>'registerButton', 'id'=>'registerButton')); ?> </p>
+            </div>
+            
+
+        
+
+        
+            <h4 class="modal-title">Уже зарегистрированы?</h4>
+            <?php echo CHtml::link(UserModule::t("Login"),Yii::app()->getModule('user')->loginUrl, array('class'=>'btn-grey-33 loginBtn')); ?>
+        
+
+        
+    </div>
+	
+<?php //echo $form->endForm(); ?>
 <?php $this->endWidget(); ?>
-</div><!-- form -->
-<?php endif; ?>
+</div>
+</div>
+
+
+<?php	}	?>

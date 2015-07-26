@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $this->pageTitle = $this->app->user->username . ' - Личный кабинет перевозчика';
 
@@ -38,7 +38,7 @@ include (dirname(dirname(__FILE__))."/common/rating-init.php");
 <div class="my-page clearfix">
 	<div class="content column2r">
 		<div class="profile-requests-block">
-			<p class="my-last-requests-title">Заявки в которых вы отписывались <span>(5 последних)</span> <a href="/my-last/">Смотреть все</a> </p>
+			<p class="my-last-requests-title">Заявки в которых вы отписывались <span>(5 последних)</span> <a href="<?=$this->createUrl('/user/my/requests')?>">Смотреть все</a> </p>
 			
 			<?php $this->renderPartial('_requests_list_perevozchik_my', array('dataProvider'=>$lastBidsUser)); ?>
 

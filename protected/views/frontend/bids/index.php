@@ -1,4 +1,4 @@
-<?php
+<?php 
 /* @var $this BidsController */
 
 $this->breadcrumbs=array(

@@ -1,4 +1,4 @@
-<?php
+<?php 
 /* @var $this BidsController */
 /* @var $model Bids */
 
@@ -315,7 +315,8 @@ $added_date = getTimeAgo($model->created);
 
 			<? foreach($deals_list as $row) {	?>
 				<?
-	
+				//echo'<pre>';print_r($row);echo'</pre>';
+
 				$deal_posts = array();
 				foreach($deals_posts_list as $post)	{
 					if($post['deal_id'] == $row['id'])	{
@@ -344,10 +345,71 @@ $added_date = getTimeAgo($model->created);
 							<p class="font-12 c_8e95a1">Доб. <?php echo $this->app->dateFormatter->format('dd.MM.yyyy / HH:mm', $row['created']); ?></p>
 						</div>
 						
-						<div class="bid-detail-deals-col3 fLeft pos-rel p-15">
+						<div class="bid-detail-deals-col3 fLeft pos-rel p-15 pos_rel">
 							<? if($accepted_deal > 0 && $row['id'] != $accepted_deal || $row['rejected'] == 1)	{	?>
 								<div class="deals-inactive-cell pos-abs width100"> </div>
 							<?	}	?>
+								<? if(isset($transport_list_deals[$row['transport_id']]))	{	?>
+									<? 
+									$transport_item = $transport_list_deals[$row['transport_id']];
+									$transport_imageLive = $this->app->homeUrl.'files/users/'.$transport_item['user_id'].'/transport/';
+									$transport_image = $transport_item['foto'] ? $transport_imageLive.'thumb_'.$transport_item['foto'] : '/images/transport-no-foto.jpg'; 
+					
+									$unit_arr = array();
+									$value_arr = array();
+									if($transport_item['length'] != '')	{
+										$unit_arr[] = 'Д';
+										$value_arr[] = $transport_item['length'];
+									}
+
+									if($transport_item['width'] != 0)	{
+										$unit_arr[] = 'Ш';
+										$value_arr[] = $transport_item['width'];
+									}
+
+									if($transport_item['height'] != 0)	{
+										$unit_arr[] = 'В';
+										$value_arr[] = $transport_item['height'];
+									}
+					
+									?>
+									<div class="bid-detail-deals-transport">
+										<span class="db transport-image pos-rel fLeft" style="background-image: url(<?=$transport_image?>)"> </span>
+										<div class="my-transport-info-wr">
+											<p class="my-transport-name"><?=$transport_item['name']?></p>
+											<p class="my-transport-info odd">
+												<span class="name">Год:</span>
+												<span><?=$transport_item['year'] ?></span>
+											</p>		
+											<p class="my-transport-info even">
+												<span class="name">Грузоподъемность:</span>
+												<span><?=$transport_item['carrying'] ?>кг</span>
+											</p>
+											<p class="my-transport-info odd">
+												<span class="name"><? echo implode('x', $unit_arr)?>:</span>
+												<span><? echo implode('x', $value_arr) ?>м</span>
+											</p>
+											<p class="my-transport-info even">
+												<span class="name">Объем кузова:</span>
+												<span><?=$transport_item['volume'] ?> м3</span>
+											</p>
+											<p class="my-transport-info odd">
+												<span class="name">Тип кузова:</span>
+												<span><?=$transport_item['body_type'] ? $transport_item['body_type'] : 'Не указан' ?></span>
+											</p>
+											<p class="my-transport-info even">
+												<span class="name">Способы загрузки:</span>
+												<span><?=$transport_item['loading_type'] ? $transport_item['loading_type'] : 'Не указаны' ?></span>
+											</p>
+										
+										</div>
+										<? if($transport_item['comment']) { ?>
+											<div class="my-transport-comment"><?=$transport_item['comment'] ?></div>
+										<? } ?>
+										
+									</div>
+								<?	}	?>
+							
 							<div class="bid-detail-deals-perevozhik">
 								<span class="dib profile-link">
 									<a href="<?=$this->createUrl('/user/view', array('id'=>$row['user_id']))?>" class="bid-detail-deals-profile-link pl-20 pr-5" target="_blank">Перевозчик <?php echo $row['username'] ?></a>
@@ -383,7 +445,7 @@ $added_date = getTimeAgo($model->created);
 							<?	}	?>
 						
 							<p class="deal-date font-13 bold mb-5"><?php if($row['deal_date'] != '0000-00-00') echo $this->app->dateFormatter->format('dd.MM.yyyy', $row['deal_date']); ?></p>
-							<p class="deal-time font-13 c_8e95a1"><?php if($row['deal_time'] != '00:00:00') echo $this->app->dateFormatter->format('HH:mm', $row['deal_time']); else echo 'не указана' ?></p>
+							<p class="deal-time font-13 c_8e95a1"><?php if($row['deal_time'] != '00:00:00') echo $this->app->dateFormatter->format('HH:mm', $row['deal_time']); else echo 'не указано' ?></p>
 
 						</div>
 						

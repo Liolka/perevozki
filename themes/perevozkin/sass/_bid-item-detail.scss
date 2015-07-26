@@ -424,3 +424,16 @@
 	max-width: 860px;
 }
 
+.bid-detail-deals-transport {
+	@extend %pos_abs;
+	@extend %hide;
+	
+	padding: 20px 10px;
+	z-index: 10;
+	min-width: 365px;
+}
+
+.perevozhik-hovered,
+.bid-detail-deals-transport {
+	background-color: #daf0fa;	
+}

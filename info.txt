@@ -1,3 +1,46 @@
+http://skorohod.by/bids/142.html
+рейтинг у предложения перевозчика не умножил на 10.
+
+документы в личном кабинете загружает но не сохраняет в базе
+
+50,59
+
+для перевозчика: список откликов на заявки, 
+SELECT * FROM `1gsk_deals` ORDER BY `1gsk_deals`.`id`  DESC
+https://s.mail.ru/5JsKdpgwwSHr/img-2015-07-19-09-50-54.png
+
+список комментов и оценок к заявкам от перевозчика.
+SELECT `bid_id`, `created`, `performer_id`, `performer_rating`, `performer_review` FROM `1gsk_bids` WHERE `performer_id` <>0 ORDER BY `1gsk_bids`.`created` DESC
+https://s.mail.ru/SgEhr6ys5MC5/img-2015-07-19-13-52-50.png
+
+Это заявки с комментами и рейтингами с двух сторон.
+SELECT `bid_id`, `created`,`user_id`, `user_rating`, `user_review`, `performer_id`, `performer_rating`,`performer_review` FROM `1gsk_bids` ORDER BY `1gsk_bids`.`created` DESC LIMIT 0, 100
+https://s.mail.ru/UhYBjm4UNaH9/img-2015-07-19-21-21-42.png
+
+
+грузодателю: список заявок, список оценок и комментов.
+SELECT `bid_id`,`user_id`,`user_rating`,`user_review`,`created`, `performer_id`, `performer_rating`, `performer_review`  FROM `1gsk_bids` ORDER BY `1gsk_bids`.`bid_id`  DESC
+https://s.mail.ru/3vuuWpEs3iLM/img-2015-07-19-09-56-08.png
+
+
+нужно получить список всех откликов к заявкам, 
+которые оставил перевозчик с id50, в которых он указывал автомобиль. 
+Если указывал, значит где-то в базе должна быть запись.
+
+И исходя из этого решить, часто ли он это делал, когда в последний раз...
+SELECT * FROM `1gsk_deals` WHERE user_id IN(50,59) ORDER BY `1gsk_deals`.`id`  DESC
+https://s.mail.ru/3uEEkeYpf1Li/img-2015-07-19-10-01-09.png
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+все файлы касательно заявок желательно до 2-го апреля
+
+
+в юзерах 87 и 88 есть июльские файлы
+в заявках картинки есть 
+в корне есть gmap.php - это я калькулятор отлаживал
+
 FTP:
 skorohod.by
 skorohod@skorohod.by

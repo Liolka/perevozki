@@ -1,4 +1,4 @@
-<?php
+<?php 
 /* @var $this BidsController */
 /* @var $data Bids */
 ?>
@@ -58,7 +58,7 @@ isQuickly($data->date_transportation);
 		<span class="requests-list-item_town route-town country-<?=$data->loading_country ? $data->loading_country : 'by'?> db mb-5 c_2e3c54 bold capitalize"><?php echo $data->loading_town; ?></span>
 		<span class="requests-list-item_adress db c_8e95a1 font-12 capitalize"><?php echo $data->loading_address; ?></span>
 		<p class="requests-list-item_author font-11 c_8e95a1 pos-abs">
-			Добавил <?=$this->getTimeAgo($data->created)?> 
+			Добавил <?=getTimeAgo($data->created)?> 
 			<a href="<?=$this->createUrl('/user/view', array('id'=>$data->user_id))?>" class="di font-11 c_8e95a1 pr-5" target="_blank"><?php echo $data->username; ?></a>
 			<? if(isOnline($this->app, $data->last_activity))	{	?>
 				<span class="user-online c_fff bg_33a72c font-10 p-0-5 arial">Online</span>

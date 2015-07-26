@@ -87,8 +87,10 @@
 					<?	}	?>
 					
 					<p class="questions">
-						<span class="title">Есть вопросы?</span>
-						+375 (33) <span class="phone-numb">678-98-11</span>
+						<a href="<?=$this->createUrl('/site/contacts')?>">
+							<span class="title">Есть вопросы?</span>
+							+375 (33) <span class="phone-numb">678-98-11</span>
+						</a>
 					</p>
 				</div>
 			</div>			

@@ -1,4 +1,4 @@
-	<? for ($key=1; $key<=4; $key++)	{	?>
+	<? for ($key=1; $key<=4; $key++)	{	?> 
 		<div id="cargo<?=$key?>" class="step-container <? if($key > 1) echo 'add-cargo-step-container hide-block'?>">
 			<? if($key > 1)	{	?>
 				<a href="#" class="delete-add-cargo-block btn-red">Удалить х</a>

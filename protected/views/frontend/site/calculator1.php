@@ -1,4 +1,4 @@
-    <style>
+    <style>  
       html, body, #map-canvas {
         height: 100%;
         margin: 0px;

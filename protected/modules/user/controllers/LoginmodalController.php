@@ -27,18 +27,15 @@ class LoginmodalController extends Controller
 					$this->lastViset();
                     echo 'ok';
                     die;
-                    /*
-					if (Yii::app()->user->returnUrl=='/index.php')
-						$this->redirect(Yii::app()->controller->module->returnUrl);
-					else
-						$this->redirect(Yii::app()->user->returnUrl);
-                    */
 				}
 			}
 			// display the login form
 			$this->renderPartial('/user/login-modal',array('model'=>$model));
-		} else
-			$this->redirect(Yii::app()->controller->module->returnUrl);
+		} else {
+			Yii::app()->user->setFlash('registration', 'Вы уже вошли в систему');
+			$this->renderPartial('/user/already-logged-modal');
+			//$this->redirect(Yii::app()->controller->module->returnUrl);
+		}
 	}
 	
 	private function lastViset() {

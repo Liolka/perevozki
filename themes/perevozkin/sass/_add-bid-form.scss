@@ -47,6 +47,18 @@
 	padding-top: 20px;
 }
 
+#Cargoes_unit4-styler .jq-selectbox__select,
+#Cargoes_unit3-styler .jq-selectbox__select,
+#Cargoes_unit2-styler .jq-selectbox__select {
+	width: 30px;
+}
+
+#Cargoes_unit4-styler .jq-selectbox__dropdown,
+#Cargoes_unit3-styler .jq-selectbox__dropdown,
+#Cargoes_unit2-styler .jq-selectbox__dropdown {
+	width: 85px !important;
+}
+
 .step1-category-item {
 	height: 155px;
 	//background-color: #e0e0e0;

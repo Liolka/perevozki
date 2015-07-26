@@ -34,7 +34,7 @@ $(document).ready(function () {
     });
     
     $('.modal').on('click', '#lostPassword, #loginBtn, #regBtn', function () {
-        var url = $(this).attr('href'),
+        var url = $(this).attr('href')+"?modal=1",
             modal = $('.modal');
         $.get(url, function (data) {
             modal.children('.modal-dialog').remove();
@@ -429,6 +429,25 @@ $(document).ready(function () {
 	$('#listView').on('click', '.requests-full-review-hide', function () {
 		$(this).parent().parent().parent().find('.requests-full-review').slideToggle();
 	});
+	
+	$('.bid-detail-deals-block span.profile-link').hover(
+		function(){
+			var transport_cnt = $(this).parent().parent().find('.bid-detail-deals-transport');
+			
+			transport_cnt.css('top', (-transport_cnt.height() - 40)+'px');
+			transport_cnt.css('left', '0');
+			
+			$(this).parent().parent().toggleClass('perevozhik-hovered');
+			
+			transport_cnt.stop(true,true).fadeIn();
+		},
+		function(){
+			$(this).parent().parent().toggleClass('perevozhik-hovered');
+			
+			$(this).parent().parent().find('.bid-detail-deals-transport').stop(true,true).fadeOut();
+		}
+	);
+	
 	
 	
     

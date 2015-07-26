@@ -1,5 +1,7 @@
 <?php
 
+$model_errors = $model->getErrors();
+
 ?>
 
 
@@ -15,6 +17,19 @@
 
         <div class="modal-body">
             <h4 class="modal-title">Войти:</h4>
+            
+            <?php if(count($model_errors))	{	?>
+            		<div class="errorSummary">
+            			<ul>            				
+							<?php	foreach($model_errors as $err)	{	?>
+								<?php	foreach($err as $er)	{	?>
+									<li><?=$er?></li>
+								<?php }	?>
+							<?php }	?>
+            			</ul>
+            		</div>
+					
+				<?php	}	?>
 
             <div class="form-group">
                 <p class="col-sm-12"><?php echo CHtml::activeLabelEx($model,'username'); ?></p>

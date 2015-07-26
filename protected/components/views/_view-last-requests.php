@@ -1,4 +1,4 @@
-<?php
+<?php 
 /* @var $this BidsController */
 /* @var $data Bids */
 ?>
@@ -70,7 +70,7 @@ if($data->total_volume)	{
 		<span class="requests-list-item_adress db c_8e95a1 font-12 capitalize"><?php echo $data->unloading_address; ?></span>
 	</div>
 	<div class="requests-list-item_date fLeft">
-		<span class="requests-list-item_created c_8e95a1 font-13"><?php echo $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation); ?></span>
+		<span class="requests-list-item_created c_8e95a1 font-13"><?php if($data->date_transportation != '0000-00-00') echo $this->app->dateFormatter->format('dd.MM.yyyy', $data->date_transportation); ?></span>
 		<p class="requests-list-item_suggestions c_8e95a1 font-13"><span class="<? if(isQuickly($data->date_transportation)) { echo 'suggestion-orange'; } else { echo 'suggestion-green'; }?> c_fff dib"><?=$data->deals_count?></span><?php echo Yii::t('app', 'предложение|предложения|предложений|предложения', $data->deals_count); ?></p>
 	</div>
 	<div class="requests-list-item_price fRight ">

@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 
 $this->layout='//layouts/column2';
 
-//echo'<pre>';print_r(dirname(dirname(__FILE__)));echo'</pre>';
+//echo'<pre>';print_r(dirname(dirname(__FILE__)));echo'</pre>'; 
 
 $transport_imageLive = $this->app->homeUrl.'files/users/'.$model->id.'/transport/';
 

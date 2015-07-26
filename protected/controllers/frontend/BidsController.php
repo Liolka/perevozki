@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 class BidsController extends Controller
 {
@@ -158,16 +158,14 @@ class BidsController extends Controller
 		$deals_posts_list = DealsPosts::model()->getDealsPosts($connection, $deals_ids);
 		
 		//получаем данные по предлагаемому транспорту
-		/*
+		
 		$transport_ids = array();
 		foreach($deals_list as $deal) {
 			$transport_ids[] = $deal['transport_id'];
 		}
-		$transport_list = Transport::model()->getTransportListFromIds($connection, $transport_ids);
-		*/
+		$transport_list_deals = Transport::model()->getTransportListFromIds($connection, $transport_ids);
 		
-		
-		//echo'<pre>';print_r($transport_list);echo'</pre>';
+		//echo'<pre>';print_r($transport_list_deals);echo'</pre>';
 		
 		$this->render('view',array(
 			'model'=> $model,
@@ -177,6 +175,7 @@ class BidsController extends Controller
 			'deals'=> $deals,
 			'is_perevozchik'=> $is_perevozchik,
 			'transport_list'=> $transport_list,
+			'transport_list_deals'=> $transport_list_deals,
 			'deals_list'=> $deals_list,
 			'deals_posts_list'=> $deals_posts_list,
 		));

@@ -1,36 +1,37 @@
 <?php $this->pageTitle=Yii::app()->name . ' - '.UserModule::t("Change Password");
 $this->breadcrumbs=array(
-	UserModule::t("Login") => array('/user/login'),
-	UserModule::t("Change Password"),
+	'Смена пароля',
 );
 ?>
 
-<h1><?php echo UserModule::t("Change Password"); ?></h1>
+<h1>Смена пароля</h1>
 
-
+<div class="blue-border-1 p-20 bg_f4fbfe">
 <div class="form">
 <?php echo CHtml::beginForm(); ?>
 
-	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 	<?php echo CHtml::errorSummary($form); ?>
 	
-	<div class="row">
-	<?php echo CHtml::activeLabelEx($form,'password'); ?>
-	<?php echo CHtml::activePasswordField($form,'password'); ?>
-	<p class="hint">
-	<?php echo UserModule::t("Minimal password length 4 symbols."); ?>
-	</p>
+	<div class="row mb-20">
+		<p class="col-sm-12 mb-5"><?php echo CHtml::activeLabelEx($form,'password', array('class'=>'bold')); ?></p>
+		<p class="col-sm-12"><?php echo CHtml::activePasswordField($form,'password', array('class'=>'width25')); ?></p>
+		<p class="col-sm-12 hint">
+			<?php echo UserModule::t("Minimal password length 4 symbols."); ?>
+		</p>
 	</div>
 	
-	<div class="row">
-	<?php echo CHtml::activeLabelEx($form,'verifyPassword'); ?>
-	<?php echo CHtml::activePasswordField($form,'verifyPassword'); ?>
+	<div class="row mb-20">
+		<p class="col-sm-12 mb-5"><?php echo CHtml::activeLabelEx($form,'verifyPassword', array('class'=>'bold')); ?></p>
+		<p class="col-sm-12"><?php echo CHtml::activePasswordField($form,'verifyPassword', array('class'=>'width25')); ?></p>
 	</div>
 	
 	
 	<div class="row submit">
-	<?php echo CHtml::submitButton(UserModule::t("Save")); ?>
+		<p class="col-sm-3">
+			<?php echo CHtml::submitButton('Сохранить', array('class'=>'btn-grey-33 regBtn width100')); ?>
+		</p>
 	</div>
 
 <?php echo CHtml::endForm(); ?>
 </div><!-- form -->
+</div>
