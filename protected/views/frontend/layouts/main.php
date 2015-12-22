@@ -108,21 +108,29 @@
 		
 
 		<? if($this->current_controller == 'site' && $this->current_action == 'index')	{	?>
-		<div class="stages-block clearfix">
-			<ul>
-				<li class="stage1">
-					<p class="title">Размещаете заявку на перевозку</p>
-					<p class="c_000 font_12 lh-18">Опишите груз и уточните маршрут</p>
+		<div class="stages-block">
+		<div class="container clearfix">
+			<ul class="row clearfix">
+				<li class="col-lg-4">
+					<div class="stage1">
+						<p class="title">Размещаете заявку на перевозку</p>
+						<p class="c_000 font_12 lh-18">Опишите груз и уточните маршрут</p>
+					</div>
 				</li>
-				<li class="stage2">
-					<p class="title">Получаете предложения от перевозчиков</p>
-					<p class="c_000 font_12 lh-18">Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</p>
+				<li class="col-lg-4">
+					<div class="stage2">
+						<p class="title">Получаете предложения от перевозчиков</p>
+						<p class="c_000 font_12 lh-18">Обращайте внимание на отзывы о перевозчике. Уточните все детали перевозки</p>
+					</div>
 				</li>
-				<li class="stage3">
-					<p class="title">Выбираете подходящее предложение</p>
-					<p class="c_000 font_12 lh-18">Перевозчик сам свяжется с вами. Оставьте отзыв после выполнения перевозки</p>
+				<li class="col-lg-4">
+					<div class="stage3">
+						<p class="title">Выбираете подходящее предложение</p>
+						<p class="c_000 font_12 lh-18">Перевозчик сам свяжется с вами. Оставьте отзыв после выполнения перевозки</p>
+					</div>
 				</li>
 			</ul>
+		</div>
 		</div>
 		<?	}	?>
 		
@@ -153,12 +161,26 @@
 				</div>
 
 				<div class="benefits-block clearfix">
-					<p class="header narrow-regular-36 text_c mb-40 text_c c_697f9a">Преимущества сервиса</p>
-					<ul class="fLeft pos-rel">
-						<li class="benefits-1 fLeft pos-rel c_000 font_12 text_c for_sprite lh-18"><span class="db narrow-regular-28 pb-20">Мы экономим ваше время</span>Не тратьте свое время на поиск и утомительный обзвон транспортных компаний и частных перевозчиков.<br>Просто разместите запрос! Размещение запроса бесплатно и занимает<br>не более 1-х минут.</li>
-						<li class="benefits-2 fLeft pos-rel c_000 font_12 text_c for_sprite lh-18"><span class="db narrow-regular-28 pb-20">Мы экономим ваши нервы</span>Выберите проверенного перевозчика исходя из отзывов предыдущих заказчиков, чтобы не попасть в неприятную ситуацию.</li>
-						<li class="benefits-3 fLeft pos-rel c_000 font_12 text_c for_sprite lh-18"><span class="db narrow-regular-28 pb-20">Мы экономим ваши деньги</span>Перевозчики торгуются за ваш заказ в формате аукциона.В результате конечная стоимость перевозки снижается.<br>Экономия до 70%.</li>
-					</ul>
+					<div class="container">
+						<p class="header narrow-regular-36 text_c mb-40 text_c c_697f9a">Преимущества сервиса</p>
+						<ul class="row clearfix">
+							<li class="col-lg-4">
+								<div class="benefits-1 c_000 font_12 text_c for_sprite lh-18 pos-rel">
+									<span class="db narrow-regular-28 pb-20">Мы экономим ваше время</span>Не тратьте свое время на поиск и утомительный обзвон транспортных компаний и частных перевозчиков.<br>Просто разместите запрос! Размещение запроса бесплатно и занимает<br>не более 1-х минут.
+								</div>
+							</li>
+							<li class="col-lg-4">
+								<div class="benefits-2 c_000 font_12 text_c for_sprite lh-18 pos-rel">
+									<span class="db narrow-regular-28 pb-20">Мы экономим ваши нервы</span>Выберите проверенного перевозчика исходя из отзывов предыдущих заказчиков, чтобы не попасть в неприятную ситуацию.
+								</div>
+							</li>
+							<li class="col-lg-4">
+								<div class="benefits-3 c_000 font_12 text_c for_sprite lh-18 pos-rel">
+									<span class="db narrow-regular-28 pb-20">Мы экономим ваши деньги</span>Перевозчики торгуются за ваш заказ в формате аукциона.В результате конечная стоимость перевозки снижается.<br>Экономия до 70%.
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			<?	}	?>
 			

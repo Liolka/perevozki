@@ -1,5 +1,4 @@
 <?php
-
 class User extends CActiveRecord
 {
 	const STATUS_NOACTIVE=0;

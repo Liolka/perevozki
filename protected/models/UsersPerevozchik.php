@@ -43,7 +43,7 @@ class UsersPerevozchik extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_id', 'required'),
-			array('user_id, file1_passed, file1_checked, file2_passed, file2_checked, file3_passed, file3_checked, file4_passed, file4_checked, file5_passed, file5_checked, file6_passed, file6_checked, file7_passed, file7_checked, file8_passed, file8_checked, file9_passed, file9_checked, file10_passed, file10_checked, file11_passed, file11_checked, file12_passed, file12_checked, file13_passed, file13_checked, file14_passed, file14_checked', 'numerical', 'integerOnly'=>true),
+			array('user_id, file1_checked, file2_checked, file3_checked, file4_checked, file5_checked, file6_checked, file7_checked, file8_checked, file9_checked, file10_checked, file11_checked, file12_checked, file13_checked, file14_checked', 'numerical', 'integerOnly'=>true),
 			array('phone1, phone2, phone3, phone4, email, skype, site, 
 			company_name, unp, main_office, filials, fio, birthday, country, town, experience,
 			file1, file2, file3, file4, file5, file6, file7, file8, file9, file10, file11, file12, file13, file14', 'length', 'max'=>255),
@@ -112,21 +112,6 @@ class UsersPerevozchik extends CActiveRecord
 			'file12' => 'Прайс-лист',
 			'file13' => 'Страховка',
 			'file14' => 'Коммерческое предложение',
-			
-			'file1_passed' => 'Принят',
-			'file2_passed' => 'Принят',
-			'file3_passed' => 'Принят',
-			'file4_passed' => 'Принят',
-			'file5_passed' => 'Принят',
-			'file6_passed' => 'Принят',
-			'file7_passed' => 'Принят',
-			'file8_passed' => 'Принят',
-			'file9_passed' => 'Принят',
-			'file10_passed' => 'Принят',
-			'file11_passed' => 'Принят',
-			'file12_passed' => 'Принят',
-			'file13_passed' => 'Принят',
-			'file14_passed' => 'Принят',
 			
 			'file1_checked' => 'Проверен',
 			'file2_checked' => 'Проверен',

@@ -1,5 +1,4 @@
 <?php
-
 class RecoveryController extends Controller
 {
 	public $defaultAction = 'recovery';

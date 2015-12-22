@@ -22,7 +22,6 @@ function print_document_item($attr, &$user_info, &$model, &$form)
 		$html .= CHtml::openTag('div', array('style'=>'height:80px;'));
 		$html .= CHtml::link($form->labelEx($user_info, $attr), Yii::app()->homeUrl.'files/users/'.$model->id.'/docs/'.$user_info->$attr);
 		$html .= CHtml::closeTag('div');
-		$html .= $form->checkBoxControlGroup($user_info, $attr.'_passed');
 		$html .= $form->checkBoxControlGroup($user_info, $attr.'_checked');
 		//$html .= $form->error($user_info, $attr.'_checked');
 		$html .= CHtml::closeTag('div');

@@ -1,4 +1,4 @@
-<?
+<? 
 $transport_image = $model->foto ? $this->app->homeUrl.'files/users/'.$this->app->user->id.'/transport/'.'thumb_'.$model->foto : '/images/transport-no-foto.jpg';
 ?>
  <div class="form modal-dialog">

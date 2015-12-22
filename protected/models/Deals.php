@@ -1,5 +1,5 @@
 <?php
-
+  
 /**
  * This is the model class for table "{{deals}}".
  *

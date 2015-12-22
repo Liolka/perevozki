@@ -1,4 +1,4 @@
-var cargo_name = '',
+var cargo_name = '', 
 	loading_unloading_block = 0,
 	add_cargo_block = 0;
 

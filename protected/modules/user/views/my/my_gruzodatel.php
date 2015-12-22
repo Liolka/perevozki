@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $this->pageTitle = $this->app->user->username . ' - Личный кабинет грузодателя';
 

@@ -1,5 +1,4 @@
 <?php
-
 class RegistrationController extends Controller
 {
 	public $defaultAction = 'registration';

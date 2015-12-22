@@ -6,20 +6,34 @@
 	
 	
 	ul {
-		left: 50%;
-		@extend %fl;
+//		left: 50%;
+//		@extend %fl;
 		@extend %pos_rel;
 	}
 	
+	
+	
 	li {
-		right: 50%;
-		margin: 65px 45px 0 45px;
+//		right: 50%;
+		
 		height: 165px;
 		
-		@extend %fl;
+//		@extend %fl;
 		@extend %pos_rel;		
 	}
 	
+	.stage1 {
+		margin: 65px 45px 0 0; 
+	}
+	
+
+	.stage2 {
+		margin: 65px 45px 0 45px;
+	}
+	
+	.stage3 {
+		margin: 65px 45px 0 90px;
+	}
 	.stage1,
 	.stage2 {
 		@extend %for_sprite;

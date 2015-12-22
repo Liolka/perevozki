@@ -1,5 +1,4 @@
 <?php
-
 class AdminController extends Controller
 {
 	public $defaultAction = 'admin';

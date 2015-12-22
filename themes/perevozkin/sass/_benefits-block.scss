@@ -3,21 +3,34 @@
 	padding: 50px 0 90px 0;
 	
 	ul {
-		left: 50%;
+//		left: 50%;
 	}
 	
 	li {
-		right: 50%;
-		margin: 0 80px;
-		padding: 120px 0 0 0;
-		width: 285px;
+//		right: 50%;
+//		margin: 0 80px;
+		
+
 				
+	}
+	
+	.benefits-1,
+	.benefits-2,
+	.benefits-3 {
+		padding: 120px 0 0 0;
+		max-width: 285px;
+		margin: 0 auto;
+		
 		&:before {
 			left: 50%;
 			top: 0;
-			margin-left: -45px;
-			@extend .ico-watches-big;
 		}
+		
+	}
+	
+	.benefits-1:before {
+		margin-left: -45px;
+		@extend .ico-watches-big;
 	}
 	
 	.benefits-2:before {

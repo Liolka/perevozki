@@ -1,5 +1,4 @@
 <?php
-
 class LoginmodalController extends Controller
 {
 	public $defaultAction = 'login';

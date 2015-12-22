@@ -1,5 +1,4 @@
 <?php
-
 class MyController extends Controller
 {
 	public $defaultAction = 'my';
@@ -553,6 +552,7 @@ class MyController extends Controller
 			
 				if($add_info === null) {
 					$add_info = new UsersPerevozchik;
+					$add_info->user_id = $user->id;
 				}
 			
 				break;
@@ -562,13 +562,14 @@ class MyController extends Controller
 			
 				if($add_info === null) {
 					$add_info = new UsersGruzodatel;
+					$add_info->user_id = $user->id;
 				}
 			
 				break;
 			
 		}
-//		echo'<pre>';print_r($add_info,0);echo'</pre>';
-//		die;
+		//echo'<pre>';print_r($add_info,0);echo'</pre>';
+		//die;
 		if(isset($_FILES['MyDocuments']))	{
 			foreach($_FILES['MyDocuments']['name'] as $attr=>$name)	{
 //				echo'<pre>';print_r($name,0);echo'</pre>';

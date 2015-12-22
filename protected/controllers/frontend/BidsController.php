@@ -1,5 +1,4 @@
 <?php 
-
 class BidsController extends Controller
 {
 	
@@ -1184,6 +1183,8 @@ class BidsController extends Controller
 		
 		$model = new BidsFilter;
 		
+		$page_info = Pages::model()->findByPk(11);
+		
 		//$rows_pages = Bids::model()->getBids();
 		
 		//$this->processPageRequest('page');
@@ -1365,6 +1366,7 @@ class BidsController extends Controller
 				'categories_list' => $categories_list,
                 'dataProvider'=>$dataProvider,
                 'type_sort'=>$type_sort,
+                'page_info'=>$page_info,
             ));
         }		
 	}

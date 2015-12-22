@@ -1,4 +1,4 @@
-<?php 
+<?php
 $app = Yii::app();
 
 $this->pageTitle = $app->name . ' - '.UserModule::t("Registration");

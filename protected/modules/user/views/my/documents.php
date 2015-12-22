@@ -29,12 +29,12 @@ $this->breadcrumbs=array(
 //$user->file1 = '12312312312.zip';
 //$user->file1_checked = 1;
 
-function document_item($attr, $attr_passed, $attr_checked, &$model, &$form, &$user, $popup = '')
+function document_item($attr, $attr_checked, &$model, &$form, &$user, $popup = '')
 {
 	$html = '';
 	$class = 'doc-files-item fLeft pos-rel'.($user->$attr ? ' doc-files-item-ok' : '');
 	$html .= CHtml::openTag('li', array('class'=>$class));
-	if($user->$attr == '' || $user->$attr_passed == 0)	{
+	if($user->$attr == '')	{
 		$html .= CHtml::openTag('div', array('class'=>'fileform'));
 		
 			$html .= CHtml::openTag('div', array('class'=>'selectbutton document-add'));
@@ -149,20 +149,20 @@ function document_item($attr, $attr_passed, $attr_checked, &$model, &$form, &$us
 //echo $add_info->getAttributeLabel('file1');
 ?>
 <ul class="doc-files-list">
-	<?  echo document_item('file1', 'file1_passed', 'file1_checked', $model, $form, $add_info, 'Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.'); ?>
-	<?  echo document_item('file2', 'file2_passed', 'file2_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file3', 'file3_passed', 'file3_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file4', 'file4_passed', 'file4_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file5', 'file5_passed', 'file5_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file6', 'file6_passed', 'file6_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file7', 'file7_passed', 'file7_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file8', 'file8_passed', 'file8_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file9', 'file9_passed', 'file9_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file10', 'file10_passed', 'file10_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file11', 'file11_passed', 'file11_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file12', 'file12_passed', 'file12_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file13', 'file13_passed', 'file13_checked', $model, $form, $add_info); ?>		
-	<?  echo document_item('file14', 'file14_passed', 'file14_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file1', 'file1_checked', $model, $form, $add_info, 'Данный файл будет доступен для скачивания всем пользователями портала после его публикации модератором.'); ?>
+	<?  echo document_item('file2', 'file2_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file3', 'file3_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file4', 'file4_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file5', 'file5_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file6', 'file6_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file7', 'file7_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file8', 'file8_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file9', 'file9_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file10', 'file10_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file11', 'file11_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file12', 'file12_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file13', 'file13_checked', $model, $form, $add_info); ?>		
+	<?  echo document_item('file14', 'file14_checked', $model, $form, $add_info); ?>
 </ul>
  
 <?php $this->endWidget(); ?>

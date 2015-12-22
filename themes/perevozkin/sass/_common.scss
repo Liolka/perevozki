@@ -277,9 +277,33 @@ body {
 .width-wrap {
 	width: 1225px;
 	margin: 0 auto;
-//	overflow: hidden;
+//	overflow: hidden;	
+}
+
+.container {
+	width: 1225px !important;
+	min-width: 1225px !important;
 	
 }
+
+.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
+	@extend %fl;
+}
+
+
+.col-md-2,
+.col-lg-2 {
+	width: 16.66666667% !important;
+}
+.col-lg-4 {
+	width: 33.33333% !important;
+}
+
+.col-md-12,
+.col-lg-12 {
+	width: 100% !important;
+}
+
 
 .wrapperPage {
 	min-height: 100%;
@@ -352,7 +376,7 @@ body {
 	padding-top: 15px;
 	height: 395px;
 	background: url(../images/map.jpg) no-repeat top center;
-	
+		
 	.info {		
 		@extend %pt_sans_narrow_bold;
 		@extend %font_48;

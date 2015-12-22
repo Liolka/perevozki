@@ -1,4 +1,4 @@
-<? 
+<?
 if($deals->transport_id && count($transport_list)) {
 	foreach($transport_list as $row )	{
 		if($row['transport_id'] == $deals->transport_id ) {

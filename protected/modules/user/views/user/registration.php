@@ -1,4 +1,3 @@
-
 <h1><?php echo $form_title ?></h4>
 
 <?php if(Yii::app()->user->hasFlash('registration'))	{	?>
